@@ -7,8 +7,15 @@
 struct vlut_profile_record {
     uint64_t alloc_init_ns, build_ns, lookup_ns, widen_ns;
     uint64_t output_ns, free_ns, activation_ns, calls;
-    uint64_t clear_ns, i1v2_calls, padding[6];
+    uint64_t clear_ns, i1v2_calls;
+    uint64_t blocked_widen_calls, plain_widen_calls, blocked_widen_elements, plain_widen_elements;
+    uint64_t selected_kernel_calls, padding[1];
 };
+#ifdef __cplusplus
+static_assert(sizeof(vlut_profile_record) == 128, "Keep per-worker profile layout stable");
+#else
+_Static_assert(sizeof(struct vlut_profile_record) == 128, "Keep per-worker profile layout stable");
+#endif
 #ifdef __cplusplus
 extern "C" {
 #endif

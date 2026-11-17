@@ -166,6 +166,14 @@ static void workspace() {
 
 int main(int argc,char **argv) {
     ggml_cpu_init();
+    if(argc==2 && std::string(argv[1])=="--selective-boundaries") {
+        graph(3072,32,2559,1); graph(3056,32,2560,1);
+        graph(3072,31,2560,1); graph(3072,32,2560,1);
+        graph(3088,33,2561,1); graph(3072,33,5121,2);
+        graph(3072,33,2561,4); graph(3200,65,3200,1);
+        std::cout << "SUMMARY\tchecks=" << checks << "\tfailures=" << failures << '\n';
+        return failures?1:0;
+    }
     if(argc==3 && std::string(argv[1])=="--invalid-pack") {
         int K=std::stoi(argv[2]); std::vector<float> w(K,1); std::vector<uint8_t> p(1024,0);
         quantize_i2_v_4(w.data(),p.data(),1,K,nullptr); return 0;

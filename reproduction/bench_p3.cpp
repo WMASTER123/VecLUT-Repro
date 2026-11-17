@@ -115,6 +115,18 @@ static uint64_t calls(bool i1) {
 #endif
     return n;
 }
+static json widen_counts() {
+    uint64_t blocked=0,plain=0,blocked_elements=0,plain_elements=0,selected=0;
+#ifdef VLUT_PROFILE
+    for (const auto &r:vlut_profile_records) {
+        blocked+=r.blocked_widen_calls; plain+=r.plain_widen_calls;
+        blocked_elements+=r.blocked_widen_elements; plain_elements+=r.plain_widen_elements;
+        selected+=r.selected_kernel_calls;
+    }
+#endif
+    return {{"blocked_calls",blocked},{"plain_calls",plain},{"blocked_elements",blocked_elements},
+            {"plain_elements",plain_elements},{"selected_kernel_calls",selected}};
+}
 static bool tracing() {
 #ifdef VLUT_PROFILE
     return true;
@@ -245,6 +257,7 @@ int main(int argc,char **argv) try {
         const double prefill_cpu_ms=process_cpu_ms()-cpu_start;
         const auto scheduling_after_prefill=scheduling_snapshot();
         uint64_t pcalls=calls(i1);
+        const auto prefill_widen=widen_counts();
         llama_token first=greedy(ctx,P-1,n_vocab);
         std::vector<llama_token> next(B,first);std::vector<std::vector<llama_token>> generated(B);
         double model_decode_ms=0,loop_ms=0;int steps=0;uint64_t dcalls=0;
@@ -277,6 +290,7 @@ int main(int argc,char **argv) try {
               {"involuntary_switches",usage.ru_nivcsw-before.ru_nivcsw},
               {"output_token_ids",generated},{"output_text",text},{"finite_logits",true},
               {"prefill_cpu_ms",prefill_cpu_ms},{"scheduling_before",scheduling_before},
+              {"prefill_widen",prefill_widen},{"final_widen",widen_counts()},
               {"scheduling_after_prefill",scheduling_after_prefill},
               {"last_logits_hash",logits_hash(ctx,steps?B-1:P-1,n_vocab)}});
     }

@@ -1179,12 +1179,36 @@ void ggml_gemm_i2v2_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
 }
 
 // The experimental traversal is isolated from I1 and other I2 formats.
-#ifdef VLUT_I2V4_BLOCKED_WIDEN
-#define ACCUMULATE_I2V4_TRANS(src, dst, rows, valid, tile) \
-    vlut_i2v4_blocked_widen((src), (dst) + (size_t)(tile) * TABLE_ENTRY_SIZE * (rows), \
-                          (rows), (valid), TABLE_ENTRY_SIZE)
+#ifdef VLUT_PROFILE
+#define COUNT_I2V4_WIDEN(kind, rows, valid) do { \
+    vlut_profile_records[ith].kind##_widen_calls++; \
+    vlut_profile_records[ith].kind##_widen_elements += (uint64_t)(rows) * (valid); \
+} while (0)
 #else
-#define ACCUMULATE_I2V4_TRANS ACCUMULATE_TABLE_TRANS
+#define COUNT_I2V4_WIDEN(kind, rows, valid) ((void)0)
+#endif
+#ifdef VLUT_I2V4_BLOCKED_WIDEN
+#define ACCUMULATE_I2V4_TRANS(src, dst, rows, valid, tile) do { \
+    COUNT_I2V4_WIDEN(blocked, rows, valid); \
+    vlut_i2v4_blocked_widen((src), (dst) + (size_t)(tile) * TABLE_ENTRY_SIZE * (rows), \
+                          (rows), (valid), TABLE_ENTRY_SIZE); \
+} while (0)
+#elif defined(VLUT_I2V4_SELECTIVE_WIDEN)
+#define ACCUMULATE_I2V4_TRANS(src, dst, rows, valid, tile) do { \
+    if (use_blocked_widen && (valid) == TABLE_ENTRY_SIZE) { \
+        COUNT_I2V4_WIDEN(blocked, rows, valid); \
+        vlut_i2v4_blocked_widen((src), (dst) + (size_t)(tile) * TABLE_ENTRY_SIZE * (rows), \
+                              (rows), (valid), TABLE_ENTRY_SIZE); \
+    } else { \
+        COUNT_I2V4_WIDEN(plain, rows, valid); \
+        ACCUMULATE_TABLE_TRANS(src, dst, rows, valid, tile); \
+    } \
+} while (0)
+#else
+#define ACCUMULATE_I2V4_TRANS(src, dst, rows, valid, tile) do { \
+    COUNT_I2V4_WIDEN(plain, rows, valid); \
+    ACCUMULATE_TABLE_TRANS(src, dst, rows, valid, tile); \
+} while (0)
 #endif
 
 void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t bs, const void *restrict vx,
@@ -1194,6 +1218,12 @@ void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
 #ifdef VLUT_PROFILE
     GGML_ASSERT(ith >= 0 && ith < 256);
     vlut_profile_records[ith].calls++;
+#endif
+#ifdef VLUT_I2V4_SELECTIVE_WIDEN
+    const int use_blocked_widen = vlut_i2v4_select_widen(nc, n, nr, nth, TABLE_ENTRY_SIZE);
+#ifdef VLUT_PROFILE
+    vlut_profile_records[ith].selected_kernel_calls += use_blocked_widen;
+#endif
 #endif
     VLUT_STAMP();
 

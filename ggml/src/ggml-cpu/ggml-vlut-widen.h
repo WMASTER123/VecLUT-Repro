@@ -3,6 +3,14 @@
 #include <stddef.h>
 #include <stdint.h>
 
+// Conservative empirical policy, not a hardware-derived universal crossover.
+// K excludes the large-M/small-K regression seen in Falcon's up projection.
+// Full token tiles only: tails keep the original traversal.
+static inline int vlut_i2v4_select_widen(size_t rows, size_t reduction,
+                                       size_t tokens, int threads, size_t tile) {
+    return threads == 1 && tile == 32 && rows >= 2560 && reduction >= 3072 && tokens >= 32;
+}
+
 // Only I2_V_4 uses this experimental path. src is [rows][tile_size], while
 // dst points to one [valid_tokens][rows] tile in the persistent INT32 sum.
 // The caller guarantees that each addition is representable in INT32.
