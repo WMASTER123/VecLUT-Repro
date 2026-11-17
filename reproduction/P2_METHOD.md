@@ -10,7 +10,7 @@ Windows PowerShell（仓库在 E 盘）：
 .\reproduction\run-p2.ps1 -DataDirectory E:\VecLUT-Repro
 # 8 个矩阵/N 组合的入口检查
 .\reproduction\run-p2.ps1 -DataDirectory E:\VecLUT-Repro -Quick
-# 12 个边界组合，独立确认运行
+# 12 个组合，1 秒采样，覆盖正式首轮出现高波动的形状
 .\reproduction\run-p2.ps1 -DataDirectory E:\VecLUT-Repro -Confirm
 ```
 
@@ -56,11 +56,13 @@ Release、native CPU、TABLE_ENTRY_SIZE=32、WEIGHT_UNROLL_BLOCK=16、AVX512/SVE
 
 ## 分段诊断
 
-`VLUT_PROFILE=OFF` 为默认，宏展开为空，不在正式内核加入计时调用。ON 只用于本项目串行执行的诊断；每个工作线程写自己对齐的 64 字节槽，最多 256 线程。多个图同时运行不受支持；reset/read 必须在执行停止后进行。不要把这个诊断接口用于并发服务。
+`VLUT_PROFILE=OFF` 为默认，宏展开为空，不在正式内核加入计时调用。ON 只用于本项目串行执行的诊断；每个工作线程写自己对齐的 128 字节槽，最多 256 线程。多个图同时运行不受支持；reset/read 必须在执行停止后进行。不要把这个诊断接口用于并发服务。
 
-分段为 alloc_init（分配及初始清零）、build（LUT 建表）、lookup（查询及 INT16 加法）、widen（提升 INT32、转置写入及块间清零）、output（缩放输出）、free、activation（量化及 padding）。`widen` 并非纯类型转换，`alloc_init` 并非纯 malloc。
+分段为 alloc_init（分配及初始清零）、build（LUT 建表）、lookup（查询及 INT16 加法）、widen（提升 INT32、转置写入）、clear（块间清零）、output（缩放输出）、free、activation（量化及 padding）。`widen` 并非纯类型转换，`alloc_init` 并非纯 malloc。版本说明：首轮冻结提交 438ea26d 将 clear 计入 widen；后续详细诊断将两段拆开，原始 CSV 是否有 clear_worker_us 可区分两种模式，禁止混作同一种字段。
 
-诊断使用 10 个代表案例，每个配置 5 次，目标样本 50 ms；核对实际内核调用次数等于迭代数×线程数。细粒度 clock_gettime 会扰动执行，所以百分比仅用于粗定位。多线程字段是各线程**墙钟经过时间之和**，含抢占影响，不是 CPU 指令周期，也不等于关键路径或总墙钟时间。默认图只展示单线程份额。
+诊断使用 10 个代表案例，每个配置 5 次，目标样本 300 ms（首轮合并计时版本为 50 ms）；核对实际内核调用次数等于迭代数×线程数。细粒度 clock_gettime 会扰动执行，所以百分比仅用于粗定位。多线程字段是各线程**墙钟经过时间之和**，含抢占影响，不是 CPU 指令周期，也不等于关键路径或总墙钟时间。默认图只展示单线程份额。
+
+`--confirm` 的 normal 部分固定两个方阵 N=1/16/31/63/64/512、每组 5 次、每样本目标 1000 ms。这覆盖首轮完整运行中全部 8 个 CV>10% 的配置，同时保留其他线程/模式作为观察；复测不覆盖首轮原始值。程序在创建结果目录前检查 CPU places 的合法性，避免无效绑核参数被运行库静默忽略。
 
 没有可用 perf 硬件计数器时，不宣称测得 cache miss、带宽饱和或确切降频原因。线程收益与尾块成本依靠未插桩结果判断，诊断份额用于解释而非宣称优化收益。
 

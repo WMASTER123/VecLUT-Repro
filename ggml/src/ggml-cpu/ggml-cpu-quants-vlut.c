@@ -1233,8 +1233,9 @@ void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
                 VLUT_PHASE(lookup_ns);
             }
             ACCUMULATE_TABLE_TRANS(sum_i16, sum_i32, nc, TABLE_ENTRY_SIZE, t);
-            memset(sum_i16, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE * nc);
             VLUT_PHASE(widen_ns);
+            memset(sum_i16, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE * nc);
+            VLUT_PHASE(clear_ns);
         }
         // group remain
         if (group_size_remain > 0) {
@@ -1247,8 +1248,9 @@ void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
                 VLUT_PHASE(lookup_ns);
             }
             ACCUMULATE_TABLE_TRANS(sum_i16, sum_i32, nc, TABLE_ENTRY_SIZE, t);
-            memset(sum_i16, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE * nc);
             VLUT_PHASE(widen_ns);
+            memset(sum_i16, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE * nc);
+            VLUT_PHASE(clear_ns);
         }
     }
 
@@ -1266,8 +1268,9 @@ void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
                 VLUT_PHASE(lookup_ns);
             }
             ACCUMULATE_TABLE_TRANS(sum_i16, sum_i32, nc, entry_tile_remain, entry_tile_count);
-            memset(sum_i16, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE * nc);
             VLUT_PHASE(widen_ns);
+            memset(sum_i16, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE * nc);
+            VLUT_PHASE(clear_ns);
         }
         // group remain
         if (group_size_remain > 0) {
@@ -1280,8 +1283,9 @@ void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
                 VLUT_PHASE(lookup_ns);
             }
             ACCUMULATE_TABLE_TRANS(sum_i16, sum_i32, nc, entry_tile_remain, entry_tile_count);
-            memset(sum_i16, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE * nc);
             VLUT_PHASE(widen_ns);
+            memset(sum_i16, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE * nc);
+            VLUT_PHASE(clear_ns);
         }
     }
 

@@ -76,7 +76,7 @@ int main(int argc,char **argv) try {
         auto start=clock_type::now(); c.compute(); double elapsed=ns_since(start);
         c.iterations=std::clamp(int(std::ceil(target_ms*1e6/std::max(1.0,elapsed))),1,4096);
     }
-    std::cout<<"mode,M,K,N,threads,repeat,iterations,wall_us,runs_s,padded_N,peak_process_kib,minor_faults,major_faults,voluntary_switches,involuntary_switches,profile,alloc_init_worker_us,build_worker_us,lookup_worker_us,widen_worker_us,output_worker_us,free_worker_us,activation_worker_us,kernel_calls_per_iteration,main_cpu_before,main_cpu_after\n";
+    std::cout<<"mode,M,K,N,threads,repeat,iterations,wall_us,runs_s,padded_N,peak_process_kib,minor_faults,major_faults,voluntary_switches,involuntary_switches,profile,alloc_init_worker_us,build_worker_us,lookup_worker_us,widen_worker_us,output_worker_us,free_worker_us,activation_worker_us,clear_worker_us,kernel_calls_per_iteration,main_cpu_before,main_cpu_after\n";
     std::cout<<std::fixed<<std::setprecision(6);
     for(int r=0;r<repeats;++r) for(int pos=0;pos<int(configs.size());++pos) {
         auto &c=configs[(pos+r)%configs.size()];
@@ -90,21 +90,21 @@ int main(int argc,char **argv) try {
         for(int i=0;i<c.iterations;++i) c.compute();
         const double wall=ns_since(start)/c.iterations/1000;
         getrusage(RUSAGE_SELF,&after);
-        uint64_t phase[8]={}; int profile=0;
+        uint64_t phase[9]={}; int profile=0;
 #ifdef VLUT_PROFILE
         profile=1;
         for(int t=0;t<c.threads;++t) {
             const auto &v=vlut_profile_records[t];
             phase[0]+=v.alloc_init_ns; phase[1]+=v.build_ns; phase[2]+=v.lookup_ns; phase[3]+=v.widen_ns;
-            phase[4]+=v.output_ns; phase[5]+=v.free_ns; phase[6]+=v.activation_ns; phase[7]+=v.calls;
+            phase[4]+=v.output_ns; phase[5]+=v.free_ns; phase[6]+=v.activation_ns; phase[7]+=v.clear_ns; phase[8]+=v.calls;
         }
-        if(phase[7]!=uint64_t(c.iterations)*c.threads) throw std::runtime_error("unexpected kernel path/call count");
+        if(phase[8]!=uint64_t(c.iterations)*c.threads) throw std::runtime_error("unexpected kernel path/call count");
 #endif
         validate(c.mode=="graph"?static_cast<float *>(out->data):direct_out.data());
         std::cout<<c.mode<<','<<M<<','<<K<<','<<N<<','<<c.threads<<','<<r<<','<<c.iterations<<','<<wall<<','<<1e6/wall<<','<<padded<<','<<after.ru_maxrss<<','
           <<after.ru_minflt-before.ru_minflt<<','<<after.ru_majflt-before.ru_majflt<<','<<after.ru_nvcsw-before.ru_nvcsw<<','<<after.ru_nivcsw-before.ru_nivcsw<<','<<profile;
-        for(int j=0;j<7;++j) std::cout<<','<<double(phase[j])/c.iterations/1000;
-        std::cout<<','<<double(phase[7])/c.iterations<<','<<cpu_before<<','<<sched_getcpu()<<'\n'<<std::flush;
+        for(int j=0;j<8;++j) std::cout<<','<<double(phase[j])/c.iterations/1000;
+        std::cout<<','<<double(phase[8])/c.iterations<<','<<cpu_before<<','<<sched_getcpu()<<'\n'<<std::flush;
     }
     ggml_threadpool_free(pool); ggml_free(ctx);
     return 0;

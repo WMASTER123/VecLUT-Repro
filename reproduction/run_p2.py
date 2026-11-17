@@ -1,5 +1,5 @@
 """Serial performance driver. Uses stdlib; plotting is a separate optional step."""
-import argparse, csv, hashlib, json, os, random, subprocess, threading, time
+import argparse, csv, hashlib, json, os, random, re, subprocess, threading, time
 from pathlib import Path
 
 SHAPES = [('falcon_square',2048,2048),('falcon_up',8192,2048),('falcon_down',2048,8192),
@@ -21,10 +21,17 @@ def main():
     p.add_argument('binary',type=Path); p.add_argument('output',type=Path)
     p.add_argument('--suite',choices=['full','quick','profile','confirm'],default='full')
     p.add_argument('--repeats',type=int,default=5); p.add_argument('--target-ms',type=float,default=100)
-    a=p.parse_args(); a.output.mkdir(parents=True,exist_ok=False)
+    a=p.parse_args()
+    places=os.environ.get('OMP_PLACES','')
+    if not re.fullmatch(r'\{\d+\}(,\{\d+\}){3,}',places):
+        p.error('OMP_PLACES must list at least four explicit virtual CPUs, e.g. {0},{2},{4},{6}')
+    cpus=list(map(int,re.findall(r'\d+',places)))
+    if len(set(cpus))!=len(cpus) or not set(cpus)<=os.sched_getaffinity(0):
+        p.error('OMP_PLACES includes duplicate or unavailable virtual CPUs; use P2_OMP_PLACES override')
+    a.output.mkdir(parents=True,exist_ok=False)
     shapes=SHAPES; ns=NS
     if a.suite in ('quick','profile'): shapes=[SHAPES[0],SHAPES[3]]; ns=[1,32,33,128]
-    if a.suite=='confirm': shapes=[SHAPES[0],SHAPES[3]]; ns=[31,32,33,64,65,128]
+    if a.suite=='confirm': shapes=[SHAPES[0],SHAPES[3]]; ns=[1,16,31,63,64,512]
     cases=[(name,m,k,n) for name,m,k in shapes for n in ns]
     if a.suite=='profile': cases += [('falcon_up',8192,2048,128),('bitnet_down',3200,8640,128)]
     random.Random(20261117).shuffle(cases)

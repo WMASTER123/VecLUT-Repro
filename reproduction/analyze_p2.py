@@ -67,6 +67,7 @@ def phase_plot(root, results):
         return
     ds=[r for r in results if r['mode']=='graph' and r['threads']==1]
     keys=['alloc_init','build','lookup','widen','output','free','activation']
+    if ds and 'clear_worker_us' in ds[0]: keys.insert(4,'clear')
     totals=[sum(r[k+'_worker_us'] for k in keys) for r in ds]
     fig,ax=plt.subplots(figsize=(11,5)); left=[0.0]*len(ds)
     for k in keys:

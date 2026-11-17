@@ -1,12 +1,13 @@
 #pragma once
 // Optional diagnostic instrumentation. Only one graph may be profiled at a time.
-// Reset/read only when graph execution is idle. Each worker owns one cache line.
+// Reset/read only when graph execution is idle. Each worker owns two cache lines.
 #ifdef VLUT_PROFILE
 #include <stdint.h>
 #include <time.h>
 struct vlut_profile_record {
     uint64_t alloc_init_ns, build_ns, lookup_ns, widen_ns;
     uint64_t output_ns, free_ns, activation_ns, calls;
+    uint64_t clear_ns, padding[7];
 };
 #ifdef __cplusplus
 extern "C" {

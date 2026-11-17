@@ -15,7 +15,7 @@ for cmd in git cmake c++ python3 make; do
   command -v "$cmd" >/dev/null || { echo "Missing $cmd. See reproduction/README.md"; exit 1; }
 done
 suite=full; target=300
-case "${1:-}" in '') ;; --quick) suite=quick;; --confirm) suite=confirm; target=300;; *) echo 'Usage: run-p2.sh [--quick|--confirm]'; exit 2;; esac
+case "${1:-}" in '') ;; --quick) suite=quick;; --confirm) suite=confirm; target=1000;; *) echo 'Usage: run-p2.sh [--quick|--confirm]'; exit 2;; esac
 run="$root/results/p2-$(date +%Y%m%d-%H%M%S)-$$"
 mkdir -p "$run"; printf '%s\n' "$run" > "$root/results/latest-p2.txt"
 exec > >(tee "$run/session.log") 2>&1
@@ -49,6 +49,6 @@ for flavor in normal profile; do
 done
 # Never compile or execute the two measurement builds concurrently.
 python3 "$repo/reproduction/run_p2.py" "$root/builds/p2-normal/bin/bench-p2" "$run/normal" --suite "$suite" --target-ms "$target"
-python3 "$repo/reproduction/run_p2.py" "$root/builds/p2-profile/bin/bench-p2" "$run/profile" --suite profile --target-ms 50
+python3 "$repo/reproduction/run_p2.py" "$root/builds/p2-profile/bin/bench-p2" "$run/profile" --suite profile --target-ms 300
 python3 "$repo/reproduction/analyze_p2.py" "$run"
 echo 'P2 complete: only I2_V_4; profile timings are diagnostic, normal timings are performance results.'
