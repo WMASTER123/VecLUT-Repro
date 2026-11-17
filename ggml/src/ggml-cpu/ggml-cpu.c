@@ -3,6 +3,7 @@
 #define _USE_MATH_DEFINES         // For M_PI on MSVC
 
 #include "ggml-cpu-quants-vlut.h"
+#include "ggml-vlut-profile.h"
 
 #include "ggml-cpu.h"
 
@@ -7114,6 +7115,10 @@ static void ggml_compute_forward_mul_mat(const struct ggml_compute_params *param
         for (int64_t i13 = 0; i13 < ne13; ++i13) {
             for (int64_t i12 = 0; i12 < ne12; ++i12) {
                 float *scale = (float *)(wdata + wdata_size);
+#ifdef VLUT_PROFILE
+                GGML_ASSERT(ith < 256);
+#endif
+                VLUT_STAMP();
                 // Give each thread disjoint token lanes, including padding.
                 for (int64_t i11 = ith; i11 < padded_tokens; i11 += nth) {
                     int64_t i = i11 / TABLE_ENTRY_SIZE;
@@ -7126,6 +7131,7 @@ static void ggml_compute_forward_mul_mat(const struct ggml_compute_params *param
                         for (int64_t k = 0; k < ne10; ++k) lane[k * TABLE_ENTRY_SIZE] = 0;
                     }
                 }
+                VLUT_PHASE(activation_ns);
                 ggml_barrier(params->threadpool);
                 if (src0_start < src0_end) {
                     float *output = (float *)((char *)dst->data + i13 * nb3 + i12 * nb2);

@@ -4,6 +4,13 @@
 option(VLUT_AVX512 "Enable AVX512 intrinsics" OFF)
 option(VLUT_SVE "Enable SVE intrinsics" OFF)
 option(VLUT_ACCELERATE "Enable Accelerate framework on Apple devices" OFF)
+option(VLUT_PROFILE "Diagnostic per-phase timers (not for performance results)" OFF)
+if(VLUT_PROFILE)
+    if(NOT UNIX)
+        message(FATAL_ERROR "VLUT_PROFILE requires a POSIX clock")
+    endif()
+    add_compile_definitions(VLUT_PROFILE)
+endif()
 
 set(TABLE_ENTRY_SIZE 32 CACHE STRING "Tile size of the table entry")
 set(WEIGHT_UNROLL_BLOCK 16 CACHE STRING "Weight unroll block size")

@@ -9,6 +9,11 @@
 #include <string.h>
 
 #include "ggml-cpu-quants-vlut.h"
+#include "ggml-vlut-profile.h"
+#ifdef VLUT_PROFILE
+_Alignas(64) struct vlut_profile_record vlut_profile_records[256];
+void vlut_profile_reset(void) { memset(vlut_profile_records, 0, sizeof(vlut_profile_records)); }
+#endif
 
 #include "ggml-common.h"
 #include "ggml-impl.h"
@@ -1176,6 +1181,11 @@ void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
                             const void *restrict vy, int nr, int nc) {
     UNUSED(ith);
     UNUSED(nth);
+#ifdef VLUT_PROFILE
+    GGML_ASSERT(ith >= 0 && ith < 256);
+    vlut_profile_records[ith].calls++;
+#endif
+    VLUT_STAMP();
 
     // nr: src1->ne[1], nc: src0->ne[1]
     GGML_ASSERT(n > 0 && n % 16 == 0);
@@ -1198,6 +1208,8 @@ void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
     memset(table2 + 40 * TABLE_ENTRY_SIZE, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE);
     memset(table3 + 40 * TABLE_ENTRY_SIZE, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE);
 
+    VLUT_PHASE(alloc_init_ns);
+
     // At most 128 * 128 = 16384 in magnitude before widening to INT32.
     // 256 would allow +32768 for (-1) * (-128); 512 overflows even at +127.
     static const int group_size = 128;
@@ -1215,22 +1227,28 @@ void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
             int pack_cnt = group_size / 4 / tile_size;
             for (int i = 0; i < pack_cnt; i++) {
                 MAKE_TABLES_I2S_BLOCK4(g);
+                VLUT_PHASE(build_ns);
                 const uint8_t *restrict x_block = (const uint8_t *)vx + (g * group_size / 4 + i * tile_size) * bs;
                 ADD_TABLE_ENTRIES_BLOCK4(nc);
+                VLUT_PHASE(lookup_ns);
             }
             ACCUMULATE_TABLE_TRANS(sum_i16, sum_i32, nc, TABLE_ENTRY_SIZE, t);
             memset(sum_i16, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE * nc);
+            VLUT_PHASE(widen_ns);
         }
         // group remain
         if (group_size_remain > 0) {
             int pack_cnt = group_size_remain / 4 / tile_size;
             for (int i = 0; i < pack_cnt; i++) {
                 MAKE_TABLES_I2S_BLOCK4(group_count);
+                VLUT_PHASE(build_ns);
                 const uint8_t *restrict x_block = (const uint8_t *)vx + (group_count * group_size / 4 + i * tile_size) * bs;
                 ADD_TABLE_ENTRIES_BLOCK4(nc);
+                VLUT_PHASE(lookup_ns);
             }
             ACCUMULATE_TABLE_TRANS(sum_i16, sum_i32, nc, TABLE_ENTRY_SIZE, t);
             memset(sum_i16, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE * nc);
+            VLUT_PHASE(widen_ns);
         }
     }
 
@@ -1242,22 +1260,28 @@ void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
             int pack_cnt = group_size / 4 / tile_size;
             for (int i = 0; i < pack_cnt; i++) {
                 MAKE_TABLES_I2S_BLOCK4(g);
+                VLUT_PHASE(build_ns);
                 const uint8_t *restrict x_block = (const uint8_t *)vx + (g * group_size / 4 + i * tile_size) * bs;
                 ADD_TABLE_ENTRIES_BLOCK4(nc);
+                VLUT_PHASE(lookup_ns);
             }
             ACCUMULATE_TABLE_TRANS(sum_i16, sum_i32, nc, entry_tile_remain, entry_tile_count);
             memset(sum_i16, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE * nc);
+            VLUT_PHASE(widen_ns);
         }
         // group remain
         if (group_size_remain > 0) {
             int pack_cnt = group_size_remain / 4 / tile_size;
             for (int i = 0; i < pack_cnt; i++) {
                 MAKE_TABLES_I2S_BLOCK4(group_count);
+                VLUT_PHASE(build_ns);
                 const uint8_t *restrict x_block = (const uint8_t *)vx + (group_count * group_size / 4 + i * tile_size) * bs;
                 ADD_TABLE_ENTRIES_BLOCK4(nc);
+                VLUT_PHASE(lookup_ns);
             }
             ACCUMULATE_TABLE_TRANS(sum_i16, sum_i32, nc, entry_tile_remain, entry_tile_count);
             memset(sum_i16, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE * nc);
+            VLUT_PHASE(widen_ns);
         }
     }
 
@@ -1272,12 +1296,14 @@ void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
         }
     }
 
+    VLUT_PHASE(output_ns);
     free(table0);
     free(table1);
     free(table2);
     free(table3);
     free(sum_i16);
     free(sum_i32);
+    VLUT_PHASE(free_ns);
 }
 
 void ggml_gemm_i2v8_i8v_lut(int ith, int nth, int n, float *restrict s, size_t bs, const void *restrict vx,

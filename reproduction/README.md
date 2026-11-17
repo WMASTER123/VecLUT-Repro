@@ -1,4 +1,4 @@
-# Vec-LUT CPU 复现：P1 正确性验证
+# Vec-LUT CPU 复现：正确性与内核性能
 
 本目录是基于作者代码的复现实现，不是原作者发布的官方修复。作者项目、MIT 许可证和提交历史均保留。
 
@@ -6,6 +6,8 @@
 - 原版：[OpenBitSys/vlut.cpp](https://github.com/OpenBitSys/vlut.cpp)，固定 SHA `7a813d9c2b6c73d1066eeff49b67794318f682bd`
 - 开发分支：`repro/cpu`
 - 范围：I2_V_4 打包、激活量化、整数查表内核、CPU 计算图；不下载模型、不训练、不运行其他系统的对比实验。
+
+P2 性能入口：`bash reproduction/run-p2.sh` 或 PowerShell `./reproduction/run-p2.ps1`。它先检查正确性，再测仅 I2_V_4 的六种层形状、短输入与尾块、1/2/4 线程；实际方法、参数、日志和指标边界见 [P2_METHOD.md](P2_METHOD.md)。默认所有产物仍在项目数据目录。可选 matplotlib 用于图表；本机已有，未安装新软件。
 
 ## 依赖与硬件
 
