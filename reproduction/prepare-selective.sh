@@ -5,6 +5,7 @@ root="$(realpath "${VECLUT_REPRO_DIR:-$repo/.repro}")"
 run="${1:-$root/results/p6-selective-build-$(date +%Y%m%d-%H%M%S)-$$}"
 mkdir -p "$run"
 export TMPDIR="$root/tmp" XDG_CACHE_HOME="$root/cache" PYTHONPYCACHEPREFIX="$root/cache/pycache"
+mkdir -p "$TMPDIR" "$XDG_CACHE_HOME"
 export OMP_WAIT_POLICY=PASSIVE OMP_DYNAMIC=FALSE OMP_PROC_BIND=CLOSE OMP_PLACES='{0},{2},{4},{6}'
 exec > >(tee "$run/session.log") 2>&1
 echo "Evidence: $run"

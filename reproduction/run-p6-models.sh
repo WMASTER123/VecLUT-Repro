@@ -7,7 +7,7 @@ export TMPDIR="$root/tmp" XDG_CACHE_HOME="$root/cache" PYTHONPYCACHEPREFIX="$roo
 export OMP_WAIT_POLICY=PASSIVE OMP_DYNAMIC=FALSE OMP_PROC_BIND=CLOSE
 export OMP_PLACES="${P6_OMP_PLACES:-}"
 [[ -n "$OMP_PLACES" ]] || export OMP_PLACES='{0},{2},{4},{6}'
-for flag in P3_AUDIT_LOGITS P3_AUDIT_NODES P3_AUDIT_STEP; do
+for flag in P3_AUDIT_LOGITS P3_AUDIT_NODES P3_AUDIT_STEP P6_SAMPLE_CONTROL; do
   [[ -z "${!flag:-}" ]] || { echo "Unset diagnostic $flag before timing"; exit 1; }
 done
 run="$root/results/p6-models-$(date +%Y%m%d-%H%M%S)-$$"

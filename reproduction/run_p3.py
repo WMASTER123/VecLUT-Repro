@@ -12,7 +12,7 @@ def main():
     p.add_argument('--model-key',choices=MODELS,default='falcon3-1b-i2v4')
     p.add_argument('--focused',action='store_true',help='Six four-thread P4 model cases, with the same P/G definitions')
     a=p.parse_args();places=os.environ.get('OMP_PLACES','')
-    if any(k.startswith('P3_AUDIT_') for k in os.environ):p.error('Diagnostic audit environment must be unset for performance')
+    if any(k.startswith('P3_AUDIT_') or k=='P6_SAMPLE_CONTROL' for k in os.environ):p.error('Diagnostic/control environment must be unset for this performance runner')
     if not re.fullmatch(r'\{\d+\}(,\{\d+\}){3,}',places): p.error('Use four explicit OMP_PLACES')
     cpus=list(map(int,re.findall(r'\d+',places)))
     if len(set(cpus))!=len(cpus) or not set(cpus)<=os.sched_getaffinity(0): p.error('Unavailable CPU place')
