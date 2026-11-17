@@ -19,7 +19,7 @@ git -C "$repo" diff --binary > "$run/working-tree.patch"
 git -C "$repo" status --short > "$run/git-status.txt"
 { c++ --version; cmake --version; python3 --version; uname -srvm; lscpu; } > "$run/environment.txt"
 printf 'OMP_PLACES=%s\nOMP_PROC_BIND=%s\n' "$OMP_PLACES" "$OMP_PROC_BIND" > "$run/affinity.txt"
-options=(-DCMAKE_BUILD_TYPE=RelWithDebInfo -DGGML_NATIVE=ON -DGGML_CCACHE=OFF
+options=(-DCMAKE_BUILD_TYPE=Release -DGGML_NATIVE=ON -DGGML_CCACHE=OFF
   -DGGML_CUDA=OFF -DGGML_VULKAN=OFF -DGGML_SYCL=OFF -DGGML_METAL=OFF
   -DGGML_BLAS=OFF -DLLAMA_CURL=OFF -DLLAMA_BUILD_SERVER=OFF
   -DVLUT_AVX512=OFF -DVLUT_SVE=OFF -DVLUT_ACCELERATE=OFF
