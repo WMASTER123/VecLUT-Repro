@@ -47,6 +47,9 @@ size_t quantize_i2_v_4(const float *restrict src, void *restrict dst, int64_t nr
                      const float *imatrix) {
     // 2 bits per weight
     UNUSED(imatrix);
+    // Each weight tile contains four packed groups of four ternary values.
+    // A partial tile has no representation in this format.
+    GGML_ASSERT(nrows > 0 && n_per_row > 0 && n_per_row % 16 == 0);
 
     uint8_t *i2_weight = (uint8_t *)dst;
     for (int i = 0; i * 4 < n_per_row; i++) {

@@ -952,24 +952,32 @@ void quantize_row_i8_v(const float *x, void *y, int64_t n) {
 void quantize_row_i8_v_tile(const float *x, void *y, int64_t n, float *scale) {
     int8_t *dst = (int8_t *)y;
 
-    double max = eps;
+    double amax = 0;
     for (int i = 0; i < n; i++) {
-        max = MAX(max, (double)x[i]);
+        GGML_ASSERT(isfinite(x[i]));
+        amax = MAX(amax, fabs((double)x[i]));
     }
-    const double s = max / 127;
-    const double is = 1e0 / MAX(s, eps);
+    if (amax == 0) {
+        for (int64_t i = 0; i < n; ++i) {
+            dst[i * TABLE_ENTRY_SIZE] = 0;
+        }
+        *scale = 0;
+        return;
+    }
+    // Use the stored scale for quantization too. Avoid an arbitrary epsilon
+    // that would erase small, nonzero activations. Keep the reciprocal finite.
+    *scale = (float)MAX(amax / 127.0, (double)FLT_MIN);
+    const double is = 1.0 / (double)*scale;
 
     for (int i = 0, j = 0; i < n; i++, j += TABLE_ENTRY_SIZE) {
         float v = round((double)x[i] * is);
         if (v > 127) {
             v = 127;
-        } else if (v < -128) {
-            v = -128;
+        } else if (v < -127) {
+            v = -127;
         }
         dst[j] = (int8_t)v;
     }
-
-    *scale = (float)s;
 }
 
 
@@ -1170,7 +1178,9 @@ void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
     UNUSED(nth);
 
     // nr: src1->ne[1], nc: src0->ne[1]
-    assert(n % 4 == 0);
+    GGML_ASSERT(n > 0 && n % 16 == 0);
+    // Also cover callers supplying raw INT8 (-128 is possible).
+    GGML_ASSERT(n <= INT32_MAX / 128);
 
     static const int tile_size = 4;
 
@@ -1188,7 +1198,9 @@ void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
     memset(table2 + 40 * TABLE_ENTRY_SIZE, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE);
     memset(table3 + 40 * TABLE_ENTRY_SIZE, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE);
 
-    static const int group_size = 512;
+    // At most 128 * 128 = 16384 in magnitude before widening to INT32.
+    // 256 would allow +32768 for (-1) * (-128); 512 overflows even at +127.
+    static const int group_size = 128;
 
     const int group_count = n / group_size;  // not including remains
     const int group_size_remain = n % group_size;

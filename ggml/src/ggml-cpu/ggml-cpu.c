@@ -7096,7 +7096,7 @@ static void ggml_compute_forward_mul_mat(const struct ggml_compute_params *param
     if (vlut_mulmat) {
         // Get gemm kernel from type_traits
         vlut_gemm gemm = type_traits_vlut[type].gemm;
-        assert(gemm);
+        GGML_ASSERT(gemm);
         int64_t tile_size = type_traits_vlut[type].tile_size;
 
         // Quantize activation (src1)
@@ -7104,36 +7104,38 @@ static void ggml_compute_forward_mul_mat(const struct ggml_compute_params *param
         assert(src1->type != vec_dot_type); // vec_dot_type is int8
 
         char *wdata = params->wdata;
-        const size_t nbw1 = ggml_row_size(vec_dot_type, ne10);
-        const size_t nbw2 = nbw1 * ne11;
-        const size_t nbw3 = nbw2 * ne12;
-
-        assert(params->wsize >= ne13 * nbw3);
-        assert(ggml_n_dims(src0) == 2);
+        const int64_t padded_tokens = GGML_PAD(ne11, TABLE_ENTRY_SIZE);
+        const size_t wdata_size = (size_t)padded_tokens * ne10;
+        GGML_ASSERT(params->wsize >= wdata_size + ne11 * sizeof(float));
+        GGML_ASSERT(src0->ne[2] == 1 && src0->ne[3] == 1);
+        const int64_t src0_start = (ith * ne01) / nth;
+        const int64_t src0_end = ((ith + 1) * ne01) / nth;
 
         for (int64_t i13 = 0; i13 < ne13; ++i13) {
             for (int64_t i12 = 0; i12 < ne12; ++i12) {
-                const size_t wdata_size = ((ne11 % TABLE_ENTRY_SIZE) ? ne11 + TABLE_ENTRY_SIZE - (ne11 % TABLE_ENTRY_SIZE): ne11) * ne10;
                 float *scale = (float *)(wdata + wdata_size);
-                for (int64_t i11 = ith; i11 < ne11; i11 += nth) {
+                // Give each thread disjoint token lanes, including padding.
+                for (int64_t i11 = ith; i11 < padded_tokens; i11 += nth) {
                     int64_t i = i11 / TABLE_ENTRY_SIZE;
                     int64_t j = i11 % TABLE_ENTRY_SIZE;
-                    quantize_row_i8_v_tile((float *)((char *)src1->data + i13 * nb13 + i12 * nb12 + i11 * nb11),
-                                           (void *)(wdata + i * TABLE_ENTRY_SIZE + j), ne10, scale + i11);
+                    int8_t *lane = (int8_t *)(wdata + i * ne10 * TABLE_ENTRY_SIZE + j);
+                    if (i11 < ne11) {
+                        quantize_row_i8_v_tile((float *)((char *)src1->data + i13 * nb13 + i12 * nb12 + i11 * nb11),
+                                               lane, ne10, scale + i11);
+                    } else {
+                        for (int64_t k = 0; k < ne10; ++k) lane[k * TABLE_ENTRY_SIZE] = 0;
+                    }
                 }
+                ggml_barrier(params->threadpool);
+                if (src0_start < src0_end) {
+                    float *output = (float *)((char *)dst->data + i13 * nb3 + i12 * nb2);
+                    gemm(ith, nth, ne00, output + src0_start, ne01,
+                         (const char *)src0->data + src0_start * tile_size,
+                         wdata, ne11, src0_end - src0_start);
+                }
+                // A later slice must not overwrite activations still being read.
+                if (i12 + 1 < ne12 || i13 + 1 < ne13) ggml_barrier(params->threadpool);
             }
-        }
-        
-        ggml_barrier(params->threadpool);
-
-        const int8_t * src1_wdata = (src1->type == vec_dot_type) ? src1->data : params->wdata;
-
-        int64_t src0_start = (ith * ne01) / nth;
-        int64_t src0_end = ((ith + 1) * ne01) / nth;
-
-        if (src0_start < src0_end) {
-            gemm(params->ith, params->nth, ne00, ((float *)(dst->data)) + src0_start, ne01,
-                 (const char *)src0->data + src0_start * tile_size, src1_wdata, ne11, src0_end - src0_start);
         }
         return;
     } // vlut_mulmat
@@ -12934,7 +12936,13 @@ struct ggml_cplan ggml_graph_plan(const struct ggml_cgraph *cgraph, int n_thread
                 case GGML_OP_MUL_MAT: {
                     const enum ggml_type vec_dot_type = type_traits_cpu[node->src[0]->type].vec_dot_type;
 
-                    if (node->src[1]->type != vec_dot_type) {
+                    if (type_traits_vlut[node->src[0]->type].is_vlut_type) {
+                        // One padded activation slice plus one FP32 scale per token.
+                        // Slices are processed serially using the same workspace.
+                        const struct ggml_tensor *a = node->src[1];
+                        cur = (size_t)GGML_PAD(a->ne[1], TABLE_ENTRY_SIZE) * a->ne[0]
+                            + a->ne[1] * sizeof(float);
+                    } else if (node->src[1]->type != vec_dot_type) {
                         cur = ggml_row_size(vec_dot_type, ggml_nelements(node->src[1]));
                     }
                 } break;
@@ -13037,10 +13045,7 @@ struct ggml_cplan ggml_graph_plan(const struct ggml_cgraph *cgraph, int n_thread
     }
 
     
-    // Allocate additional work size for Vec-LUT
-    work_size += TABLE_ENTRY_SIZE * 15000 * sizeof(int8_t);
-    const size_t MAX_INPUT_LENGTH = 2048;
-    work_size += MAX_INPUT_LENGTH * sizeof(float);
+    // Vec-LUT workspace is accounted for by the MUL_MAT case above.
 
 
     cplan.threadpool = threadpool;
