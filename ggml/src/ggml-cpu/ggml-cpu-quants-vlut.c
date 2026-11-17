@@ -10,6 +10,7 @@
 
 #include "ggml-cpu-quants-vlut.h"
 #include "ggml-vlut-profile.h"
+#include "ggml-vlut-widen.h"
 #ifdef VLUT_PROFILE
 _Alignas(64) struct vlut_profile_record vlut_profile_records[256];
 void vlut_profile_reset(void) { memset(vlut_profile_records, 0, sizeof(vlut_profile_records)); }
@@ -1177,6 +1178,15 @@ void ggml_gemm_i2v2_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
     free(sum_i32);
 }
 
+// The experimental traversal is isolated from I1 and other I2 formats.
+#ifdef VLUT_I2V4_BLOCKED_WIDEN
+#define ACCUMULATE_I2V4_TRANS(src, dst, rows, valid, tile) \
+    vlut_i2v4_blocked_widen((src), (dst) + (size_t)(tile) * TABLE_ENTRY_SIZE * (rows), \
+                          (rows), (valid), TABLE_ENTRY_SIZE)
+#else
+#define ACCUMULATE_I2V4_TRANS ACCUMULATE_TABLE_TRANS
+#endif
+
 void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t bs, const void *restrict vx,
                             const void *restrict vy, int nr, int nc) {
     UNUSED(ith);
@@ -1232,7 +1242,7 @@ void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
                 ADD_TABLE_ENTRIES_BLOCK4(nc);
                 VLUT_PHASE(lookup_ns);
             }
-            ACCUMULATE_TABLE_TRANS(sum_i16, sum_i32, nc, TABLE_ENTRY_SIZE, t);
+            ACCUMULATE_I2V4_TRANS(sum_i16, sum_i32, nc, TABLE_ENTRY_SIZE, t);
             VLUT_PHASE(widen_ns);
             memset(sum_i16, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE * nc);
             VLUT_PHASE(clear_ns);
@@ -1247,7 +1257,7 @@ void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
                 ADD_TABLE_ENTRIES_BLOCK4(nc);
                 VLUT_PHASE(lookup_ns);
             }
-            ACCUMULATE_TABLE_TRANS(sum_i16, sum_i32, nc, TABLE_ENTRY_SIZE, t);
+            ACCUMULATE_I2V4_TRANS(sum_i16, sum_i32, nc, TABLE_ENTRY_SIZE, t);
             VLUT_PHASE(widen_ns);
             memset(sum_i16, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE * nc);
             VLUT_PHASE(clear_ns);
@@ -1267,7 +1277,7 @@ void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
                 ADD_TABLE_ENTRIES_BLOCK4(nc);
                 VLUT_PHASE(lookup_ns);
             }
-            ACCUMULATE_TABLE_TRANS(sum_i16, sum_i32, nc, entry_tile_remain, entry_tile_count);
+            ACCUMULATE_I2V4_TRANS(sum_i16, sum_i32, nc, entry_tile_remain, entry_tile_count);
             VLUT_PHASE(widen_ns);
             memset(sum_i16, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE * nc);
             VLUT_PHASE(clear_ns);
@@ -1282,7 +1292,7 @@ void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
                 ADD_TABLE_ENTRIES_BLOCK4(nc);
                 VLUT_PHASE(lookup_ns);
             }
-            ACCUMULATE_TABLE_TRANS(sum_i16, sum_i32, nc, entry_tile_remain, entry_tile_count);
+            ACCUMULATE_I2V4_TRANS(sum_i16, sum_i32, nc, entry_tile_remain, entry_tile_count);
             VLUT_PHASE(widen_ns);
             memset(sum_i16, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE * nc);
             VLUT_PHASE(clear_ns);

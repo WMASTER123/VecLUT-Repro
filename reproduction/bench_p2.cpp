@@ -26,7 +26,7 @@ static double ns_since(clock_type::time_point t) {
 }
 struct configuration { std::string mode; int threads,iterations; std::function<void()> compute; };
 int main(int argc,char **argv) try {
-    if(argc!=6) { std::cerr<<"Usage: bench-p2 M K N repeats target_ms\n"; return 2; }
+    if(argc!=6 && argc!=7) { std::cerr<<"Usage: bench-p2 M K N repeats target_ms [graph1|graph2|graph4|direct1]\n"; return 2; }
     int M=std::stoi(argv[1]),K=std::stoi(argv[2]),N=std::stoi(argv[3]);
     int repeats=std::stoi(argv[4]); double target_ms=std::stod(argv[5]);
     if(M<4 || K<16 || K%16 || N<1 || repeats<5 || target_ms<10) throw std::runtime_error("invalid parameters");
@@ -70,6 +70,13 @@ int main(int argc,char **argv) try {
         if(ggml_graph_compute(gf,&plans[i])!=GGML_STATUS_SUCCESS) throw std::runtime_error("graph failed");
     }});
     configs.push_back({"direct",1,1,[&] { ggml_gemm_i2v4_i8v_lut(0,1,K,direct_out.data(),M,w->data,q,N,M); }});
+    if (argc == 7) {
+        const std::string selected = argv[6];
+        configs.erase(std::remove_if(configs.begin(), configs.end(), [&](const configuration &c) {
+            return c.mode + std::to_string(c.threads) != selected;
+        }), configs.end());
+        if (configs.empty()) throw std::runtime_error("unknown configuration filter");
+    }
     for(auto &c:configs) {
         for(int i=0;i<3;++i) c.compute();
         validate(c.mode=="graph"?static_cast<float *>(out->data):direct_out.data());
