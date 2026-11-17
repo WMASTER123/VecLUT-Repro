@@ -54,4 +54,5 @@ for variant in off on asan-on profile-off profile-on; do
   echo "$variant correctness passed"
 done
 python3 "$repo/reproduction/run_p6.py" "$root" "$run"
+python3 "$repo/reproduction/analyze_p6.py" "$run"
 echo 'P6 bounded motivation experiment complete. Review net wall time before model tests/default changes.'
