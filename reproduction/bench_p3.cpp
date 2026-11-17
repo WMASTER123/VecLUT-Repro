@@ -12,13 +12,42 @@
 #include <iostream>
 #include <limits>
 #include <map>
+#include <sched.h>
+#include <sstream>
 #include <stdexcept>
 #include <string>
 #include <sys/resource.h>
+#include <time.h>
 #include <vector>
 
 using json=nlohmann::ordered_json;
 using Clock=std::chrono::steady_clock;
+static double process_cpu_ms() {
+    timespec t{};
+    if (clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &t)) throw std::runtime_error("process clock failed");
+    return t.tv_sec * 1000.0 + t.tv_nsec / 1e6;
+}
+static json scheduling_snapshot() {
+    cpu_set_t mask; CPU_ZERO(&mask);
+    if (sched_getaffinity(0, sizeof(mask), &mask)) throw std::runtime_error("getaffinity failed");
+    std::vector<int> cpus;
+    for (int cpu=0; cpu<CPU_SETSIZE; ++cpu) if (CPU_ISSET(cpu, &mask)) cpus.push_back(cpu);
+    uint64_t runtime=0, wait=0, slices=0;
+    std::ifstream stat("/proc/thread-self/schedstat"); stat >> runtime >> wait >> slices;
+    int64_t migrations=-1; std::ifstream sched("/proc/thread-self/sched"); std::string line;
+    while (std::getline(sched, line)) if (line.find("nr_migrations") != std::string::npos) {
+        migrations=std::stoll(line.substr(line.find(':')+1)); break;
+    }
+    return {{"cpu",sched_getcpu()},{"allowed_cpus",cpus},{"runtime_ns",runtime},
+            {"runnable_wait_ns",wait},{"timeslices",slices},{"migrations",migrations}};
+}
+static uint64_t logits_hash(llama_context *ctx, int row, int count) {
+    const auto *bytes=reinterpret_cast<const unsigned char *>(llama_get_logits_ith(ctx,row));
+    if (!bytes) throw std::runtime_error("missing logits for hash");
+    uint64_t hash=14695981039346656037ULL;
+    for (size_t i=0; i<size_t(count)*sizeof(float); ++i) { hash ^= bytes[i]; hash *= 1099511628211ULL; }
+    return hash;
+}
 struct node_audit {int batch,repeat=-1,step=-1,target_step=0;std::ofstream stream;};
 static bool audit_node(ggml_tensor *tensor,bool ask,void *data) {
     auto &audit=*static_cast<node_audit *>(data);
@@ -192,10 +221,16 @@ int main(int argc,char **argv) try {
     start=Clock::now();auto *ctx=llama_init_from_model(model,cp);double context_ms=ms(start);
     if(!ctx) throw std::runtime_error("context initialization failed");
     auto batch=llama_batch_init(std::max(P,B),0,B);
+    const bool controlled=std::getenv("P6_SAMPLE_CONTROL") != nullptr;
     emit({{"record","setup"},{"mode",mode},{"P",P},{"G",G},{"B",B},{"threads",threads},{"repeats",repeats},
           {"profile",tracing()},{"target_vlut_type",i1?"i1_v_2":"i2_v_4"},{"tensor_types",types},{"vlut_matrices",matrices},{"load_ms",load_ms},{"context_ms",context_ms},{"n_ctx",llama_n_ctx(ctx)},
-          {"n_vocab",n_vocab},{"input_tokens",input},{"input_text",prompt},{"shared_prompt",B>1}});
+          {"n_vocab",n_vocab},{"input_tokens",input},{"input_text",prompt},{"shared_prompt",B>1},
+          {"controlled",controlled},{"scheduling",scheduling_snapshot()}});
     for(int rep=-1;rep<repeats;++rep) {
+        if (controlled) {
+            std::string command;
+            if (!std::getline(std::cin,command) || command!="RUN") throw std::runtime_error("expected controlled RUN command");
+        }
         audit.repeat=rep;audit.step=-1;
         llama_kv_cache_clear(ctx);
         struct rusage before{};getrusage(RUSAGE_SELF,&before);
@@ -204,7 +239,12 @@ int main(int argc,char **argv) try {
             batch.token[i]=input[i];batch.pos[i]=i;batch.n_seq_id[i]=B;batch.logits[i]=(i==P-1);
             for(int s=0;s<B;++s) batch.seq_id[i][s]=s;
         }
-        reset_trace(); start=Clock::now();checked_decode(ctx,batch);double prefill_ms=ms(start);uint64_t pcalls=calls(i1);
+        const auto scheduling_before=scheduling_snapshot();
+        reset_trace(); const double cpu_start=process_cpu_ms();
+        start=Clock::now();checked_decode(ctx,batch);double prefill_ms=ms(start);
+        const double prefill_cpu_ms=process_cpu_ms()-cpu_start;
+        const auto scheduling_after_prefill=scheduling_snapshot();
+        uint64_t pcalls=calls(i1);
         llama_token first=greedy(ctx,P-1,n_vocab);
         std::vector<llama_token> next(B,first);std::vector<std::vector<llama_token>> generated(B);
         double model_decode_ms=0,loop_ms=0;int steps=0;uint64_t dcalls=0;
@@ -235,7 +275,10 @@ int main(int argc,char **argv) try {
               {"prefill_i1v2_worker_calls",i1?pcalls:0},{"decode_i1v2_worker_calls",i1?dcalls:0},{"peak_process_kib",usage.ru_maxrss},
               {"major_faults",usage.ru_majflt-before.ru_majflt},{"minor_faults",usage.ru_minflt-before.ru_minflt},
               {"involuntary_switches",usage.ru_nivcsw-before.ru_nivcsw},
-              {"output_token_ids",generated},{"output_text",text},{"finite_logits",true}});
+              {"output_token_ids",generated},{"output_text",text},{"finite_logits",true},
+              {"prefill_cpu_ms",prefill_cpu_ms},{"scheduling_before",scheduling_before},
+              {"scheduling_after_prefill",scheduling_after_prefill},
+              {"last_logits_hash",logits_hash(ctx,steps?B-1:P-1,n_vocab)}});
     }
     llama_batch_free(batch);llama_free(ctx);llama_model_free(model);llama_backend_free();return 0;
 } catch(const std::exception &e) {std::cerr<<"P3 failure: "<<e.what()<<'\n';return 1;}
