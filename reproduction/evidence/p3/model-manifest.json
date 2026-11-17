@@ -1,0 +1,10 @@
+{
+  "repo": "XXXXyu/Falcon3-1B-Instruct-1.58bit-vlut-gguf",
+  "revision": "1cf5c2dc924ab7117053758da68f8376da95fc4d",
+  "file": "ggml-model-I2_V_4.gguf",
+  "sha256": "6eb67473189b8b6d1a02cdc723b2f284b0e247eba27619c46117fd2d592c6b94",
+  "size_bytes": 659366272,
+  "source": "https://huggingface.co/XXXXyu/Falcon3-1B-Instruct-1.58bit-vlut-gguf/blob/1cf5c2dc924ab7117053758da68f8376da95fc4d/ggml-model-I2_V_4.gguf",
+  "local_file": "/mnt/e/VecLUT-Repro/models/falcon3-1b-i2v4/ggml-model-I2_V_4.gguf",
+  "verified": true
+}

@@ -1,0 +1,410 @@
+{
+  "passed": true,
+  "normal_profile_tokens_equal": true,
+  "records": [
+    {
+      "build": "normal",
+      "B": 1,
+      "setup": {
+        "record": "setup",
+        "mode": "smoke",
+        "P": 25,
+        "G": 48,
+        "B": 1,
+        "threads": 4,
+        "repeats": 1,
+        "profile": false,
+        "tensor_types": {
+          "f32": 163,
+          "i2_v_4": 126,
+          "q4_K": 1,
+          "q6_K": 1
+        },
+        "load_ms": 3660.238067,
+        "context_ms": 28.410358,
+        "n_ctx": 512,
+        "n_vocab": 131072,
+        "input_tokens": [
+          11,
+          2051,
+          2115,
+          5517,
+          100846,
+          12,
+          4042,
+          2340,
+          2278,
+          6445,
+          2306,
+          7909,
+          2054,
+          28101,
+          2303,
+          2596,
+          3996,
+          12366,
+          2037,
+          12,
+          2051,
+          2115,
+          91961,
+          100846,
+          12
+        ],
+        "input_text": "<|user|>\nWhat is the capital of France? Answer in one short sentence.\n<|assistant|>\n",
+        "shared_prompt": false
+      },
+      "sample": {
+        "record": "sample",
+        "repeat": 0,
+        "prefill_ms": 176.391524,
+        "decode_model_ms": 738.34725,
+        "decode_loop_ms": 740.928979,
+        "decode_steps": 7,
+        "decoded_tokens": 7,
+        "prefill_tps": 141.73016612748353,
+        "decode_total_tps": 9.447599160512791,
+        "decode_per_sequence_tps": 9.447599160512791,
+        "prefill_i2v4_worker_calls": 0,
+        "decode_i2v4_worker_calls": 0,
+        "peak_process_kib": 731732,
+        "major_faults": 0,
+        "minor_faults": 3,
+        "involuntary_switches": 3,
+        "output_token_ids": [
+          [
+            2530,
+            6445,
+            2306,
+            7909,
+            2340,
+            9259,
+            2037
+          ]
+        ],
+        "output_text": [
+          "The capital of France is Paris."
+        ],
+        "finite_logits": true
+      }
+    },
+    {
+      "build": "profile",
+      "B": 1,
+      "setup": {
+        "record": "setup",
+        "mode": "smoke",
+        "P": 25,
+        "G": 48,
+        "B": 1,
+        "threads": 4,
+        "repeats": 1,
+        "profile": true,
+        "tensor_types": {
+          "f32": 163,
+          "i2_v_4": 126,
+          "q4_K": 1,
+          "q6_K": 1
+        },
+        "load_ms": 4007.603872,
+        "context_ms": 49.861706,
+        "n_ctx": 512,
+        "n_vocab": 131072,
+        "input_tokens": [
+          11,
+          2051,
+          2115,
+          5517,
+          100846,
+          12,
+          4042,
+          2340,
+          2278,
+          6445,
+          2306,
+          7909,
+          2054,
+          28101,
+          2303,
+          2596,
+          3996,
+          12366,
+          2037,
+          12,
+          2051,
+          2115,
+          91961,
+          100846,
+          12
+        ],
+        "input_text": "<|user|>\nWhat is the capital of France? Answer in one short sentence.\n<|assistant|>\n",
+        "shared_prompt": false
+      },
+      "sample": {
+        "record": "sample",
+        "repeat": 0,
+        "prefill_ms": 169.519193,
+        "decode_model_ms": 687.3733659999999,
+        "decode_loop_ms": 689.899926,
+        "decode_steps": 7,
+        "decoded_tokens": 7,
+        "prefill_tps": 147.47592622152231,
+        "decode_total_tps": 10.146399117022082,
+        "decode_per_sequence_tps": 10.146399117022082,
+        "prefill_i2v4_worker_calls": 504,
+        "decode_i2v4_worker_calls": 3528,
+        "peak_process_kib": 731628,
+        "major_faults": 0,
+        "minor_faults": 3,
+        "involuntary_switches": 3,
+        "output_token_ids": [
+          [
+            2530,
+            6445,
+            2306,
+            7909,
+            2340,
+            9259,
+            2037
+          ]
+        ],
+        "output_text": [
+          "The capital of France is Paris."
+        ],
+        "finite_logits": true
+      }
+    },
+    {
+      "build": "normal",
+      "B": 4,
+      "setup": {
+        "record": "setup",
+        "mode": "smoke",
+        "P": 25,
+        "G": 48,
+        "B": 4,
+        "threads": 4,
+        "repeats": 1,
+        "profile": false,
+        "tensor_types": {
+          "f32": 163,
+          "i2_v_4": 126,
+          "q4_K": 1,
+          "q6_K": 1
+        },
+        "load_ms": 7079.502262,
+        "context_ms": 40.874108,
+        "n_ctx": 512,
+        "n_vocab": 131072,
+        "input_tokens": [
+          11,
+          2051,
+          2115,
+          5517,
+          100846,
+          12,
+          4042,
+          2340,
+          2278,
+          6445,
+          2306,
+          7909,
+          2054,
+          28101,
+          2303,
+          2596,
+          3996,
+          12366,
+          2037,
+          12,
+          2051,
+          2115,
+          91961,
+          100846,
+          12
+        ],
+        "input_text": "<|user|>\nWhat is the capital of France? Answer in one short sentence.\n<|assistant|>\n",
+        "shared_prompt": true
+      },
+      "sample": {
+        "record": "sample",
+        "repeat": 0,
+        "prefill_ms": 172.562502,
+        "decode_model_ms": 944.868889,
+        "decode_loop_ms": 955.105615,
+        "decode_steps": 7,
+        "decoded_tokens": 28,
+        "prefill_tps": 144.87504359434936,
+        "decode_total_tps": 29.316129609394036,
+        "decode_per_sequence_tps": 7.329032402348509,
+        "prefill_i2v4_worker_calls": 0,
+        "decode_i2v4_worker_calls": 0,
+        "peak_process_kib": 733248,
+        "major_faults": 0,
+        "minor_faults": 0,
+        "involuntary_switches": 4,
+        "output_token_ids": [
+          [
+            2530,
+            6445,
+            2306,
+            7909,
+            2340,
+            9259,
+            2037
+          ],
+          [
+            2530,
+            6445,
+            2306,
+            7909,
+            2340,
+            9259,
+            2037
+          ],
+          [
+            2530,
+            6445,
+            2306,
+            7909,
+            2340,
+            9259,
+            2037
+          ],
+          [
+            2530,
+            6445,
+            2306,
+            7909,
+            2340,
+            9259,
+            2037
+          ]
+        ],
+        "output_text": [
+          "The capital of France is Paris.",
+          "The capital of France is Paris.",
+          "The capital of France is Paris.",
+          "The capital of France is Paris."
+        ],
+        "finite_logits": true
+      }
+    },
+    {
+      "build": "profile",
+      "B": 4,
+      "setup": {
+        "record": "setup",
+        "mode": "smoke",
+        "P": 25,
+        "G": 48,
+        "B": 4,
+        "threads": 4,
+        "repeats": 1,
+        "profile": true,
+        "tensor_types": {
+          "f32": 163,
+          "i2_v_4": 126,
+          "q4_K": 1,
+          "q6_K": 1
+        },
+        "load_ms": 4314.81294,
+        "context_ms": 32.708947,
+        "n_ctx": 512,
+        "n_vocab": 131072,
+        "input_tokens": [
+          11,
+          2051,
+          2115,
+          5517,
+          100846,
+          12,
+          4042,
+          2340,
+          2278,
+          6445,
+          2306,
+          7909,
+          2054,
+          28101,
+          2303,
+          2596,
+          3996,
+          12366,
+          2037,
+          12,
+          2051,
+          2115,
+          91961,
+          100846,
+          12
+        ],
+        "input_text": "<|user|>\nWhat is the capital of France? Answer in one short sentence.\n<|assistant|>\n",
+        "shared_prompt": true
+      },
+      "sample": {
+        "record": "sample",
+        "repeat": 0,
+        "prefill_ms": 164.70854,
+        "decode_model_ms": 918.281832,
+        "decode_loop_ms": 928.41115,
+        "decode_steps": 7,
+        "decoded_tokens": 28,
+        "prefill_tps": 151.7832651543144,
+        "decode_total_tps": 30.15905183818613,
+        "decode_per_sequence_tps": 7.5397629595465325,
+        "prefill_i2v4_worker_calls": 504,
+        "decode_i2v4_worker_calls": 3528,
+        "peak_process_kib": 733280,
+        "major_faults": 0,
+        "minor_faults": 0,
+        "involuntary_switches": 0,
+        "output_token_ids": [
+          [
+            2530,
+            6445,
+            2306,
+            7909,
+            2340,
+            9259,
+            2037
+          ],
+          [
+            2530,
+            6445,
+            2306,
+            7909,
+            2340,
+            9259,
+            2037
+          ],
+          [
+            2530,
+            6445,
+            2306,
+            7909,
+            2340,
+            9259,
+            2037
+          ],
+          [
+            2530,
+            6445,
+            2306,
+            7909,
+            2340,
+            9259,
+            2037
+          ]
+        ],
+        "output_text": [
+          "The capital of France is Paris.",
+          "The capital of France is Paris.",
+          "The capital of France is Paris.",
+          "The capital of France is Paris."
+        ],
+        "finite_logits": true
+      }
+    }
+  ]
+}

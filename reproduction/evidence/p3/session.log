@@ -1,0 +1,25 @@
+Evidence: /mnt/e/VecLUT-Repro/results/p3-20261117-220123-426
+smoke-normal-B1 passed
+smoke-profile-B1 passed
+smoke-normal-B4 passed
+smoke-profile-B4 passed
+00-prefill-P256-G0-B1-T1 passed
+01-prefill-P512-G0-B1-T2 passed
+02-prefill-P32-G0-B1-T2 passed
+03-prefill-P512-G0-B1-T4 passed
+04-prefill-P32-G0-B1-T4 passed
+05-prefill-P512-G0-B1-T1 passed
+06-prefill-P256-G0-B1-T4 passed
+07-decode-P128-G32-B8-T4 passed
+08-decode-P128-G32-B4-T4 passed
+09-decode-P128-G32-B1-T1 passed
+10-decode-P128-G32-B1-T2 passed
+11-decode-P128-G32-B16-T4 passed
+12-prefill-P128-G0-B1-T4 passed
+13-decode-P128-G32-B1-T4 passed
+14-prefill-P128-G0-B1-T1 passed
+15-prefill-P256-G0-B1-T2 passed
+16-prefill-P32-G0-B1-T1 passed
+17-prefill-P128-G0-B1-T2 passed
+{"configurations": 18, "samples": 90, "cv_over_10pct": 0, "major_faults": 0, "swap_in_pages": 0, "swap_out_pages": 0, "min_available_kib": 11157724}
+P3 Falcon3 complete: real generation, verified I2_V_4 calls, uninstrumented prefill/decode.

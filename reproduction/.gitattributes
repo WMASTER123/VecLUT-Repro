@@ -11,3 +11,5 @@
 *.sha256 text eol=lf
 *.svg text eol=lf
 *.png binary
+# Preserve original application log spacing; it is evidence, not source style.
+evidence/**/*.log -whitespace

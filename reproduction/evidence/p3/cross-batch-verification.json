@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "comparison": "all normal B=4 streams vs normal B=1 for the same smoke prompt",
+  "token_ids": [
+    2530,
+    6445,
+    2306,
+    7909,
+    2340,
+    9259,
+    2037
+  ]
+}

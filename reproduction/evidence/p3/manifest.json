@@ -1,0 +1,144 @@
+{
+  "suite": "full",
+  "cases": [
+    [
+      "prefill",
+      256,
+      0,
+      1,
+      1
+    ],
+    [
+      "prefill",
+      512,
+      0,
+      1,
+      2
+    ],
+    [
+      "prefill",
+      32,
+      0,
+      1,
+      2
+    ],
+    [
+      "prefill",
+      512,
+      0,
+      1,
+      4
+    ],
+    [
+      "prefill",
+      32,
+      0,
+      1,
+      4
+    ],
+    [
+      "prefill",
+      512,
+      0,
+      1,
+      1
+    ],
+    [
+      "prefill",
+      256,
+      0,
+      1,
+      4
+    ],
+    [
+      "decode",
+      128,
+      32,
+      8,
+      4
+    ],
+    [
+      "decode",
+      128,
+      32,
+      4,
+      4
+    ],
+    [
+      "decode",
+      128,
+      32,
+      1,
+      1
+    ],
+    [
+      "decode",
+      128,
+      32,
+      1,
+      2
+    ],
+    [
+      "decode",
+      128,
+      32,
+      16,
+      4
+    ],
+    [
+      "prefill",
+      128,
+      0,
+      1,
+      4
+    ],
+    [
+      "decode",
+      128,
+      32,
+      1,
+      4
+    ],
+    [
+      "prefill",
+      128,
+      0,
+      1,
+      1
+    ],
+    [
+      "prefill",
+      256,
+      0,
+      1,
+      2
+    ],
+    [
+      "prefill",
+      32,
+      0,
+      1,
+      1
+    ],
+    [
+      "prefill",
+      128,
+      0,
+      1,
+      2
+    ]
+  ],
+  "repeats": 5,
+  "seed": 20261117,
+  "normal_sha256": "a187e22838063115dc77aaa512452600af1eb3e35ee70f29bbc2f81677efe459",
+  "profile_sha256": "89df67fbdcbfb5ddc723db63b80400a9ea4ed68c9e4436f86035ccd296349578",
+  "env": {
+    "OMP_WAIT_POLICY": "PASSIVE",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_PROC_BIND": "CLOSE",
+    "OMP_PLACES": "{0},{2},{4},{6}"
+  },
+  "timing": "model-forward prefill; autoregressive decode loop includes greedy finite-logit scan and host batch bookkeeping",
+  "shared_prompt": true,
+  "ignore_eog_in_performance": true
+}

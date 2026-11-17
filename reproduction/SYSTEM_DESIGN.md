@@ -82,3 +82,11 @@ tile_id*K*32 + k*32 + token_in_tile
 P2 实测更新：中大 N 的单线程代表案例中，提升/转置约占 30.7%–37.3%，独立清零约 1.9%–2.5% 的插桩工作阶段时间。提升循环把 `[输出行][token]` 的 INT16 数据加到 `[token][输出行]` 的 INT32 数组，每个 K=128 分组重复一次；它含转置访存，不是单纯类型转换指令。选定的后续方案是只在 I2_V_4 局部分块该循环，第一版不动清零。见 [优化方案](OPTIMIZATION_PLAN.md)，目前尚未实现。
 
 P2 只测本系统；I1 格式和其他 I2 分块变体另行验证；P3 才下载指定模型并检查真实执行路径。
+
+## 7. P3 的真实模型验证
+
+Falcon3 1B 指定 GGUF 已实际运行。薄入口 `bench_p3.cpp` 使用作者 libllama 完成 tokenizer、模型自带 chat template、KV cache 和 `llama_decode`，由模型计算图继续调用 `ggml_compute_forward_mul_mat` 的 I2_V_4 分发，再进入 `ggml_gemm_i2v4_i8v_lut`。
+
+模型有 18 层、126 个 I2_V_4 张量，另有 163 个 F32、1 个 Q4_K、1 个 Q6_K。因此进入目标 LUT 的是相应矩阵，不能声称所有模型算子均被 LUT 替换。诊断在实际内核入口计数，4 线程一次前向得到 126×4=504 次工作线程调用；7 步生成得到 3528 次。B=1 和 B=4 的验证均符合。
+
+normal/profile 生成 token 完全一致，四序列的结果也与单序列一致，logits 有限。正式 Prefill/Decode 关闭计时插桩，并将加载、Prefill、Decode 和主机贪心开销的口径分别记录。详见 [P3_REPORT.md](P3_REPORT.md) 和 [P3_METHOD.md](P3_METHOD.md)。这不是标准质量评测，也未实现优化方案。
