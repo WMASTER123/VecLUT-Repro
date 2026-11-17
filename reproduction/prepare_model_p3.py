@@ -1,6 +1,7 @@
-"""Download exactly one pinned, public Falcon3 GGUF using the Python standard library."""
+"""Download one pinned GGUF; the optional second argument selects a registry key."""
 import hashlib, json, shutil, sys, time, urllib.request
 from pathlib import Path
+from model_registry import MODELS
 
 REPO='XXXXyu/Falcon3-1B-Instruct-1.58bit-vlut-gguf'
 REV='1cf5c2dc924ab7117053758da68f8376da95fc4d'
@@ -15,7 +16,10 @@ def digest(path):
     return h.hexdigest()
 
 def main():
-    root=Path(sys.argv[1]); dest=root/'models/falcon3-1b-i2v4'; dest.mkdir(parents=True,exist_ok=True)
+    key=sys.argv[2] if len(sys.argv)>2 else 'falcon3-1b-i2v4'
+    spec=MODELS[key]
+    REPO,REV,FILE,SHA,SIZE=(spec[k] for k in ('repo','revision','file','sha256','size_bytes'))
+    root=Path(sys.argv[1]); dest=root/'models'/key; dest.mkdir(parents=True,exist_ok=True)
     final=dest/FILE
     if final.exists():
         if final.stat().st_size!=SIZE or digest(final)!=SHA:

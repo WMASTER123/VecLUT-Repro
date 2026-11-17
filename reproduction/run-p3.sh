@@ -11,7 +11,11 @@ export OMP_PLACES="${P3_OMP_PLACES:-}"
 mkdir -p "$TMPDIR" "$MPLCONFIGDIR"
 for cmd in git cmake c++ python3 make; do command -v "$cmd" >/dev/null || { echo "Missing $cmd";exit 1; };done
 args=()
-case "${1:-}" in '') ;; --quick) args+=(--quick);; *) echo 'Usage: run-p3.sh [--quick]';exit 2;; esac
+model_key=falcon3-1b-i2v4
+while (($#)); do
+  case "$1" in --quick) args+=(--quick);shift;; --model) model_key="${2:?Missing model key}";shift 2;; *) echo 'Usage: run-p3.sh [--quick] [--model registry-key]';exit 2;; esac
+done
+case "$model_key" in falcon3-1b-i2v4|bitnet-3b-i2v4) ;; *) echo 'P3 requires an approved I2 model';exit 2;; esac
 run="$root/results/p3-$(date +%Y%m%d-%H%M%S)-$$"
 mkdir -p "$run";printf '%s\n' "$run" > "$root/results/latest-p3.txt"
 exec > >(tee "$run/session.log") 2>&1
@@ -20,9 +24,9 @@ git -C "$repo" rev-parse HEAD > "$run/source-sha.txt"
 git -C "$repo" diff --binary > "$run/source.patch"
 git -C "$repo" status --short > "$run/git-status.txt"
 { date -Is;uname -srvm;cat /etc/os-release;python3 --version;c++ --version;cmake --version;lscpu;free -b; } > "$run/environment.txt"
-python3 "$repo/reproduction/prepare_model_p3.py" "$root" > "$run/model-preparation.log" 2>&1
-model="$root/models/falcon3-1b-i2v4/ggml-model-I2_V_4.gguf"
-cp "$root/models/falcon3-1b-i2v4/model-manifest.json" "$run/model-manifest.json"
+python3 "$repo/reproduction/prepare_model_p3.py" "$root" "$model_key" > "$run/model-preparation.log" 2>&1
+model="$root/models/$model_key/ggml-model-I2_V_4.gguf"
+cp "$root/models/$model_key/model-manifest.json" "$run/model-manifest.json"
 # Reuse P2 build directories: same validated CPU configuration, now also build libllama.
 for flavor in normal profile; do
   build="$root/builds/p2-$flavor";enabled=OFF;[[ "$flavor" == normal ]] || enabled=ON
@@ -43,6 +47,6 @@ for flavor in normal profile; do
   cp "$build/CMakeCache.txt" "$run/$flavor-CMakeCache.txt"
   sha256sum "$build/bin/bench-p3" "$build/src/libllama.so" "$build/ggml/src/"*.so > "$run/$flavor-binaries.sha256"
 done
-python3 "$repo/reproduction/run_p3.py" "$root/builds/p2-normal/bin/bench-p3" "$root/builds/p2-profile/bin/bench-p3" "$model" "$run/measurements" "${args[@]}"
+python3 "$repo/reproduction/run_p3.py" "$root/builds/p2-normal/bin/bench-p3" "$root/builds/p2-profile/bin/bench-p3" "$model" "$run/measurements" --model-key "$model_key" "${args[@]}"
 python3 "$repo/reproduction/analyze_p3.py" "$run/measurements"
-echo 'P3 Falcon3 complete: real generation, verified I2_V_4 calls, uninstrumented prefill/decode.'
+echo "P3 $model_key complete: real generation, verified I2_V_4 calls, uninstrumented prefill/decode."

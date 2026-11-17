@@ -1,5 +1,5 @@
 [CmdletBinding()]
-param([switch]$Quick, [string]$Distribution='Ubuntu-24.04', [string]$DataDirectory, [string]$CpuPlaces='{0},{2},{4},{6}')
+param([switch]$Quick, [string]$Distribution='Ubuntu-24.04', [string]$DataDirectory, [string]$CpuPlaces='{0},{2},{4},{6}', [ValidateSet('falcon3-1b-i2v4','bitnet-3b-i2v4')][string]$Model='falcon3-1b-i2v4')
 $ErrorActionPreference='Stop'
 $repoPath=(Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
 $linuxPath=(& wsl -d $Distribution -- wslpath -a $repoPath.Replace('\','/')).Trim()
@@ -12,7 +12,7 @@ if($DataDirectory){
     if($LASTEXITCODE -ne 0 -or -not $linuxDataPath){throw 'Cannot resolve data directory.'}
     $wslArgs+="VECLUT_REPRO_DIR=$linuxDataPath"
 }
-$wslArgs+=@('bash',"$linuxPath/reproduction/run-p3.sh")
+$wslArgs+=@('bash',"$linuxPath/reproduction/run-p3.sh",'--model',$Model)
 if($Quick){$wslArgs+='--quick'}
 & wsl @wslArgs
 if($LASTEXITCODE -ne 0){throw "P3 failed with code $LASTEXITCODE. See printed evidence directory."}

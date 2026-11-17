@@ -73,12 +73,19 @@ int main(int argc,char **argv) try {
     int P=std::stoi(argv[3]),G=std::stoi(argv[4]),B=std::stoi(argv[5]),threads=std::stoi(argv[6]),repeats=std::stoi(argv[7]);
     if((mode!="prefill"&&mode!="decode"&&mode!="smoke")||P<1||G<0||B<1||B>16||threads<1||threads>4||repeats<1||P>512||G>128)
         throw std::runtime_error("invalid parameters");
-    auto *gguf=gguf_init_from_file(path.c_str(),{true,nullptr});
+    ggml_context *metadata=nullptr;
+    auto *gguf=gguf_init_from_file(path.c_str(),{true,&metadata});
     if(!gguf) throw std::runtime_error("cannot inspect GGUF");
     std::map<std::string,int> types;
     for(int i=0;i<gguf_get_n_tensors(gguf);++i) types[ggml_type_name(gguf_get_tensor_type(gguf,i))]++;
+    json matrices=json::array();
+    for(auto *tensor=ggml_get_first_tensor(metadata);tensor;tensor=ggml_get_next_tensor(metadata,tensor)) {
+        if(tensor->type==GGML_TYPE_I2_V_4 || tensor->type==GGML_TYPE_I1_V_2)
+            matrices.push_back({{"name",tensor->name},{"type",ggml_type_name(tensor->type)},
+                                {"K",tensor->ne[0]},{"M",tensor->ne[1]}});
+    }
     if(!types.count(ggml_type_name(GGML_TYPE_I2_V_4))) throw std::runtime_error("GGUF has no I2_V_4 tensor");
-    gguf_free(gguf);
+    gguf_free(gguf);ggml_free(metadata);
     llama_backend_init();
     auto mp=llama_model_default_params();mp.n_gpu_layers=0;mp.use_mmap=true;
     auto start=Clock::now();auto *model=llama_model_load_from_file(path.c_str(),mp);double load_ms=ms(start);
@@ -88,12 +95,18 @@ int main(int argc,char **argv) try {
     std::vector<llama_token> input;
     if(mode=="smoke") {
         const char *question="What is the capital of France? Answer in one short sentence.";
-        llama_chat_message msg{"user",question};
         const char *tmpl=llama_model_chat_template(model);
-        std::vector<char> buf(8192);
-        int n=llama_chat_apply_template(tmpl,&msg,1,true,buf.data(),buf.size());
-        if(n<0||n>int(buf.size())) throw std::runtime_error("unsupported model chat template");
-        prompt.assign(buf.data(),n);input=tokenize(vocab,prompt);P=input.size();
+        if(tmpl) {
+            llama_chat_message msg{"user",question};
+            std::vector<char> buf(8192);
+            int n=llama_chat_apply_template(tmpl,&msg,1,true,buf.data(),buf.size());
+            if(n<0||n>int(buf.size())) throw std::runtime_error("unsupported model chat template");
+            prompt.assign(buf.data(),n);
+        } else {
+            // The BitNet checkpoint is a base model, not an instruction-tuned assistant.
+            prompt="Paris is the capital of France. The city is known for";
+        }
+        input=tokenize(vocab,prompt);P=input.size();
     } else {
         while(true) {
             prompt+=" The small research team studies efficient language models on a local CPU. Clear experiments use a fixed input and record their results.";
@@ -109,7 +122,7 @@ int main(int argc,char **argv) try {
     if(!ctx) throw std::runtime_error("context initialization failed");
     auto batch=llama_batch_init(std::max(P,B),0,B);
     emit({{"record","setup"},{"mode",mode},{"P",P},{"G",G},{"B",B},{"threads",threads},{"repeats",repeats},
-          {"profile",tracing()},{"tensor_types",types},{"load_ms",load_ms},{"context_ms",context_ms},{"n_ctx",llama_n_ctx(ctx)},
+          {"profile",tracing()},{"tensor_types",types},{"vlut_matrices",matrices},{"load_ms",load_ms},{"context_ms",context_ms},{"n_ctx",llama_n_ctx(ctx)},
           {"n_vocab",n_vocab},{"input_tokens",input},{"input_text",prompt},{"shared_prompt",B>1}});
     for(int rep=-1;rep<repeats;++rep) {
         llama_kv_cache_clear(ctx);

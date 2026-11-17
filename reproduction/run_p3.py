@@ -2,12 +2,14 @@
 import argparse, csv, hashlib, json, os, random, re, subprocess, threading
 from pathlib import Path
 from run_p2 import snapshot
+from model_registry import MODELS
 
 def records(path): return [json.loads(line) for line in path.read_text().splitlines()]
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('normal',type=Path);p.add_argument('profile',type=Path)
     p.add_argument('model',type=Path);p.add_argument('output',type=Path);p.add_argument('--quick',action='store_true')
+    p.add_argument('--model-key',choices=MODELS,default='falcon3-1b-i2v4')
     a=p.parse_args();places=os.environ.get('OMP_PLACES','')
     if not re.fullmatch(r'\{\d+\}(,\{\d+\}){3,}',places): p.error('Use four explicit OMP_PLACES')
     cpus=list(map(int,re.findall(r'\d+',places)))
@@ -31,10 +33,11 @@ def main():
         rs=[r for r in rows if r['record']=='sample']
         if len(rs)!=repeats or any(not r['finite_logits'] for r in rs):raise RuntimeError('Incomplete/invalid measurement')
         if mode=='decode' and any(r['decode_steps']!=G or r['decoded_tokens']!=G*B for r in rs):raise RuntimeError('Wrong decode denominator')
-        if setup['tensor_types'].get('i2_v_4')!=126:raise RuntimeError('Unexpected pinned Falcon3 tensor inventory')
+        spec=MODELS[a.model_key];count=spec['tensor_count']
+        if setup['tensor_types'].get(spec['tensor_type'])!=count:raise RuntimeError('Unexpected pinned model tensor inventory')
         if setup['profile']:
             for r in rs:
-                if r['prefill_i2v4_worker_calls']!=126*t or r['decode_i2v4_worker_calls']!=126*t*r['decode_steps']:
+                if r['prefill_i2v4_worker_calls']!=count*t or r['decode_i2v4_worker_calls']!=count*t*r['decode_steps']:
                     raise RuntimeError('Unexpected I2_V_4 calls: investigate graph execution')
         print(label+' passed',flush=True)
         return setup,rs
@@ -47,6 +50,9 @@ def main():
                 if not rs[0]['output_token_ids'][0]:raise RuntimeError('Empty smoke generation')
                 outputs.append(rs[0]['output_token_ids']);trace.append(dict(build=name,B=B,setup=setup,sample=rs[0]))
             if outputs[0]!=outputs[1]:raise RuntimeError('Normal/profile greedy output mismatch')
+            if any(ids!=outputs[0][0] for ids in outputs[0]):raise RuntimeError('Shared-prompt streams differ')
+            if B==1: single_output=outputs[0][0]
+            elif outputs[0][0]!=single_output:raise RuntimeError('Single/parallel smoke output mismatch')
         (a.output/'path-verification.json').write_text(json.dumps(dict(passed=True,normal_profile_tokens_equal=True,records=trace),indent=2)+'\n')
         cases=[('prefill',n,0,1,t) for n in [32,128,256,512] for t in [1,2,4]]
         cases += [('decode',128,32,1,t) for t in [1,2,4]]
@@ -62,7 +68,7 @@ def main():
         with (a.output/'raw.csv').open('w',newline='') as f:
             w=csv.DictWriter(f,fieldnames=list(samples[0]));w.writeheader();w.writerows(samples)
         (a.output/'setups.json').write_text(json.dumps(setups,indent=2)+'\n')
-        manifest=dict(suite='quick' if a.quick else 'full',cases=cases,repeats=5,seed=20261117,
+        manifest=dict(model_key=a.model_key,suite='quick' if a.quick else 'full',cases=cases,repeats=5,seed=20261117,
                       normal_sha256=hashlib.sha256(a.normal.read_bytes()).hexdigest(),profile_sha256=hashlib.sha256(a.profile.read_bytes()).hexdigest(),
                       env={k:os.environ.get(k) for k in ['OMP_WAIT_POLICY','OMP_DYNAMIC','OMP_PROC_BIND','OMP_PLACES']},
                       timing='model-forward prefill; autoregressive decode loop includes greedy finite-logit scan and host batch bookkeeping',
