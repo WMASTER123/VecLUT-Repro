@@ -1,0 +1,9 @@
+{
+  "configurations": 6,
+  "samples": 30,
+  "cv_over_10pct": 0,
+  "major_faults": 0,
+  "swap_in_pages": 0,
+  "swap_out_pages": 0,
+  "min_available_kib": 10516176
+}

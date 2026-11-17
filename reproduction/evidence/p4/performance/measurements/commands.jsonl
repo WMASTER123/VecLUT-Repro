@@ -1,0 +1,10 @@
+{"label": "smoke-normal-B1", "argv": ["/mnt/e/VecLUT-Repro/builds/p2-normal/bin/bench-p3", "/mnt/e/VecLUT-Repro/models/bitnet-3b-i1v2/ggml-model-I1_V_2.gguf", "smoke", "32", "48", "1", "4", "1"]}
+{"label": "smoke-profile-B1", "argv": ["/mnt/e/VecLUT-Repro/builds/p2-profile/bin/bench-p3", "/mnt/e/VecLUT-Repro/models/bitnet-3b-i1v2/ggml-model-I1_V_2.gguf", "smoke", "32", "48", "1", "4", "1"]}
+{"label": "smoke-normal-B4", "argv": ["/mnt/e/VecLUT-Repro/builds/p2-normal/bin/bench-p3", "/mnt/e/VecLUT-Repro/models/bitnet-3b-i1v2/ggml-model-I1_V_2.gguf", "smoke", "32", "48", "4", "4", "1"]}
+{"label": "smoke-profile-B4", "argv": ["/mnt/e/VecLUT-Repro/builds/p2-profile/bin/bench-p3", "/mnt/e/VecLUT-Repro/models/bitnet-3b-i1v2/ggml-model-I1_V_2.gguf", "smoke", "32", "48", "4", "4", "1"]}
+{"label": "00-decode-P128-G32-B1-T4", "argv": ["/mnt/e/VecLUT-Repro/builds/p2-normal/bin/bench-p3", "/mnt/e/VecLUT-Repro/models/bitnet-3b-i1v2/ggml-model-I1_V_2.gguf", "decode", "128", "32", "1", "4", "5"]}
+{"label": "01-prefill-P512-G0-B1-T4", "argv": ["/mnt/e/VecLUT-Repro/builds/p2-normal/bin/bench-p3", "/mnt/e/VecLUT-Repro/models/bitnet-3b-i1v2/ggml-model-I1_V_2.gguf", "prefill", "512", "0", "1", "4", "5"]}
+{"label": "02-decode-P128-G32-B4-T4", "argv": ["/mnt/e/VecLUT-Repro/builds/p2-normal/bin/bench-p3", "/mnt/e/VecLUT-Repro/models/bitnet-3b-i1v2/ggml-model-I1_V_2.gguf", "decode", "128", "32", "4", "4", "5"]}
+{"label": "03-decode-P128-G32-B16-T4", "argv": ["/mnt/e/VecLUT-Repro/builds/p2-normal/bin/bench-p3", "/mnt/e/VecLUT-Repro/models/bitnet-3b-i1v2/ggml-model-I1_V_2.gguf", "decode", "128", "32", "16", "4", "5"]}
+{"label": "04-prefill-P32-G0-B1-T4", "argv": ["/mnt/e/VecLUT-Repro/builds/p2-normal/bin/bench-p3", "/mnt/e/VecLUT-Repro/models/bitnet-3b-i1v2/ggml-model-I1_V_2.gguf", "prefill", "32", "0", "1", "4", "5"]}
+{"label": "05-prefill-P128-G0-B1-T4", "argv": ["/mnt/e/VecLUT-Repro/builds/p2-normal/bin/bench-p3", "/mnt/e/VecLUT-Repro/models/bitnet-3b-i1v2/ggml-model-I1_V_2.gguf", "prefill", "128", "0", "1", "4", "5"]}

@@ -1,0 +1,459 @@
+Evidence: /mnt/e/VecLUT-Repro/results/p6-20261117-232703-401
+{
+  "mode": "fixed-regression",
+  "passed": true,
+  "returncode": 0,
+  "passed_checks": 164,
+  "failed_checks": 0,
+  "failures": [],
+  "invalid_shapes": [
+    {
+      "mode": "pack",
+      "K": 4,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "pack",
+      "K": 20,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "kernel",
+      "K": 4,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "kernel",
+      "K": 20,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "kernel",
+      "K": 16777216,
+      "returncode": -6,
+      "passed": true
+    }
+  ],
+  "model_inference": false,
+  "performance_measurement": false,
+  "large_workspace_returncode": 0
+}
+{
+  "passed": true,
+  "mode": "fixed-regression",
+  "passed_checks": 225,
+  "failed_checks": 0,
+  "failures": [],
+  "returncode": 0,
+  "invalid_shapes": [
+    {
+      "mode": "pack",
+      "K": 0,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "pack",
+      "K": 6,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 0,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 6,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 16777216,
+      "passed": true,
+      "returncode": -6
+    }
+  ],
+  "sanitizer_error": false
+}
+off correctness passed
+{
+  "mode": "fixed-regression",
+  "passed": true,
+  "returncode": 0,
+  "passed_checks": 164,
+  "failed_checks": 0,
+  "failures": [],
+  "invalid_shapes": [
+    {
+      "mode": "pack",
+      "K": 4,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "pack",
+      "K": 20,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "kernel",
+      "K": 4,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "kernel",
+      "K": 20,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "kernel",
+      "K": 16777216,
+      "returncode": -6,
+      "passed": true
+    }
+  ],
+  "model_inference": false,
+  "performance_measurement": false,
+  "large_workspace_returncode": 0
+}
+{
+  "passed": true,
+  "mode": "fixed-regression",
+  "passed_checks": 225,
+  "failed_checks": 0,
+  "failures": [],
+  "returncode": 0,
+  "invalid_shapes": [
+    {
+      "mode": "pack",
+      "K": 0,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "pack",
+      "K": 6,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 0,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 6,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 16777216,
+      "passed": true,
+      "returncode": -6
+    }
+  ],
+  "sanitizer_error": false
+}
+on correctness passed
+{
+  "mode": "fixed-regression",
+  "passed": true,
+  "returncode": 0,
+  "passed_checks": 164,
+  "failed_checks": 0,
+  "failures": [],
+  "invalid_shapes": [
+    {
+      "mode": "pack",
+      "K": 4,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "pack",
+      "K": 20,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "kernel",
+      "K": 4,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "kernel",
+      "K": 20,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "kernel",
+      "K": 16777216,
+      "returncode": -6,
+      "passed": true
+    }
+  ],
+  "model_inference": false,
+  "performance_measurement": false,
+  "large_workspace_returncode": 0
+}
+{
+  "passed": true,
+  "mode": "fixed-regression",
+  "passed_checks": 225,
+  "failed_checks": 0,
+  "failures": [],
+  "returncode": 0,
+  "invalid_shapes": [
+    {
+      "mode": "pack",
+      "K": 0,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "pack",
+      "K": 6,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 0,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 6,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 16777216,
+      "passed": true,
+      "returncode": -6
+    }
+  ],
+  "sanitizer_error": false
+}
+asan-on correctness passed
+{
+  "mode": "fixed-regression",
+  "passed": true,
+  "returncode": 0,
+  "passed_checks": 164,
+  "failed_checks": 0,
+  "failures": [],
+  "invalid_shapes": [
+    {
+      "mode": "pack",
+      "K": 4,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "pack",
+      "K": 20,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "kernel",
+      "K": 4,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "kernel",
+      "K": 20,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "kernel",
+      "K": 16777216,
+      "returncode": -6,
+      "passed": true
+    }
+  ],
+  "model_inference": false,
+  "performance_measurement": false,
+  "large_workspace_returncode": 0
+}
+{
+  "passed": true,
+  "mode": "fixed-regression",
+  "passed_checks": 225,
+  "failed_checks": 0,
+  "failures": [],
+  "returncode": 0,
+  "invalid_shapes": [
+    {
+      "mode": "pack",
+      "K": 0,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "pack",
+      "K": 6,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 0,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 6,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 16777216,
+      "passed": true,
+      "returncode": -6
+    }
+  ],
+  "sanitizer_error": false
+}
+profile-off correctness passed
+{
+  "mode": "fixed-regression",
+  "passed": true,
+  "returncode": 0,
+  "passed_checks": 164,
+  "failed_checks": 0,
+  "failures": [],
+  "invalid_shapes": [
+    {
+      "mode": "pack",
+      "K": 4,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "pack",
+      "K": 20,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "kernel",
+      "K": 4,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "kernel",
+      "K": 20,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "kernel",
+      "K": 16777216,
+      "returncode": -6,
+      "passed": true
+    }
+  ],
+  "model_inference": false,
+  "performance_measurement": false,
+  "large_workspace_returncode": 0
+}
+{
+  "passed": true,
+  "mode": "fixed-regression",
+  "passed_checks": 225,
+  "failed_checks": 0,
+  "failures": [],
+  "returncode": 0,
+  "invalid_shapes": [
+    {
+      "mode": "pack",
+      "K": 0,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "pack",
+      "K": 6,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 0,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 6,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 16777216,
+      "passed": true,
+      "returncode": -6
+    }
+  ],
+  "sanitizer_error": false
+}
+profile-on correctness passed
+batch0-case0-off passed
+batch0-case0-on passed
+batch0-case1-off passed
+batch0-case1-on passed
+batch0-case2-off passed
+batch0-case2-on passed
+batch0-case3-off passed
+batch0-case3-on passed
+batch0-case4-off passed
+batch0-case4-on passed
+batch0-case5-off passed
+batch0-case5-on passed
+batch0-case6-off passed
+batch0-case6-on passed
+batch0-case7-off passed
+batch0-case7-on passed
+batch1-case7-on passed
+batch1-case7-off passed
+batch1-case6-on passed
+batch1-case6-off passed
+batch1-case5-on passed
+batch1-case5-off passed
+batch1-case4-on passed
+batch1-case4-off passed
+batch1-case3-on passed
+batch1-case3-off passed
+batch1-case2-on passed
+batch1-case2-off passed
+batch1-case1-on passed
+batch1-case1-off passed
+batch1-case0-on passed
+batch1-case0-off passed
+P6 bounded motivation experiment complete. Review net wall time before model tests/default changes.

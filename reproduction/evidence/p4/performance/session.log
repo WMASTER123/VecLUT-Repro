@@ -1,0 +1,14 @@
+Evidence: /mnt/e/VecLUT-Repro/results/p4-20261117-231044-670
+smoke-normal-B1 passed
+smoke-profile-B1 passed
+smoke-normal-B4 passed
+smoke-profile-B4 passed
+NOTICE: cross-batch/sequence token differences; see numerical audit and report limitations.
+00-decode-P128-G32-B1-T4 passed
+01-prefill-P512-G0-B1-T4 passed
+02-decode-P128-G32-B4-T4 passed
+03-decode-P128-G32-B16-T4 passed
+04-prefill-P32-G0-B1-T4 passed
+05-prefill-P128-G0-B1-T4 passed
+{"configurations": 6, "samples": 30, "cv_over_10pct": 0, "major_faults": 0, "swap_in_pages": 0, "swap_out_pages": 0, "min_available_kib": 10516176}
+p4 bitnet-3b-i1v2 complete: real generation, verified target kernel calls, uninstrumented prefill/decode.

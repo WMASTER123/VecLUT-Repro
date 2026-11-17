@@ -1,0 +1,26 @@
+Evidence: /mnt/e/VecLUT-Repro/results/p6-models-20261117-233509-404
+batch0-case0-off passed
+batch0-case0-on passed
+batch0-case1-off passed
+batch0-case1-on passed
+batch0-case2-off passed
+batch0-case2-on passed
+batch0-case3-off passed
+batch0-case3-on passed
+batch0-case4-off passed
+batch0-case4-on passed
+batch0-case5-off passed
+batch0-case5-on passed
+batch1-case5-on passed
+batch1-case5-off passed
+batch1-case4-on passed
+batch1-case4-off passed
+batch1-case3-on passed
+batch1-case3-off passed
+batch1-case2-on passed
+batch1-case2-off passed
+batch1-case1-on passed
+batch1-case1-off passed
+batch1-case0-on passed
+batch1-case0-off passed
+P6 model OFF/ON confirmation completed; inspect both batches and regressions.

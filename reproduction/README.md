@@ -5,7 +5,7 @@
 - 论文：[Vec-LUT，MobiSys 2026](https://arxiv.org/html/2512.06443v2)
 - 原版：[OpenBitSys/vlut.cpp](https://github.com/OpenBitSys/vlut.cpp)，固定 SHA `7a813d9c2b6c73d1066eeff49b67794318f682bd`
 - 开发分支：`repro/cpu`
-- 范围：I2_V_4 打包、激活量化、整数查表内核、CPU 计算图与 Falcon3 1B 推理；P1/P2 无需模型，P3 仅下载固定的一份 GGUF；不训练、不运行其他系统的对比实验。
+- 范围：I2_V_4 / I1_V_2 打包、激活量化、整数查表内核、CPU 计算图；Falcon3 1B 与 BitNet 3B 真实推理；随后仅做同系统 OFF/ON 小优化实验。不训练、不运行其他系统的对比实验。
 
 P2 性能入口：`bash reproduction/run-p2.sh` 或 PowerShell `./reproduction/run-p2.ps1`。它先检查正确性，再测仅 I2_V_4 的六种层形状、短输入与尾块、1/2/4 线程；实际方法、参数、日志和指标边界见 [P2_METHOD.md](P2_METHOD.md)。默认所有产物仍在项目数据目录。可选 matplotlib 用于图表；本机已有，未安装新软件。
 
@@ -13,9 +13,16 @@ P2 性能入口：`bash reproduction/run-p2.sh` 或 PowerShell `./reproduction/r
 
 - [总执行路线](EXECUTION_ROADMAP.md)：P0→P6，说明为什么将部分瓶颈诊断提前到 P2。
 - [P2 实测报告](P2_REPORT.md)：288 配置、1440 样本、分段开销、噪声及资源限制。
-- [选定的小优化方案](OPTIMIZATION_PLAN.md)：I2_V_4 分块提升转置；尚未实现，尚无加速收益。
+- [小优化实验](P6_METHOD.md)：I2_V_4 分块提升转置，独立开关默认 OFF；最终判定见 P6_REPORT.md。
+- [BitNet I2 扩展](P3_BITNET_REPORT.md)：182 个矩阵、实际路径与 18 配置/90 样本。
+- [I1 修复与模型性能](P4_REPORT.md)：独立 225 项正确性、真实路径与六配置/30 样本。
+- [相关文献与实现核对](LITERATURE_REVIEW.md)：实际阅读范围、新颖性边界。
 
-P3 Falcon3 1B：`bash reproduction/run-p3.sh` 或 `./reproduction/run-p3.ps1`，自动下载并校验唯一指定 GGUF，验证真实生成与内核路径，再跑 Prefill/Decode。详见 [P3 方法与依赖](P3_METHOD.md) 和 [P3 实测报告](P3_REPORT.md)。本轮优化方案继续留待后续，BitNet 3B 扩展未下载。
+P3：`bash reproduction/run-p3.sh` 或 `./reproduction/run-p3.ps1`，默认 Falcon3；指定 `--model bitnet-3b-i2v4` / `-Model bitnet-3b-i2v4` 使用 BitNet。仅下载并校验所选 GGUF，验证真实生成与内核路径，再跑 Prefill/Decode。详见 [P3 方法与依赖](P3_METHOD.md)。
+
+P4：`bash reproduction/run-p4.sh` 或 `./reproduction/run-p4.ps1`。先做 I1 独立正确性/ASan 和 I2 回归，再校验 BitNet I1/I2 的权重一致性，最后测 I1 模型；默认六组，`--full` / `-Full` 为 18 组，见 [P4_METHOD.md](P4_METHOD.md)。
+
+P6：`bash reproduction/run-p6.sh` 或 `./reproduction/run-p6.ps1`，独立构建 OFF/ON/ASan/profile，正确性通过后执行顺序平衡的性能对照；PowerShell 加 `-WithModels` 追加模型确认，Linux 再运行 `run-p6-models.sh`。见 [P6 方法](P6_METHOD.md)、[结果与退化](P6_REPORT.md)、[本轮审查](REVIEW_20261117.md)。所有入口支持同一个数据目录；默认优化保持 OFF。
 
 仓库是 **WMASTER123/VecLUT-Repro 的公开 Fork**，默认分支 `repro/cpu`，复现代码位于本 reproduction/ 目录；作者 master 保留。如果个人仓库列表只展示 Sources，请切换 All/Forks，或直接访问 [仓库链接](https://github.com/WMASTER123/VecLUT-Repro)。
 
@@ -108,6 +115,6 @@ PowerShell：`./reproduction/run-p1.ps1 -Sanitize`。使用单独 `builds/asan`�
 
 修复原因和反例见 [P1_REPORT.md](P1_REPORT.md)，系统讲解见 [SYSTEM_DESIGN.md](SYSTEM_DESIGN.md)。
 
-本阶段的 INT16 安全累加修复和 K 形状约束针对 **I2_V_4**。其他 I1/I2 变体仍须独立验证，不能把 P1 通过扩大成全部格式通过。共享激活量化/图分发修复会影响这些格式，P4 要检查它们的回归。
+P1 的 INT16 修复和 K 形状约束针对 **I2_V_4**；P4 另外验证并修复了 **I1_V_2**。其他 I1/I2 变体仍须独立验证，不能把这两个路径通过扩大成全部格式通过。
 
 真实模型质量、Prefill/Decode 吞吐、性能代价和优化收益均不在 P1 结论内。后续性能基线应采用通过正确性检查的版本，保留作者原始错误输出作为诊断记录。

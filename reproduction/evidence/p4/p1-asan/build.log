@@ -1,0 +1,25 @@
+gmake[1]: Warning: File 'CMakeFiles/Makefile2' has modification time 5.2 s in the future
+gmake[2]: Warning: File 'CMakeFiles/Makefile2' has modification time 5 s in the future
+gmake[3]: Warning: File 'ggml/src/CMakeFiles/ggml-base.dir/progress.make' has modification time 3.9 s in the future
+gmake[3]: warning:  Clock skew detected.  Your build may be incomplete.
+gmake[3]: Warning: File 'ggml/src/CMakeFiles/ggml-base.dir/progress.make' has modification time 2.8 s in the future
+[  9%] Building C object ggml/src/CMakeFiles/ggml-base.dir/ggml-quants-vlut.c.o
+[  9%] Building C object ggml/src/CMakeFiles/ggml-base.dir/ggml.c.o
+[ 18%] Linking CXX shared library libggml-base.so
+gmake[3]: warning:  Clock skew detected.  Your build may be incomplete.
+[ 45%] Built target ggml-base
+gmake[3]: Warning: File 'ggml/src/CMakeFiles/ggml-cpu.dir/compiler_depend.make' has modification time 4.6 s in the future
+[ 45%] Building C object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu-quants-vlut.c.o
+[ 54%] Building C object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu.c.o
+/mnt/e/VecLUT-Repro/src/vlut.cpp/ggml/src/ggml-cpu/ggml-cpu-quants-vlut.c:75:1: warning: multi-line comment [-Wcomment]
+   75 | // #define ACCUMULATE_TABLE_TRANS(ss, ss2, nc, entry_tile_remain, entry_tile_count) \
+      | ^
+[ 54%] Linking CXX shared library libggml-cpu.so
+gmake[3]: warning:  Clock skew detected.  Your build may be incomplete.
+[ 90%] Built target ggml-cpu
+gmake[3]: Warning: File 'ggml/src/CMakeFiles/ggml.dir/compiler_depend.make' has modification time 5.2 s in the future
+[ 90%] Linking CXX shared library libggml.so
+gmake[3]: warning:  Clock skew detected.  Your build may be incomplete.
+[100%] Built target ggml
+gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+gmake[1]: warning:  Clock skew detected.  Your build may be incomplete.

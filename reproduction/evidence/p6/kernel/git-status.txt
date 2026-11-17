@@ -1,0 +1,12 @@
+ M README.md
+ M reproduction/P3_METHOD.md
+ M reproduction/README.md
+?? reproduction/BITNET_NUMERICAL_AUDIT.md
+?? reproduction/LITERATURE_REVIEW.md
+?? reproduction/P3_BITNET_REPORT.md
+?? reproduction/P4_METHOD.md
+?? reproduction/P4_REPORT.md
+?? reproduction/archive_evidence.py
+?? reproduction/evidence/p3-bitnet/
+?? reproduction/evidence/p4/
+?? reproduction/run-numerical-audit.sh

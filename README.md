@@ -1,6 +1,6 @@
 # vlut.cpp
 
-> **CPU reproduction branch (`repro/cpu`)**: [setup and one-command runners](reproduction/README.md), [P2 kernel measurements](reproduction/P2_REPORT.md), [P3 Falcon3 inference and performance](reproduction/P3_REPORT.md). This is an independent reproduction of the author implementation; the original README and license follow below.
+> **CPU reproduction branch (`repro/cpu`)**: [setup and one-command runners](reproduction/README.md), [execution roadmap](reproduction/EXECUTION_ROADMAP.md), [P2 kernel measurements](reproduction/P2_REPORT.md), [Falcon3](reproduction/P3_REPORT.md), [BitNet I2](reproduction/P3_BITNET_REPORT.md), [I1 correctness and inference](reproduction/P4_REPORT.md), [opt-in optimization experiment](reproduction/P6_METHOD.md). This is an independent reproduction of the author implementation; the original README and license follow below.
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![DOI](https://img.shields.io/badge/DOI-10.1145%2F3745756.3809200-blue)](https://doi.org/10.1145/3745756.3809200)

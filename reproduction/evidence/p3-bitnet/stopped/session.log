@@ -1,0 +1,13 @@
+Evidence: /mnt/e/VecLUT-Repro/results/p3-20261117-223614-411
+smoke-normal-B1 passed
+smoke-profile-B1 passed
+smoke-normal-B4 passed
+smoke-profile-B4 passed
+Traceback (most recent call last):
+  File "/mnt/e/VecLUT-Repro/src/vlut.cpp/reproduction/run_p3.py", line 81, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/mnt/e/VecLUT-Repro/src/vlut.cpp/reproduction/run_p3.py", line 53, in main
+    if any(ids!=outputs[0][0] for ids in outputs[0]):raise RuntimeError('Shared-prompt streams differ')
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Shared-prompt streams differ

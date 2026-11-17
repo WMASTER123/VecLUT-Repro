@@ -1,0 +1,139 @@
+llama_model_loader: loaded meta data with 30 key-value pairs and 470 tensors from /mnt/e/VecLUT-Repro/models/bitnet-3b-i2v4/ggml-model-I2_V_4.gguf (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = bitnet
+llama_model_loader: - kv   1:                               general.type str              = model
+llama_model_loader: - kv   2:                               general.name str              = Bitnet_B1_58 3B
+llama_model_loader: - kv   3:                       general.organization str              = 1bitLLM
+llama_model_loader: - kv   4:                           general.basename str              = bitnet_b1_58
+llama_model_loader: - kv   5:                         general.size_label str              = 3B
+llama_model_loader: - kv   6:                            general.license str              = mit
+llama_model_loader: - kv   7:                         bitnet.block_count u32              = 26
+llama_model_loader: - kv   8:                      bitnet.context_length u32              = 2048
+llama_model_loader: - kv   9:                    bitnet.embedding_length u32              = 3200
+llama_model_loader: - kv  10:                 bitnet.feed_forward_length u32              = 8640
+llama_model_loader: - kv  11:                bitnet.attention.head_count u32              = 32
+llama_model_loader: - kv  12:             bitnet.attention.head_count_kv u32              = 32
+llama_model_loader: - kv  13:                      bitnet.rope.freq_base f32              = 10000.000000
+llama_model_loader: - kv  14:    bitnet.attention.layer_norm_rms_epsilon f32              = 0.000010
+llama_model_loader: - kv  15:                   bitnet.rope.scaling.type str              = linear
+llama_model_loader: - kv  16:                 bitnet.rope.scaling.factor f32              = 1.000000
+llama_model_loader: - kv  17:                       tokenizer.ggml.model str              = llama
+llama_model_loader: - kv  18:                         tokenizer.ggml.pre str              = default
+llama_model_loader: - kv  19:                      tokenizer.ggml.tokens arr[str,32002]   = ["<unk>", "<s>", "</s>", "<0x00>", "<...
+llama_model_loader: - kv  20:                      tokenizer.ggml.scores arr[f32,32002]   = [-1000.000000, -1000.000000, -1000.00...
+llama_model_loader: - kv  21:                  tokenizer.ggml.token_type arr[i32,32002]   = [3, 3, 3, 6, 6, 6, 6, 6, 6, 6, 6, 6, ...
+llama_model_loader: - kv  22:                tokenizer.ggml.bos_token_id u32              = 1
+llama_model_loader: - kv  23:                tokenizer.ggml.eos_token_id u32              = 2
+llama_model_loader: - kv  24:            tokenizer.ggml.unknown_token_id u32              = 0
+llama_model_loader: - kv  25:            tokenizer.ggml.padding_token_id u32              = 32000
+llama_model_loader: - kv  26:               tokenizer.ggml.add_bos_token bool             = true
+llama_model_loader: - kv  27:               tokenizer.ggml.add_eos_token bool             = false
+llama_model_loader: - kv  28:               general.quantization_version u32              = 2
+llama_model_loader: - kv  29:                          general.file_type u32              = 39
+llama_model_loader: - type  f32:  287 tensors
+llama_model_loader: - type q8_0:    1 tensors
+llama_model_loader: - type i2_v_4:  182 tensors
+print_info: file format = GGUF V3 (latest)
+print_info: file type   = unknown, may not work
+print_info: file size   = 873.65 MiB (2.20 BPW) 
+init_tokenizer: initializing tokenizer for type 1
+load: control token:  32001 '</line>' is not marked as EOG
+load: control token:      0 '<unk>' is not marked as EOG
+load: control token:  32000 '<pad>' is not marked as EOG
+load: control token:      2 '</s>' is not marked as EOG
+load: control token:      1 '<s>' is not marked as EOG
+load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect
+load: special tokens cache size = 5
+load: token to piece cache size = 0.1684 MB
+print_info: arch             = bitnet
+print_info: vocab_only       = 0
+print_info: n_ctx_train      = 2048
+print_info: n_embd           = 3200
+print_info: n_layer          = 26
+print_info: n_head           = 32
+print_info: n_head_kv        = 32
+print_info: n_rot            = 100
+print_info: n_swa            = 0
+print_info: n_embd_head_k    = 100
+print_info: n_embd_head_v    = 100
+print_info: n_gqa            = 1
+print_info: n_embd_k_gqa     = 3200
+print_info: n_embd_v_gqa     = 3200
+print_info: f_norm_eps       = 0.0e+00
+print_info: f_norm_rms_eps   = 1.0e-05
+print_info: f_clamp_kqv      = 0.0e+00
+print_info: f_max_alibi_bias = 0.0e+00
+print_info: f_logit_scale    = 0.0e+00
+print_info: n_ff             = 8640
+print_info: n_expert         = 0
+print_info: n_expert_used    = 0
+print_info: causal attn      = 1
+print_info: pooling type     = 0
+print_info: rope type        = 2
+print_info: rope scaling     = linear
+print_info: freq_base_train  = 10000.0
+print_info: freq_scale_train = 1
+print_info: n_ctx_orig_yarn  = 2048
+print_info: rope_finetuned   = unknown
+print_info: ssm_d_conv       = 0
+print_info: ssm_d_inner      = 0
+print_info: ssm_d_state      = 0
+print_info: ssm_dt_rank      = 0
+print_info: ssm_dt_b_c_rms   = 0
+print_info: model type       = 3B
+print_info: model params     = 3.32 B
+print_info: general.name     = Bitnet_B1_58 3B
+print_info: vocab type       = SPM
+print_info: n_vocab          = 32002
+print_info: n_merges         = 0
+print_info: BOS token        = 1 '<s>'
+print_info: EOS token        = 2 '</s>'
+print_info: UNK token        = 0 '<unk>'
+print_info: PAD token        = 32000 '<pad>'
+print_info: LF token         = 13 '<0x0A>'
+print_info: EOG token        = 2 '</s>'
+print_info: max token length = 48
+load_tensors: tensor 'token_embd.weight' (q8_0) (and 469 others) cannot be used with preferred buffer type CPU_AARCH64, using CPU instead
+load_tensors:   CPU_Mapped model buffer size =   873.66 MiB
+llama_init_from_model: n_seq_max     = 8
+llama_init_from_model: n_ctx         = 1344
+llama_init_from_model: n_ctx_per_seq = 168
+llama_init_from_model: n_batch       = 512
+llama_init_from_model: n_ubatch      = 512
+llama_init_from_model: flash_attn    = 0
+llama_init_from_model: freq_base     = 10000.0
+llama_init_from_model: freq_scale    = 1
+llama_init_from_model: n_ctx_per_seq (168) < n_ctx_train (2048) -- the full capacity of the model will not be utilized
+llama_kv_cache_init: kv_size = 1344, offload = 0, type_k = 'f16', type_v = 'f16', n_layer = 26, can_shift = 1
+llama_kv_cache_init: layer 0: n_embd_k_gqa = 3200, n_embd_v_gqa = 3200
+llama_kv_cache_init: layer 1: n_embd_k_gqa = 3200, n_embd_v_gqa = 3200
+llama_kv_cache_init: layer 2: n_embd_k_gqa = 3200, n_embd_v_gqa = 3200
+llama_kv_cache_init: layer 3: n_embd_k_gqa = 3200, n_embd_v_gqa = 3200
+llama_kv_cache_init: layer 4: n_embd_k_gqa = 3200, n_embd_v_gqa = 3200
+llama_kv_cache_init: layer 5: n_embd_k_gqa = 3200, n_embd_v_gqa = 3200
+llama_kv_cache_init: layer 6: n_embd_k_gqa = 3200, n_embd_v_gqa = 3200
+llama_kv_cache_init: layer 7: n_embd_k_gqa = 3200, n_embd_v_gqa = 3200
+llama_kv_cache_init: layer 8: n_embd_k_gqa = 3200, n_embd_v_gqa = 3200
+llama_kv_cache_init: layer 9: n_embd_k_gqa = 3200, n_embd_v_gqa = 3200
+llama_kv_cache_init: layer 10: n_embd_k_gqa = 3200, n_embd_v_gqa = 3200
+llama_kv_cache_init: layer 11: n_embd_k_gqa = 3200, n_embd_v_gqa = 3200
+llama_kv_cache_init: layer 12: n_embd_k_gqa = 3200, n_embd_v_gqa = 3200
+llama_kv_cache_init: layer 13: n_embd_k_gqa = 3200, n_embd_v_gqa = 3200
+llama_kv_cache_init: layer 14: n_embd_k_gqa = 3200, n_embd_v_gqa = 3200
+llama_kv_cache_init: layer 15: n_embd_k_gqa = 3200, n_embd_v_gqa = 3200
+llama_kv_cache_init: layer 16: n_embd_k_gqa = 3200, n_embd_v_gqa = 3200
+llama_kv_cache_init: layer 17: n_embd_k_gqa = 3200, n_embd_v_gqa = 3200
+llama_kv_cache_init: layer 18: n_embd_k_gqa = 3200, n_embd_v_gqa = 3200
+llama_kv_cache_init: layer 19: n_embd_k_gqa = 3200, n_embd_v_gqa = 3200
+llama_kv_cache_init: layer 20: n_embd_k_gqa = 3200, n_embd_v_gqa = 3200
+llama_kv_cache_init: layer 21: n_embd_k_gqa = 3200, n_embd_v_gqa = 3200
+llama_kv_cache_init: layer 22: n_embd_k_gqa = 3200, n_embd_v_gqa = 3200
+llama_kv_cache_init: layer 23: n_embd_k_gqa = 3200, n_embd_v_gqa = 3200
+llama_kv_cache_init: layer 24: n_embd_k_gqa = 3200, n_embd_v_gqa = 3200
+llama_kv_cache_init: layer 25: n_embd_k_gqa = 3200, n_embd_v_gqa = 3200
+llama_kv_cache_init:        CPU KV buffer size =   426.56 MiB
+llama_init_from_model: KV self size  =  426.56 MiB, K (f16):  213.28 MiB, V (f16):  213.28 MiB
+llama_init_from_model:        CPU  output buffer size =     0.98 MiB
+llama_init_from_model:        CPU compute buffer size =   111.63 MiB
+llama_init_from_model: graph nodes  = 1124
+llama_init_from_model: graph splits = 1

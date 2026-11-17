@@ -1,0 +1,61 @@
+{
+  "model_key": "bitnet-3b-i1v2",
+  "suite": "focused",
+  "cases": [
+    [
+      "decode",
+      128,
+      32,
+      1,
+      4
+    ],
+    [
+      "prefill",
+      512,
+      0,
+      1,
+      4
+    ],
+    [
+      "decode",
+      128,
+      32,
+      4,
+      4
+    ],
+    [
+      "decode",
+      128,
+      32,
+      16,
+      4
+    ],
+    [
+      "prefill",
+      32,
+      0,
+      1,
+      4
+    ],
+    [
+      "prefill",
+      128,
+      0,
+      1,
+      4
+    ]
+  ],
+  "repeats": 5,
+  "seed": 20261117,
+  "normal_sha256": "fee045dd4755f858b0845cf70314e8db27de3346fe6525c080e46d84a2160218",
+  "profile_sha256": "acac3b3601b18286850370a1f903a5f6f091616e65fc0d823b48f25bb8988c5f",
+  "env": {
+    "OMP_WAIT_POLICY": "PASSIVE",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_PROC_BIND": "CLOSE",
+    "OMP_PLACES": "{0},{2},{4},{6}"
+  },
+  "timing": "model-forward prefill; autoregressive decode loop includes greedy finite-logit scan and host batch bookkeeping",
+  "shared_prompt": true,
+  "ignore_eog_in_performance": true
+}

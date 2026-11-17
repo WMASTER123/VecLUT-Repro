@@ -1,0 +1,16 @@
+{
+  "posthoc": true,
+  "i2_run": "p3-20261117-224457-423",
+  "i1_run": "p4-20261117-231044-670",
+  "scope": "Single prompt; not a quality evaluation",
+  "observations": [
+    {
+      "B": 1,
+      "normal_token_ids_equal": true
+    },
+    {
+      "B": 4,
+      "normal_token_ids_equal": true
+    }
+  ]
+}

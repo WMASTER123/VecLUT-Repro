@@ -1,0 +1,4 @@
+{"label": "smoke-normal-B1", "argv": ["/mnt/e/VecLUT-Repro/builds/p2-normal/bin/bench-p3", "/mnt/e/VecLUT-Repro/models/bitnet-3b-i2v4/ggml-model-I2_V_4.gguf", "smoke", "32", "48", "1", "4", "1"]}
+{"label": "smoke-profile-B1", "argv": ["/mnt/e/VecLUT-Repro/builds/p2-profile/bin/bench-p3", "/mnt/e/VecLUT-Repro/models/bitnet-3b-i2v4/ggml-model-I2_V_4.gguf", "smoke", "32", "48", "1", "4", "1"]}
+{"label": "smoke-normal-B4", "argv": ["/mnt/e/VecLUT-Repro/builds/p2-normal/bin/bench-p3", "/mnt/e/VecLUT-Repro/models/bitnet-3b-i2v4/ggml-model-I2_V_4.gguf", "smoke", "32", "48", "4", "4", "1"]}
+{"label": "smoke-profile-B4", "argv": ["/mnt/e/VecLUT-Repro/builds/p2-profile/bin/bench-p3", "/mnt/e/VecLUT-Repro/models/bitnet-3b-i2v4/ggml-model-I2_V_4.gguf", "smoke", "32", "48", "4", "4", "1"]}

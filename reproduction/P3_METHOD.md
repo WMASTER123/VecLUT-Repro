@@ -1,6 +1,16 @@
-# P3：Falcon3 1B 真实推理、内核路径与性能
+# P3：Falcon3 1B / BitNet 3B 真实推理、内核路径与性能
 
-本轮按用户指令使用 Falcon3 1B I2_V_4，优化方案暂不实施。原总路线的 BitNet 3B 扩展保留后续，不额外下载。只测本系统，不部署或比较其他框架。
+Falcon3 1B 与 BitNet 3B 的 I2_V_4 扩展均已完成。只测本系统，不部署或比较其他框架。下文保留 Falcon3 的具体模型/提示配置；BitNet 差异在本节明确列出。
+
+## BitNet 扩展
+
+PowerShell：`./reproduction/run-p3.ps1 -Model bitnet-3b-i2v4 -DataDirectory E:\VecLUT-Repro`。Linux：`bash reproduction/run-p3.sh --model bitnet-3b-i2v4`。默认仍为 Falcon3，可加 `-Quick` / `--quick`。
+
+模型 registry 固定 revision、大小及 SHA256，已下载文件校验后复用；BitNet I2 文件 916,849,184 字节。模型来源、哈希、真实矩阵形状和 18 配置结果见 [P3_BITNET_REPORT.md](P3_BITNET_REPORT.md)。
+
+BitNet 是基础模型，没有 chat template；功能提示为 `Paris is the capital of France. The city is known for`，生成上限 48 步。182 个 I2 张量、26 层；4 线程一次前向 728 次入口调用。每个目标张量的 M/K 形状在 setup JSONL 中保存；Prefill 最后一层的 FFN 可能因输出位置裁剪而使用小于 P 的实际 N。
+
+两模型均要求同一 B/线程/提示的 normal/profile 生成 token 完全一致。跨 B 或不同序列的文本一致性作为观测记录，不作为通用断言；BitNet 出现该差异后的定位证据见 [BITNET_NUMERICAL_AUDIT.md](BITNET_NUMERICAL_AUDIT.md)。独立整数参考与有限 logits 检查仍保留，正式性能脚本拒绝开启诊断环境变量。
 
 ## 环境、模型与一键入口
 

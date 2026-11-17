@@ -1,0 +1,23 @@
+[ 23%] Built target ggml-base
+[ 47%] Built target ggml-cpu
+[ 52%] Built target ggml
+[ 57%] Building CXX object src/CMakeFiles/llama.dir/llama-adapter.cpp.o
+[ 57%] Building CXX object src/CMakeFiles/llama.dir/llama.cpp.o
+[ 61%] Building CXX object src/CMakeFiles/llama.dir/llama-arch.cpp.o
+[ 61%] Building CXX object src/CMakeFiles/llama.dir/llama-batch.cpp.o
+[ 66%] Building CXX object src/CMakeFiles/llama.dir/llama-chat.cpp.o
+[ 66%] Building CXX object src/CMakeFiles/llama.dir/llama-context.cpp.o
+[ 71%] Building CXX object src/CMakeFiles/llama.dir/llama-grammar.cpp.o
+[ 71%] Building CXX object src/CMakeFiles/llama.dir/llama-hparams.cpp.o
+[ 76%] Building CXX object src/CMakeFiles/llama.dir/llama-impl.cpp.o
+[ 76%] Building CXX object src/CMakeFiles/llama.dir/llama-kv-cache.cpp.o
+[ 80%] Building CXX object src/CMakeFiles/llama.dir/llama-mmap.cpp.o
+[ 80%] Building CXX object src/CMakeFiles/llama.dir/llama-model-loader.cpp.o
+[ 85%] Building CXX object src/CMakeFiles/llama.dir/llama-model.cpp.o
+[ 85%] Building CXX object src/CMakeFiles/llama.dir/llama-quant.cpp.o
+[ 90%] Building CXX object src/CMakeFiles/llama.dir/llama-sampling.cpp.o
+[ 90%] Building CXX object src/CMakeFiles/llama.dir/llama-vocab.cpp.o
+[ 95%] Building CXX object src/CMakeFiles/llama.dir/unicode.cpp.o
+[ 95%] Building CXX object src/CMakeFiles/llama.dir/unicode-data.cpp.o
+[100%] Linking CXX shared library libllama.so
+[100%] Built target llama

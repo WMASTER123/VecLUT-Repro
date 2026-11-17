@@ -1,0 +1,75 @@
+diff --git a/README.md b/README.md
+index 1efe40f7..af52bb52 100644
+--- a/README.md
++++ b/README.md
+@@ -1,6 +1,6 @@
+ # vlut.cpp
+ 
+-> **CPU reproduction branch (`repro/cpu`)**: [setup and one-command runners](reproduction/README.md), [P2 kernel measurements](reproduction/P2_REPORT.md), [P3 Falcon3 inference and performance](reproduction/P3_REPORT.md). This is an independent reproduction of the author implementation; the original README and license follow below.
++> **CPU reproduction branch (`repro/cpu`)**: [setup and one-command runners](reproduction/README.md), [execution roadmap](reproduction/EXECUTION_ROADMAP.md), [P2 kernel measurements](reproduction/P2_REPORT.md), [Falcon3](reproduction/P3_REPORT.md), [BitNet I2](reproduction/P3_BITNET_REPORT.md), [I1 correctness and inference](reproduction/P4_REPORT.md), [opt-in optimization experiment](reproduction/P6_METHOD.md). This is an independent reproduction of the author implementation; the original README and license follow below.
+ 
+ [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+ [![DOI](https://img.shields.io/badge/DOI-10.1145%2F3745756.3809200-blue)](https://doi.org/10.1145/3745756.3809200)
+diff --git a/reproduction/P3_METHOD.md b/reproduction/P3_METHOD.md
+index 082c9a39..8b022e4a 100644
+--- a/reproduction/P3_METHOD.md
++++ b/reproduction/P3_METHOD.md
+@@ -1,6 +1,16 @@
+-# P3：Falcon3 1B 真实推理、内核路径与性能
++# P3：Falcon3 1B / BitNet 3B 真实推理、内核路径与性能
+ 
+-本轮按用户指令使用 Falcon3 1B I2_V_4，优化方案暂不实施。原总路线的 BitNet 3B 扩展保留后续，不额外下载。只测本系统，不部署或比较其他框架。
++Falcon3 1B 与 BitNet 3B 的 I2_V_4 扩展均已完成。只测本系统，不部署或比较其他框架。下文保留 Falcon3 的具体模型/提示配置；BitNet 差异在本节明确列出。
++
++## BitNet 扩展
++
++PowerShell：`./reproduction/run-p3.ps1 -Model bitnet-3b-i2v4 -DataDirectory E:\VecLUT-Repro`。Linux：`bash reproduction/run-p3.sh --model bitnet-3b-i2v4`。默认仍为 Falcon3，可加 `-Quick` / `--quick`。
++
++模型 registry 固定 revision、大小及 SHA256，已下载文件校验后复用；BitNet I2 文件 916,849,184 字节。模型来源、哈希、真实矩阵形状和 18 配置结果见 [P3_BITNET_REPORT.md](P3_BITNET_REPORT.md)。
++
++BitNet 是基础模型，没有 chat template；功能提示为 `Paris is the capital of France. The city is known for`，生成上限 48 步。182 个 I2 张量、26 层；4 线程一次前向 728 次入口调用。每个目标张量的 M/K 形状在 setup JSONL 中保存；Prefill 最后一层的 FFN 可能因输出位置裁剪而使用小于 P 的实际 N。
++
++两模型均要求同一 B/线程/提示的 normal/profile 生成 token 完全一致。跨 B 或不同序列的文本一致性作为观测记录，不作为通用断言；BitNet 出现该差异后的定位证据见 [BITNET_NUMERICAL_AUDIT.md](BITNET_NUMERICAL_AUDIT.md)。独立整数参考与有限 logits 检查仍保留，正式性能脚本拒绝开启诊断环境变量。
+ 
+ ## 环境、模型与一键入口
+ 
+diff --git a/reproduction/README.md b/reproduction/README.md
+index f3e24d17..950d5cc5 100644
+--- a/reproduction/README.md
++++ b/reproduction/README.md
+@@ -5,7 +5,7 @@
+ - 论文：[Vec-LUT，MobiSys 2026](https://arxiv.org/html/2512.06443v2)
+ - 原版：[OpenBitSys/vlut.cpp](https://github.com/OpenBitSys/vlut.cpp)，固定 SHA `7a813d9c2b6c73d1066eeff49b67794318f682bd`
+ - 开发分支：`repro/cpu`
+-- 范围：I2_V_4 打包、激活量化、整数查表内核、CPU 计算图与 Falcon3 1B 推理；P1/P2 无需模型，P3 仅下载固定的一份 GGUF；不训练、不运行其他系统的对比实验。
++- 范围：I2_V_4 / I1_V_2 打包、激活量化、整数查表内核、CPU 计算图；Falcon3 1B 与 BitNet 3B 真实推理；随后仅做同系统 OFF/ON 小优化实验。不训练、不运行其他系统的对比实验。
+ 
+ P2 性能入口：`bash reproduction/run-p2.sh` 或 PowerShell `./reproduction/run-p2.ps1`。它先检查正确性，再测仅 I2_V_4 的六种层形状、短输入与尾块、1/2/4 线程；实际方法、参数、日志和指标边界见 [P2_METHOD.md](P2_METHOD.md)。默认所有产物仍在项目数据目录。可选 matplotlib 用于图表；本机已有，未安装新软件。
+ 
+@@ -13,9 +13,16 @@ P2 性能入口：`bash reproduction/run-p2.sh` 或 PowerShell `./reproduction/r
+ 
+ - [总执行路线](EXECUTION_ROADMAP.md)：P0→P6，说明为什么将部分瓶颈诊断提前到 P2。
+ - [P2 实测报告](P2_REPORT.md)：288 配置、1440 样本、分段开销、噪声及资源限制。
+-- [选定的小优化方案](OPTIMIZATION_PLAN.md)：I2_V_4 分块提升转置；尚未实现，尚无加速收益。
++- [小优化实验](P6_METHOD.md)：I2_V_4 分块提升转置，独立开关默认 OFF；最终判定见 P6_REPORT.md。
++- [BitNet I2 扩展](P3_BITNET_REPORT.md)：182 个矩阵、实际路径与 18 配置/90 样本。
++- [I1 修复与模型性能](P4_REPORT.md)：独立 225 项正确性、真实路径与六配置/30 样本。
++- [相关文献与实现核对](LITERATURE_REVIEW.md)：实际阅读范围、新颖性边界。
+ 
+-P3 Falcon3 1B：`bash reproduction/run-p3.sh` 或 `./reproduction/run-p3.ps1`，自动下载并校验唯一指定 GGUF，验证真实生成与内核路径，再跑 Prefill/Decode。详见 [P3 方法与依赖](P3_METHOD.md) 和 [P3 实测报告](P3_REPORT.md)。本轮优化方案继续留待后续，BitNet 3B 扩展未下载。
++P3：`bash reproduction/run-p3.sh` 或 `./reproduction/run-p3.ps1`，默认 Falcon3；指定 `--model bitnet-3b-i2v4` / `-Model bitnet-3b-i2v4` 使用 BitNet。仅下载并校验所选 GGUF，验证真实生成与内核路径，再跑 Prefill/Decode。详见 [P3 方法与依赖](P3_METHOD.md)。
++
++P4：`bash reproduction/run-p4.sh` 或 `./reproduction/run-p4.ps1`。先做 I1 独立正确性/ASan 和 I2 回归，再校验 BitNet I1/I2 的权重一致性，最后测 I1 模型；默认六组，`--full` / `-Full` 为 18 组，见 [P4_METHOD.md](P4_METHOD.md)。
++
++P6：`bash reproduction/run-p6.sh` 或 `./reproduction/run-p6.ps1`，独立构建 OFF/ON/ASan/profile，正确性通过后执行顺序平衡的性能对照，见 [P6_METHOD.md](P6_METHOD.md)。所有入口支持同一个数据目录；默认优化保持 OFF。
+ 
+ 仓库是 **WMASTER123/VecLUT-Repro 的公开 Fork**，默认分支 `repro/cpu`，复现代码位于本 reproduction/ 目录；作者 master 保留。如果个人仓库列表只展示 Sources，请切换 All/Forks，或直接访问 [仓库链接](https://github.com/WMASTER123/VecLUT-Repro)。
+ 
+@@ -108,6 +115,6 @@ PowerShell：`./reproduction/run-p1.ps1 -Sanitize`。使用单独 `builds/asan`
+ 
+ 修复原因和反例见 [P1_REPORT.md](P1_REPORT.md)，系统讲解见 [SYSTEM_DESIGN.md](SYSTEM_DESIGN.md)。
+ 
+-本阶段的 INT16 安全累加修复和 K 形状约束针对 **I2_V_4**。其他 I1/I2 变体仍须独立验证，不能把 P1 通过扩大成全部格式通过。共享激活量化/图分发修复会影响这些格式，P4 要检查它们的回归。
++P1 的 INT16 修复和 K 形状约束针对 **I2_V_4**；P4 另外验证并修复了 **I1_V_2**。其他 I1/I2 变体仍须独立验证，不能把这两个路径通过扩大成全部格式通过。
+ 
+ 真实模型质量、Prefill/Decode 吞吐、性能代价和优化收益均不在 P1 结论内。后续性能基线应采用通过正确性检查的版本，保留作者原始错误输出作为诊断记录。

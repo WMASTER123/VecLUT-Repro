@@ -1,0 +1,145 @@
+{
+  "model_key": "bitnet-3b-i2v4",
+  "suite": "full",
+  "cases": [
+    [
+      "prefill",
+      256,
+      0,
+      1,
+      1
+    ],
+    [
+      "prefill",
+      512,
+      0,
+      1,
+      2
+    ],
+    [
+      "prefill",
+      32,
+      0,
+      1,
+      2
+    ],
+    [
+      "prefill",
+      512,
+      0,
+      1,
+      4
+    ],
+    [
+      "prefill",
+      32,
+      0,
+      1,
+      4
+    ],
+    [
+      "prefill",
+      512,
+      0,
+      1,
+      1
+    ],
+    [
+      "prefill",
+      256,
+      0,
+      1,
+      4
+    ],
+    [
+      "decode",
+      128,
+      32,
+      8,
+      4
+    ],
+    [
+      "decode",
+      128,
+      32,
+      4,
+      4
+    ],
+    [
+      "decode",
+      128,
+      32,
+      1,
+      1
+    ],
+    [
+      "decode",
+      128,
+      32,
+      1,
+      2
+    ],
+    [
+      "decode",
+      128,
+      32,
+      16,
+      4
+    ],
+    [
+      "prefill",
+      128,
+      0,
+      1,
+      4
+    ],
+    [
+      "decode",
+      128,
+      32,
+      1,
+      4
+    ],
+    [
+      "prefill",
+      128,
+      0,
+      1,
+      1
+    ],
+    [
+      "prefill",
+      256,
+      0,
+      1,
+      2
+    ],
+    [
+      "prefill",
+      32,
+      0,
+      1,
+      1
+    ],
+    [
+      "prefill",
+      128,
+      0,
+      1,
+      2
+    ]
+  ],
+  "repeats": 5,
+  "seed": 20261117,
+  "normal_sha256": "28164334d777c2cca937dda8c3b3adcf2290200417b3e330d86af6c15380e2ab",
+  "profile_sha256": "aca6013e8b33f45b70bb7ca83070d6ec865dc03bccf54407f6fa59f42e0d40bf",
+  "env": {
+    "OMP_WAIT_POLICY": "PASSIVE",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_PROC_BIND": "CLOSE",
+    "OMP_PLACES": "{0},{2},{4},{6}"
+  },
+  "timing": "model-forward prefill; autoregressive decode loop includes greedy finite-logit scan and host batch bookkeeping",
+  "shared_prompt": true,
+  "ignore_eog_in_performance": true
+}

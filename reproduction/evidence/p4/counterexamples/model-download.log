@@ -1,0 +1,12 @@
+Downloaded 67108864/755773984 bytes
+Downloaded 134217728/755773984 bytes
+Downloaded 201326592/755773984 bytes
+Downloaded 268435456/755773984 bytes
+Downloaded 335544320/755773984 bytes
+Downloaded 402653184/755773984 bytes
+Downloaded 469762048/755773984 bytes
+Downloaded 536870912/755773984 bytes
+Downloaded 603979776/755773984 bytes
+Downloaded 671088640/755773984 bytes
+Downloaded 738197504/755773984 bytes
+{"repo": "XXXXyu/bitnet_b1_58-3B-vlut-gguf", "revision": "9758ca86f6411ea903399e45537d6fa651243524", "file": "ggml-model-I1_V_2.gguf", "sha256": "be9983b8bdd554deca39c0bf93a58e746cdce2a4611fa1ba3ea1aeffe08f2e7f", "size_bytes": 755773984, "source": "https://huggingface.co/XXXXyu/bitnet_b1_58-3B-vlut-gguf/blob/9758ca86f6411ea903399e45537d6fa651243524/ggml-model-I1_V_2.gguf", "local_file": "/mnt/e/VecLUT-Repro/models/bitnet-3b-i1v2/ggml-model-I1_V_2.gguf", "verified": true}

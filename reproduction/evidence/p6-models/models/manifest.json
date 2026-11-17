@@ -1,0 +1,55 @@
+{
+  "cases": [
+    [
+      "falcon3-1b-i2v4",
+      "prefill",
+      1
+    ],
+    [
+      "falcon3-1b-i2v4",
+      "prefill",
+      4
+    ],
+    [
+      "falcon3-1b-i2v4",
+      "decode",
+      4
+    ],
+    [
+      "bitnet-3b-i2v4",
+      "prefill",
+      1
+    ],
+    [
+      "bitnet-3b-i2v4",
+      "prefill",
+      4
+    ],
+    [
+      "bitnet-3b-i2v4",
+      "decode",
+      4
+    ]
+  ],
+  "P": 128,
+  "G": 16,
+  "B": 1,
+  "repeats": 5,
+  "orders": [
+    [
+      "off",
+      "on"
+    ],
+    [
+      "on",
+      "off"
+    ]
+  ],
+  "note": "G=16 confirmation workload, separate from P3/P4 G=32 baseline",
+  "affinity": {
+    "OMP_PLACES": "{0},{2},{4},{6}",
+    "OMP_PROC_BIND": "CLOSE",
+    "OMP_WAIT_POLICY": "PASSIVE",
+    "OMP_DYNAMIC": "FALSE"
+  }
+}

@@ -1,0 +1,256 @@
+Evidence: /mnt/e/VecLUT-Repro/results/p6-20261117-232347-416
+{
+  "mode": "fixed-regression",
+  "passed": true,
+  "returncode": 0,
+  "passed_checks": 164,
+  "failed_checks": 0,
+  "failures": [],
+  "invalid_shapes": [
+    {
+      "mode": "pack",
+      "K": 4,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "pack",
+      "K": 20,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "kernel",
+      "K": 4,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "kernel",
+      "K": 20,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "kernel",
+      "K": 16777216,
+      "returncode": -6,
+      "passed": true
+    }
+  ],
+  "model_inference": false,
+  "performance_measurement": false,
+  "large_workspace_returncode": 0
+}
+{
+  "passed": true,
+  "mode": "fixed-regression",
+  "passed_checks": 225,
+  "failed_checks": 0,
+  "failures": [],
+  "returncode": 0,
+  "invalid_shapes": [
+    {
+      "mode": "pack",
+      "K": 0,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "pack",
+      "K": 6,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 0,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 6,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 16777216,
+      "passed": true,
+      "returncode": -6
+    }
+  ],
+  "sanitizer_error": false
+}
+off correctness passed
+{
+  "mode": "fixed-regression",
+  "passed": true,
+  "returncode": 0,
+  "passed_checks": 164,
+  "failed_checks": 0,
+  "failures": [],
+  "invalid_shapes": [
+    {
+      "mode": "pack",
+      "K": 4,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "pack",
+      "K": 20,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "kernel",
+      "K": 4,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "kernel",
+      "K": 20,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "kernel",
+      "K": 16777216,
+      "returncode": -6,
+      "passed": true
+    }
+  ],
+  "model_inference": false,
+  "performance_measurement": false,
+  "large_workspace_returncode": 0
+}
+{
+  "passed": true,
+  "mode": "fixed-regression",
+  "passed_checks": 225,
+  "failed_checks": 0,
+  "failures": [],
+  "returncode": 0,
+  "invalid_shapes": [
+    {
+      "mode": "pack",
+      "K": 0,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "pack",
+      "K": 6,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 0,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 6,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 16777216,
+      "passed": true,
+      "returncode": -6
+    }
+  ],
+  "sanitizer_error": false
+}
+on correctness passed
+{
+  "mode": "fixed-regression",
+  "passed": true,
+  "returncode": 0,
+  "passed_checks": 164,
+  "failed_checks": 0,
+  "failures": [],
+  "invalid_shapes": [
+    {
+      "mode": "pack",
+      "K": 4,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "pack",
+      "K": 20,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "kernel",
+      "K": 4,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "kernel",
+      "K": 20,
+      "returncode": -6,
+      "passed": true
+    },
+    {
+      "mode": "kernel",
+      "K": 16777216,
+      "returncode": -6,
+      "passed": true
+    }
+  ],
+  "model_inference": false,
+  "performance_measurement": false,
+  "large_workspace_returncode": 0
+}
+{
+  "passed": true,
+  "mode": "fixed-regression",
+  "passed_checks": 225,
+  "failed_checks": 0,
+  "failures": [],
+  "returncode": 0,
+  "invalid_shapes": [
+    {
+      "mode": "pack",
+      "K": 0,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "pack",
+      "K": 6,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 0,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 6,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 16777216,
+      "passed": true,
+      "returncode": -6
+    }
+  ],
+  "sanitizer_error": false
+}
+asan-on correctness passed

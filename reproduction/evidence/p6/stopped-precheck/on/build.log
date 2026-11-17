@@ -1,0 +1,40 @@
+gmake[1]: Warning: File 'CMakeFiles/Makefile2' has modification time 5.3 s in the future
+gmake[2]: Warning: File 'CMakeFiles/Makefile2' has modification time 5.1 s in the future
+gmake[3]: Warning: File 'ggml/src/CMakeFiles/ggml-base.dir/progress.make' has modification time 4.2 s in the future
+gmake[3]: warning:  Clock skew detected.  Your build may be incomplete.
+gmake[3]: Warning: File 'ggml/src/CMakeFiles/ggml-base.dir/progress.make' has modification time 4.1 s in the future
+[  9%] Building C object ggml/src/CMakeFiles/ggml-base.dir/ggml-quants-vlut.c.o
+[  9%] Building C object ggml/src/CMakeFiles/ggml-base.dir/ggml.c.o
+[ 18%] Building C object ggml/src/CMakeFiles/ggml-base.dir/ggml-alloc.c.o
+[ 18%] Building CXX object ggml/src/CMakeFiles/ggml-base.dir/ggml-backend.cpp.o
+[ 27%] Building CXX object ggml/src/CMakeFiles/ggml-base.dir/ggml-opt.cpp.o
+[ 27%] Building CXX object ggml/src/CMakeFiles/ggml-base.dir/ggml-threading.cpp.o
+[ 36%] Building C object ggml/src/CMakeFiles/ggml-base.dir/ggml-quants.c.o
+[ 36%] Building CXX object ggml/src/CMakeFiles/ggml-base.dir/gguf.cpp.o
+[ 45%] Linking CXX shared library libggml-base.so
+gmake[3]: warning:  Clock skew detected.  Your build may be incomplete.
+[ 45%] Built target ggml-base
+[ 54%] Building C object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu-quants-vlut.c.o
+[ 54%] Building C object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu.c.o
+[ 54%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu.cpp.o
+[ 63%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu-aarch64.cpp.o
+/mnt/e/VecLUT-Repro/src/vlut.cpp/ggml/src/ggml-cpu/ggml-cpu-quants-vlut.c:76:1: warning: multi-line comment [-Wcomment]
+   76 | // #define ACCUMULATE_TABLE_TRANS(ss, ss2, nc, entry_tile_remain, entry_tile_count) \
+      | ^
+[ 63%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu-hbm.cpp.o
+[ 72%] Building C object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu-quants.c.o
+[ 72%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu-traits.cpp.o
+[ 81%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/amx/amx.cpp.o
+[ 81%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/amx/mmq.cpp.o
+gmake[3]: Warning: File 'ggml/src/libggml-base.so' has modification time 1.7 s in the future
+[ 90%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/llamafile/sgemm.cpp.o
+[ 90%] Linking CXX shared library libggml-cpu.so
+gmake[3]: warning:  Clock skew detected.  Your build may be incomplete.
+[ 90%] Built target ggml-cpu
+gmake[3]: Warning: File 'ggml/src/libggml-cpu.so' has modification time 5.3 s in the future
+[100%] Building CXX object ggml/src/CMakeFiles/ggml.dir/ggml-backend-reg.cpp.o
+[100%] Linking CXX shared library libggml.so
+gmake[3]: warning:  Clock skew detected.  Your build may be incomplete.
+[100%] Built target ggml
+gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+gmake[1]: warning:  Clock skew detected.  Your build may be incomplete.

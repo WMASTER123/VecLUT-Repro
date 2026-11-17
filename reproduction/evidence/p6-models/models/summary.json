@@ -1,0 +1,254 @@
+[
+  {
+    "batch": 0,
+    "case_id": 0,
+    "model": "falcon3-1b-i2v4",
+    "mode": "prefill",
+    "threads": 1,
+    "values": {
+      "off": {
+        "median_ms": 1745.591954,
+        "cv": 0.05870386374088546,
+        "tokens_s": 73.32756072041336
+      },
+      "on": {
+        "median_ms": 1724.704643,
+        "cv": 0.030104989339334705,
+        "tokens_s": 74.21560585431786
+      }
+    },
+    "speedup": 1.0121106596916605,
+    "same_tokens": true
+  },
+  {
+    "batch": 0,
+    "case_id": 1,
+    "model": "falcon3-1b-i2v4",
+    "mode": "prefill",
+    "threads": 4,
+    "values": {
+      "off": {
+        "median_ms": 561.98013,
+        "cv": 0.010164991397736883,
+        "tokens_s": 227.76605998507455
+      },
+      "on": {
+        "median_ms": 567.790628,
+        "cv": 0.010413834036790718,
+        "tokens_s": 225.43521095244284
+      }
+    },
+    "speedup": 0.9897664777939943,
+    "same_tokens": true
+  },
+  {
+    "batch": 0,
+    "case_id": 2,
+    "model": "falcon3-1b-i2v4",
+    "mode": "decode",
+    "threads": 4,
+    "values": {
+      "off": {
+        "median_ms": 1698.657418,
+        "cv": 0.016362647963269736,
+        "tokens_s": 9.419203560679355
+      },
+      "on": {
+        "median_ms": 1785.814587,
+        "cv": 0.010546001269792998,
+        "tokens_s": 8.95949675653534
+      }
+    },
+    "speedup": 0.951194726689731,
+    "same_tokens": true
+  },
+  {
+    "batch": 0,
+    "case_id": 3,
+    "model": "bitnet-3b-i2v4",
+    "mode": "prefill",
+    "threads": 1,
+    "values": {
+      "off": {
+        "median_ms": 5799.253553,
+        "cv": 0.005528656934751255,
+        "tokens_s": 22.071806109216347
+      },
+      "on": {
+        "median_ms": 4677.896297,
+        "cv": 0.019743116459096304,
+        "tokens_s": 27.36272714768991
+      }
+    },
+    "speedup": 1.2397140049297675,
+    "same_tokens": true
+  },
+  {
+    "batch": 0,
+    "case_id": 4,
+    "model": "bitnet-3b-i2v4",
+    "mode": "prefill",
+    "threads": 4,
+    "values": {
+      "off": {
+        "median_ms": 1544.791336,
+        "cv": 0.02839657382295757,
+        "tokens_s": 82.85908719001257
+      },
+      "on": {
+        "median_ms": 1490.890699,
+        "cv": 0.012780892166800853,
+        "tokens_s": 85.85471764352324
+      }
+    },
+    "speedup": 1.0361533122690707,
+    "same_tokens": true
+  },
+  {
+    "batch": 0,
+    "case_id": 5,
+    "model": "bitnet-3b-i2v4",
+    "mode": "decode",
+    "threads": 4,
+    "values": {
+      "off": {
+        "median_ms": 4151.659689,
+        "cv": 0.013594273195847788,
+        "tokens_s": 3.8538804233865034
+      },
+      "on": {
+        "median_ms": 3978.433544,
+        "cv": 0.023138505484081726,
+        "tokens_s": 4.021683364330692
+      }
+    },
+    "speedup": 1.0435412941008524,
+    "same_tokens": true
+  },
+  {
+    "batch": 1,
+    "case_id": 5,
+    "model": "bitnet-3b-i2v4",
+    "mode": "decode",
+    "threads": 4,
+    "values": {
+      "on": {
+        "median_ms": 3902.60637,
+        "cv": 0.01746819079943326,
+        "tokens_s": 4.099824190057887
+      },
+      "off": {
+        "median_ms": 3850.592163,
+        "cv": 0.036063834605528616,
+        "tokens_s": 4.15520504969147
+      }
+    },
+    "speedup": 0.9866719309946701,
+    "same_tokens": true
+  },
+  {
+    "batch": 1,
+    "case_id": 4,
+    "model": "bitnet-3b-i2v4",
+    "mode": "prefill",
+    "threads": 4,
+    "values": {
+      "on": {
+        "median_ms": 1475.801926,
+        "cv": 0.007887123068487108,
+        "tokens_s": 86.73250640547002
+      },
+      "off": {
+        "median_ms": 1480.190024,
+        "cv": 0.025412776842726262,
+        "tokens_s": 86.4753835146777
+      }
+    },
+    "speedup": 1.0029733651397876,
+    "same_tokens": true
+  },
+  {
+    "batch": 1,
+    "case_id": 3,
+    "model": "bitnet-3b-i2v4",
+    "mode": "prefill",
+    "threads": 1,
+    "values": {
+      "on": {
+        "median_ms": 4599.837191,
+        "cv": 0.013566220881329704,
+        "tokens_s": 27.82707184733487
+      },
+      "off": {
+        "median_ms": 4931.780969,
+        "cv": 0.011917394007686702,
+        "tokens_s": 25.954112886313787
+      }
+    },
+    "speedup": 1.072164244997514,
+    "same_tokens": true
+  },
+  {
+    "batch": 1,
+    "case_id": 2,
+    "model": "falcon3-1b-i2v4",
+    "mode": "decode",
+    "threads": 4,
+    "values": {
+      "on": {
+        "median_ms": 1788.119201,
+        "cv": 0.03146227689622064,
+        "tokens_s": 8.947949326338005
+      },
+      "off": {
+        "median_ms": 1753.868653,
+        "cv": 0.020699125859567947,
+        "tokens_s": 9.12268998743545
+      }
+    },
+    "speedup": 0.9808454895060433,
+    "same_tokens": true
+  },
+  {
+    "batch": 1,
+    "case_id": 1,
+    "model": "falcon3-1b-i2v4",
+    "mode": "prefill",
+    "threads": 4,
+    "values": {
+      "on": {
+        "median_ms": 560.251546,
+        "cv": 0.018251415788403516,
+        "tokens_s": 228.468802833076
+      },
+      "off": {
+        "median_ms": 555.402383,
+        "cv": 0.017354215691000412,
+        "tokens_s": 230.46354124123374
+      }
+    },
+    "speedup": 0.991344668239434,
+    "same_tokens": true
+  },
+  {
+    "batch": 1,
+    "case_id": 0,
+    "model": "falcon3-1b-i2v4",
+    "mode": "prefill",
+    "threads": 1,
+    "values": {
+      "on": {
+        "median_ms": 1739.985766,
+        "cv": 0.03294312181689308,
+        "tokens_s": 73.56382017667609
+      },
+      "off": {
+        "median_ms": 1738.832704,
+        "cv": 0.015247306466229037,
+        "tokens_s": 73.61260212414317
+      }
+    },
+    "speedup": 0.9993373152685894,
+    "same_tokens": true
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "args": [
+    "/mnt/e/VecLUT-Repro/builds/p6-on/bin/bench-p2",
+    "8192",
+    "2048",
+    "33",
+    "5",
+    "1000",
+    "graph4"
+  ],
+  "start_unix": 1794929500.309894,
+  "elapsed_s": 11.912997484207153,
+  "before": {
+    "MemAvailable": 11400728,
+    "pswpin": 0,
+    "pswpout": 0
+  },
+  "after": {
+    "MemAvailable": 11409020,
+    "pswpin": 0,
+    "pswpout": 0
+  }
+}

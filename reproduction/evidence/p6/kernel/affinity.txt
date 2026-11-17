@@ -1,0 +1,2 @@
+OMP_PLACES={0},{2},{4},{6}
+OMP_PROC_BIND=close

@@ -1,0 +1,2 @@
+Reusing verified GGUF: /mnt/e/VecLUT-Repro/models/bitnet-3b-i2v4/ggml-model-I2_V_4.gguf
+{"repo": "XXXXyu/bitnet_b1_58-3B-vlut-gguf", "revision": "9758ca86f6411ea903399e45537d6fa651243524", "file": "ggml-model-I2_V_4.gguf", "sha256": "8f9dd970b58c70180bffcf6bdbe0666b083913675d457a50decbf3cef8ec3d7e", "size_bytes": 916849184, "source": "https://huggingface.co/XXXXyu/bitnet_b1_58-3B-vlut-gguf/blob/9758ca86f6411ea903399e45537d6fa651243524/ggml-model-I2_V_4.gguf", "local_file": "/mnt/e/VecLUT-Repro/models/bitnet-3b-i2v4/ggml-model-I2_V_4.gguf", "verified": true}

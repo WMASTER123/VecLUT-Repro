@@ -1,0 +1,8 @@
+/mnt/e/VecLUT-Repro/src/vlut.cpp/ggml/src/ggml-cpu/ggml-cpu-quants-vlut.c:1201: GGML_ASSERT(n > 0 && n % 16 == 0) failed
+/mnt/e/VecLUT-Repro/builds/p6-profile-off/ggml/src/libggml-base.so(+0x162cb)[0x74edca8c42cb]
+/mnt/e/VecLUT-Repro/builds/p6-profile-off/ggml/src/libggml-base.so(ggml_abort+0x15b)[0x74edca8c466b]
+/mnt/e/VecLUT-Repro/builds/p6-profile-off/ggml/src/libggml-cpu.so(+0x10753)[0x74edca995753]
+/mnt/e/VecLUT-Repro/builds/p6-profile-off/bin/test-p1(+0x3f72)[0x5eb18c7dff72]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x74edca22a1ca]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x74edca22a28b]
+/mnt/e/VecLUT-Repro/builds/p6-profile-off/bin/test-p1(+0x4365)[0x5eb18c7e0365]

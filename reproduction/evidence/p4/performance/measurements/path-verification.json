@@ -1,0 +1,5158 @@
+{
+  "passed": true,
+  "normal_profile_tokens_equal": true,
+  "within_batch_tokens_equal": false,
+  "single_parallel_tokens_equal": false,
+  "records": [
+    {
+      "build": "normal",
+      "B": 1,
+      "setup": {
+        "record": "setup",
+        "mode": "smoke",
+        "P": 13,
+        "G": 48,
+        "B": 1,
+        "threads": 4,
+        "repeats": 1,
+        "profile": false,
+        "target_vlut_type": "i1_v_2",
+        "tensor_types": {
+          "f32": 287,
+          "i1_v_2": 182,
+          "q8_0": 1
+        },
+        "vlut_matrices": [
+          {
+            "name": "blk.0.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.0.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.0.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.0.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.0.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.0.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.0.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.1.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.1.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.1.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.1.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.1.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.1.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.1.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.2.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.2.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.2.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.2.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.2.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.2.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.2.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.3.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.3.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.3.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.3.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.3.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.3.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.3.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.4.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.4.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.4.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.4.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.4.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.4.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.4.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.5.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.5.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.5.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.5.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.5.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.5.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.5.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.6.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.6.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.6.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.6.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.6.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.6.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.6.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.7.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.7.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.7.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.7.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.7.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.7.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.7.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.8.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.8.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.8.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.8.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.8.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.8.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.8.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.9.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.9.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.9.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.9.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.9.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.9.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.9.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.10.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.10.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.10.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.10.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.10.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.10.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.10.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.11.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.11.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.11.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.11.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.11.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.11.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.11.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.12.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.12.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.12.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.12.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.12.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.12.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.12.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.13.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.13.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.13.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.13.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.13.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.13.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.13.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.14.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.14.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.14.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.14.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.14.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.14.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.14.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.15.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.15.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.15.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.15.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.15.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.15.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.15.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.16.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.16.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.16.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.16.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.16.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.16.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.16.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.17.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.17.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.17.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.17.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.17.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.17.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.17.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.18.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.18.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.18.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.18.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.18.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.18.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.18.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.19.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.19.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.19.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.19.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.19.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.19.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.19.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.20.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.20.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.20.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.20.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.20.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.20.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.20.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.21.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.21.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.21.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.21.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.21.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.21.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.21.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.22.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.22.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.22.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.22.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.22.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.22.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.22.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.23.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.23.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.23.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.23.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.23.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.23.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.23.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.24.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.24.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.24.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.24.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.24.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.24.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.24.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.25.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.25.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.25.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.25.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.25.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.25.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.25.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          }
+        ],
+        "load_ms": 4839.42097,
+        "context_ms": 111.144075,
+        "n_ctx": 512,
+        "n_vocab": 32002,
+        "input_tokens": [
+          1,
+          3681,
+          338,
+          278,
+          7483,
+          310,
+          3444,
+          29889,
+          450,
+          4272,
+          338,
+          2998,
+          363
+        ],
+        "input_text": "Paris is the capital of France. The city is known for",
+        "shared_prompt": false
+      },
+      "sample": {
+        "record": "sample",
+        "repeat": 0,
+        "prefill_ms": 378.914091,
+        "decode_model_ms": 13390.950924000002,
+        "decode_loop_ms": 13395.434841,
+        "decode_steps": 48,
+        "decoded_tokens": 48,
+        "prefill_tps": 34.3085683767828,
+        "decode_total_tps": 3.583310326969325,
+        "decode_per_sequence_tps": 3.583310326969325,
+        "prefill_i2v4_worker_calls": 0,
+        "decode_i2v4_worker_calls": 0,
+        "prefill_i1v2_worker_calls": 0,
+        "decode_i1v2_worker_calls": 0,
+        "peak_process_kib": 923460,
+        "major_faults": 0,
+        "minor_faults": 0,
+        "involuntary_switches": 107,
+        "output_token_ids": [
+          [
+            967,
+            8261,
+            4955,
+            29892,
+            9560,
+            11258,
+            29892,
+            322,
+            3186,
+            29899,
+            1990,
+            19133,
+            29879,
+            29889,
+            739,
+            338,
+            884,
+            3271,
+            304,
+            777,
+            310,
+            278,
+            1556,
+            9849,
+            293,
+            2982,
+            22848,
+            297,
+            278,
+            3186,
+            29892,
+            3704,
+            278,
+            382,
+            2593,
+            295,
+            23615,
+            29892,
+            278,
+            22711,
+            316,
+            8602,
+            21744,
+            354,
+            29892,
+            322,
+            278,
+            4562
+          ]
+        ],
+        "output_text": [
+          " its rich history, beautiful architecture, and world-class museums. It is also home to some of the most iconic landmarks in the world, including the Eiffel Tower, the Arc de Triomphe, and the Lou"
+        ],
+        "finite_logits": true
+      }
+    },
+    {
+      "build": "profile",
+      "B": 1,
+      "setup": {
+        "record": "setup",
+        "mode": "smoke",
+        "P": 13,
+        "G": 48,
+        "B": 1,
+        "threads": 4,
+        "repeats": 1,
+        "profile": true,
+        "target_vlut_type": "i1_v_2",
+        "tensor_types": {
+          "f32": 287,
+          "i1_v_2": 182,
+          "q8_0": 1
+        },
+        "vlut_matrices": [
+          {
+            "name": "blk.0.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.0.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.0.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.0.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.0.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.0.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.0.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.1.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.1.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.1.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.1.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.1.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.1.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.1.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.2.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.2.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.2.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.2.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.2.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.2.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.2.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.3.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.3.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.3.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.3.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.3.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.3.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.3.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.4.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.4.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.4.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.4.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.4.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.4.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.4.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.5.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.5.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.5.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.5.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.5.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.5.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.5.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.6.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.6.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.6.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.6.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.6.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.6.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.6.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.7.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.7.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.7.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.7.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.7.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.7.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.7.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.8.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.8.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.8.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.8.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.8.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.8.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.8.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.9.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.9.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.9.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.9.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.9.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.9.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.9.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.10.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.10.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.10.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.10.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.10.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.10.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.10.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.11.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.11.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.11.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.11.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.11.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.11.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.11.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.12.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.12.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.12.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.12.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.12.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.12.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.12.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.13.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.13.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.13.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.13.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.13.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.13.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.13.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.14.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.14.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.14.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.14.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.14.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.14.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.14.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.15.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.15.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.15.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.15.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.15.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.15.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.15.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.16.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.16.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.16.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.16.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.16.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.16.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.16.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.17.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.17.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.17.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.17.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.17.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.17.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.17.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.18.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.18.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.18.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.18.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.18.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.18.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.18.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.19.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.19.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.19.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.19.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.19.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.19.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.19.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.20.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.20.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.20.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.20.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.20.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.20.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.20.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.21.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.21.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.21.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.21.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.21.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.21.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.21.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.22.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.22.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.22.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.22.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.22.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.22.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.22.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.23.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.23.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.23.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.23.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.23.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.23.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.23.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.24.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.24.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.24.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.24.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.24.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.24.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.24.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.25.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.25.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.25.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.25.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.25.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.25.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.25.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          }
+        ],
+        "load_ms": 3852.942289,
+        "context_ms": 128.838753,
+        "n_ctx": 512,
+        "n_vocab": 32002,
+        "input_tokens": [
+          1,
+          3681,
+          338,
+          278,
+          7483,
+          310,
+          3444,
+          29889,
+          450,
+          4272,
+          338,
+          2998,
+          363
+        ],
+        "input_text": "Paris is the capital of France. The city is known for",
+        "shared_prompt": false
+      },
+      "sample": {
+        "record": "sample",
+        "repeat": 0,
+        "prefill_ms": 400.655615,
+        "decode_model_ms": 13455.936267000001,
+        "decode_loop_ms": 13460.315879,
+        "decode_steps": 48,
+        "decoded_tokens": 48,
+        "prefill_tps": 32.44681844780835,
+        "decode_total_tps": 3.566038154787051,
+        "decode_per_sequence_tps": 3.566038154787051,
+        "prefill_i2v4_worker_calls": 0,
+        "decode_i2v4_worker_calls": 0,
+        "prefill_i1v2_worker_calls": 728,
+        "decode_i1v2_worker_calls": 34944,
+        "peak_process_kib": 923168,
+        "major_faults": 0,
+        "minor_faults": 0,
+        "involuntary_switches": 108,
+        "output_token_ids": [
+          [
+            967,
+            8261,
+            4955,
+            29892,
+            9560,
+            11258,
+            29892,
+            322,
+            3186,
+            29899,
+            1990,
+            19133,
+            29879,
+            29889,
+            739,
+            338,
+            884,
+            3271,
+            304,
+            777,
+            310,
+            278,
+            1556,
+            9849,
+            293,
+            2982,
+            22848,
+            297,
+            278,
+            3186,
+            29892,
+            3704,
+            278,
+            382,
+            2593,
+            295,
+            23615,
+            29892,
+            278,
+            22711,
+            316,
+            8602,
+            21744,
+            354,
+            29892,
+            322,
+            278,
+            4562
+          ]
+        ],
+        "output_text": [
+          " its rich history, beautiful architecture, and world-class museums. It is also home to some of the most iconic landmarks in the world, including the Eiffel Tower, the Arc de Triomphe, and the Lou"
+        ],
+        "finite_logits": true
+      }
+    },
+    {
+      "build": "normal",
+      "B": 4,
+      "setup": {
+        "record": "setup",
+        "mode": "smoke",
+        "P": 13,
+        "G": 48,
+        "B": 4,
+        "threads": 4,
+        "repeats": 1,
+        "profile": false,
+        "target_vlut_type": "i1_v_2",
+        "tensor_types": {
+          "f32": 287,
+          "i1_v_2": 182,
+          "q8_0": 1
+        },
+        "vlut_matrices": [
+          {
+            "name": "blk.0.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.0.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.0.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.0.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.0.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.0.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.0.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.1.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.1.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.1.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.1.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.1.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.1.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.1.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.2.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.2.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.2.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.2.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.2.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.2.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.2.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.3.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.3.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.3.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.3.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.3.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.3.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.3.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.4.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.4.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.4.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.4.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.4.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.4.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.4.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.5.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.5.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.5.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.5.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.5.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.5.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.5.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.6.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.6.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.6.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.6.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.6.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.6.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.6.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.7.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.7.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.7.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.7.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.7.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.7.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.7.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.8.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.8.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.8.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.8.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.8.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.8.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.8.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.9.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.9.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.9.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.9.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.9.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.9.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.9.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.10.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.10.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.10.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.10.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.10.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.10.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.10.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.11.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.11.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.11.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.11.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.11.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.11.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.11.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.12.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.12.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.12.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.12.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.12.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.12.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.12.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.13.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.13.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.13.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.13.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.13.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.13.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.13.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.14.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.14.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.14.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.14.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.14.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.14.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.14.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.15.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.15.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.15.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.15.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.15.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.15.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.15.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.16.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.16.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.16.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.16.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.16.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.16.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.16.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.17.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.17.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.17.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.17.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.17.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.17.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.17.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.18.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.18.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.18.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.18.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.18.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.18.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.18.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.19.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.19.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.19.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.19.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.19.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.19.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.19.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.20.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.20.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.20.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.20.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.20.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.20.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.20.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.21.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.21.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.21.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.21.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.21.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.21.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.21.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.22.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.22.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.22.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.22.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.22.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.22.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.22.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.23.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.23.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.23.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.23.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.23.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.23.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.23.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.24.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.24.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.24.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.24.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.24.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.24.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.24.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.25.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.25.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.25.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.25.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.25.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.25.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.25.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          }
+        ],
+        "load_ms": 2740.583317,
+        "context_ms": 94.980357,
+        "n_ctx": 512,
+        "n_vocab": 32002,
+        "input_tokens": [
+          1,
+          3681,
+          338,
+          278,
+          7483,
+          310,
+          3444,
+          29889,
+          450,
+          4272,
+          338,
+          2998,
+          363
+        ],
+        "input_text": "Paris is the capital of France. The city is known for",
+        "shared_prompt": true
+      },
+      "sample": {
+        "record": "sample",
+        "repeat": 0,
+        "prefill_ms": 362.485025,
+        "decode_model_ms": 16083.133602000004,
+        "decode_loop_ms": 16100.265289,
+        "decode_steps": 48,
+        "decoded_tokens": 192,
+        "prefill_tps": 35.86355050115518,
+        "decode_total_tps": 11.925269338957909,
+        "decode_per_sequence_tps": 2.9813173347394772,
+        "prefill_i2v4_worker_calls": 0,
+        "decode_i2v4_worker_calls": 0,
+        "prefill_i1v2_worker_calls": 0,
+        "decode_i1v2_worker_calls": 0,
+        "peak_process_kib": 924056,
+        "major_faults": 0,
+        "minor_faults": 0,
+        "involuntary_switches": 110,
+        "output_token_ids": [
+          [
+            967,
+            8261,
+            4955,
+            322,
+            9257,
+            29889,
+            739,
+            338,
+            884,
+            2998,
+            363,
+            967,
+            13460,
+            322,
+            1616,
+            9088,
+            29889,
+            450,
+            4272,
+            338,
+            3271,
+            304,
+            1784,
+            19133,
+            29879,
+            322,
+            11798,
+            6358,
+            29889,
+            450,
+            4272,
+            338,
+            884,
+            2998,
+            363,
+            967,
+            9687,
+            322,
+            19006,
+            29889,
+            450,
+            4272,
+            338,
+            884,
+            2998,
+            363,
+            967,
+            4646
+          ],
+          [
+            967,
+            8261,
+            4955,
+            322,
+            9257,
+            29889,
+            739,
+            338,
+            884,
+            2998,
+            363,
+            967,
+            13460,
+            322,
+            1616,
+            9088,
+            29889,
+            450,
+            4272,
+            338,
+            3271,
+            304,
+            1784,
+            19133,
+            29879,
+            322,
+            11798,
+            6358,
+            29889,
+            450,
+            4272,
+            338,
+            884,
+            2998,
+            363,
+            967,
+            9687,
+            322,
+            19006,
+            29889,
+            450,
+            4272,
+            338,
+            884,
+            2998,
+            363,
+            967,
+            4646
+          ],
+          [
+            967,
+            8261,
+            4955,
+            322,
+            9257,
+            29889,
+            739,
+            338,
+            884,
+            2998,
+            363,
+            967,
+            9560,
+            11258,
+            322,
+            9560,
+            610,
+            2039,
+            29889,
+            450,
+            4272,
+            338,
+            3271,
+            304,
+            1784,
+            19133,
+            29879,
+            322,
+            1616,
+            11798,
+            6358,
+            29889,
+            450,
+            4272,
+            338,
+            884,
+            2998,
+            363,
+            967,
+            9687,
+            322,
+            19006,
+            29889,
+            450,
+            4272,
+            338,
+            884,
+            2998
+          ],
+          [
+            967,
+            8261,
+            4955,
+            322,
+            9257,
+            29889,
+            739,
+            338,
+            884,
+            2998,
+            363,
+            967,
+            9560,
+            11258,
+            322,
+            9560,
+            610,
+            2039,
+            29889,
+            450,
+            4272,
+            338,
+            3271,
+            304,
+            1784,
+            19133,
+            29879,
+            322,
+            1616,
+            11798,
+            6358,
+            29889,
+            450,
+            4272,
+            338,
+            884,
+            2998,
+            363,
+            967,
+            9687,
+            322,
+            19006,
+            29889,
+            450,
+            4272,
+            338,
+            884,
+            2998
+          ]
+        ],
+        "output_text": [
+          " its rich history and culture. It is also known for its fashion and art scene. The city is home to many museums and galleries. The city is also known for its food and wine. The city is also known for its night",
+          " its rich history and culture. It is also known for its fashion and art scene. The city is home to many museums and galleries. The city is also known for its food and wine. The city is also known for its night",
+          " its rich history and culture. It is also known for its beautiful architecture and beautiful parks. The city is home to many museums and art galleries. The city is also known for its food and wine. The city is also known",
+          " its rich history and culture. It is also known for its beautiful architecture and beautiful parks. The city is home to many museums and art galleries. The city is also known for its food and wine. The city is also known"
+        ],
+        "finite_logits": true
+      }
+    },
+    {
+      "build": "profile",
+      "B": 4,
+      "setup": {
+        "record": "setup",
+        "mode": "smoke",
+        "P": 13,
+        "G": 48,
+        "B": 4,
+        "threads": 4,
+        "repeats": 1,
+        "profile": true,
+        "target_vlut_type": "i1_v_2",
+        "tensor_types": {
+          "f32": 287,
+          "i1_v_2": 182,
+          "q8_0": 1
+        },
+        "vlut_matrices": [
+          {
+            "name": "blk.0.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.0.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.0.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.0.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.0.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.0.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.0.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.1.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.1.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.1.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.1.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.1.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.1.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.1.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.2.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.2.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.2.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.2.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.2.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.2.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.2.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.3.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.3.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.3.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.3.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.3.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.3.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.3.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.4.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.4.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.4.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.4.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.4.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.4.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.4.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.5.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.5.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.5.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.5.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.5.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.5.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.5.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.6.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.6.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.6.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.6.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.6.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.6.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.6.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.7.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.7.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.7.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.7.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.7.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.7.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.7.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.8.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.8.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.8.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.8.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.8.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.8.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.8.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.9.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.9.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.9.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.9.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.9.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.9.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.9.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.10.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.10.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.10.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.10.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.10.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.10.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.10.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.11.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.11.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.11.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.11.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.11.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.11.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.11.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.12.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.12.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.12.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.12.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.12.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.12.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.12.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.13.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.13.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.13.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.13.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.13.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.13.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.13.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.14.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.14.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.14.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.14.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.14.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.14.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.14.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.15.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.15.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.15.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.15.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.15.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.15.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.15.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.16.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.16.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.16.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.16.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.16.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.16.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.16.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.17.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.17.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.17.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.17.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.17.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.17.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.17.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.18.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.18.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.18.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.18.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.18.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.18.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.18.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.19.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.19.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.19.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.19.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.19.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.19.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.19.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.20.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.20.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.20.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.20.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.20.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.20.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.20.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.21.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.21.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.21.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.21.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.21.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.21.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.21.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.22.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.22.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.22.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.22.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.22.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.22.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.22.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.23.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.23.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.23.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.23.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.23.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.23.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.23.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.24.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.24.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.24.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.24.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.24.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.24.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.24.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.25.attn_k.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.25.attn_output.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.25.attn_q.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.25.attn_v.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 3200
+          },
+          {
+            "name": "blk.25.ffn_down.weight",
+            "type": "i1_v_2",
+            "K": 8640,
+            "M": 3200
+          },
+          {
+            "name": "blk.25.ffn_gate.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          },
+          {
+            "name": "blk.25.ffn_up.weight",
+            "type": "i1_v_2",
+            "K": 3200,
+            "M": 8640
+          }
+        ],
+        "load_ms": 3779.807392,
+        "context_ms": 115.285928,
+        "n_ctx": 512,
+        "n_vocab": 32002,
+        "input_tokens": [
+          1,
+          3681,
+          338,
+          278,
+          7483,
+          310,
+          3444,
+          29889,
+          450,
+          4272,
+          338,
+          2998,
+          363
+        ],
+        "input_text": "Paris is the capital of France. The city is known for",
+        "shared_prompt": true
+      },
+      "sample": {
+        "record": "sample",
+        "repeat": 0,
+        "prefill_ms": 360.36258,
+        "decode_model_ms": 16279.359373000001,
+        "decode_loop_ms": 16296.483812,
+        "decode_steps": 48,
+        "decoded_tokens": 192,
+        "prefill_tps": 36.074777797406156,
+        "decode_total_tps": 11.781682614173482,
+        "decode_per_sequence_tps": 2.9454206535433705,
+        "prefill_i2v4_worker_calls": 0,
+        "decode_i2v4_worker_calls": 0,
+        "prefill_i1v2_worker_calls": 728,
+        "decode_i1v2_worker_calls": 34944,
+        "peak_process_kib": 923952,
+        "major_faults": 0,
+        "minor_faults": 0,
+        "involuntary_switches": 94,
+        "output_token_ids": [
+          [
+            967,
+            8261,
+            4955,
+            322,
+            9257,
+            29889,
+            739,
+            338,
+            884,
+            2998,
+            363,
+            967,
+            13460,
+            322,
+            1616,
+            9088,
+            29889,
+            450,
+            4272,
+            338,
+            3271,
+            304,
+            1784,
+            19133,
+            29879,
+            322,
+            11798,
+            6358,
+            29889,
+            450,
+            4272,
+            338,
+            884,
+            2998,
+            363,
+            967,
+            9687,
+            322,
+            19006,
+            29889,
+            450,
+            4272,
+            338,
+            884,
+            2998,
+            363,
+            967,
+            4646
+          ],
+          [
+            967,
+            8261,
+            4955,
+            322,
+            9257,
+            29889,
+            739,
+            338,
+            884,
+            2998,
+            363,
+            967,
+            13460,
+            322,
+            1616,
+            9088,
+            29889,
+            450,
+            4272,
+            338,
+            3271,
+            304,
+            1784,
+            19133,
+            29879,
+            322,
+            11798,
+            6358,
+            29889,
+            450,
+            4272,
+            338,
+            884,
+            2998,
+            363,
+            967,
+            9687,
+            322,
+            19006,
+            29889,
+            450,
+            4272,
+            338,
+            884,
+            2998,
+            363,
+            967,
+            4646
+          ],
+          [
+            967,
+            8261,
+            4955,
+            322,
+            9257,
+            29889,
+            739,
+            338,
+            884,
+            2998,
+            363,
+            967,
+            9560,
+            11258,
+            322,
+            9560,
+            610,
+            2039,
+            29889,
+            450,
+            4272,
+            338,
+            3271,
+            304,
+            1784,
+            19133,
+            29879,
+            322,
+            1616,
+            11798,
+            6358,
+            29889,
+            450,
+            4272,
+            338,
+            884,
+            2998,
+            363,
+            967,
+            9687,
+            322,
+            19006,
+            29889,
+            450,
+            4272,
+            338,
+            884,
+            2998
+          ],
+          [
+            967,
+            8261,
+            4955,
+            322,
+            9257,
+            29889,
+            739,
+            338,
+            884,
+            2998,
+            363,
+            967,
+            9560,
+            11258,
+            322,
+            9560,
+            610,
+            2039,
+            29889,
+            450,
+            4272,
+            338,
+            3271,
+            304,
+            1784,
+            19133,
+            29879,
+            322,
+            1616,
+            11798,
+            6358,
+            29889,
+            450,
+            4272,
+            338,
+            884,
+            2998,
+            363,
+            967,
+            9687,
+            322,
+            19006,
+            29889,
+            450,
+            4272,
+            338,
+            884,
+            2998
+          ]
+        ],
+        "output_text": [
+          " its rich history and culture. It is also known for its fashion and art scene. The city is home to many museums and galleries. The city is also known for its food and wine. The city is also known for its night",
+          " its rich history and culture. It is also known for its fashion and art scene. The city is home to many museums and galleries. The city is also known for its food and wine. The city is also known for its night",
+          " its rich history and culture. It is also known for its beautiful architecture and beautiful parks. The city is home to many museums and art galleries. The city is also known for its food and wine. The city is also known",
+          " its rich history and culture. It is also known for its beautiful architecture and beautiful parks. The city is home to many museums and art galleries. The city is also known for its food and wine. The city is also known"
+        ],
+        "finite_logits": true
+      }
+    }
+  ]
+}

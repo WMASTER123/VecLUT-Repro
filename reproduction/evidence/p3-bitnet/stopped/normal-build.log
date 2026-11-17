@@ -1,0 +1,18 @@
+gmake[1]: Warning: File 'CMakeFiles/Makefile2' has modification time 3.4 s in the future
+gmake[2]: Warning: File 'CMakeFiles/Makefile2' has modification time 3.1 s in the future
+gmake[3]: Warning: File 'ggml/src/CMakeFiles/ggml-base.dir/progress.make' has modification time 1.5 s in the future
+gmake[3]: warning:  Clock skew detected.  Your build may be incomplete.
+gmake[3]: Warning: File 'ggml/src/CMakeFiles/ggml-base.dir/progress.make' has modification time 0.11 s in the future
+gmake[3]: warning:  Clock skew detected.  Your build may be incomplete.
+[ 23%] Built target ggml-base
+gmake[3]: Warning: File 'ggml/src/CMakeFiles/ggml-cpu.dir/compiler_depend.make' has modification time 2.5 s in the future
+gmake[3]: warning:  Clock skew detected.  Your build may be incomplete.
+[ 47%] Built target ggml-cpu
+gmake[3]: Warning: File 'ggml/src/CMakeFiles/ggml.dir/compiler_depend.make' has modification time 3.3 s in the future
+gmake[3]: warning:  Clock skew detected.  Your build may be incomplete.
+[ 52%] Built target ggml
+gmake[3]: Warning: File 'src/CMakeFiles/llama.dir/compiler_depend.make' has modification time 1.5 s in the future
+gmake[3]: warning:  Clock skew detected.  Your build may be incomplete.
+[100%] Built target llama
+gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+gmake[1]: warning:  Clock skew detected.  Your build may be incomplete.

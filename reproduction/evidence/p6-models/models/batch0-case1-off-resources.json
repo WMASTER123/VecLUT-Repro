@@ -1,0 +1,24 @@
+{
+  "args": [
+    "/mnt/e/VecLUT-Repro/builds/p6-off/bin/bench-p3",
+    "/mnt/e/VecLUT-Repro/models/falcon3-1b-i2v4/ggml-model-I2_V_4.gguf",
+    "prefill",
+    "128",
+    "0",
+    "1",
+    "4",
+    "5"
+  ],
+  "start_unix": 1794929838.8703902,
+  "elapsed_s": 7.1401567459106445,
+  "before": {
+    "MemAvailable": 11398356,
+    "pswpin": 0,
+    "pswpout": 0
+  },
+  "after": {
+    "MemAvailable": 11434900,
+    "pswpin": 0,
+    "pswpout": 0
+  }
+}

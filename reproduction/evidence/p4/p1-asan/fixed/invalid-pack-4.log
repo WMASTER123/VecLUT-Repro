@@ -1,0 +1,9 @@
+/mnt/e/VecLUT-Repro/src/vlut.cpp/ggml/src/ggml-quants-vlut.c:52: GGML_ASSERT(nrows > 0 && n_per_row > 0 && n_per_row % 16 == 0) failed
+/lib/x86_64-linux-gnu/libasan.so.8(+0x831e0)[0x7577c7e831e0]
+/mnt/e/VecLUT-Repro/builds/asan/ggml/src/libggml-base.so(+0x2c66d7)[0x7577c6dfc6d7]
+/mnt/e/VecLUT-Repro/builds/asan/ggml/src/libggml-base.so(ggml_abort+0x290)[0x7577c6dfdd10]
+/mnt/e/VecLUT-Repro/builds/asan/ggml/src/libggml-base.so(quantize_i2_v_4+0x71d)[0x7577c6df9fbd]
+/mnt/e/VecLUT-Repro/builds/asan/bin/test-p1(+0x40412)[0x599a5ae9e412]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7577c5c2a1ca]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7577c5c2a28b]
+/mnt/e/VecLUT-Repro/builds/asan/bin/test-p1(+0x422a5)[0x599a5aea02a5]

@@ -1,0 +1,24 @@
+{
+  "args": [
+    "/mnt/e/VecLUT-Repro/builds/p6-off/bin/bench-p3",
+    "/mnt/e/VecLUT-Repro/models/bitnet-3b-i2v4/ggml-model-I2_V_4.gguf",
+    "prefill",
+    "128",
+    "0",
+    "1",
+    "1",
+    "5"
+  ],
+  "start_unix": 1794930174.5463948,
+  "elapsed_s": 31.558103322982788,
+  "before": {
+    "MemAvailable": 11411580,
+    "pswpin": 0,
+    "pswpout": 0
+  },
+  "after": {
+    "MemAvailable": 11399624,
+    "pswpin": 0,
+    "pswpout": 0
+  }
+}

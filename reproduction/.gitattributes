@@ -13,3 +13,5 @@
 *.png binary
 # Preserve original application log spacing; it is evidence, not source style.
 evidence/**/*.log -whitespace
+evidence/**/*.patch -whitespace
+evidence/**/*CMakeCache.txt -whitespace

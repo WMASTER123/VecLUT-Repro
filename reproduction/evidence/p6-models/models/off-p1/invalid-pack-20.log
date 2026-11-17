@@ -1,0 +1,8 @@
+/mnt/e/VecLUT-Repro/src/vlut.cpp/ggml/src/ggml-quants-vlut.c:52: GGML_ASSERT(nrows > 0 && n_per_row > 0 && n_per_row % 16 == 0) failed
+/mnt/e/VecLUT-Repro/builds/p6-off/ggml/src/libggml-base.so(+0x162cb)[0x7540af45f2cb]
+/mnt/e/VecLUT-Repro/builds/p6-off/ggml/src/libggml-base.so(ggml_abort+0x15b)[0x7540af45f66b]
+/mnt/e/VecLUT-Repro/builds/p6-off/ggml/src/libggml-base.so(+0x15512)[0x7540af45e512]
+/mnt/e/VecLUT-Repro/builds/p6-off/bin/test-p1(+0x406c)[0x64348212806c]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7540aec2a1ca]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7540aec2a28b]
+/mnt/e/VecLUT-Repro/builds/p6-off/bin/test-p1(+0x4365)[0x643482128365]
