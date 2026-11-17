@@ -1,0 +1,34 @@
+{
+  "full_run": "p2-20261117-202258-436",
+  "confirmation_run": "p2-20261117-203434-396",
+  "normal_quality": {
+    "configurations": 48,
+    "samples": 240,
+    "cv_over_10pct": 5,
+    "main_thread_migrations": 0,
+    "major_faults": 0,
+    "swap_in_pages": 0,
+    "swap_out_pages": 0,
+    "min_available_kib": 11206572
+  },
+  "profile_quality": {
+    "configurations": 40,
+    "samples": 200,
+    "cv_over_10pct": 1,
+    "main_thread_migrations": 0,
+    "major_faults": 0,
+    "swap_in_pages": 0,
+    "swap_out_pages": 0,
+    "min_available_kib": 11297812
+  },
+  "first_run_noisy": 8,
+  "retested_noisy": 3,
+  "widen_share_range": [
+    30.688752556856798,
+    37.28884606656087
+  ],
+  "clear_share_range": [
+    1.8610525258513548,
+    2.45312435589939
+  ]
+}

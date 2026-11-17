@@ -9,6 +9,12 @@
 
 P2 性能入口：`bash reproduction/run-p2.sh` 或 PowerShell `./reproduction/run-p2.ps1`。它先检查正确性，再测仅 I2_V_4 的六种层形状、短输入与尾块、1/2/4 线程；实际方法、参数、日志和指标边界见 [P2_METHOD.md](P2_METHOD.md)。默认所有产物仍在项目数据目录。可选 matplotlib 用于图表；本机已有，未安装新软件。
 
+路线与成果入口：
+
+- [总执行路线](EXECUTION_ROADMAP.md)：P0→P6，说明为什么将部分瓶颈诊断提前到 P2。
+- [P2 实测报告](P2_REPORT.md)：288 配置、1440 样本、分段开销、噪声及资源限制。
+- [选定的小优化方案](OPTIMIZATION_PLAN.md)：I2_V_4 分块提升转置；尚未实现，尚无加速收益。
+
 ## 依赖与硬件
 
 实际验证环境：Ubuntu 24.04 / WSL2、GCC/G++ 13.3、CMake 3.28.3、Git、Python3 标准库，i7-12700H CPU。无需 GPU、CUDA、PyTorch、Conda 或 Python 第三方包。

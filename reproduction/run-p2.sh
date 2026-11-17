@@ -21,7 +21,7 @@ mkdir -p "$run"; printf '%s\n' "$run" > "$root/results/latest-p2.txt"
 exec > >(tee "$run/session.log") 2>&1
 echo "Evidence: $run"
 git -C "$repo" rev-parse HEAD > "$run/source-sha.txt"
-{ git -C "$repo" rev-parse HEAD; git -C "$repo" status --short; c++ --version; cmake --version; lscpu; free -b; } > "$run/environment.txt"
+{ date -Is; git -C "$repo" rev-parse HEAD; git -C "$repo" status --short; uname -srvm; cat /etc/os-release; python3 --version; c++ --version; cmake --version; lscpu; free -b; } > "$run/environment.txt"
 git -C "$repo" diff --binary > "$run/source.patch"
 git -C "$repo" ls-files --others --exclude-standard > "$run/untracked.txt"
 if command -v perf >/dev/null; then perf stat -e cycles,instructions true > "$run/perf-check.log" 2>&1 || true; else echo 'perf unavailable' > "$run/perf-check.log"; fi

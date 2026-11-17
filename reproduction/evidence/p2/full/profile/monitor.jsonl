@@ -1,0 +1,16 @@
+{"unix_s": 1794918705.6049027, "MemAvailable": 11433060, "SwapTotal": 4194304, "SwapFree": 4194304, "pswpin": 0, "pswpout": 0, "cpu_ticks": [79634, 0, 2996, 993581, 344, 0, 2343, 0, 0, 0], "load1": 1.78}
+{"unix_s": 1794918706.6264055, "MemAvailable": 11400436, "SwapTotal": 4194304, "SwapFree": 4194304, "pswpin": 0, "pswpout": 0, "cpu_ticks": [79788, 0, 2998, 995461, 344, 0, 2344, 0, 0, 0], "load1": 1.78}
+{"unix_s": 1794918707.627828, "MemAvailable": 11406052, "SwapTotal": 4194304, "SwapFree": 4194304, "pswpin": 0, "pswpout": 0, "cpu_ticks": [79928, 0, 3004, 997316, 344, 0, 2347, 0, 0, 0], "load1": 1.71}
+{"unix_s": 1794918708.655768, "MemAvailable": 11417364, "SwapTotal": 4194304, "SwapFree": 4194304, "pswpin": 0, "pswpout": 0, "cpu_ticks": [80074, 0, 3009, 999215, 344, 0, 2348, 0, 0, 0], "load1": 1.71}
+{"unix_s": 1794918709.683482, "MemAvailable": 11366452, "SwapTotal": 4194304, "SwapFree": 4194304, "pswpin": 0, "pswpout": 0, "cpu_ticks": [80223, 0, 3014, 1001112, 344, 0, 2349, 0, 0, 0], "load1": 1.71}
+{"unix_s": 1794918710.7110713, "MemAvailable": 11409048, "SwapTotal": 4194304, "SwapFree": 4194304, "pswpin": 0, "pswpout": 0, "cpu_ticks": [80387, 0, 3017, 1002999, 344, 0, 2350, 0, 0, 0], "load1": 1.71}
+{"unix_s": 1794918709.1368797, "MemAvailable": 11412880, "SwapTotal": 4194304, "SwapFree": 4194304, "pswpin": 0, "pswpout": 0, "cpu_ticks": [80534, 0, 3023, 1004974, 344, 0, 2351, 0, 0, 0], "load1": 1.71}
+{"unix_s": 1794918710.205874, "MemAvailable": 11326540, "SwapTotal": 4194304, "SwapFree": 4194304, "pswpin": 0, "pswpout": 0, "cpu_ticks": [80655, 0, 3032, 1006983, 344, 0, 2351, 0, 0, 0], "load1": 1.66}
+{"unix_s": 1794918711.2335746, "MemAvailable": 11326540, "SwapTotal": 4194304, "SwapFree": 4194304, "pswpin": 0, "pswpout": 0, "cpu_ticks": [80821, 0, 3034, 1008867, 344, 0, 2352, 0, 0, 0], "load1": 1.66}
+{"unix_s": 1794918712.260824, "MemAvailable": 11326288, "SwapTotal": 4194304, "SwapFree": 4194304, "pswpin": 0, "pswpout": 0, "cpu_ticks": [80991, 0, 3035, 1010752, 344, 0, 2352, 0, 0, 0], "load1": 1.66}
+{"unix_s": 1794918718.30861, "MemAvailable": 11409924, "SwapTotal": 4194304, "SwapFree": 4194304, "pswpin": 0, "pswpout": 0, "cpu_ticks": [81114, 0, 3038, 1012647, 344, 0, 2355, 0, 0, 0], "load1": 1.66}
+{"unix_s": 1794918713.9288182, "MemAvailable": 11399444, "SwapTotal": 4194304, "SwapFree": 4194304, "pswpin": 0, "pswpout": 0, "cpu_ticks": [81242, 0, 3047, 1014588, 346, 0, 2357, 0, 0, 0], "load1": 1.66}
+{"unix_s": 1794918714.9678872, "MemAvailable": 11408972, "SwapTotal": 4194304, "SwapFree": 4194304, "pswpin": 0, "pswpout": 0, "cpu_ticks": [81381, 0, 3052, 1016515, 346, 0, 2360, 0, 0, 0], "load1": 1.68}
+{"unix_s": 1794918715.9745395, "MemAvailable": 11415972, "SwapTotal": 4194304, "SwapFree": 4194304, "pswpin": 0, "pswpout": 0, "cpu_ticks": [81508, 0, 3058, 1018396, 346, 0, 2361, 0, 0, 0], "load1": 1.68}
+{"unix_s": 1794918717.0021048, "MemAvailable": 11427820, "SwapTotal": 4194304, "SwapFree": 4194304, "pswpin": 0, "pswpout": 0, "cpu_ticks": [81632, 0, 3068, 1020311, 346, 0, 2362, 0, 0, 0], "load1": 1.68}
+{"unix_s": 1794918723.0173883, "MemAvailable": 11431768, "SwapTotal": 4194304, "SwapFree": 4194304, "pswpin": 0, "pswpout": 0, "cpu_ticks": [81785, 0, 3074, 1022170, 346, 0, 2364, 0, 0, 0], "load1": 1.68}

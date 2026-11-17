@@ -1,0 +1,112 @@
+{
+  "suite": "confirm",
+  "repeats": 5,
+  "target_ms": 1000.0,
+  "cases": [
+    [
+      "bitnet_square",
+      3200,
+      3200,
+      16
+    ],
+    [
+      "bitnet_square",
+      3200,
+      3200,
+      64
+    ],
+    [
+      "falcon_square",
+      2048,
+      2048,
+      64
+    ],
+    [
+      "falcon_square",
+      2048,
+      2048,
+      512
+    ],
+    [
+      "falcon_square",
+      2048,
+      2048,
+      16
+    ],
+    [
+      "bitnet_square",
+      3200,
+      3200,
+      1
+    ],
+    [
+      "bitnet_square",
+      3200,
+      3200,
+      512
+    ],
+    [
+      "bitnet_square",
+      3200,
+      3200,
+      31
+    ],
+    [
+      "bitnet_square",
+      3200,
+      3200,
+      63
+    ],
+    [
+      "falcon_square",
+      2048,
+      2048,
+      63
+    ],
+    [
+      "falcon_square",
+      2048,
+      2048,
+      1
+    ],
+    [
+      "falcon_square",
+      2048,
+      2048,
+      31
+    ]
+  ],
+  "seed": 20261117,
+  "inputs": "synthetic ternary weights and deterministic INT8-representable activations",
+  "binary_sha256": "5b91db1b04e47009a2512f9cab5abfeec42bff3f65ebb9de24bfb0b44809198a",
+  "env": {
+    "OMP_WAIT_POLICY": "PASSIVE",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_PROC_BIND": "CLOSE",
+    "OMP_PLACES": "{0},{2},{4},{6}"
+  },
+  "allowed_virtual_cpus": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "model_download": false,
+  "model_hash": null
+}

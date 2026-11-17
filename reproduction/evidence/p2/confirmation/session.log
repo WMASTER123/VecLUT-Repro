@@ -1,0 +1,26 @@
+Evidence: /mnt/e/VecLUT-Repro/results/p2-20261117-203434-396
+[1/12] bitnet_square M=3200 K=3200 N=16 done
+[2/12] bitnet_square M=3200 K=3200 N=64 done
+[3/12] falcon_square M=2048 K=2048 N=64 done
+[4/12] falcon_square M=2048 K=2048 N=512 done
+[5/12] falcon_square M=2048 K=2048 N=16 done
+[6/12] bitnet_square M=3200 K=3200 N=1 done
+[7/12] bitnet_square M=3200 K=3200 N=512 done
+[8/12] bitnet_square M=3200 K=3200 N=31 done
+[9/12] bitnet_square M=3200 K=3200 N=63 done
+[10/12] falcon_square M=2048 K=2048 N=63 done
+[11/12] falcon_square M=2048 K=2048 N=1 done
+[12/12] falcon_square M=2048 K=2048 N=31 done
+[1/10] bitnet_square M=3200 K=3200 N=128 done
+[2/10] bitnet_square M=3200 K=3200 N=32 done
+[3/10] falcon_up M=8192 K=2048 N=128 done
+[4/10] bitnet_square M=3200 K=3200 N=1 done
+[5/10] bitnet_down M=3200 K=8640 N=128 done
+[6/10] bitnet_square M=3200 K=3200 N=33 done
+[7/10] falcon_square M=2048 K=2048 N=32 done
+[8/10] falcon_square M=2048 K=2048 N=128 done
+[9/10] falcon_square M=2048 K=2048 N=1 done
+[10/10] falcon_square M=2048 K=2048 N=33 done
+normal {"configurations": 48, "samples": 240, "cv_over_10pct": 5, "main_thread_migrations": 0, "major_faults": 0, "swap_in_pages": 0, "swap_out_pages": 0, "min_available_kib": 11206572}
+profile {"configurations": 40, "samples": 200, "cv_over_10pct": 1, "main_thread_migrations": 0, "major_faults": 0, "swap_in_pages": 0, "swap_out_pages": 0, "min_available_kib": 11297812}
+P2 complete: only I2_V_4; profile timings are diagnostic, normal timings are performance results.

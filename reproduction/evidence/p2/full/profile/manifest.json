@@ -1,0 +1,100 @@
+{
+  "suite": "profile",
+  "repeats": 5,
+  "target_ms": 50.0,
+  "cases": [
+    [
+      "bitnet_square",
+      3200,
+      3200,
+      128
+    ],
+    [
+      "bitnet_square",
+      3200,
+      3200,
+      32
+    ],
+    [
+      "falcon_up",
+      8192,
+      2048,
+      128
+    ],
+    [
+      "bitnet_square",
+      3200,
+      3200,
+      1
+    ],
+    [
+      "bitnet_down",
+      3200,
+      8640,
+      128
+    ],
+    [
+      "bitnet_square",
+      3200,
+      3200,
+      33
+    ],
+    [
+      "falcon_square",
+      2048,
+      2048,
+      32
+    ],
+    [
+      "falcon_square",
+      2048,
+      2048,
+      128
+    ],
+    [
+      "falcon_square",
+      2048,
+      2048,
+      1
+    ],
+    [
+      "falcon_square",
+      2048,
+      2048,
+      33
+    ]
+  ],
+  "seed": 20261117,
+  "inputs": "synthetic ternary weights and deterministic INT8-representable activations",
+  "binary_sha256": "5d737e4da7f051a12fed8137c0cd1784d132245c0a1ecb7389c356c9a02f4a17",
+  "env": {
+    "OMP_WAIT_POLICY": "PASSIVE",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_PROC_BIND": "CLOSE",
+    "OMP_PLACES": "{0},{2},{4},{6}"
+  },
+  "allowed_virtual_cpus": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "model_download": false,
+  "model_hash": null
+}

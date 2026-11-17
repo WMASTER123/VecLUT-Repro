@@ -1,0 +1,10 @@
+{
+  "configurations": 40,
+  "samples": 200,
+  "cv_over_10pct": 1,
+  "main_thread_migrations": 0,
+  "major_faults": 0,
+  "swap_in_pages": 0,
+  "swap_out_pages": 0,
+  "min_available_kib": 11297812
+}
