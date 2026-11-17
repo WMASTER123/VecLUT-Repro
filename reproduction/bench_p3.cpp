@@ -1,11 +1,13 @@
 // Thin measurement harness around the author's actual llama/ggml implementation.
 #include "llama.h"
 #include "gguf.h"
+#include "ggml-backend.h"
 #include "ggml-cpu/ggml-vlut-profile.h"
 #include "json.hpp"
 #include <algorithm>
 #include <chrono>
 #include <cmath>
+#include <cstdlib>
 #include <fstream>
 #include <iostream>
 #include <map>
@@ -16,6 +18,57 @@
 
 using json=nlohmann::ordered_json;
 using Clock=std::chrono::steady_clock;
+struct node_audit {int batch,repeat=-1,step=-1,target_step=0;std::ofstream stream;};
+static bool audit_node(ggml_tensor *tensor,bool ask,void *data) {
+    auto &audit=*static_cast<node_audit *>(data);
+    bool selected=audit.repeat==0 && audit.step==audit.target_step && tensor->type==GGML_TYPE_F32 &&
+                  tensor->ne[1]==audit.batch && tensor->ne[2]==1 && tensor->ne[3]==1;
+    if(ask)return selected;
+    if(!selected)return true;
+    std::vector<float> bytes((ggml_nbytes(tensor)+3)/4);
+    ggml_backend_tensor_get(tensor,bytes.data(),0,ggml_nbytes(tensor));
+    double diff=0,peak=0;
+    for(int r=0;r<audit.batch;++r)for(int64_t k=0;k<tensor->ne[0];++k) {
+        float v=bytes[(r*tensor->nb[1]+k*tensor->nb[0])/4];
+        diff=std::max(diff,std::abs(double(v)-bytes[k*tensor->nb[0]/4]));peak=std::max(peak,std::abs(double(v)));
+    }
+    json record={{"name",tensor->name},{"op",ggml_op_name(tensor->op)},
+        {"K",tensor->ne[0]},{"lane_diff",diff},{"peak",peak}};
+    if(tensor->op==GGML_OP_MUL_MAT && tensor->src[0]->type==GGML_TYPE_I2_V_4) {
+        const auto *w=tensor->src[0],*a=tensor->src[1];
+        const int K=a->ne[0],M=w->ne[1];
+        std::vector<float> values((ggml_nbytes(a)+3)/4);
+        ggml_backend_tensor_get(a,values.data(),0,ggml_nbytes(a));
+        std::vector<int> quant(K*audit.batch);std::vector<float> scales(audit.batch);
+        int differing=0;double input_diff=0,ref_error=0;
+        for(int r=0;r<audit.batch;++r) {
+            double amax=0;
+            for(int k=0;k<K;++k)amax=std::max(amax,std::abs(double(values[(r*a->nb[1]+k*a->nb[0])/4])));
+            scales[r]=amax==0?0:float(std::max(amax/127,double(std::numeric_limits<float>::min())));
+            for(int k=0;k<K;++k) {
+                float v=values[(r*a->nb[1]+k*a->nb[0])/4];
+                quant[r*K+k]=amax==0?0:int(std::clamp(std::round(double(v)/scales[r]),-127.0,127.0));
+                differing+=quant[r*K+k]!=quant[k];
+                input_diff=std::max(input_diff,std::abs(double(v)-values[k*a->nb[0]/4]));
+            }
+            const auto *packed=static_cast<const uint8_t *>(w->data); // CPU-only audit
+            for(int m:{0,M/2,M-1}) {
+                int64_t sum=0;
+                for(int k=0;k<K;++k) {
+                    int g=k/4,code=packed[(g/4)*M*4+m*4+g%4];
+                    for(int digit=0;digit<k%4;++digit)code/=3;
+                    sum+=(code%3-1)*quant[r*K+k];
+                }
+                float expected=float(sum)*scales[r];
+                ref_error=std::max(ref_error,std::abs(double(expected)-bytes[(r*tensor->nb[1]+m*tensor->nb[0])/4]));
+            }
+        }
+        record["input_lane_diff"]=input_diff;record["quantized_lane_differences"]=differing;
+        record["sampled_int64_reference_error"]=ref_error;
+    }
+    audit.stream<<record.dump()<<'\n';
+    return true;
+}
 static double ms(Clock::time_point start) {return std::chrono::duration<double,std::milli>(Clock::now()-start).count();}
 static void emit(const json &v) {std::cout<<v.dump(-1,' ',false,json::error_handler_t::replace)<<'\n'<<std::flush;}
 static void reset_trace() {
@@ -51,6 +104,14 @@ static llama_token greedy(llama_context *ctx,int row,int n_vocab) {
         if(logits[i]>logits[best]) best=i;
     }
     return best;
+}
+// Opt-in diagnostic dumps; never used for published performance samples.
+static void audit_logits(llama_context *ctx,int rows,int n_vocab,int rep,int step) {
+    const char *prefix=std::getenv("P3_AUDIT_LOGITS");
+    if(!prefix) return;
+    std::ofstream f(std::string(prefix)+"-r"+std::to_string(rep)+"-s"+std::to_string(step)+".bin",std::ios::binary);
+    if(!f)throw std::runtime_error("cannot write logits audit");
+    for(int i=0;i<rows;++i)f.write(reinterpret_cast<const char *>(llama_get_logits_ith(ctx,i)),n_vocab*sizeof(float));
 }
 static std::vector<llama_token> tokenize(const llama_vocab *vocab,const std::string &text) {
     int n=-llama_tokenize(vocab,text.data(),text.size(),nullptr,0,true,true);
@@ -116,6 +177,12 @@ int main(int argc,char **argv) try {
         input.resize(P);
     }
     auto cp=llama_context_default_params();
+    node_audit audit{B,-1,-1,0,{}};
+    if(const char *path=std::getenv("P3_AUDIT_NODES")) {
+        audit.stream.open(path);if(!audit.stream)throw std::runtime_error("cannot open node audit");
+        if(const char *step=std::getenv("P3_AUDIT_STEP"))audit.target_step=std::stoi(step);
+        cp.cb_eval=audit_node;cp.cb_eval_user_data=&audit;
+    }
     cp.n_ctx=std::max(512,(P+G+8)*B);cp.n_batch=512;cp.n_ubatch=512;cp.n_seq_max=B;
     cp.n_threads=threads;cp.n_threads_batch=threads;cp.offload_kqv=false;cp.flash_attn=false;cp.no_perf=false;
     start=Clock::now();auto *ctx=llama_init_from_model(model,cp);double context_ms=ms(start);
@@ -125,6 +192,7 @@ int main(int argc,char **argv) try {
           {"profile",tracing()},{"tensor_types",types},{"vlut_matrices",matrices},{"load_ms",load_ms},{"context_ms",context_ms},{"n_ctx",llama_n_ctx(ctx)},
           {"n_vocab",n_vocab},{"input_tokens",input},{"input_text",prompt},{"shared_prompt",B>1}});
     for(int rep=-1;rep<repeats;++rep) {
+        audit.repeat=rep;audit.step=-1;
         llama_kv_cache_clear(ctx);
         struct rusage before{};getrusage(RUSAGE_SELF,&before);
         batch.n_tokens=P;
@@ -139,6 +207,7 @@ int main(int argc,char **argv) try {
         if(mode!="prefill") {
             reset_trace();auto loop_start=Clock::now();
             for(int step=0;step<G;++step) {
+                audit.step=step;
                 if(mode=="smoke"&&llama_vocab_is_eog(vocab,next[0])) break;
                 batch.n_tokens=B;
                 for(int s=0;s<B;++s) {
@@ -146,6 +215,7 @@ int main(int argc,char **argv) try {
                     batch.n_seq_id[s]=1;batch.seq_id[s][0]=s;batch.logits[s]=true;
                 }
                 start=Clock::now();checked_decode(ctx,batch);model_decode_ms+=ms(start);++steps;
+                if(mode=="smoke")audit_logits(ctx,B,n_vocab,rep,step);
                 for(int s=0;s<B;++s) next[s]=greedy(ctx,s,n_vocab);
             }
             loop_ms=ms(loop_start);dcalls=calls();
