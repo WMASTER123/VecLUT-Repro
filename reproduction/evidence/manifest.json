@@ -1,0 +1,15 @@
+{
+  "cmake": "3.28.3",
+  "table_entry_size": 32,
+  "build_type": "RelWithDebInfo",
+  "compiler": "GCC/G++ 13.3.0",
+  "performance_measurement": false,
+  "weight_unroll_block": 16,
+  "cpu": "Intel Core i7-12700H",
+  "upstream_sha": "7a813d9c2b6c73d1066eeff49b67794318f682bd",
+  "fix_sha": "e187d65960f04c37cf8bf95d27d05f83b4128ba3",
+  "model_inference": false,
+  "test_sha256": "dd0b0d9bc04bab2914c82b6d569b18055ca38df92607c5875c4bc8a61582951e",
+  "date": "2026-11-17",
+  "os": "Ubuntu 24.04 / WSL2"
+}

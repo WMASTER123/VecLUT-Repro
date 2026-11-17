@@ -157,3 +157,8 @@ poetry.toml
 # Local scripts
 /run-vim.sh
 /run-chat.sh
+
+# Reproduction runtime data (never commit caches, models, credentials or builds).
+/.repro/
+!/reproduction/*.sh
+!/reproduction/evidence/**/*.log

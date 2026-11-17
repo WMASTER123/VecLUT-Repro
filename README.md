@@ -1,5 +1,7 @@
 # vlut.cpp
 
+> **CPU reproduction branch (`repro/cpu`)**: see [reproduction/README.md](reproduction/README.md) for setup, one-command correctness tests, author counterexamples and fixes. This is an independent reproduction of the author implementation; the original README and license follow below.
+
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![DOI](https://img.shields.io/badge/DOI-10.1145%2F3745756.3809200-blue)](https://doi.org/10.1145/3745756.3809200)
 [![arXiv](https://img.shields.io/badge/arXiv-2512.06443-b31b1b.svg)](https://dl.acm.org/doi/10.1145/3745756.3809200)
