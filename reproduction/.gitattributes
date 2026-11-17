@@ -15,3 +15,4 @@
 evidence/**/*.log -whitespace
 evidence/**/*.patch -whitespace
 evidence/**/*CMakeCache.txt -whitespace
+evidence/**/environment.txt whitespace=-blank-at-eof

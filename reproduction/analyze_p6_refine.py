@@ -63,7 +63,7 @@ def main():
             blocks = s["block_speedups"]
             lines.append(f"|{s['case_id']}|{c['model']}|{c['P']}|{c.get('threads', 1)}|{c.get('mode', 'prefill')}|{x['median_ms']:.3f}|{y['median_ms']:.3f}|{s['speedup']:.4f}|{min(blocks):.4f}–{max(blocks):.4f}|{x['cv']:.2%}/{y['cv']:.2%}|")
         lines.append("")
-    (out / "summary.md").write_text("\n".join(lines) + "\n")
+    (out / "summary.md").write_text("\n".join(lines).rstrip() + "\n")
     print("Analysis saved:", out)
 
 

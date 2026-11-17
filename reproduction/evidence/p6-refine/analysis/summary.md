@@ -23,4 +23,3 @@ Block ranges are descriptive, not confidence intervals.
 |5|bitnet-3b-i2v4|128|4|prefill|1526.323|1516.175|1.0067|0.9919–1.0122|2.14%/2.50%|
 |6|falcon3-1b-i2v4|32|4|decode|893.756|884.965|1.0099|1.0112–1.0203|1.36%/1.16%|
 |7|bitnet-3b-i2v4|32|4|decode|2026.327|1966.591|1.0304|1.0161–1.0439|2.10%/0.69%|
-
