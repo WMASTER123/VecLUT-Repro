@@ -1666,13 +1666,21 @@ void ggml_gemm_i1v_i8v_lut(int ith, int nth, int n, float *restrict s, size_t bs
     free(sum_i32);
 }
 
-// Note: we assume all threads have the same nc here. otherwise, it may cause out-of-bounds errors in the look-up
+// Thread ranges follow floor(ith * bs / nth), including uneven partitions.
 void ggml_gemm_i1v2_i8v_lut(int ith, int nth, int n, float *restrict s, size_t bs, const void *restrict vx,
                             const void *restrict vy, int nr, int nc) {
-    UNUSED(nth);
+    GGML_ASSERT(nth > 0 && ith >= 0 && ith < nth);
+    // vx is advanced by 2 * row_start for paired g=5 indices.
+    // g=4 tail bytes are one byte per row: undo exactly one row offset.
+    const size_t row_start = (size_t)ith * bs / nth;
+#ifdef VLUT_PROFILE
+    GGML_ASSERT(ith < 256);
+    vlut_profile_records[ith].i1v2_calls++;
+#endif
     
     // nr: src1->ne[1], nc: src0->ne[1]
-    assert(n % 4 == 0);
+    GGML_ASSERT(n > 0 && n % 4 == 0);
+    GGML_ASSERT(n <= INT32_MAX / 128);
 
     static const int tile_size = 2;
 
@@ -1684,7 +1692,9 @@ void ggml_gemm_i1v2_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
     memset(sum_i16, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE * nc);
     memset(sum_i32, 0, sizeof(int32_t) * nr * nc);
 
-    static const int group_size = 640;
+    // Multiple of 20 preserves the global g=5 packing and g=4 tail boundary.
+    // Every partial INT16 sum has magnitude <= 160 * 128 = 20480.
+    static const int group_size = 160;
 
     const int group_size_remain = (n - 1) % group_size + 1;
     const int group_count = (n - group_size_remain) / group_size;  // not including remains
@@ -1717,11 +1727,12 @@ void ggml_gemm_i1v2_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
             const uint8_t *restrict x_block = (const uint8_t *)vx + (group_count * group_size / 5 + i * tile_size) * bs;
             ADD_TABLE_ENTRIES_BLOCK2(nc);
         }
-        memset(table0, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE);
-        memset(table1, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE);
+        // Four zero trits encode 1 + 3 + 9 + 27 = 40, not 0.
+        memset(table0 + 40 * TABLE_ENTRY_SIZE, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE);
+        memset(table1 + 40 * TABLE_ENTRY_SIZE, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE);
         for (int i = 0; i < blck_remain; i++) {
             gemm_make_table_i2v(table0, y_block + ((group_count * group_size / 5 + blck_num) * 5 + i * 4) * TABLE_ENTRY_SIZE);
-            const uint8_t *restrict x_block = (const uint8_t *)vx + (group_count * group_size / 5 + blck_num + i) * bs - ith * nc;
+            const uint8_t *restrict x_block = (const uint8_t *)vx + (group_count * group_size / 5 + blck_num + i) * bs - row_start;
             ADD_TABLE_ENTRIES_BLOCK(nc, x_block, table0, sum_i16);
         }
         ACCUMULATE_TABLE_TRANS(sum_i16, sum_i32, nc, TABLE_ENTRY_SIZE, t);
@@ -1752,11 +1763,12 @@ void ggml_gemm_i1v2_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
             const uint8_t *restrict x_block = (const uint8_t *)vx + (group_count * group_size / 5 + i * tile_size) * bs;
             ADD_TABLE_ENTRIES_BLOCK2(nc);
         }
-        memset(table0, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE);
-        memset(table1, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE);
+        // Four zero trits encode 1 + 3 + 9 + 27 = 40, not 0.
+        memset(table0 + 40 * TABLE_ENTRY_SIZE, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE);
+        memset(table1 + 40 * TABLE_ENTRY_SIZE, 0, sizeof(int16_t) * TABLE_ENTRY_SIZE);
         for (int i = 0; i < blck_remain; i++) {
             gemm_make_table_i2v(table0, y_block + ((group_count * group_size / 5 + blck_num) * 5 + i * 4) * TABLE_ENTRY_SIZE);
-            const uint8_t *restrict x_block = (const uint8_t *)vx + (group_count * group_size / 5 + blck_num + i) * bs - ith * nc;
+            const uint8_t *restrict x_block = (const uint8_t *)vx + (group_count * group_size / 5 + blck_num + i) * bs - row_start;
             ADD_TABLE_ENTRIES_BLOCK(nc, x_block, table0, sum_i16);
         }
         ACCUMULATE_TABLE_TRANS(sum_i16, sum_i32, nc, entry_tile_remain, entry_tile_count);

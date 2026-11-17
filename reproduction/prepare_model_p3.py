@@ -3,12 +3,6 @@ import hashlib, json, shutil, sys, time, urllib.request
 from pathlib import Path
 from model_registry import MODELS
 
-REPO='XXXXyu/Falcon3-1B-Instruct-1.58bit-vlut-gguf'
-REV='1cf5c2dc924ab7117053758da68f8376da95fc4d'
-FILE='ggml-model-I2_V_4.gguf'
-SHA='6eb67473189b8b6d1a02cdc723b2f284b0e247eba27619c46117fd2d592c6b94'
-SIZE=659366272
-
 def digest(path):
     h=hashlib.sha256()
     with path.open('rb') as f:

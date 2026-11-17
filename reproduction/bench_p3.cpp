@@ -10,6 +10,7 @@
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
+#include <limits>
 #include <map>
 #include <stdexcept>
 #include <string>
@@ -76,10 +77,12 @@ static void reset_trace() {
     vlut_profile_reset();
 #endif
 }
-static uint64_t calls() {
+static uint64_t calls(bool i1) {
     uint64_t n=0;
 #ifdef VLUT_PROFILE
-    for(const auto &r:vlut_profile_records) n+=r.calls;
+    for(const auto &r:vlut_profile_records) n+=i1?r.i1v2_calls:r.calls;
+#else
+    (void)i1;
 #endif
     return n;
 }
@@ -145,7 +148,8 @@ int main(int argc,char **argv) try {
             matrices.push_back({{"name",tensor->name},{"type",ggml_type_name(tensor->type)},
                                 {"K",tensor->ne[0]},{"M",tensor->ne[1]}});
     }
-    if(!types.count(ggml_type_name(GGML_TYPE_I2_V_4))) throw std::runtime_error("GGUF has no I2_V_4 tensor");
+    bool i1=types.count(ggml_type_name(GGML_TYPE_I1_V_2));
+    if(i1==bool(types.count(ggml_type_name(GGML_TYPE_I2_V_4)))) throw std::runtime_error("Expected exactly one supported Vec-LUT packing");
     gguf_free(gguf);ggml_free(metadata);
     llama_backend_init();
     auto mp=llama_model_default_params();mp.n_gpu_layers=0;mp.use_mmap=true;
@@ -189,7 +193,7 @@ int main(int argc,char **argv) try {
     if(!ctx) throw std::runtime_error("context initialization failed");
     auto batch=llama_batch_init(std::max(P,B),0,B);
     emit({{"record","setup"},{"mode",mode},{"P",P},{"G",G},{"B",B},{"threads",threads},{"repeats",repeats},
-          {"profile",tracing()},{"tensor_types",types},{"vlut_matrices",matrices},{"load_ms",load_ms},{"context_ms",context_ms},{"n_ctx",llama_n_ctx(ctx)},
+          {"profile",tracing()},{"target_vlut_type",i1?"i1_v_2":"i2_v_4"},{"tensor_types",types},{"vlut_matrices",matrices},{"load_ms",load_ms},{"context_ms",context_ms},{"n_ctx",llama_n_ctx(ctx)},
           {"n_vocab",n_vocab},{"input_tokens",input},{"input_text",prompt},{"shared_prompt",B>1}});
     for(int rep=-1;rep<repeats;++rep) {
         audit.repeat=rep;audit.step=-1;
@@ -200,7 +204,7 @@ int main(int argc,char **argv) try {
             batch.token[i]=input[i];batch.pos[i]=i;batch.n_seq_id[i]=B;batch.logits[i]=(i==P-1);
             for(int s=0;s<B;++s) batch.seq_id[i][s]=s;
         }
-        reset_trace(); start=Clock::now();checked_decode(ctx,batch);double prefill_ms=ms(start);uint64_t pcalls=calls();
+        reset_trace(); start=Clock::now();checked_decode(ctx,batch);double prefill_ms=ms(start);uint64_t pcalls=calls(i1);
         llama_token first=greedy(ctx,P-1,n_vocab);
         std::vector<llama_token> next(B,first);std::vector<std::vector<llama_token>> generated(B);
         double model_decode_ms=0,loop_ms=0;int steps=0;uint64_t dcalls=0;
@@ -218,16 +222,17 @@ int main(int argc,char **argv) try {
                 if(mode=="smoke")audit_logits(ctx,B,n_vocab,rep,step);
                 for(int s=0;s<B;++s) next[s]=greedy(ctx,s,n_vocab);
             }
-            loop_ms=ms(loop_start);dcalls=calls();
+            loop_ms=ms(loop_start);dcalls=calls(i1);
         }
-        if(tracing()&&(pcalls==0||(steps>0&&dcalls==0))) throw std::runtime_error("I2_V_4 kernel path not observed");
+        if(tracing()&&(pcalls==0||(steps>0&&dcalls==0))) throw std::runtime_error("Target Vec-LUT kernel path not observed");
         std::vector<std::string> text(B);
         for(int s=0;s<B;++s) for(auto token:generated[s]) text[s]+=piece(vocab,token);
         struct rusage usage{};getrusage(RUSAGE_SELF,&usage);
         emit({{"record",rep<0?"warmup":"sample"},{"repeat",rep},{"prefill_ms",prefill_ms},{"decode_model_ms",model_decode_ms},
               {"decode_loop_ms",loop_ms},{"decode_steps",steps},{"decoded_tokens",steps*B},{"prefill_tps",P*1000/prefill_ms},
               {"decode_total_tps",steps?steps*B*1000/loop_ms:0},{"decode_per_sequence_tps",steps?steps*1000/loop_ms:0},
-              {"prefill_i2v4_worker_calls",pcalls},{"decode_i2v4_worker_calls",dcalls},{"peak_process_kib",usage.ru_maxrss},
+              {"prefill_i2v4_worker_calls",i1?0:pcalls},{"decode_i2v4_worker_calls",i1?0:dcalls},
+              {"prefill_i1v2_worker_calls",i1?pcalls:0},{"decode_i1v2_worker_calls",i1?dcalls:0},{"peak_process_kib",usage.ru_maxrss},
               {"major_faults",usage.ru_majflt-before.ru_majflt},{"minor_faults",usage.ru_minflt-before.ru_minflt},
               {"involuntary_switches",usage.ru_nivcsw-before.ru_nivcsw},
               {"output_token_ids",generated},{"output_text",text},{"finite_logits",true}});

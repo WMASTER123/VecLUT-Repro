@@ -7,7 +7,7 @@
 struct vlut_profile_record {
     uint64_t alloc_init_ns, build_ns, lookup_ns, widen_ns;
     uint64_t output_ns, free_ns, activation_ns, calls;
-    uint64_t clear_ns, padding[7];
+    uint64_t clear_ns, i1v2_calls, padding[6];
 };
 #ifdef __cplusplus
 extern "C" {

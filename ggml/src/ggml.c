@@ -1415,7 +1415,11 @@ static bool ggml_is_contiguous_n(const struct ggml_tensor * tensor, int n) {
     if (tensor->ne[0] != ggml_blck_size(tensor->type) && tensor->nb[0] != next_nb) {
         return false;
     }
-    next_nb *= tensor->ne[0]/ggml_blck_size(tensor->type);
+    if (tensor->type == GGML_TYPE_I1_V_2) {
+        next_nb = ggml_row_size(tensor->type, tensor->ne[0]);
+    } else {
+        next_nb *= tensor->ne[0]/ggml_blck_size(tensor->type);
+    }
     for (int i = 1; i < GGML_MAX_DIMS; i++) {
         if (tensor->ne[i] != 1) {
             if (i > n) {
@@ -1734,6 +1738,10 @@ static struct ggml_tensor * ggml_new_tensor_impl(
 
     result->nb[0] = ggml_type_size(type);
     result->nb[1] = result->nb[0]*(result->ne[0]/ggml_blck_size(type));
+    // I1_V_2 mixes g=5 bytes with g=4 tail bytes; floor(K/5) is not its row size.
+    if (type == GGML_TYPE_I1_V_2) {
+        result->nb[1] = ggml_row_size(type, result->ne[0]);
+    }
     for (int i = 2; i < GGML_MAX_DIMS; i++) {
         result->nb[i] = result->nb[i - 1]*result->ne[i - 1];
     }

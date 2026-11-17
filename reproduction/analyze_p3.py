@@ -2,6 +2,8 @@ import csv,json,statistics as st,sys
 from collections import defaultdict
 from pathlib import Path
 root=Path(sys.argv[1]);rows=list(csv.DictReader((root/'raw.csv').open()));groups=defaultdict(list)
+model_key=json.loads((root/'manifest.json').read_text()).get('model_key','falcon3-1b-i2v4')
+model_title={'falcon3-1b-i2v4':'Falcon3 1B I2_V_4','bitnet-3b-i2v4':'BitNet 3B I2_V_4','bitnet-3b-i1v2':'BitNet 3B I1_V_2'}[model_key]
 for r in rows:groups[r['case']].append(r)
 summary=[]
 for case,g in groups.items():
@@ -20,7 +22,7 @@ quality=dict(configurations=len(summary),samples=len(rows),cv_over_10pct=sum(r['
              major_faults=sum(r['major_faults'] for r in summary),swap_in_pages=mon[-1]['pswpin']-mon[0]['pswpin'],
              swap_out_pages=mon[-1]['pswpout']-mon[0]['pswpout'],min_available_kib=min(r['MemAvailable'] for r in mon))
 (root/'quality.json').write_text(json.dumps(quality,indent=2)+'\n');print(json.dumps(quality),flush=True)
-lines=['# P3 measurements','','| Mode | P | G | B | Threads | Median ms | Aggregate tokens/s | Per sequence tokens/s | CV |',
+lines=['# '+model_title+' measurements','','| Mode | P | G | B | Threads | Median ms | Aggregate tokens/s | Per sequence tokens/s | CV |',
        '|---|---:|---:|---:|---:|---:|---:|---:|---:|']
 for r in sorted(summary,key=lambda r:(r['mode'],r['P'],r['B'],r['threads'])):
     lines.append(f"| {r['mode']} | {r['P']} | {r['G']} | {r['B']} | {r['threads']} | {r['median_ms']:.2f} | {r['tokens_s']:.2f} | {r['per_sequence_tokens_s']:.2f} | {r['cv']:.1%} |")
@@ -33,7 +35,7 @@ try:
     for t in [1,2,4]:
         ds=sorted([r for r in summary if r['mode']=='prefill' and r['threads']==t],key=lambda r:r['P'])
         if ds:axes[0].plot([r['P'] for r in ds],[r['tokens_s'] for r in ds],'-o',label=f'{t} threads')
-    axes[0].set(xlabel='Prompt tokens',ylabel='Prefill tokens/s',title='Falcon3 1B I2_V_4 / prefill');axes[0].legend();axes[0].grid(alpha=.2)
+    axes[0].set(xlabel='Prompt tokens',ylabel='Prefill tokens/s',title=model_title+' / prefill');axes[0].legend();axes[0].grid(alpha=.2)
     ds=sorted([r for r in summary if r['mode']=='decode' and r['threads']==4],key=lambda r:r['B'])
     axes[1].plot([r['B'] for r in ds],[r['tokens_s'] for r in ds],'-o',label='Aggregate')
     axes[1].plot([r['B'] for r in ds],[r['per_sequence_tokens_s'] for r in ds],'-o',label='Per sequence')

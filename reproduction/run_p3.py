@@ -10,6 +10,7 @@ def main():
     p=argparse.ArgumentParser();p.add_argument('normal',type=Path);p.add_argument('profile',type=Path)
     p.add_argument('model',type=Path);p.add_argument('output',type=Path);p.add_argument('--quick',action='store_true')
     p.add_argument('--model-key',choices=MODELS,default='falcon3-1b-i2v4')
+    p.add_argument('--focused',action='store_true',help='Six four-thread P4 model cases, with the same P/G definitions')
     a=p.parse_args();places=os.environ.get('OMP_PLACES','')
     if any(k.startswith('P3_AUDIT_') for k in os.environ):p.error('Diagnostic audit environment must be unset for performance')
     if not re.fullmatch(r'\{\d+\}(,\{\d+\}){3,}',places): p.error('Use four explicit OMP_PLACES')
@@ -37,9 +38,10 @@ def main():
         spec=MODELS[a.model_key];count=spec['tensor_count']
         if setup['tensor_types'].get(spec['tensor_type'])!=count:raise RuntimeError('Unexpected pinned model tensor inventory')
         if setup['profile']:
+            kernel=spec['tensor_type'].replace('_','')
             for r in rs:
-                if r['prefill_i2v4_worker_calls']!=count*t or r['decode_i2v4_worker_calls']!=count*t*r['decode_steps']:
-                    raise RuntimeError('Unexpected I2_V_4 calls: investigate graph execution')
+                if r[f'prefill_{kernel}_worker_calls']!=count*t or r[f'decode_{kernel}_worker_calls']!=count*t*r['decode_steps']:
+                    raise RuntimeError('Unexpected target kernel calls: investigate graph execution')
         print(label+' passed',flush=True)
         return setup,rs
     try:
@@ -62,6 +64,7 @@ def main():
         cases=[('prefill',n,0,1,t) for n in [32,128,256,512] for t in [1,2,4]]
         cases += [('decode',128,32,1,t) for t in [1,2,4]]
         cases += [('decode',128,32,b,4) for b in [4,8,16]]
+        if a.focused:cases=[('prefill',n,0,1,4) for n in [32,128,512]]+[('decode',128,32,b,4) for b in [1,4,16]]
         if a.quick: cases=[('prefill',32,0,1,4),('decode',128,8,1,4),('decode',128,8,4,4)]
         random.Random(20261117).shuffle(cases)
         for i,(mode,P,G,B,t) in enumerate(cases):
@@ -73,7 +76,7 @@ def main():
         with (a.output/'raw.csv').open('w',newline='') as f:
             w=csv.DictWriter(f,fieldnames=list(samples[0]));w.writeheader();w.writerows(samples)
         (a.output/'setups.json').write_text(json.dumps(setups,indent=2)+'\n')
-        manifest=dict(model_key=a.model_key,suite='quick' if a.quick else 'full',cases=cases,repeats=5,seed=20261117,
+        manifest=dict(model_key=a.model_key,suite='quick' if a.quick else 'focused' if a.focused else 'full',cases=cases,repeats=5,seed=20261117,
                       normal_sha256=hashlib.sha256(a.normal.read_bytes()).hexdigest(),profile_sha256=hashlib.sha256(a.profile.read_bytes()).hexdigest(),
                       env={k:os.environ.get(k) for k in ['OMP_WAIT_POLICY','OMP_DYNAMIC','OMP_PROC_BIND','OMP_PLACES']},
                       timing='model-forward prefill; autoregressive decode loop includes greedy finite-logit scan and host batch bookkeeping',

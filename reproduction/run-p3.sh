@@ -13,11 +13,12 @@ for cmd in git cmake c++ python3 make; do command -v "$cmd" >/dev/null || { echo
 args=()
 model_key=falcon3-1b-i2v4
 while (($#)); do
-  case "$1" in --quick) args+=(--quick);shift;; --model) model_key="${2:?Missing model key}";shift 2;; *) echo 'Usage: run-p3.sh [--quick] [--model registry-key]';exit 2;; esac
+  case "$1" in --quick) args+=(--quick);shift;; --focused) args+=(--focused);shift;; --model) model_key="${2:?Missing model key}";shift 2;; *) echo 'Usage: run-p3.sh [--quick|--focused] [--model registry-key]';exit 2;; esac
 done
-case "$model_key" in falcon3-1b-i2v4|bitnet-3b-i2v4) ;; *) echo 'P3 requires an approved I2 model';exit 2;; esac
-run="$root/results/p3-$(date +%Y%m%d-%H%M%S)-$$"
-mkdir -p "$run";printf '%s\n' "$run" > "$root/results/latest-p3.txt"
+stage=p3;file=ggml-model-I2_V_4.gguf
+case "$model_key" in falcon3-1b-i2v4|bitnet-3b-i2v4) ;; bitnet-3b-i1v2) stage=p4;file=ggml-model-I1_V_2.gguf;; *) echo 'Unrecognized pinned model';exit 2;; esac
+run="$root/results/$stage-$(date +%Y%m%d-%H%M%S)-$$"
+mkdir -p "$run";printf '%s\n' "$run" > "$root/results/latest-$stage.txt"
 exec > >(tee "$run/session.log") 2>&1
 echo "Evidence: $run"
 git -C "$repo" rev-parse HEAD > "$run/source-sha.txt"
@@ -25,7 +26,7 @@ git -C "$repo" diff --binary > "$run/source.patch"
 git -C "$repo" status --short > "$run/git-status.txt"
 { date -Is;uname -srvm;cat /etc/os-release;python3 --version;c++ --version;cmake --version;lscpu;free -b; } > "$run/environment.txt"
 python3 "$repo/reproduction/prepare_model_p3.py" "$root" "$model_key" > "$run/model-preparation.log" 2>&1
-model="$root/models/$model_key/ggml-model-I2_V_4.gguf"
+model="$root/models/$model_key/$file"
 cp "$root/models/$model_key/model-manifest.json" "$run/model-manifest.json"
 # Reuse P2 build directories: same validated CPU configuration, now also build libllama.
 for flavor in normal profile; do
@@ -44,9 +45,20 @@ for flavor in normal profile; do
     printf '%s\n' "$key" > "$build/p1-key.txt";printf '%s\n' "$run/$flavor-p1" > "$build/p1-evidence.txt"
   fi
   cp "$build/p1-evidence.txt" "$run/$flavor-p1-evidence.txt"
+  if [[ "$stage" == p4 ]]; then
+    bash "$repo/reproduction/compile-p4.sh" "$build"
+    python3 "$repo/reproduction/check_p4.py" "$build/bin/test-p4" "$run/$flavor-p4" > "$run/$flavor-p4.log"
+  fi
   cp "$build/CMakeCache.txt" "$run/$flavor-CMakeCache.txt"
   sha256sum "$build/bin/bench-p3" "$build/src/libllama.so" "$build/ggml/src/"*.so > "$run/$flavor-binaries.sha256"
 done
+if [[ "$stage" == p4 ]]; then
+  python3 "$repo/reproduction/prepare_model_p3.py" "$root" bitnet-3b-i2v4 > "$run/i2-model-verification.log"
+  build="$root/builds/p2-normal"
+  c++ -std=c++17 -O2 -Wall -Wextra -I"$repo/ggml/include" "$repo/reproduction/compare_model_packings.cpp" \
+    -L"$build/ggml/src" -Wl,-rpath,"$build/ggml/src" -lggml-base -o "$build/bin/compare-model-packings"
+  "$build/bin/compare-model-packings" "$root/models/bitnet-3b-i2v4/ggml-model-I2_V_4.gguf" "$model" > "$run/model-packing-comparison.json"
+fi
 python3 "$repo/reproduction/run_p3.py" "$root/builds/p2-normal/bin/bench-p3" "$root/builds/p2-profile/bin/bench-p3" "$model" "$run/measurements" --model-key "$model_key" "${args[@]}"
 python3 "$repo/reproduction/analyze_p3.py" "$run/measurements"
-echo "P3 $model_key complete: real generation, verified I2_V_4 calls, uninstrumented prefill/decode."
+echo "$stage $model_key complete: real generation, verified target kernel calls, uninstrumented prefill/decode."

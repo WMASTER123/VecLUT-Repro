@@ -142,6 +142,7 @@ size_t quantize_i1_v_2(const float *restrict src, void *restrict dst, int64_t nr
                      const float *imatrix) {
     // 1.58 bits per weight
     UNUSED(imatrix);
+    GGML_ASSERT(nrows > 0 && n_per_row > 0 && n_per_row % 4 == 0);
 
     int64_t blck_num = n_per_row / 20 * 4;
     int64_t blck_remain = n_per_row % 20 / 4;
