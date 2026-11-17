@@ -1,0 +1,156 @@
+[
+  {
+    "model": "bitnet-3b-i2v4",
+    "P": 16,
+    "threads": 1,
+    "mode": "prefill",
+    "passed": true,
+    "expected_selected": 0,
+    "prefill": {
+      "blocked_calls": 0,
+      "plain_calls": 5668,
+      "blocked_elements": 0,
+      "plain_elements": 393609600,
+      "selected_kernel_calls": 0
+    },
+    "final": {
+      "blocked_calls": 0,
+      "plain_calls": 5668,
+      "blocked_elements": 0,
+      "plain_elements": 393609600,
+      "selected_kernel_calls": 0
+    }
+  },
+  {
+    "model": "bitnet-3b-i2v4",
+    "P": 32,
+    "threads": 1,
+    "mode": "prefill",
+    "passed": true,
+    "expected_selected": 179,
+    "prefill": {
+      "blocked_calls": 5550,
+      "plain_calls": 118,
+      "blocked_elements": 785920000,
+      "plain_elements": 649600,
+      "selected_kernel_calls": 179
+    },
+    "final": {
+      "blocked_calls": 5550,
+      "plain_calls": 118,
+      "blocked_elements": 785920000,
+      "plain_elements": 649600,
+      "selected_kernel_calls": 179
+    }
+  },
+  {
+    "model": "bitnet-3b-i2v4",
+    "P": 33,
+    "threads": 1,
+    "mode": "prefill",
+    "passed": true,
+    "expected_selected": 179,
+    "prefill": {
+      "blocked_calls": 5550,
+      "plain_calls": 5668,
+      "blocked_elements": 785920000,
+      "plain_elements": 25209600,
+      "selected_kernel_calls": 179
+    },
+    "final": {
+      "blocked_calls": 5550,
+      "plain_calls": 5668,
+      "blocked_elements": 785920000,
+      "plain_elements": 25209600,
+      "selected_kernel_calls": 179
+    }
+  },
+  {
+    "model": "bitnet-3b-i2v4",
+    "P": 128,
+    "threads": 1,
+    "mode": "prefill",
+    "passed": true,
+    "expected_selected": 179,
+    "prefill": {
+      "blocked_calls": 22200,
+      "plain_calls": 118,
+      "blocked_elements": 3143680000,
+      "plain_elements": 649600,
+      "selected_kernel_calls": 179
+    },
+    "final": {
+      "blocked_calls": 22200,
+      "plain_calls": 118,
+      "blocked_elements": 3143680000,
+      "plain_elements": 649600,
+      "selected_kernel_calls": 179
+    }
+  },
+  {
+    "model": "bitnet-3b-i2v4",
+    "P": 128,
+    "threads": 4,
+    "mode": "prefill",
+    "passed": true,
+    "expected_selected": 0,
+    "prefill": {
+      "blocked_calls": 0,
+      "plain_calls": 89272,
+      "blocked_elements": 0,
+      "plain_elements": 3144329600,
+      "selected_kernel_calls": 0
+    },
+    "final": {
+      "blocked_calls": 0,
+      "plain_calls": 89272,
+      "blocked_elements": 0,
+      "plain_elements": 3144329600,
+      "selected_kernel_calls": 0
+    }
+  },
+  {
+    "model": "falcon3-1b-i2v4",
+    "P": 128,
+    "threads": 1,
+    "mode": "prefill",
+    "passed": true,
+    "expected_selected": 0,
+    "prefill": {
+      "blocked_calls": 0,
+      "plain_calls": 11232,
+      "blocked_elements": 0,
+      "plain_elements": 1082523648,
+      "selected_kernel_calls": 0
+    },
+    "final": {
+      "blocked_calls": 0,
+      "plain_calls": 11232,
+      "blocked_elements": 0,
+      "plain_elements": 1082523648,
+      "selected_kernel_calls": 0
+    }
+  },
+  {
+    "model": "bitnet-3b-i2v4",
+    "P": 32,
+    "threads": 1,
+    "mode": "decode",
+    "passed": true,
+    "expected_selected": 179,
+    "prefill": {
+      "blocked_calls": 5550,
+      "plain_calls": 118,
+      "blocked_elements": 785920000,
+      "plain_elements": 649600,
+      "selected_kernel_calls": 179
+    },
+    "final": {
+      "blocked_calls": 0,
+      "plain_calls": 11336,
+      "blocked_elements": 0,
+      "plain_elements": 50419200,
+      "selected_kernel_calls": 0
+    }
+  }
+]

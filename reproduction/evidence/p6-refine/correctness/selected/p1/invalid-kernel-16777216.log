@@ -1,0 +1,8 @@
+/mnt/e/VecLUT-Repro/src/vlut.cpp/ggml/src/ggml-cpu/ggml-cpu-quants-vlut.c:1233: GGML_ASSERT(n <= INT32_MAX / 128) failed
+/mnt/e/VecLUT-Repro/builds/p6-selected/ggml/src/libggml-base.so(+0x162cb)[0x7f65651492cb]
+/mnt/e/VecLUT-Repro/builds/p6-selected/ggml/src/libggml-base.so(ggml_abort+0x15b)[0x7f656514966b]
+/mnt/e/VecLUT-Repro/builds/p6-selected/ggml/src/libggml-cpu.so(+0x102f1)[0x7f656521a2f1]
+/mnt/e/VecLUT-Repro/builds/p6-selected/bin/test-p1(+0x3e86)[0x5e304bea4e86]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7f6564a2a1ca]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7f6564a2a28b]
+/mnt/e/VecLUT-Repro/builds/p6-selected/bin/test-p1(+0x4485)[0x5e304bea5485]

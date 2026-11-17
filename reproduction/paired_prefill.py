@@ -40,7 +40,7 @@ class Worker:
         self.args = args
         try:
             self.setup = self.read()
-            if self.setup["record"] != "setup" or self.setup["profile"]:
+            if self.setup["record"] != "setup" or self.setup["profile"] or not self.setup.get("controlled"):
                 raise RuntimeError("invalid worker setup")
         except BaseException:
             self.close()
@@ -96,6 +96,10 @@ def main():
                     row = workers[variant].step(); after = memory()
                     if row["record"] != "sample" or not row["finite_logits"] or row["major_faults"]:
                         raise RuntimeError("invalid sample")
+                    for key in ("scheduling_before", "scheduling_after_prefill"):
+                        snapshot = row[key]
+                        if snapshot["migrations"] < 0 or snapshot["runtime_ns"] <= 0 or snapshot["timeslices"] <= 0:
+                            raise RuntimeError("scheduling telemetry unavailable; cannot treat missing values as zero")
                     if any(before[k] != after[k] for k in ("pswpin", "pswpout")):
                         raise RuntimeError("swap observed")
                     if case.get("fixed", True) and case.get("threads", 1) == 1:

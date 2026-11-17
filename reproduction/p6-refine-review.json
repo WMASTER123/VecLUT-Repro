@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "python_files": [
+    "reproduction/analyze_p6_refine.py",
+    "reproduction/check_selector_model_paths.py",
+    "reproduction/paired_prefill.py",
+    "reproduction/run_p3.py",
+    "reproduction/screen_widen_shapes.py"
+  ],
+  "shell_files": [
+    "reproduction/compile-p3.sh",
+    "reproduction/prepare-selective.sh",
+    "reproduction/run-p1.sh",
+    "reproduction/run-p2.sh",
+    "reproduction/run-p3.sh",
+    "reproduction/run-p6-models.sh",
+    "reproduction/run-p6-refine.sh",
+    "reproduction/run-p6.sh"
+  ],
+  "telemetry_samples": 148,
+  "archive_files": 835,
+  "screen_samples": 1560,
+  "model_samples": 112,
+  "author_worktree_clean": true,
+  "secret_pattern_check": "passed",
+  "links": "passed",
+  "git_whitespace": "passed"
+}

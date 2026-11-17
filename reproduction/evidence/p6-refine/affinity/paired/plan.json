@@ -1,0 +1,29 @@
+[
+  {
+    "model": "bitnet-3b-i2v4",
+    "P": 128,
+    "samples": 6,
+    "fixed": false,
+    "cpus": [
+      0
+    ]
+  },
+  {
+    "model": "bitnet-3b-i2v4",
+    "P": 128,
+    "samples": 6,
+    "fixed": true,
+    "cpus": [
+      0
+    ]
+  },
+  {
+    "model": "bitnet-3b-i2v4",
+    "P": 128,
+    "samples": 6,
+    "fixed": true,
+    "cpus": [
+      2
+    ]
+  }
+]

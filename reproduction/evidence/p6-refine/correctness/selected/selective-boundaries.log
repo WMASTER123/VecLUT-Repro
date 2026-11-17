@@ -1,0 +1,9 @@
+PASS	graph/K3072_N32_M2559_t1_s1	got=0	expected=0
+PASS	graph/K3056_N32_M2560_t1_s1	got=0	expected=0
+PASS	graph/K3072_N31_M2560_t1_s1	got=0	expected=0
+PASS	graph/K3072_N32_M2560_t1_s1	got=0	expected=0
+PASS	graph/K3088_N33_M2561_t1_s1	got=0	expected=0
+PASS	graph/K3072_N33_M5121_t2_s1	got=0	expected=0
+PASS	graph/K3072_N33_M2561_t4_s1	got=0	expected=0
+PASS	graph/K3200_N65_M3200_t1_s1	got=0	expected=0
+SUMMARY	checks=8	failures=0

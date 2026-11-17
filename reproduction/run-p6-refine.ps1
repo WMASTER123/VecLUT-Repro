@@ -31,6 +31,13 @@ $monitor=Start-Process -FilePath (Get-Command pwsh).Source -ArgumentList $monito
 $monitor.Id | Set-Content (Join-Path $run 'monitor.pid')
 try {
     if($Stage -eq 'Screen'){
+        & wsl -d $Distribution -- git -C $linuxRepo rev-parse HEAD | Set-Content -Encoding utf8 (Join-Path $run 'source-sha.txt')
+        & wsl -d $Distribution -- git -C $linuxRepo diff --binary | Set-Content -Encoding utf8 (Join-Path $run 'source.patch')
+        & wsl -d $Distribution -- git -C $linuxRepo status --short | Set-Content -Encoding utf8 (Join-Path $run 'git-status.txt')
+        foreach($variant in @('off','on')){
+            Copy-Item -LiteralPath (Join-Path $dataPath "builds\p6-$variant\CMakeCache.txt") -Destination (Join-Path $run "$variant-CMakeCache.txt")
+            Get-FileHash -Algorithm SHA256 -LiteralPath (Join-Path $dataPath "builds\p6-$variant\bin\bench-p2") | ConvertTo-Json | Set-Content -Encoding utf8 (Join-Path $run "$variant-binary.json")
+        }
         & wsl -d $Distribution -- env "PYTHONPYCACHEPREFIX=$linuxData/cache/pycache" python3 "$linuxRepo/reproduction/screen_widen_shapes.py" $linuxData "$linuxRun/screen" 2>&1 | Tee-Object -FilePath (Join-Path $run 'session.log')
     } else {
         $plan=if($Stage -eq 'Affinity'){'affinity.json'}else{'selective.json'}

@@ -1,5 +1,7 @@
 # Vec-LUT CPU 复现：正确性、内核与真实模型性能
 
+> 2026-11-18更新：P6固定CPU复核与选择性分块已完成；默认OFF。[第二轮报告](P6_REFINE_REPORT.md)、[一键规程](P6_REFINE_METHOD.md)、[本轮审查](REVIEW_20261118.md)。
+
 本目录是基于作者代码的复现实现，不是原作者发布的官方修复。作者项目、MIT 许可证和提交历史均保留。
 
 - 论文：[Vec-LUT，MobiSys 2026](https://arxiv.org/html/2512.06443v2)

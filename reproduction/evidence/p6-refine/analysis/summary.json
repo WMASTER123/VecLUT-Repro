@@ -1,0 +1,655 @@
+{
+  "affinity": [
+    {
+      "case_id": 0,
+      "case": {
+        "model": "bitnet-3b-i2v4",
+        "P": 128,
+        "samples": 6,
+        "fixed": false,
+        "cpus": [
+          0
+        ]
+      },
+      "values": {
+        "off": {
+          "median_ms": 4588.342589,
+          "cv": 0.01671847637430793,
+          "cpu_wall_ratio": 0.999208507819338,
+          "migrations": 0,
+          "wait_ms": 3.6361745
+        },
+        "on": {
+          "median_ms": 4251.333845499999,
+          "cv": 0.02079025915122089,
+          "cpu_wall_ratio": 0.9992958994655763,
+          "migrations": 0,
+          "wait_ms": 3.0221005
+        }
+      },
+      "speedup": 1.079271295962024,
+      "block_speedups": [
+        1.050040915698123,
+        1.0857035400007289,
+        1.1012108771357605
+      ],
+      "block_range_is_not_ci": true,
+      "sample_count": 12,
+      "major_faults": 0,
+      "swap_changed_samples": 0,
+      "token_variants": 1,
+      "logit_hash_variants": 1
+    },
+    {
+      "case_id": 1,
+      "case": {
+        "model": "bitnet-3b-i2v4",
+        "P": 128,
+        "samples": 6,
+        "fixed": true,
+        "cpus": [
+          0
+        ]
+      },
+      "values": {
+        "off": {
+          "median_ms": 4568.060759,
+          "cv": 0.04147281699652255,
+          "cpu_wall_ratio": 0.9997588458451045,
+          "migrations": 0,
+          "wait_ms": 1.1645815
+        },
+        "on": {
+          "median_ms": 4206.2633815,
+          "cv": 0.024452559000811825,
+          "cpu_wall_ratio": 0.9995223330765652,
+          "migrations": 0,
+          "wait_ms": 2.020575
+        }
+      },
+      "speedup": 1.0860139617246172,
+      "block_speedups": [
+        1.0794096679624907,
+        1.111136006266157,
+        1.0758571808191484
+      ],
+      "block_range_is_not_ci": true,
+      "sample_count": 12,
+      "major_faults": 0,
+      "swap_changed_samples": 0,
+      "token_variants": 1,
+      "logit_hash_variants": 1
+    },
+    {
+      "case_id": 2,
+      "case": {
+        "model": "bitnet-3b-i2v4",
+        "P": 128,
+        "samples": 6,
+        "fixed": true,
+        "cpus": [
+          2
+        ]
+      },
+      "values": {
+        "off": {
+          "median_ms": 4500.8993185,
+          "cv": 0.00437423192614965,
+          "cpu_wall_ratio": 0.9995810665413858,
+          "migrations": 0,
+          "wait_ms": 1.881129
+        },
+        "on": {
+          "median_ms": 4165.8246925,
+          "cv": 0.015401286497544664,
+          "cpu_wall_ratio": 0.999459693585027,
+          "migrations": 0,
+          "wait_ms": 2.2663770000000003
+        }
+      },
+      "speedup": 1.0804341638771444,
+      "block_speedups": [
+        1.0776900814756734,
+        1.081962738595257,
+        1.059168617734151
+      ],
+      "block_range_is_not_ci": true,
+      "sample_count": 12,
+      "major_faults": 0,
+      "swap_changed_samples": 0,
+      "token_variants": 1,
+      "logit_hash_variants": 1
+    }
+  ],
+  "selective": [
+    {
+      "case_id": 0,
+      "case": {
+        "model": "bitnet-3b-i2v4",
+        "P": 32,
+        "samples": 8,
+        "cpus": [
+          2
+        ],
+        "variants": [
+          "off",
+          "selected"
+        ]
+      },
+      "values": {
+        "off": {
+          "median_ms": 1119.360482,
+          "cv": 0.011947677973090196,
+          "cpu_wall_ratio": 0.9230299214044153,
+          "migrations": 0,
+          "wait_ms": 0.0567775
+        },
+        "selected": {
+          "median_ms": 1062.8469745,
+          "cv": 0.03025458350701884,
+          "cpu_wall_ratio": 0.9230149101093534,
+          "migrations": 0,
+          "wait_ms": 0.0714905
+        }
+      },
+      "speedup": 1.0531718195148327,
+      "block_speedups": [
+        1.0613800749558095,
+        1.061517109157393,
+        1.0094261499651416,
+        1.0521952544641824
+      ],
+      "block_range_is_not_ci": true,
+      "sample_count": 16,
+      "major_faults": 0,
+      "swap_changed_samples": 0,
+      "token_variants": 1,
+      "logit_hash_variants": 1
+    },
+    {
+      "case_id": 1,
+      "case": {
+        "model": "bitnet-3b-i2v4",
+        "P": 33,
+        "samples": 8,
+        "cpus": [
+          2
+        ],
+        "variants": [
+          "off",
+          "selected"
+        ]
+      },
+      "values": {
+        "off": {
+          "median_ms": 1676.5056534999999,
+          "cv": 0.01479657091472463,
+          "cpu_wall_ratio": 0.923022974231203,
+          "migrations": 0,
+          "wait_ms": 0.0946705
+        },
+        "selected": {
+          "median_ms": 1640.832062,
+          "cv": 0.020240538003350655,
+          "cpu_wall_ratio": 0.923018465536625,
+          "migrations": 0,
+          "wait_ms": 0.099777
+        }
+      },
+      "speedup": 1.02174115945572,
+      "block_speedups": [
+        1.0132474864238572,
+        1.0238762884753048,
+        1.0249083982474554,
+        1.0225731752392349
+      ],
+      "block_range_is_not_ci": true,
+      "sample_count": 16,
+      "major_faults": 0,
+      "swap_changed_samples": 0,
+      "token_variants": 1,
+      "logit_hash_variants": 1
+    },
+    {
+      "case_id": 2,
+      "case": {
+        "model": "bitnet-3b-i2v4",
+        "P": 128,
+        "samples": 8,
+        "cpus": [
+          2
+        ],
+        "variants": [
+          "off",
+          "selected"
+        ]
+      },
+      "values": {
+        "off": {
+          "median_ms": 4901.22171,
+          "cv": 0.012381755346315413,
+          "cpu_wall_ratio": 0.9226873969379645,
+          "migrations": 0,
+          "wait_ms": 1.906949
+        },
+        "selected": {
+          "median_ms": 4620.4235595,
+          "cv": 0.017670657835901406,
+          "cpu_wall_ratio": 0.922614086792696,
+          "migrations": 0,
+          "wait_ms": 2.1704049999999997
+        }
+      },
+      "speedup": 1.0607732487907204,
+      "block_speedups": [
+        1.0807400323806744,
+        1.0667316071366424,
+        1.0562557476774783,
+        1.041800118990294
+      ],
+      "block_range_is_not_ci": true,
+      "sample_count": 16,
+      "major_faults": 0,
+      "swap_changed_samples": 0,
+      "token_variants": 1,
+      "logit_hash_variants": 1
+    },
+    {
+      "case_id": 3,
+      "case": {
+        "model": "bitnet-3b-i2v4",
+        "P": 256,
+        "samples": 8,
+        "cpus": [
+          2
+        ],
+        "variants": [
+          "off",
+          "selected"
+        ]
+      },
+      "values": {
+        "off": {
+          "median_ms": 10492.053982500001,
+          "cv": 0.007061602289289347,
+          "cpu_wall_ratio": 0.9227244887438113,
+          "migrations": 0,
+          "wait_ms": 3.6867395000000003
+        },
+        "selected": {
+          "median_ms": 9875.011872,
+          "cv": 0.009252222043908256,
+          "cpu_wall_ratio": 0.9226556806959534,
+          "migrations": 0,
+          "wait_ms": 4.1858835
+        }
+      },
+      "speedup": 1.0624852018912088,
+      "block_speedups": [
+        1.0568107910917683,
+        1.059640815413228,
+        1.0737233543073228,
+        1.0497387593827696
+      ],
+      "block_range_is_not_ci": true,
+      "sample_count": 16,
+      "major_faults": 0,
+      "swap_changed_samples": 0,
+      "token_variants": 1,
+      "logit_hash_variants": 1
+    },
+    {
+      "case_id": 4,
+      "case": {
+        "model": "falcon3-1b-i2v4",
+        "P": 128,
+        "samples": 6,
+        "cpus": [
+          2
+        ],
+        "variants": [
+          "off",
+          "selected"
+        ]
+      },
+      "values": {
+        "off": {
+          "median_ms": 1856.928265,
+          "cv": 0.017069385475285515,
+          "cpu_wall_ratio": 0.9223748713966025,
+          "migrations": 0,
+          "wait_ms": 1.294876
+        },
+        "selected": {
+          "median_ms": 1836.615169,
+          "cv": 0.012293534498631726,
+          "cpu_wall_ratio": 0.9225433700537342,
+          "migrations": 0,
+          "wait_ms": 0.9807874999999999
+        }
+      },
+      "speedup": 1.0110600719970424,
+      "block_speedups": [
+        0.9977340592402636,
+        1.0181746647227121,
+        0.9989000150926493
+      ],
+      "block_range_is_not_ci": true,
+      "sample_count": 12,
+      "major_faults": 0,
+      "swap_changed_samples": 0,
+      "token_variants": 1,
+      "logit_hash_variants": 1
+    },
+    {
+      "case_id": 5,
+      "case": {
+        "model": "bitnet-3b-i2v4",
+        "P": 128,
+        "threads": 4,
+        "cpus": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "samples": 6,
+        "variants": [
+          "off",
+          "selected"
+        ]
+      },
+      "values": {
+        "off": {
+          "median_ms": 1526.3228325,
+          "cv": 0.021413127876140057,
+          "cpu_wall_ratio": 3.237936186534766,
+          "migrations": 0,
+          "wait_ms": 0.35538749999999997
+        },
+        "selected": {
+          "median_ms": 1516.1747805,
+          "cv": 0.025003477523663338,
+          "cpu_wall_ratio": 3.2429997553117413,
+          "migrations": 0,
+          "wait_ms": 0.3121515
+        }
+      },
+      "speedup": 1.006693194037071,
+      "block_speedups": [
+        1.0122446360921953,
+        0.9970919533440921,
+        0.9918824945208545
+      ],
+      "block_range_is_not_ci": true,
+      "sample_count": 12,
+      "major_faults": 0,
+      "swap_changed_samples": 0,
+      "token_variants": 1,
+      "logit_hash_variants": 1
+    },
+    {
+      "case_id": 6,
+      "case": {
+        "model": "falcon3-1b-i2v4",
+        "P": 32,
+        "mode": "decode",
+        "G": 8,
+        "threads": 4,
+        "cpus": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "samples": 6,
+        "variants": [
+          "off",
+          "selected"
+        ]
+      },
+      "values": {
+        "off": {
+          "median_ms": 893.7561375,
+          "cv": 0.013600507550452019,
+          "cpu_wall_ratio": 2.6544467097701387,
+          "migrations": 0,
+          "wait_ms": 0.0461785
+        },
+        "selected": {
+          "median_ms": 884.965269,
+          "cv": 0.011575085063593353,
+          "cpu_wall_ratio": 2.5769764877437424,
+          "migrations": 0,
+          "wait_ms": 0.086637
+        }
+      },
+      "speedup": 1.009933574579637,
+      "block_speedups": [
+        1.0202670614291651,
+        1.0145787986696035,
+        1.0111837242976536
+      ],
+      "block_range_is_not_ci": true,
+      "sample_count": 12,
+      "major_faults": 0,
+      "swap_changed_samples": 0,
+      "token_variants": 1,
+      "logit_hash_variants": 1
+    },
+    {
+      "case_id": 7,
+      "case": {
+        "model": "bitnet-3b-i2v4",
+        "P": 32,
+        "mode": "decode",
+        "G": 8,
+        "threads": 4,
+        "cpus": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "samples": 6,
+        "variants": [
+          "off",
+          "selected"
+        ]
+      },
+      "values": {
+        "off": {
+          "median_ms": 2026.327016,
+          "cv": 0.020969601536302028,
+          "cpu_wall_ratio": 2.770834883783757,
+          "migrations": 0,
+          "wait_ms": 0.149172
+        },
+        "selected": {
+          "median_ms": 1966.5914819999998,
+          "cv": 0.006891606814494778,
+          "cpu_wall_ratio": 2.7555181654487813,
+          "migrations": 0,
+          "wait_ms": 0.126661
+        }
+      },
+      "speedup": 1.0303751615659649,
+      "block_speedups": [
+        1.0160823843129003,
+        1.033141207276508,
+        1.043851499669207
+      ],
+      "block_range_is_not_ci": true,
+      "sample_count": 12,
+      "major_faults": 0,
+      "swap_changed_samples": 0,
+      "token_variants": 1,
+      "logit_hash_variants": 1
+    }
+  ],
+  "paths": [
+    {
+      "model": "bitnet-3b-i2v4",
+      "P": 16,
+      "threads": 1,
+      "mode": "prefill",
+      "passed": true,
+      "expected_selected": 0,
+      "prefill": {
+        "blocked_calls": 0,
+        "plain_calls": 5668,
+        "blocked_elements": 0,
+        "plain_elements": 393609600,
+        "selected_kernel_calls": 0
+      },
+      "final": {
+        "blocked_calls": 0,
+        "plain_calls": 5668,
+        "blocked_elements": 0,
+        "plain_elements": 393609600,
+        "selected_kernel_calls": 0
+      },
+      "blocked_element_fraction": 0.0
+    },
+    {
+      "model": "bitnet-3b-i2v4",
+      "P": 32,
+      "threads": 1,
+      "mode": "prefill",
+      "passed": true,
+      "expected_selected": 179,
+      "prefill": {
+        "blocked_calls": 5550,
+        "plain_calls": 118,
+        "blocked_elements": 785920000,
+        "plain_elements": 649600,
+        "selected_kernel_calls": 179
+      },
+      "final": {
+        "blocked_calls": 5550,
+        "plain_calls": 118,
+        "blocked_elements": 785920000,
+        "plain_elements": 649600,
+        "selected_kernel_calls": 179
+      },
+      "blocked_element_fraction": 0.9991741353848407
+    },
+    {
+      "model": "bitnet-3b-i2v4",
+      "P": 33,
+      "threads": 1,
+      "mode": "prefill",
+      "passed": true,
+      "expected_selected": 179,
+      "prefill": {
+        "blocked_calls": 5550,
+        "plain_calls": 5668,
+        "blocked_elements": 785920000,
+        "plain_elements": 25209600,
+        "selected_kernel_calls": 179
+      },
+      "final": {
+        "blocked_calls": 5550,
+        "plain_calls": 5668,
+        "blocked_elements": 785920000,
+        "plain_elements": 25209600,
+        "selected_kernel_calls": 179
+      },
+      "blocked_element_fraction": 0.9689203796779208
+    },
+    {
+      "model": "bitnet-3b-i2v4",
+      "P": 128,
+      "threads": 1,
+      "mode": "prefill",
+      "passed": true,
+      "expected_selected": 179,
+      "prefill": {
+        "blocked_calls": 22200,
+        "plain_calls": 118,
+        "blocked_elements": 3143680000,
+        "plain_elements": 649600,
+        "selected_kernel_calls": 179
+      },
+      "final": {
+        "blocked_calls": 22200,
+        "plain_calls": 118,
+        "blocked_elements": 3143680000,
+        "plain_elements": 649600,
+        "selected_kernel_calls": 179
+      },
+      "blocked_element_fraction": 0.9997934058821314
+    },
+    {
+      "model": "bitnet-3b-i2v4",
+      "P": 128,
+      "threads": 4,
+      "mode": "prefill",
+      "passed": true,
+      "expected_selected": 0,
+      "prefill": {
+        "blocked_calls": 0,
+        "plain_calls": 89272,
+        "blocked_elements": 0,
+        "plain_elements": 3144329600,
+        "selected_kernel_calls": 0
+      },
+      "final": {
+        "blocked_calls": 0,
+        "plain_calls": 89272,
+        "blocked_elements": 0,
+        "plain_elements": 3144329600,
+        "selected_kernel_calls": 0
+      },
+      "blocked_element_fraction": 0.0
+    },
+    {
+      "model": "falcon3-1b-i2v4",
+      "P": 128,
+      "threads": 1,
+      "mode": "prefill",
+      "passed": true,
+      "expected_selected": 0,
+      "prefill": {
+        "blocked_calls": 0,
+        "plain_calls": 11232,
+        "blocked_elements": 0,
+        "plain_elements": 1082523648,
+        "selected_kernel_calls": 0
+      },
+      "final": {
+        "blocked_calls": 0,
+        "plain_calls": 11232,
+        "blocked_elements": 0,
+        "plain_elements": 1082523648,
+        "selected_kernel_calls": 0
+      },
+      "blocked_element_fraction": 0.0
+    },
+    {
+      "model": "bitnet-3b-i2v4",
+      "P": 32,
+      "threads": 1,
+      "mode": "decode",
+      "passed": true,
+      "expected_selected": 179,
+      "prefill": {
+        "blocked_calls": 5550,
+        "plain_calls": 118,
+        "blocked_elements": 785920000,
+        "plain_elements": 649600,
+        "selected_kernel_calls": 179
+      },
+      "final": {
+        "blocked_calls": 0,
+        "plain_calls": 11336,
+        "blocked_elements": 0,
+        "plain_elements": 50419200,
+        "selected_kernel_calls": 0
+      },
+      "blocked_element_fraction": 0.9991741353848407
+    }
+  ],
+  "screen_configurations": 78,
+  "screen_samples": 1560
+}

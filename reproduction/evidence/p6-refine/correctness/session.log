@@ -1,0 +1,5 @@
+Evidence: /mnt/e/VecLUT-Repro/results/p6-selective-build-20261118-001431-435
+off: P1/P4, 8 selector graph boundaries, 180 helper/10 policy checks passed
+selected: P1/P4, 8 selector graph boundaries, 180 helper/10 policy checks passed
+selected-profile: P1/P4, 8 selector graph boundaries, 180 helper/10 policy checks passed
+selected-asan: P1/P4, 8 selector graph boundaries, 180 helper/10 policy checks passed

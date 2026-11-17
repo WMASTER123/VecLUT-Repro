@@ -1,0 +1,114 @@
+[
+  {
+    "model": "bitnet-3b-i2v4",
+    "P": 32,
+    "samples": 8,
+    "cpus": [
+      2
+    ],
+    "variants": [
+      "off",
+      "selected"
+    ]
+  },
+  {
+    "model": "bitnet-3b-i2v4",
+    "P": 33,
+    "samples": 8,
+    "cpus": [
+      2
+    ],
+    "variants": [
+      "off",
+      "selected"
+    ]
+  },
+  {
+    "model": "bitnet-3b-i2v4",
+    "P": 128,
+    "samples": 8,
+    "cpus": [
+      2
+    ],
+    "variants": [
+      "off",
+      "selected"
+    ]
+  },
+  {
+    "model": "bitnet-3b-i2v4",
+    "P": 256,
+    "samples": 8,
+    "cpus": [
+      2
+    ],
+    "variants": [
+      "off",
+      "selected"
+    ]
+  },
+  {
+    "model": "falcon3-1b-i2v4",
+    "P": 128,
+    "samples": 6,
+    "cpus": [
+      2
+    ],
+    "variants": [
+      "off",
+      "selected"
+    ]
+  },
+  {
+    "model": "bitnet-3b-i2v4",
+    "P": 128,
+    "threads": 4,
+    "cpus": [
+      0,
+      2,
+      4,
+      6
+    ],
+    "samples": 6,
+    "variants": [
+      "off",
+      "selected"
+    ]
+  },
+  {
+    "model": "falcon3-1b-i2v4",
+    "P": 32,
+    "mode": "decode",
+    "G": 8,
+    "threads": 4,
+    "cpus": [
+      0,
+      2,
+      4,
+      6
+    ],
+    "samples": 6,
+    "variants": [
+      "off",
+      "selected"
+    ]
+  },
+  {
+    "model": "bitnet-3b-i2v4",
+    "P": 32,
+    "mode": "decode",
+    "G": 8,
+    "threads": 4,
+    "cpus": [
+      0,
+      2,
+      4,
+      6
+    ],
+    "samples": 6,
+    "variants": [
+      "off",
+      "selected"
+    ]
+  }
+]

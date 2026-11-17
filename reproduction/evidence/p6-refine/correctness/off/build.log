@@ -1,0 +1,28 @@
+gmake[1]: Warning: File 'CMakeFiles/Makefile2' has modification time 5.3 s in the future
+gmake[2]: Warning: File 'CMakeFiles/Makefile2' has modification time 5.1 s in the future
+gmake[3]: Warning: File 'ggml/src/CMakeFiles/ggml-base.dir/progress.make' has modification time 4.1 s in the future
+gmake[3]: warning:  Clock skew detected.  Your build may be incomplete.
+gmake[3]: Warning: File 'ggml/src/CMakeFiles/ggml-base.dir/progress.make' has modification time 3.4 s in the future
+gmake[3]: warning:  Clock skew detected.  Your build may be incomplete.
+[ 23%] Built target ggml-base
+gmake[3]: Warning: File 'ggml/src/CMakeFiles/ggml-cpu.dir/progress.make' has modification time 3.3 s in the future
+gmake[3]: warning:  Clock skew detected.  Your build may be incomplete.
+gmake[3]: Warning: File 'ggml/src/CMakeFiles/ggml-cpu.dir/progress.make' has modification time 2.4 s in the future
+[ 23%] Building C object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu-quants-vlut.c.o
+[ 28%] Building C object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu.c.o
+/mnt/e/VecLUT-Repro/src/vlut.cpp/ggml/src/ggml-cpu/ggml-cpu-quants-vlut.c:76:1: warning: multi-line comment [-Wcomment]
+   76 | // #define ACCUMULATE_TABLE_TRANS(ss, ss2, nc, entry_tile_remain, entry_tile_count) \
+      | ^
+[ 28%] Linking CXX shared library libggml-cpu.so
+gmake[3]: warning:  Clock skew detected.  Your build may be incomplete.
+[ 47%] Built target ggml-cpu
+gmake[3]: Warning: File 'ggml/src/CMakeFiles/ggml.dir/compiler_depend.make' has modification time 5.3 s in the future
+[ 47%] Linking CXX shared library libggml.so
+gmake[3]: warning:  Clock skew detected.  Your build may be incomplete.
+[ 52%] Built target ggml
+gmake[3]: Warning: File 'src/CMakeFiles/llama.dir/compiler_depend.make' has modification time 4.3 s in the future
+[ 57%] Linking CXX shared library libllama.so
+gmake[3]: warning:  Clock skew detected.  Your build may be incomplete.
+[100%] Built target llama
+gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+gmake[1]: warning:  Clock skew detected.  Your build may be incomplete.

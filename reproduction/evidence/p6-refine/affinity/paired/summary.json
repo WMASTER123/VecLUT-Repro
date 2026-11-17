@@ -1,0 +1,89 @@
+[
+  {
+    "case_id": 0,
+    "case": {
+      "model": "bitnet-3b-i2v4",
+      "P": 128,
+      "samples": 6,
+      "fixed": false,
+      "cpus": [
+        0
+      ]
+    },
+    "values": {
+      "off": {
+        "median_ms": 4588.342589,
+        "cv": 0.01671847637430793,
+        "cpu_wall_ratio": 0.999208507819338,
+        "migrations": 0,
+        "wait_ms": 3.6361745
+      },
+      "on": {
+        "median_ms": 4251.333845499999,
+        "cv": 0.02079025915122089,
+        "cpu_wall_ratio": 0.9992958994655763,
+        "migrations": 0,
+        "wait_ms": 3.0221005
+      }
+    },
+    "speedup": 1.079271295962024
+  },
+  {
+    "case_id": 1,
+    "case": {
+      "model": "bitnet-3b-i2v4",
+      "P": 128,
+      "samples": 6,
+      "fixed": true,
+      "cpus": [
+        0
+      ]
+    },
+    "values": {
+      "off": {
+        "median_ms": 4568.060759,
+        "cv": 0.04147281699652255,
+        "cpu_wall_ratio": 0.9997588458451045,
+        "migrations": 0,
+        "wait_ms": 1.1645815
+      },
+      "on": {
+        "median_ms": 4206.2633815,
+        "cv": 0.024452559000811825,
+        "cpu_wall_ratio": 0.9995223330765652,
+        "migrations": 0,
+        "wait_ms": 2.020575
+      }
+    },
+    "speedup": 1.0860139617246172
+  },
+  {
+    "case_id": 2,
+    "case": {
+      "model": "bitnet-3b-i2v4",
+      "P": 128,
+      "samples": 6,
+      "fixed": true,
+      "cpus": [
+        2
+      ]
+    },
+    "values": {
+      "off": {
+        "median_ms": 4500.8993185,
+        "cv": 0.00437423192614965,
+        "cpu_wall_ratio": 0.9995810665413858,
+        "migrations": 0,
+        "wait_ms": 1.881129
+      },
+      "on": {
+        "median_ms": 4165.8246925,
+        "cv": 0.015401286497544664,
+        "cpu_wall_ratio": 0.999459693585027,
+        "migrations": 0,
+        "wait_ms": 2.2663770000000003
+      }
+    },
+    "speedup": 1.0804341638771444
+  }
+]
