@@ -1,0 +1,9 @@
+/mnt/e/VecLUT-Repro/experiments/safe-accum/src/ggml/src/ggml-cpu/ggml-cpu-quants-vlut.c:1734: GGML_ASSERT(n <= INT32_MAX / 128) failed
+/lib/x86_64-linux-gnu/libasan.so.8(+0x831e0)[0x79aca14831e0]
+/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-adaptive-asan/ggml/src/libggml-base.so(+0x40a417)[0x79ac9fdf1417]
+/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-adaptive-asan/ggml/src/libggml-base.so(ggml_abort+0x290)[0x79ac9fdf2430]
+/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-adaptive-asan/ggml/src/libggml-cpu.so(ggml_gemm_i1v2_i8v_lut+0x14c95)[0x79aca0a9f865]
+/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-adaptive-asan/bin/test-p4(+0x31137)[0x55c58791e137]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x79ac9ea2a1ca]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x79ac9ea2a28b]
+/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-adaptive-asan/bin/test-p4(+0x328a5)[0x55c58791f8a5]

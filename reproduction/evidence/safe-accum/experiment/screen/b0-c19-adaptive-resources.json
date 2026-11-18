@@ -1,0 +1,1 @@
+{"before": {"MemAvailable": 11400516, "pswpin": 0, "pswpout": 0}, "after": {"MemAvailable": 11401100, "pswpin": 0, "pswpout": 0}, "command": ["taskset", "-c", "0,2,4,6", "/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-adaptive/bin/bench-p2", "8640", "3200", "128", "5", "150", "graph4"]}

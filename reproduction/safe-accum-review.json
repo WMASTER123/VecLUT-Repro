@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "correctness": {
+    "legacy128": "passed",
+    "safe240": "passed",
+    "adaptive": "passed",
+    "adaptive-asan": "passed"
+  },
+  "screen_samples": 720,
+  "model_samples": 68,
+  "evidence_files": 573,
+  "adaptive_model_performance": "not run: failed gate",
+  "stable_worktree": "clean, unchanged 79db4941",
+  "author_worktree": "clean",
+  "python_syntax": [
+    "reproduction/analyze_safe_accum.py",
+    "reproduction/confirm_fixed_accum.py",
+    "reproduction/experiment_safe_accum.py",
+    "reproduction/screen_safe_accum.py"
+  ],
+  "shell_syntax": [
+    "reproduction/run-safe-accum.sh"
+  ],
+  "hashes": "passed",
+  "links": "passed",
+  "secret_scan": "passed",
+  "whitespace": "passed"
+}

@@ -1,0 +1,60 @@
+[
+  {
+    "model": "falcon3-1b-i2v4",
+    "P": 128,
+    "threads": 1,
+    "cpus": [
+      2
+    ],
+    "samples": 6,
+    "variants": [
+      "legacy128",
+      "safe240"
+    ]
+  },
+  {
+    "model": "falcon3-1b-i2v4",
+    "P": 128,
+    "threads": 4,
+    "cpus": [
+      0,
+      2,
+      4,
+      6
+    ],
+    "samples": 6,
+    "variants": [
+      "legacy128",
+      "safe240"
+    ]
+  },
+  {
+    "model": "bitnet-3b-i2v4",
+    "P": 128,
+    "threads": 1,
+    "cpus": [
+      2
+    ],
+    "samples": 6,
+    "variants": [
+      "legacy128",
+      "safe240"
+    ]
+  },
+  {
+    "model": "bitnet-3b-i2v4",
+    "P": 128,
+    "threads": 4,
+    "cpus": [
+      0,
+      2,
+      4,
+      6
+    ],
+    "samples": 6,
+    "variants": [
+      "legacy128",
+      "safe240"
+    ]
+  }
+]

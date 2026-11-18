@@ -1,0 +1,55 @@
+batch 0 case 0: 2048/2048/32/1 complete
+batch 0 case 1: 2048/2048/32/4 complete
+batch 0 case 2: 2048/2048/128/1 complete
+batch 0 case 3: 2048/2048/128/4 complete
+batch 0 case 4: 8192/2048/32/1 complete
+batch 0 case 5: 8192/2048/32/4 complete
+batch 0 case 6: 8192/2048/128/1 complete
+batch 0 case 7: 8192/2048/128/4 complete
+batch 0 case 8: 2048/8192/32/1 complete
+batch 0 case 9: 2048/8192/32/4 complete
+batch 0 case 10: 2048/8192/128/1 complete
+batch 0 case 11: 2048/8192/128/4 complete
+batch 0 case 12: 3200/3200/32/1 complete
+batch 0 case 13: 3200/3200/32/4 complete
+batch 0 case 14: 3200/3200/128/1 complete
+batch 0 case 15: 3200/3200/128/4 complete
+batch 0 case 16: 8640/3200/32/1 complete
+batch 0 case 17: 8640/3200/32/4 complete
+batch 0 case 18: 8640/3200/128/1 complete
+batch 0 case 19: 8640/3200/128/4 complete
+batch 0 case 20: 3200/8640/32/1 complete
+batch 0 case 21: 3200/8640/32/4 complete
+batch 0 case 22: 3200/8640/128/1 complete
+batch 0 case 23: 3200/8640/128/4 complete
+batch 1 case 23: 3200/8640/128/4 complete
+batch 1 case 22: 3200/8640/128/1 complete
+batch 1 case 21: 3200/8640/32/4 complete
+batch 1 case 20: 3200/8640/32/1 complete
+batch 1 case 19: 8640/3200/128/4 complete
+batch 1 case 18: 8640/3200/128/1 complete
+batch 1 case 17: 8640/3200/32/4 complete
+batch 1 case 16: 8640/3200/32/1 complete
+batch 1 case 15: 3200/3200/128/4 complete
+batch 1 case 14: 3200/3200/128/1 complete
+batch 1 case 13: 3200/3200/32/4 complete
+batch 1 case 12: 3200/3200/32/1 complete
+batch 1 case 11: 2048/8192/128/4 complete
+batch 1 case 10: 2048/8192/128/1 complete
+batch 1 case 9: 2048/8192/32/4 complete
+batch 1 case 8: 2048/8192/32/1 complete
+batch 1 case 7: 8192/2048/128/4 complete
+batch 1 case 6: 8192/2048/128/1 complete
+batch 1 case 5: 8192/2048/32/4 complete
+batch 1 case 4: 8192/2048/32/1 complete
+batch 1 case 3: 2048/2048/128/4 complete
+batch 1 case 2: 2048/2048/128/1 complete
+batch 1 case 1: 2048/2048/32/4 complete
+batch 1 case 0: 2048/2048/32/1 complete
+{
+  "configurations": 24,
+  "samples": 720,
+  "both_batches_gt_5pct": 10,
+  "any_batch_regression_gt_5pct": 4,
+  "proceed_to_models": false
+}

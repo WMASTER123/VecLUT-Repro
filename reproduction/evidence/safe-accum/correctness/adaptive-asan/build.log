@@ -1,0 +1,62 @@
+gmake[1]: Warning: File 'CMakeFiles/Makefile2' has modification time 7.6 s in the future
+gmake[2]: Warning: File 'CMakeFiles/Makefile2' has modification time 7.4 s in the future
+gmake[3]: Warning: File 'ggml/src/CMakeFiles/ggml-base.dir/progress.make' has modification time 6.2 s in the future
+gmake[3]: warning:  Clock skew detected.  Your build may be incomplete.
+gmake[3]: Warning: File 'ggml/src/CMakeFiles/ggml-base.dir/progress.make' has modification time 6.2 s in the future
+[  9%] Building C object ggml/src/CMakeFiles/ggml-base.dir/ggml.c.o
+[  9%] Building C object ggml/src/CMakeFiles/ggml-base.dir/ggml-quants-vlut.c.o
+[ 18%] Building C object ggml/src/CMakeFiles/ggml-base.dir/ggml-alloc.c.o
+[ 18%] Building CXX object ggml/src/CMakeFiles/ggml-base.dir/ggml-backend.cpp.o
+[ 27%] Building CXX object ggml/src/CMakeFiles/ggml-base.dir/ggml-opt.cpp.o
+[ 27%] Building CXX object ggml/src/CMakeFiles/ggml-base.dir/ggml-threading.cpp.o
+[ 36%] Building C object ggml/src/CMakeFiles/ggml-base.dir/ggml-quants.c.o
+[ 36%] Building CXX object ggml/src/CMakeFiles/ggml-base.dir/gguf.cpp.o
+[ 45%] Linking CXX shared library libggml-base.so
+gmake[3]: warning:  Clock skew detected.  Your build may be incomplete.
+[ 45%] Built target ggml-base
+[ 45%] Building C object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu-quants-vlut.c.o
+[ 54%] Building C object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu.c.o
+[ 54%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu.cpp.o
+[ 63%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu-aarch64.cpp.o
+/mnt/e/VecLUT-Repro/experiments/safe-accum/src/ggml/src/ggml-cpu/ggml-cpu-quants-vlut.c:76:1: warning: multi-line comment [-Wcomment]
+   76 | // #define ACCUMULATE_TABLE_TRANS(ss, ss2, nc, entry_tile_remain, entry_tile_count) \
+      | ^
+/mnt/e/VecLUT-Repro/experiments/safe-accum/src/ggml/src/ggml-cpu/ggml-vlut-adaptive.inc: In function ‘ggml_gemm_i2v4_i8v_lut’:
+/mnt/e/VecLUT-Repro/experiments/safe-accum/src/ggml/src/ggml-cpu/ggml-cpu-quants-vlut.c:89:22: warning: declaration of ‘i’ shadows a previous local [-Wshadow]
+   89 |             for (int i = 0; i < nc; i++) { \
+      |                      ^
+/mnt/e/VecLUT-Repro/experiments/safe-accum/src/ggml/src/ggml-cpu/ggml-cpu-quants-vlut.c:1204:9: note: in expansion of macro ‘ACCUMULATE_TABLE_TRANS’
+ 1204 |         ACCUMULATE_TABLE_TRANS(src, dst, rows, valid, tile); \
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+/mnt/e/VecLUT-Repro/experiments/safe-accum/src/ggml/src/ggml-cpu/ggml-vlut-adaptive.inc:26:17: note: in expansion of macro ‘ACCUMULATE_I2V4_TRANS’
+   26 |                 ACCUMULATE_I2V4_TRANS(sum_i16, sum_i32, nc, valid, t);
+      |                 ^~~~~~~~~~~~~~~~~~~~~
+In file included from /mnt/e/VecLUT-Repro/experiments/safe-accum/src/ggml/src/ggml-cpu/ggml-cpu-quants-vlut.c:1255:
+/mnt/e/VecLUT-Repro/experiments/safe-accum/src/ggml/src/ggml-cpu/ggml-vlut-adaptive.inc:6:15: note: shadowed declaration is here
+    6 |     const int i = 0;
+      |               ^
+/mnt/e/VecLUT-Repro/experiments/safe-accum/src/ggml/src/ggml-cpu/ggml-cpu-quants-vlut.c:89:22: warning: declaration of ‘i’ shadows a previous local [-Wshadow]
+   89 |             for (int i = 0; i < nc; i++) { \
+      |                      ^
+/mnt/e/VecLUT-Repro/experiments/safe-accum/src/ggml/src/ggml-cpu/ggml-cpu-quants-vlut.c:1204:9: note: in expansion of macro ‘ACCUMULATE_TABLE_TRANS’
+ 1204 |         ACCUMULATE_TABLE_TRANS(src, dst, rows, valid, tile); \
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+/mnt/e/VecLUT-Repro/experiments/safe-accum/src/ggml/src/ggml-cpu/ggml-vlut-adaptive.inc:39:9: note: in expansion of macro ‘ACCUMULATE_I2V4_TRANS’
+   39 |         ACCUMULATE_I2V4_TRANS(sum_i16, sum_i32, nc, valid, t);
+      |         ^~~~~~~~~~~~~~~~~~~~~
+/mnt/e/VecLUT-Repro/experiments/safe-accum/src/ggml/src/ggml-cpu/ggml-vlut-adaptive.inc:6:15: note: shadowed declaration is here
+    6 |     const int i = 0;
+      |               ^
+[ 63%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu-hbm.cpp.o
+[ 72%] Building C object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu-quants.c.o
+[ 72%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu-traits.cpp.o
+[ 81%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/amx/amx.cpp.o
+[ 81%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/amx/mmq.cpp.o
+[ 90%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/llamafile/sgemm.cpp.o
+[ 90%] Linking CXX shared library libggml-cpu.so
+[ 90%] Built target ggml-cpu
+[100%] Building CXX object ggml/src/CMakeFiles/ggml.dir/ggml-backend-reg.cpp.o
+[100%] Linking CXX shared library libggml.so
+[100%] Built target ggml
+gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+gmake[1]: warning:  Clock skew detected.  Your build may be incomplete.

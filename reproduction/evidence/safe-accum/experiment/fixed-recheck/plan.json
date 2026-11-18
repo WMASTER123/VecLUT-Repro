@@ -1,0 +1,15 @@
+[
+  {
+    "model": "falcon3-1b-i2v4",
+    "P": 128,
+    "threads": 1,
+    "cpus": [
+      2
+    ],
+    "samples": 10,
+    "variants": [
+      "legacy128",
+      "safe240"
+    ]
+  }
+]

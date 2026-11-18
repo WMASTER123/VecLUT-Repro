@@ -15,3 +15,9 @@ with (run/'fixed-followup.log').open('w') as f:
         stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,bufsize=1)
     for line in p.stdout:f.write(line);f.flush();print(line,end='',flush=True)
     if p.wait():raise RuntimeError('Fixed baseline follow-up failed')
+summary=json.loads((run/'fixed-followup/summary.json').read_text())
+noisy=[dict(s['case'],samples=10) for s in summary if max(v['cv'] for v in s['values'].values())>0.10]
+if noisy:
+    rp=run/'fixed-recheck-plan.json';rp.write_text(json.dumps(noisy,indent=2))
+    with (run/'fixed-recheck.log').open('w') as f:
+        subprocess.run([sys.executable,str(here/'paired_prefill.py'),str(root),str(run/'fixed-recheck'),str(rp)],stdout=f,stderr=subprocess.STDOUT,check=True)

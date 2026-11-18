@@ -1,0 +1,35 @@
+[
+  {
+    "case_id": 0,
+    "case": {
+      "model": "falcon3-1b-i2v4",
+      "P": 128,
+      "threads": 1,
+      "cpus": [
+        2
+      ],
+      "samples": 10,
+      "variants": [
+        "legacy128",
+        "safe240"
+      ]
+    },
+    "values": {
+      "legacy128": {
+        "median_ms": 1771.810101,
+        "cv": 0.046564938976712704,
+        "cpu_wall_ratio": 1.0004551384250444,
+        "migrations": 0,
+        "wait_ms": 0.30333
+      },
+      "safe240": {
+        "median_ms": 1532.4870959999998,
+        "cv": 0.04206083054360947,
+        "cpu_wall_ratio": 0.9999647578629858,
+        "migrations": 0,
+        "wait_ms": 0.8775085
+      }
+    },
+    "speedup": 1.1561664079421392
+  }
+]

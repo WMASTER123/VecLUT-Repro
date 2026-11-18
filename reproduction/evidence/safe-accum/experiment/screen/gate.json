@@ -1,0 +1,7 @@
+{
+  "configurations": 24,
+  "samples": 720,
+  "both_batches_gt_5pct": 10,
+  "any_batch_regression_gt_5pct": 4,
+  "proceed_to_models": false
+}

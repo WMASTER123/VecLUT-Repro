@@ -1,0 +1,48 @@
+{
+  "legacy128": {
+    "/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-legacy128/bin/bench-p2": "80d994be4f88c5b161c578e4c7c1b94a8e3d5939e3eba45cfc10841f7e500b38",
+    "/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-legacy128/bin/bench-p6r-model": "dc29582d36c2622b1eeeb49a66bb48a8db5b4dfad9ee40053cbc08c1ad5572eb",
+    "/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-legacy128/src/libllama.so": "c05ec533fcc78ec6302cdb4643d162f97d7b68139f9544d7f11ce83f69526431",
+    "/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-legacy128/ggml/src/libggml-base.so": "f8428713d7e18a533020a23aba9e21b239b4dc564edc5c12dec8a8bde057eb2b",
+    "/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-legacy128/ggml/src/libggml-cpu.so": "442defe2418b6f3b539ca12f5164c54cec29be9a1fac1932d58e0a47ea8c6518",
+    "/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-legacy128/ggml/src/libggml.so": "fc621ec4a4c493f5829dd87c50f6dec5231c2584cfeeb572b486896cc2494256"
+  },
+  "safe240": {
+    "/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-safe240/bin/bench-p2": "5d63df8e2a3bf1b90389ab8e5cae492390f362d00480a411eeb2a650e8478949",
+    "/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-safe240/bin/bench-p6r-model": "6aeacdb9c7e84df4879acfaf4aeb9dec8a3f8b5c28c5028dec4a4dfef88326ec",
+    "/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-safe240/src/libllama.so": "0cb2cb3eb87795d7bfdf31d3a0a6f5df90e0102ef855cb04ece80cdf4fd39dce",
+    "/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-safe240/ggml/src/libggml-base.so": "d2891b1bf8abb496850050f56f754a0ea8eecc9bcfa009c7d81ab7c8189de2c7",
+    "/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-safe240/ggml/src/libggml-cpu.so": "0a3fc3427badc54c17d2eaa44c2f108bf4249ae3adc57244105958dd84e92d56",
+    "/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-safe240/ggml/src/libggml.so": "0c40c396bad16e9b3a802dab3db74fa834ecc400fac9111400a31ebf6eec6802"
+  },
+  "adaptive": {
+    "/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-adaptive/bin/bench-p2": "6c5c9f680a7f6119ff4454afd226b4fce5d33bbd3fee7b695c2aeda430c0e320",
+    "/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-adaptive/bin/bench-p6r-model": "cf0ffe33310dd8fc0487392186ec0c21539648a0370101feae4d7d37263c6de6",
+    "/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-adaptive/src/libllama.so": "2789c663d60c90d41028a900e028543121cea17b9b1547ebfdc8a6d43d2410a3",
+    "/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-adaptive/ggml/src/libggml-base.so": "d2891b1bf8abb496850050f56f754a0ea8eecc9bcfa009c7d81ab7c8189de2c7",
+    "/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-adaptive/ggml/src/libggml-cpu.so": "02ba4eb6e0f58618da18a3b6337bfbc45fe728e64bdda0b7889d6eb2f5c2b4b2",
+    "/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-adaptive/ggml/src/libggml.so": "8cae9c2ff0622dd392a390ded6a0d00d76a09b04e611566fe86809fb0d20db92"
+  },
+  "falcon3-1b-i2v4": {
+    "repo": "XXXXyu/Falcon3-1B-Instruct-1.58bit-vlut-gguf",
+    "revision": "1cf5c2dc924ab7117053758da68f8376da95fc4d",
+    "file": "ggml-model-I2_V_4.gguf",
+    "size_bytes": 659366272,
+    "sha256": "6eb67473189b8b6d1a02cdc723b2f284b0e247eba27619c46117fd2d592c6b94",
+    "tensor_type": "i2_v_4",
+    "tensor_count": 126,
+    "path": "/mnt/e/VecLUT-Repro/experiments/safe-accum/models/falcon3-1b-i2v4/ggml-model-I2_V_4.gguf",
+    "verified": true
+  },
+  "bitnet-3b-i2v4": {
+    "repo": "XXXXyu/bitnet_b1_58-3B-vlut-gguf",
+    "revision": "9758ca86f6411ea903399e45537d6fa651243524",
+    "file": "ggml-model-I2_V_4.gguf",
+    "size_bytes": 916849184,
+    "sha256": "8f9dd970b58c70180bffcf6bdbe0666b083913675d457a50decbf3cef8ec3d7e",
+    "tensor_type": "i2_v_4",
+    "tensor_count": 182,
+    "path": "/mnt/e/VecLUT-Repro/experiments/safe-accum/models/bitnet-3b-i2v4/ggml-model-I2_V_4.gguf",
+    "verified": true
+  }
+}

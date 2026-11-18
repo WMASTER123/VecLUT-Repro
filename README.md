@@ -1,5 +1,7 @@
 # vlut.cpp
 
+> **独立实验分支 exp/safe-accum-20261118**：自适应累加未通过性能门槛；固定240仅作基线增强。[结果](reproduction/SAFE_ACCUM_REPORT.md)、[入口与撤销](reproduction/SAFE_ACCUM_README.md)。稳定版repro/cpu未改变。
+
 > **CPU reproduction branch (`repro/cpu`)**: [setup and one-command runners](reproduction/README.md), [execution roadmap](reproduction/EXECUTION_ROADMAP.md), [P2 kernel measurements](reproduction/P2_REPORT.md), [Falcon3](reproduction/P3_REPORT.md), [BitNet I2](reproduction/P3_BITNET_REPORT.md), [I1 correctness and inference](reproduction/P4_REPORT.md), [opt-in optimization experiment](reproduction/P6_METHOD.md), [fixed-CPU refinement and selective policy](reproduction/P6_REFINE_REPORT.md). This is an independent reproduction of the author implementation; the original README and license follow below.
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)

@@ -1,0 +1,8 @@
+/mnt/e/VecLUT-Repro/experiments/safe-accum/src/ggml/src/ggml-cpu/ggml-cpu-quants-vlut.c:1733: GGML_ASSERT(n > 0 && n % 4 == 0) failed
+/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-safe240/ggml/src/libggml-base.so(+0x162cb)[0x7450591972cb]
+/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-safe240/ggml/src/libggml-base.so(ggml_abort+0x15b)[0x74505919766b]
+/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-safe240/ggml/src/libggml-cpu.so(+0x1917c)[0x74505927117c]
+/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-safe240/bin/test-p4(+0x3d86)[0x628de62f9d86]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x745058a2a1ca]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x745058a2a28b]
+/mnt/e/VecLUT-Repro/experiments/safe-accum/builds/p6-safe240/bin/test-p4(+0x40d5)[0x628de62fa0d5]

@@ -4,6 +4,8 @@ repo="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 root="${VECLUT_EXPERIMENT_DIR:-$(dirname "$repo")}"; mkdir -p "$root"
 root="$(realpath "$root")"
 stable="${VECLUT_STABLE_DIR:-/mnt/e/VecLUT-Repro}"
+stable="$(realpath "$stable")"
+[[ "$root" != "$stable" ]] || { echo 'Experiment root must differ from stable data'; exit 1; }
 export TMPDIR="$root/tmp" XDG_CACHE_HOME="$root/cache" PYTHONPYCACHEPREFIX="$root/cache/pycache"
 mkdir -p "$TMPDIR" "$XDG_CACHE_HOME" "$root/builds" "$root/results"
 run="$root/results/build-$(date +%Y%m%d-%H%M%S)-$$"; mkdir "$run"

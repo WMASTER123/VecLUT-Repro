@@ -1,0 +1,5 @@
+legacy128 correctness passed
+safe240 correctness passed
+adaptive correctness passed
+adaptive-asan correctness passed
+Build/correctness complete: /mnt/e/VecLUT-Repro/experiments/safe-accum/results/build-20261118-083157-409

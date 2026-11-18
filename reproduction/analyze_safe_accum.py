@@ -13,7 +13,7 @@ for c in screen:
     a=[b['safe_vs_legacy'] for b in c['batches']];b=[b['adaptive_vs_safe'] for b in c['batches']]
     lines.append(f"|{c['M']}/{c['K']}/{c['N']}/{c['threads']}|{a[0]:.3f}/{a[1]:.3f}|{b[0]:.3f}/{b[1]:.3f}|")
 models=[]
-for stage in ('primary','extended','fixed-control','guards','fixed-followup'):
+for stage in ('primary','extended','fixed-control','guards','fixed-followup','fixed-recheck'):
     if not (run/stage/'summary.json').exists():continue
     rows=[json.loads(s) for s in (run/stage/'samples.jsonl').read_text().splitlines()]
     summary=json.loads((run/stage/'summary.json').read_text())

@@ -20,7 +20,9 @@ def invoke(args,log):
 verification={}
 for v in ('legacy128','safe240','adaptive'):
     build=root/'builds'/f'p6-{v}'; cache=(build/'CMakeCache.txt').read_text()
-    for flag in ('CMAKE_BUILD_TYPE:STRING=Release','VLUT_PROFILE:BOOL=OFF','VLUT_I2V4_SELECTIVE_WIDEN:BOOL=ON','VLUT_I2V4_BLOCKED_WIDEN:BOOL=OFF'):
+    for flag in ('CMAKE_BUILD_TYPE:STRING=Release','VLUT_PROFILE:BOOL=OFF','VLUT_I2V4_SELECTIVE_WIDEN:BOOL=ON','VLUT_I2V4_BLOCKED_WIDEN:BOOL=OFF',
+                 'TABLE_ENTRY_SIZE:STRING=32','WEIGHT_UNROLL_BLOCK:STRING=16','GGML_NATIVE:BOOL=ON','VLUT_AVX512:BOOL=OFF','GGML_OPENMP:BOOL=ON',
+                 'LLAMA_SANITIZE_ADDRESS:BOOL=OFF','LLAMA_SANITIZE_UNDEFINED:BOOL=OFF'):
         if flag not in cache.splitlines(): raise RuntimeError(f'{v}: unexpected {flag}')
     if v!='legacy128' and f'VLUT_I2V4_ACCUM_POLICY:STRING={v}' not in cache.splitlines():raise RuntimeError('Wrong policy')
     shutil.copyfile(build/'CMakeCache.txt',out/f'{v}-CMakeCache.txt')

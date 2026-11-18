@@ -1,0 +1,152 @@
+case 0 falcon3-1b-i2v4 P128 block 1/3 passed
+case 0 falcon3-1b-i2v4 P128 block 2/3 passed
+case 0 falcon3-1b-i2v4 P128 block 3/3 passed
+case 1 falcon3-1b-i2v4 P128 block 1/3 passed
+case 1 falcon3-1b-i2v4 P128 block 2/3 passed
+case 1 falcon3-1b-i2v4 P128 block 3/3 passed
+case 2 bitnet-3b-i2v4 P128 block 1/3 passed
+case 2 bitnet-3b-i2v4 P128 block 2/3 passed
+case 2 bitnet-3b-i2v4 P128 block 3/3 passed
+case 3 bitnet-3b-i2v4 P128 block 1/3 passed
+case 3 bitnet-3b-i2v4 P128 block 2/3 passed
+case 3 bitnet-3b-i2v4 P128 block 3/3 passed
+[
+  {
+    "case_id": 0,
+    "case": {
+      "model": "falcon3-1b-i2v4",
+      "P": 128,
+      "threads": 1,
+      "cpus": [
+        2
+      ],
+      "samples": 6,
+      "variants": [
+        "legacy128",
+        "safe240"
+      ]
+    },
+    "values": {
+      "legacy128": {
+        "median_ms": 1763.901202,
+        "cv": 0.08406224288985362,
+        "cpu_wall_ratio": 0.9996767544150458,
+        "migrations": 0,
+        "wait_ms": 0.583048
+      },
+      "safe240": {
+        "median_ms": 1503.395057,
+        "cv": 0.2545494950096406,
+        "cpu_wall_ratio": 0.9998029961521471,
+        "migrations": 0,
+        "wait_ms": 0.3489325
+      }
+    },
+    "speedup": 1.1732785695862509
+  },
+  {
+    "case_id": 1,
+    "case": {
+      "model": "falcon3-1b-i2v4",
+      "P": 128,
+      "threads": 4,
+      "cpus": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "samples": 6,
+      "variants": [
+        "legacy128",
+        "safe240"
+      ]
+    },
+    "values": {
+      "legacy128": {
+        "median_ms": 1056.3938229999999,
+        "cv": 0.042411934648226526,
+        "cpu_wall_ratio": 3.2956306774841995,
+        "migrations": 0,
+        "wait_ms": 0.7363815
+      },
+      "safe240": {
+        "median_ms": 942.8165994999999,
+        "cv": 0.041181651419098846,
+        "cpu_wall_ratio": 3.281540221845834,
+        "migrations": 0,
+        "wait_ms": 0.3483285
+      }
+    },
+    "speedup": 1.120465871687275
+  },
+  {
+    "case_id": 2,
+    "case": {
+      "model": "bitnet-3b-i2v4",
+      "P": 128,
+      "threads": 1,
+      "cpus": [
+        2
+      ],
+      "samples": 6,
+      "variants": [
+        "legacy128",
+        "safe240"
+      ]
+    },
+    "values": {
+      "legacy128": {
+        "median_ms": 4631.95843,
+        "cv": 0.03635466171062712,
+        "cpu_wall_ratio": 1.0168884106973128,
+        "migrations": 0,
+        "wait_ms": 1.1150095
+      },
+      "safe240": {
+        "median_ms": 4111.702179,
+        "cv": 0.05024471121589953,
+        "cpu_wall_ratio": 0.9996174016201447,
+        "migrations": 0,
+        "wait_ms": 0.527049
+      }
+    },
+    "speedup": 1.1265306260889085
+  },
+  {
+    "case_id": 3,
+    "case": {
+      "model": "bitnet-3b-i2v4",
+      "P": 128,
+      "threads": 4,
+      "cpus": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "samples": 6,
+      "variants": [
+        "legacy128",
+        "safe240"
+      ]
+    },
+    "values": {
+      "legacy128": {
+        "median_ms": 2619.7923965,
+        "cv": 0.03936456186220497,
+        "cpu_wall_ratio": 3.4863290899028776,
+        "migrations": 0,
+        "wait_ms": 1.301205
+      },
+      "safe240": {
+        "median_ms": 2338.974526,
+        "cv": 0.046400994839500644,
+        "cpu_wall_ratio": 3.429955666802549,
+        "migrations": 0,
+        "wait_ms": 0.7370410000000001
+      }
+    },
+    "speedup": 1.120060251780613
+  }
+]
