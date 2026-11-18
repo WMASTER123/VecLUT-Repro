@@ -1,0 +1,9 @@
+/mnt/e/VecLUT-Repro/experiments/deferred-transpose/src/ggml/src/ggml-cpu/ggml-cpu-quants-vlut.c:1240: GGML_ASSERT(n > 0 && n % 16 == 0) failed
+/lib/x86_64-linux-gnu/libasan.so.8(+0x831e0)[0x74f21da831e0]
+/mnt/e/VecLUT-Repro/experiments/deferred-transpose/builds/p6-deferred-asan/ggml/src/libggml-base.so(+0x40a417)[0x74f21c4fd417]
+/mnt/e/VecLUT-Repro/experiments/deferred-transpose/builds/p6-deferred-asan/ggml/src/libggml-base.so(ggml_abort+0x290)[0x74f21c4fe430]
+/mnt/e/VecLUT-Repro/experiments/deferred-transpose/builds/p6-deferred-asan/ggml/src/libggml-cpu.so(ggml_gemm_i2v4_i8v_lut+0x53c4)[0x74f21d15a3c4]
+/mnt/e/VecLUT-Repro/experiments/deferred-transpose/results/build-20261118-090301-312/deferred-asan/test-p1(+0x3f0b2)[0x55a7b3ac50b2]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x74f21b22a1ca]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x74f21b22a28b]
+/mnt/e/VecLUT-Repro/experiments/deferred-transpose/results/build-20261118-090301-312/deferred-asan/test-p1(+0x435b5)[0x55a7b3ac95b5]

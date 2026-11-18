@@ -1,0 +1,9 @@
+/mnt/e/VecLUT-Repro/experiments/deferred-transpose/src/ggml/src/ggml-quants-vlut.c:145: GGML_ASSERT(nrows > 0 && n_per_row > 0 && n_per_row % 4 == 0) failed
+/lib/x86_64-linux-gnu/libasan.so.8(+0x831e0)[0x7325086831e0]
+/mnt/e/VecLUT-Repro/experiments/deferred-transpose/builds/p6-deferred-asan/ggml/src/libggml-base.so(+0x40a417)[0x7325070fd417]
+/mnt/e/VecLUT-Repro/experiments/deferred-transpose/builds/p6-deferred-asan/ggml/src/libggml-base.so(ggml_abort+0x290)[0x7325070fe430]
+/mnt/e/VecLUT-Repro/experiments/deferred-transpose/builds/p6-deferred-asan/ggml/src/libggml-base.so(quantize_i1_v_2+0x1323)[0x7325070fc753]
+/mnt/e/VecLUT-Repro/experiments/deferred-transpose/builds/p6-deferred-asan/bin/test-p4(+0x313f9)[0x59486b3423f9]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x732505e2a1ca]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x732505e2a28b]
+/mnt/e/VecLUT-Repro/experiments/deferred-transpose/builds/p6-deferred-asan/bin/test-p4(+0x328a5)[0x59486b3438a5]
