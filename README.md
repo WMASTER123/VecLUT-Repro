@@ -1,7 +1,7 @@
-> **Vec-LUT 复现：P6.4 独立实验分支**
-> 旧自适应方案已删除。当前保留连续 INT32 累加/最终布局转换候选，默认关闭，未合并稳定版。
-> [结果与边界](reproduction/DEFERRED_TRANSPOSE_REPORT.md) · [代码设计](reproduction/DEFERRED_TRANSPOSE_DESIGN.md) · [依赖和一键运行](reproduction/DEFERRED_TRANSPOSE_README.md) · [自审](reproduction/DEFERRED_TRANSPOSE_REVIEW.md)。
-> 稳定分支仍为 [repro/cpu](https://github.com/WMASTER123/VecLUT-Repro/tree/repro/cpu)。以下保留作者及既有复现说明。
+> **P6.5最新状态：复核完成，尾块候选已退役**
+> 旧连续INT32保留默认OFF，但本轮Decode/波动守护没有重复通过。新有效lane原型正确性通过、性能失败，已删除生产实现和专用入口；没有新候选模型加速结论。
+> [最新结果](reproduction/VALID_LANES_REPORT.md) · [冻结协议](reproduction/VALID_LANES_PROTOCOL.md) · [依赖和一键入口](reproduction/PHASE_REVIEW_README.md) · [自审](reproduction/VALID_LANES_REVIEW.md) · [原始证据](reproduction/evidence/p65)。
+> 当前实验分支exp/valid-lanes-20261118；稳定默认仍[repro/cpu](https://github.com/WMASTER123/VecLUT-Repro/tree/repro/cpu)。以下为作者及既有复现说明。
 
 # vlut.cpp
 

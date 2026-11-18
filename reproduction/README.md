@@ -1,3 +1,5 @@
+> 最新P6.5见[报告](VALID_LANES_REPORT.md)与[一键入口](PHASE_REVIEW_README.md)：旧候选保留，新尾块原型已退役。以下阶段记录为历史背景。
+
 # Vec-LUT CPU 复现：正确性、内核与真实模型性能
 
 > 2026-11-18更新：P6固定CPU复核与选择性分块已完成；默认OFF。[第二轮报告](P6_REFINE_REPORT.md)、[一键规程](P6_REFINE_METHOD.md)、[本轮审查](REVIEW_20261118.md)。

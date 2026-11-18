@@ -1,0 +1,1 @@
+{"command": ["taskset", "-c", "0,2,4,6", "/mnt/e/VecLUT-Repro/experiments/valid-lanes/builds/p6-deferred/bin/bench-p2", "3200", "3200", "2", "5", "50", "graph4"], "before": {"MemAvailable": 11385572, "pswpin": 0, "pswpout": 0}, "after": {"MemAvailable": 11378992, "pswpin": 0, "pswpout": 0}}

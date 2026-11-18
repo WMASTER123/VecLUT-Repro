@@ -1,0 +1,1457 @@
+
+/mnt/e/VecLUT-Repro/experiments/valid-lanes/builds/p6-deferred/ggml/src/libggml-cpu.so:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .plt.sec:
+
+Disassembly of section .text:
+
+00000000000088c0 <gemm_make_table_i2v>:
+    88c0:	push   %rbp
+    88c1:	mov    %rsp,%rbp
+    88c4:	and    $0xffffffffffffffe0,%rsp
+    88c8:	sub    $0x1c8,%rsp
+    88cf:	vmovdqu 0x40(%rsi),%ymm2
+    88d4:	vmovdqu 0xa20(%rdi),%ymm13
+    88dc:	vmovdqu (%rsi),%ymm6
+    88e0:	vmovdqu 0xa00(%rdi),%ymm3
+    88e8:	vextracti128 $0x1,%ymm2,%xmm2
+    88ee:	vpmovsxbw 0x40(%rsi),%ymm4
+    88f4:	vpmovsxbw (%rsi),%ymm1
+    88f9:	vpmovsxbw %xmm2,%ymm2
+    88fe:	vmovdqu 0x20(%rsi),%ymm5
+    8903:	vextracti128 $0x1,%ymm6,%xmm0
+    8909:	vpmovsxbw 0x20(%rsi),%ymm6
+    890f:	vpaddw %ymm2,%ymm13,%ymm7
+    8913:	vmovdqa %ymm2,0x48(%rsp)
+    8919:	vmovdqu 0x60(%rsi),%ymm2
+    891e:	vpmovsxbw %xmm0,%ymm0
+    8923:	vpaddw %ymm4,%ymm3,%ymm8
+    8927:	vmovdqa %ymm4,0x68(%rsp)
+    892d:	vpaddw %ymm3,%ymm6,%ymm10
+    8931:	vextracti128 $0x1,%ymm5,%xmm5
+    8937:	vpmovsxbw %xmm2,%ymm4
+    893c:	vpaddw %ymm1,%ymm3,%ymm12
+    8940:	vpaddw %ymm0,%ymm13,%ymm11
+    8944:	vmovdqu %ymm10,0xac0(%rdi)
+    894c:	vpaddw %ymm3,%ymm4,%ymm4
+    8950:	vextracti128 $0x1,%ymm2,%xmm3
+    8956:	vpxor  %xmm2,%xmm2,%xmm2
+    895a:	vmovdqu %ymm11,0xa60(%rdi)
+    8962:	vpmovsxbw %xmm5,%ymm5
+    8967:	vpsubw %ymm11,%ymm2,%ymm11
+    896c:	vpaddw %ymm1,%ymm10,%ymm14
+    8970:	vmovdqu %ymm12,0xa40(%rdi)
+    8978:	vpaddw %ymm13,%ymm5,%ymm15
+    897d:	vmovdqu %ymm11,0x9e0(%rdi)
+    8985:	vpsubw %ymm10,%ymm2,%ymm11
+    898a:	vpmovsxbw %xmm3,%ymm3
+    898f:	vpaddw %ymm13,%ymm3,%ymm3
+    8994:	vpsubw %ymm12,%ymm2,%ymm12
+    8999:	vmovdqa %ymm15,-0x38(%rsp)
+    899f:	vpaddw %ymm15,%ymm0,%ymm13
+    89a4:	vmovdqu %ymm15,0xae0(%rdi)
+    89ac:	vpaddw %ymm5,%ymm7,%ymm9
+    89b0:	vmovdqu %ymm11,0x940(%rdi)
+    89b8:	vpsubw %ymm15,%ymm2,%ymm11
+    89bd:	vpaddw %ymm6,%ymm8,%ymm15
+    89c1:	vmovdqu %ymm8,0xc40(%rdi)
+    89c9:	vmovdqu %ymm7,0xc60(%rdi)
+    89d1:	vmovdqu %ymm4,0x10c0(%rdi)
+    89d9:	vmovdqu %ymm3,0x10e0(%rdi)
+    89e1:	vmovdqu %ymm12,0x9c0(%rdi)
+    89e9:	vpaddw %ymm1,%ymm8,%ymm12
+    89ed:	vmovdqu %ymm11,0x960(%rdi)
+    89f5:	vpsubw %ymm8,%ymm2,%ymm11
+    89fa:	vmovdqu %ymm14,0xb00(%rdi)
+    8a02:	vpsubw %ymm14,%ymm2,%ymm14
+    8a07:	vmovdqu %ymm13,0xb20(%rdi)
+    8a0f:	vpsubw %ymm13,%ymm2,%ymm13
+    8a14:	vmovdqa %ymm15,0xe8(%rsp)
+    8a1d:	vmovdqu %ymm15,0xd00(%rdi)
+    8a25:	vpsubw %ymm4,%ymm2,%ymm15
+    8a29:	vmovdqu %ymm15,0x340(%rdi)
+    8a31:	vpsubw %ymm3,%ymm2,%ymm15
+    8a35:	vmovdqu %ymm15,0x360(%rdi)
+    8a3d:	vpaddw %ymm1,%ymm4,%ymm15
+    8a41:	vmovdqa %ymm15,0x188(%rsp)
+    8a4a:	vmovdqu %ymm15,0x1100(%rdi)
+    8a52:	vpaddw %ymm6,%ymm4,%ymm15
+    8a56:	vmovdqa %ymm15,0x128(%rsp)
+    8a5f:	vmovdqu %ymm15,0x1180(%rdi)
+    8a67:	vpaddw 0x68(%rsp),%ymm4,%ymm15
+    8a6d:	vmovdqa %ymm9,0xc8(%rsp)
+    8a76:	vmovdqu %ymm9,0xd20(%rdi)
+    8a7e:	vpaddw %ymm0,%ymm3,%ymm9
+    8a82:	vmovdqa %ymm9,0x168(%rsp)
+    8a8b:	vmovdqa %ymm15,0x1a8(%rsp)
+    8a94:	vmovdqu %ymm9,0x1120(%rdi)
+    8a9c:	vpaddw %ymm5,%ymm3,%ymm9
+    8aa0:	vmovdqu %ymm15,0x1300(%rdi)
+    8aa8:	vpsubw %ymm10,%ymm1,%ymm15
+    8aad:	vpsubw %ymm1,%ymm10,%ymm10
+    8ab1:	vmovdqu %ymm13,0x920(%rdi)
+    8ab9:	vpsubw %ymm8,%ymm1,%ymm13
+    8abe:	vmovdqa %ymm9,0x108(%rsp)
+    8ac7:	vmovdqu %ymm11,0x7c0(%rdi)
+    8acf:	vpsubw %ymm7,%ymm2,%ymm11
+    8ad3:	vmovdqu %ymm9,0x11a0(%rdi)
+    8adb:	vpaddw 0x48(%rsp),%ymm3,%ymm9
+    8ae1:	vmovdqu %ymm15,0x980(%rdi)
+    8ae9:	vpsubw -0x38(%rsp),%ymm0,%ymm15
+    8aef:	vmovdqu %ymm13,0x800(%rdi)
+    8af7:	vpsubw %ymm7,%ymm0,%ymm13
+    8afb:	vmovdqu %ymm11,0x7e0(%rdi)
+    8b03:	vpaddw %ymm0,%ymm7,%ymm11
+    8b07:	vmovdqu %ymm14,0x900(%rdi)
+    8b0f:	vpsubw %ymm7,%ymm5,%ymm14
+    8b13:	vmovdqu %ymm13,0x820(%rdi)
+    8b1b:	vpsubw %ymm8,%ymm6,%ymm13
+    8b20:	vmovdqa %ymm13,-0x18(%rsp)
+    8b26:	vmovdqu %ymm12,0xc80(%rdi)
+    8b2e:	vpsubw %ymm12,%ymm2,%ymm12
+    8b33:	vmovdqu %ymm11,0xca0(%rdi)
+    8b3b:	vpsubw %ymm11,%ymm2,%ymm11
+    8b40:	vmovdqu %ymm9,0x1320(%rdi)
+    8b48:	vmovdqu %ymm15,0x9a0(%rdi)
+    8b50:	vpsubw %ymm3,%ymm5,%ymm15
+    8b54:	vmovdqu %ymm13,0x880(%rdi)
+    8b5c:	vmovdqa %ymm14,0x8(%rsp)
+    8b62:	vmovdqa 0xc8(%rsp),%ymm13
+    8b6b:	vmovdqu %ymm14,0x8a0(%rdi)
+    8b73:	vmovdqa 0xe8(%rsp),%ymm14
+    8b7c:	vmovdqu %ymm11,0x7a0(%rdi)
+    8b84:	vpsubw %ymm14,%ymm2,%ymm11
+    8b89:	vmovdqu %ymm12,0x780(%rdi)
+    8b91:	vpaddw %ymm14,%ymm1,%ymm12
+    8b96:	vmovdqa 0x48(%rsp),%ymm14
+    8b9c:	vmovdqu %ymm11,0x700(%rdi)
+    8ba4:	vpsubw %ymm13,%ymm2,%ymm11
+    8ba9:	vmovdqu %ymm11,0x720(%rdi)
+    8bb1:	vpaddw %ymm13,%ymm0,%ymm11
+    8bb6:	vpsubw %ymm4,%ymm1,%ymm13
+    8bba:	vmovdqu %ymm13,0x380(%rdi)
+    8bc2:	vpsubw %ymm3,%ymm0,%ymm13
+    8bc6:	vpsubw %ymm3,%ymm14,%ymm14
+    8bca:	vmovdqu %ymm13,0x3a0(%rdi)
+    8bd2:	vpsubw %ymm4,%ymm6,%ymm13
+    8bd6:	vmovdqa %ymm13,0x28(%rsp)
+    8bdc:	vmovdqu %ymm13,0x400(%rdi)
+    8be4:	vmovdqa 0x68(%rsp),%ymm13
+    8bea:	vmovdqa %ymm14,0x88(%rsp)
+    8bf3:	vpsubw %ymm4,%ymm13,%ymm13
+    8bf7:	vmovdqu %ymm14,0x5a0(%rdi)
+    8bff:	vmovdqa 0x128(%rsp),%ymm14
+    8c08:	vmovdqa %ymm13,0xa8(%rsp)
+    8c11:	vmovdqu %ymm13,0x580(%rdi)
+    8c19:	vpsubw 0x188(%rsp),%ymm2,%ymm13
+    8c22:	vmovdqa %ymm15,-0x58(%rsp)
+    8c28:	vmovdqu %ymm13,0x300(%rdi)
+    8c30:	vpsubw 0x168(%rsp),%ymm2,%ymm13
+    8c39:	vmovdqu %ymm15,0x420(%rdi)
+    8c41:	vmovdqa 0x108(%rsp),%ymm15
+    8c4a:	vmovdqu %ymm13,0x320(%rdi)
+    8c52:	vpsubw %ymm14,%ymm2,%ymm13
+    8c57:	vpaddw %ymm14,%ymm1,%ymm14
+    8c5c:	vmovdqu %ymm13,0x280(%rdi)
+    8c64:	vpsubw %ymm15,%ymm2,%ymm13
+    8c69:	vpaddw %ymm15,%ymm0,%ymm15
+    8c6e:	vmovdqu %ymm13,0x2a0(%rdi)
+    8c76:	vpsubw 0x1a8(%rsp),%ymm2,%ymm13
+    8c7f:	vmovdqu %ymm12,0xd40(%rdi)
+    8c87:	vpsubw %ymm12,%ymm2,%ymm12
+    8c8c:	vmovdqu %ymm11,0xd60(%rdi)
+    8c94:	vpsubw %ymm11,%ymm2,%ymm11
+    8c99:	vmovdqu %ymm14,0x11c0(%rdi)
+    8ca1:	vpsubw %ymm14,%ymm2,%ymm14
+    8ca6:	vmovdqu %ymm15,0x11e0(%rdi)
+    8cae:	vpsubw %ymm15,%ymm2,%ymm15
+    8cb3:	vmovdqu %ymm13,0x100(%rdi)
+    8cbb:	vpsubw %ymm9,%ymm2,%ymm13
+    8cc0:	vmovdqa %ymm9,0x148(%rsp)
+    8cc9:	vpaddw %ymm9,%ymm0,%ymm9
+    8cce:	vmovdqa %ymm9,-0x78(%rsp)
+    8cd4:	vmovdqu %ymm9,0x1360(%rdi)
+    8cdc:	vpaddw 0x1a8(%rsp),%ymm6,%ymm9
+    8ce5:	vmovdqu %ymm10,0xa80(%rdi)
+    8ced:	vmovdqa -0x38(%rsp),%ymm10
+    8cf3:	vmovdqa %ymm9,0x168(%rsp)
+    8cfc:	vpaddw 0x148(%rsp),%ymm5,%ymm9
+    8d05:	vmovdqu %ymm13,0x120(%rdi)
+    8d0d:	vpaddw 0x1a8(%rsp),%ymm1,%ymm13
+    8d16:	vmovdqa %ymm9,0x188(%rsp)
+    8d1f:	vmovdqa 0x168(%rsp),%ymm9
+    8d28:	vmovdqu %ymm13,0x1340(%rdi)
+    8d30:	vpsubw %ymm13,%ymm2,%ymm13
+    8d35:	vmovdqu %ymm9,0x13c0(%rdi)
+    8d3d:	vmovdqa 0x188(%rsp),%ymm9
+    8d46:	vmovdqu %ymm12,0x6c0(%rdi)
+    8d4e:	vmovdqu %ymm9,0x13e0(%rdi)
+    8d56:	vpsubw %ymm0,%ymm10,%ymm9
+    8d5a:	vpsubw %ymm5,%ymm3,%ymm10
+    8d5e:	vmovdqu %ymm9,0xaa0(%rdi)
+    8d66:	vpsubw %ymm1,%ymm8,%ymm9
+    8d6a:	vpsubw %ymm6,%ymm8,%ymm8
+    8d6e:	vmovdqu %ymm9,0xc00(%rdi)
+    8d76:	vpsubw %ymm0,%ymm7,%ymm9
+    8d7a:	vpsubw %ymm5,%ymm7,%ymm7
+    8d7e:	vmovdqu %ymm9,0xc20(%rdi)
+    8d86:	vpaddw -0x18(%rsp),%ymm1,%ymm9
+    8d8c:	vmovdqu %ymm8,0xb80(%rdi)
+    8d94:	vmovdqu %ymm9,0x8c0(%rdi)
+    8d9c:	vpaddw 0x8(%rsp),%ymm0,%ymm9
+    8da2:	vmovdqu %ymm7,0xba0(%rdi)
+    8daa:	vmovdqu %ymm9,0x8e0(%rdi)
+    8db2:	vpsubw 0xe8(%rsp),%ymm1,%ymm9
+    8dbb:	vmovdqu %ymm11,0x6e0(%rdi)
+    8dc3:	vpsubw %ymm6,%ymm4,%ymm11
+    8dc7:	vmovdqu %ymm9,0x740(%rdi)
+    8dcf:	vpsubw 0xc8(%rsp),%ymm0,%ymm9
+    8dd8:	vmovdqu %ymm9,0x760(%rdi)
+    8de0:	vpsubw %ymm1,%ymm4,%ymm9
+    8de4:	vmovdqu %ymm9,0x1080(%rdi)
+    8dec:	vpsubw %ymm0,%ymm3,%ymm9
+    8df0:	vmovdqu %ymm9,0x10a0(%rdi)
+    8df8:	vpaddw 0x28(%rsp),%ymm1,%ymm9
+    8dfe:	vmovdqa 0xa8(%rsp),%ymm12
+    8e07:	vmovdqu %ymm14,0x240(%rdi)
+    8e0f:	vpsubw 0x68(%rsp),%ymm4,%ymm4
+    8e15:	vmovdqa 0x1a8(%rsp),%ymm14
+    8e1e:	vmovdqu %ymm9,0x440(%rdi)
+    8e26:	vpaddw -0x58(%rsp),%ymm0,%ymm9
+    8e2c:	vpsubw 0x48(%rsp),%ymm3,%ymm3
+    8e32:	vmovdqu %ymm15,0x260(%rdi)
+    8e3a:	vpsubw %ymm14,%ymm6,%ymm15
+    8e3f:	vmovdqu %ymm9,0x460(%rdi)
+    8e47:	vpaddw %ymm12,%ymm1,%ymm9
+    8e4c:	vpaddw %ymm12,%ymm6,%ymm12
+    8e51:	vmovdqa %ymm12,-0x38(%rsp)
+    8e57:	vmovdqu %ymm12,0x640(%rdi)
+    8e5f:	vpsubw 0x128(%rsp),%ymm1,%ymm12
+    8e68:	vmovdqu %ymm9,0x5c0(%rdi)
+    8e70:	vpaddw 0x88(%rsp),%ymm0,%ymm9
+    8e79:	vmovdqu %ymm12,0x2c0(%rdi)
+    8e81:	vpsubw 0x108(%rsp),%ymm0,%ymm12
+    8e8a:	vmovdqu %ymm9,0x5e0(%rdi)
+    8e92:	vpaddw 0x88(%rsp),%ymm5,%ymm9
+    8e9b:	vmovdqu %ymm12,0x2e0(%rdi)
+    8ea3:	vpsubw %ymm14,%ymm1,%ymm12
+    8ea8:	vmovdqu %ymm12,0x140(%rdi)
+    8eb0:	vpsubw 0x148(%rsp),%ymm0,%ymm12
+    8eb9:	vmovdqu %ymm11,0x1000(%rdi)
+    8ec1:	vmovdqu %ymm12,0x160(%rdi)
+    8ec9:	vpsubw 0x148(%rsp),%ymm5,%ymm12
+    8ed2:	vmovdqu %ymm10,0x1020(%rdi)
+    8eda:	vmovdqa %ymm12,0x68(%rsp)
+    8ee0:	vmovdqu %ymm9,0x660(%rdi)
+    8ee8:	vmovdqu %ymm4,0xe80(%rdi)
+    8ef0:	vmovdqu %ymm3,0xea0(%rdi)
+    8ef8:	vmovdqu %ymm15,0x1c0(%rdi)
+    8f00:	vmovdqu %ymm12,0x1e0(%rdi)
+    8f08:	vmovdqu %ymm13,0xc0(%rdi)
+    8f10:	vpsubw -0x78(%rsp),%ymm2,%ymm12
+    8f16:	vmovdqa 0x168(%rsp),%ymm13
+    8f1f:	vmovdqa 0x188(%rsp),%ymm14
+    8f28:	vmovdqu %ymm12,0xe0(%rdi)
+    8f30:	vpsubw %ymm13,%ymm2,%ymm12
+    8f35:	vmovdqu %ymm12,0x40(%rdi)
+    8f3a:	vpsubw %ymm14,%ymm2,%ymm12
+    8f3f:	vpaddw %ymm14,%ymm0,%ymm14
+    8f44:	vmovdqu %ymm12,0x60(%rdi)
+    8f49:	vpaddw %ymm13,%ymm1,%ymm12
+    8f4e:	vpsubw %ymm1,%ymm8,%ymm13
+    8f52:	vmovdqu %ymm13,0xb40(%rdi)
+    8f5a:	vpsubw %ymm0,%ymm7,%ymm13
+    8f5e:	vpaddw %ymm0,%ymm7,%ymm7
+    8f62:	vmovdqu %ymm7,0xbe0(%rdi)
+    8f6a:	vpaddw %ymm1,%ymm8,%ymm8
+    8f6e:	vmovdqa 0xe8(%rsp),%ymm7
+    8f77:	vmovdqu %ymm14,0x1420(%rdi)
+    8f7f:	vpsubw %ymm14,%ymm2,%ymm14
+    8f84:	vpsubw %ymm1,%ymm7,%ymm7
+    8f88:	vmovdqu %ymm8,0xbc0(%rdi)
+    8f90:	vpaddw %ymm0,%ymm9,%ymm8
+    8f94:	vmovdqu %ymm7,0xcc0(%rdi)
+    8f9c:	vmovdqa 0xc8(%rsp),%ymm7
+    8fa5:	vmovdqu %ymm12,0x1400(%rdi)
+    8fad:	vpsubw %ymm12,%ymm2,%ymm12
+    8fb2:	vpsubw %ymm0,%ymm7,%ymm7
+    8fb6:	vmovdqu %ymm13,0xb60(%rdi)
+    8fbe:	vmovdqu %ymm7,0xce0(%rdi)
+    8fc6:	vpsubw %ymm1,%ymm11,%ymm7
+    8fca:	vpaddw %ymm1,%ymm11,%ymm11
+    8fce:	vmovdqu %ymm7,0xfc0(%rdi)
+    8fd6:	vpsubw %ymm0,%ymm10,%ymm7
+    8fda:	vpaddw %ymm0,%ymm10,%ymm10
+    8fde:	vmovdqu %ymm7,0xfe0(%rdi)
+    8fe6:	vpsubw %ymm1,%ymm4,%ymm7
+    8fea:	vmovdqu %ymm7,0xe40(%rdi)
+    8ff2:	vpsubw %ymm0,%ymm3,%ymm7
+    8ff6:	vmovdqu %ymm7,0xe60(%rdi)
+    8ffe:	vpsubw %ymm6,%ymm4,%ymm7
+    9002:	vmovdqu %ymm7,0xdc0(%rdi)
+    900a:	vpsubw %ymm5,%ymm3,%ymm7
+    900e:	vmovdqu %ymm7,0xde0(%rdi)
+    9016:	vpaddw %ymm1,%ymm4,%ymm7
+    901a:	vpaddw %ymm6,%ymm4,%ymm4
+    901e:	vmovdqu %ymm7,0xec0(%rdi)
+    9026:	vpaddw %ymm0,%ymm3,%ymm7
+    902a:	vpaddw %ymm5,%ymm3,%ymm3
+    902e:	vmovdqu %ymm7,0xee0(%rdi)
+    9036:	vmovdqa 0x128(%rsp),%ymm7
+    903f:	vmovdqu %ymm10,0x1060(%rdi)
+    9047:	vpaddw -0x38(%rsp),%ymm1,%ymm10
+    904d:	vpsubw %ymm1,%ymm7,%ymm7
+    9051:	vmovdqu %ymm11,0x1040(%rdi)
+    9059:	vmovdqu %ymm10,0x680(%rdi)
+    9061:	vpsubw %ymm10,%ymm2,%ymm10
+    9066:	vmovdqu %ymm8,0x6a0(%rdi)
+    906e:	vpsubw %ymm8,%ymm2,%ymm8
+    9073:	vmovdqu %ymm4,0xf40(%rdi)
+    907b:	vmovdqu %ymm3,0xf60(%rdi)
+    9083:	vmovdqu %ymm7,0x1140(%rdi)
+    908b:	vmovdqa 0x108(%rsp),%ymm7
+    9094:	vmovdqa 0x1a8(%rsp),%ymm11
+    909d:	vmovdqa 0x148(%rsp),%ymm13
+    90a6:	vmovdqu %ymm14,0x20(%rdi)
+    90ab:	vmovdqa -0x18(%rsp),%ymm14
+    90b1:	vmovdqu %ymm12,(%rdi)
+    90b5:	vpsubw %ymm0,%ymm7,%ymm7
+    90b9:	vpsubw %ymm1,%ymm14,%ymm12
+    90bd:	vmovdqa 0x8(%rsp),%ymm14
+    90c3:	vmovdqu %ymm7,0x1160(%rdi)
+    90cb:	vpsubw %ymm1,%ymm11,%ymm7
+    90cf:	vmovdqu %ymm12,0x840(%rdi)
+    90d7:	vpsubw %ymm6,%ymm11,%ymm11
+    90db:	vpsubw %ymm0,%ymm14,%ymm12
+    90df:	vmovdqa 0x28(%rsp),%ymm14
+    90e5:	vmovdqu %ymm7,0x12c0(%rdi)
+    90ed:	vpsubw %ymm0,%ymm13,%ymm7
+    90f1:	vmovdqu %ymm12,0x860(%rdi)
+    90f9:	vpsubw %ymm1,%ymm14,%ymm12
+    90fd:	vmovdqa -0x58(%rsp),%ymm14
+    9103:	vmovdqu %ymm7,0x12e0(%rdi)
+    910b:	vpaddw %ymm1,%ymm15,%ymm7
+    910f:	vmovdqu %ymm7,0x200(%rdi)
+    9117:	vpaddw 0x68(%rsp),%ymm0,%ymm7
+    911d:	vpsubw %ymm1,%ymm15,%ymm15
+    9121:	vmovdqu %ymm12,0x3c0(%rdi)
+    9129:	vpsubw %ymm0,%ymm14,%ymm12
+    912d:	vmovdqu %ymm12,0x3e0(%rdi)
+    9135:	vmovdqa -0x38(%rsp),%ymm12
+    913b:	vmovdqu %ymm7,0x220(%rdi)
+    9143:	vpsubw %ymm5,%ymm13,%ymm7
+    9147:	vpsubw 0x168(%rsp),%ymm1,%ymm13
+    9150:	vmovdqu %ymm10,0xd80(%rdi)
+    9158:	vmovdqa 0xa8(%rsp),%ymm10
+    9161:	vmovdqu %ymm8,0xda0(%rdi)
+    9169:	vpsubw %ymm12,%ymm1,%ymm8
+    916e:	vmovdqu %ymm13,0x80(%rdi)
+    9176:	vpsubw %ymm6,%ymm10,%ymm6
+    917a:	vpsubw 0x188(%rsp),%ymm0,%ymm13
+    9183:	vmovdqu %ymm8,0xe00(%rdi)
+    918b:	vpsubw %ymm9,%ymm0,%ymm8
+    9190:	vpsubw %ymm0,%ymm9,%ymm9
+    9194:	vmovdqu %ymm8,0xe20(%rdi)
+    919c:	vpsubw %ymm1,%ymm10,%ymm8
+    91a0:	vmovdqu %ymm11,0x1240(%rdi)
+    91a8:	vmovdqu %ymm7,0x1260(%rdi)
+    91b0:	vmovdqu %ymm13,0xa0(%rdi)
+    91b8:	vmovdqu %ymm8,0x540(%rdi)
+    91c0:	vmovdqa 0x88(%rsp),%ymm14
+    91c9:	vmovdqa 0x168(%rsp),%ymm13
+    91d2:	vmovdqu %ymm6,0x4c0(%rdi)
+    91da:	vpaddw %ymm1,%ymm4,%ymm6
+    91de:	vpsubw %ymm5,%ymm14,%ymm5
+    91e2:	vpsubw %ymm0,%ymm14,%ymm8
+    91e6:	vmovdqu %ymm6,0xf80(%rdi)
+    91ee:	vmovdqu %ymm5,0x4e0(%rdi)
+    91f6:	vpsubw %ymm1,%ymm11,%ymm5
+    91fa:	vpsubw %ymm6,%ymm2,%ymm6
+    91fe:	vmovdqu %ymm5,0x1200(%rdi)
+    9206:	vpsubw %ymm0,%ymm7,%ymm5
+    920a:	vpaddw %ymm0,%ymm7,%ymm7
+    920e:	vmovdqu %ymm5,0x1220(%rdi)
+    9216:	vpsubw %ymm1,%ymm13,%ymm5
+    921a:	vpaddw %ymm1,%ymm11,%ymm11
+    921e:	vmovdqa 0x188(%rsp),%ymm13
+    9227:	vmovdqu %ymm5,0x1380(%rdi)
+    922f:	vpsubw %ymm0,%ymm13,%ymm5
+    9233:	vmovdqu %ymm8,0x560(%rdi)
+    923b:	vpaddw %ymm0,%ymm3,%ymm8
+    923f:	vmovdqu %ymm7,0x12a0(%rdi)
+    9247:	vmovdqa 0x68(%rsp),%ymm7
+    924d:	vpsubw %ymm8,%ymm2,%ymm2
+    9252:	vmovdqu %ymm5,0x13a0(%rdi)
+    925a:	vpsubw %ymm1,%ymm12,%ymm5
+    925e:	vmovdqu %ymm5,0x600(%rdi)
+    9266:	vpsubw %ymm4,%ymm1,%ymm5
+    926a:	vpsubw %ymm1,%ymm4,%ymm4
+    926e:	vmovdqu %ymm5,0x500(%rdi)
+    9276:	vpsubw %ymm3,%ymm0,%ymm5
+    927a:	vpsubw %ymm0,%ymm3,%ymm3
+    927e:	vmovdqu %ymm2,0x4a0(%rdi)
+    9286:	vpsubw %ymm0,%ymm7,%ymm2
+    928a:	vmovdqu %ymm8,0xfa0(%rdi)
+    9292:	vmovdqu %ymm11,0x1280(%rdi)
+    929a:	vmovdqu %ymm9,0x620(%rdi)
+    92a2:	vmovdqu %ymm5,0x520(%rdi)
+    92aa:	vmovdqu %ymm6,0x480(%rdi)
+    92b2:	vmovdqu %ymm15,0x180(%rdi)
+    92ba:	vmovdqu %ymm2,0x1a0(%rdi)
+    92c2:	vmovdqu %ymm4,0xf00(%rdi)
+    92ca:	vmovdqu %ymm3,0xf20(%rdi)
+    92d2:	vzeroupper
+    92d5:	leave
+    92d6:	ret
+
+Disassembly of section .fini:
+
+/mnt/e/VecLUT-Repro/experiments/valid-lanes/builds/p6-deferred/ggml/src/libggml-cpu.so:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .plt.sec:
+
+Disassembly of section .text:
+
+000000000000f210 <ggml_gemm_i2v4_i8v_lut>:
+    f210:	endbr64
+    f214:	push   %rbp
+    f215:	mov    %rsp,%rbp
+    f218:	push   %r15
+    f21a:	push   %r14
+    f21c:	push   %r13
+    f21e:	push   %r12
+    f220:	push   %rbx
+    f221:	and    $0xffffffffffffffe0,%rsp
+    f225:	sub    $0x120,%rsp
+    f22c:	mov    0x10(%rbp),%rax
+    f230:	test   %edx,%edx
+    f232:	mov    %edx,0x110(%rsp)
+    f239:	mov    %rax,0xa0(%rsp)
+    f241:	mov    0x18(%rbp),%eax
+    f244:	mov    %rcx,0x70(%rsp)
+    f249:	mov    %eax,0x10c(%rsp)
+    f250:	mov    0x20(%rbp),%eax
+    f253:	mov    %r8,0xe0(%rsp)
+    f25b:	mov    %r9,0xc0(%rsp)
+    f263:	mov    %eax,0x114(%rsp)
+    f26a:	jle    10491 <ggml_gemm_i2v4_i8v_lut+0x1281>
+    f270:	and    $0xf,%edx
+    f273:	jne    10491 <ggml_gemm_i2v4_i8v_lut+0x1281>
+    f279:	cmpl   $0xffffff,0x110(%rsp)
+    f284:	jg     104b2 <ggml_gemm_i2v4_i8v_lut+0x12a2>
+    f28a:	movslq 0x114(%rsp),%rbx
+    f292:	mov    %rbx,%r15
+    f295:	mov    %rbx,0xe8(%rsp)
+    f29d:	shl    $0x6,%rbx
+    f2a1:	mov    %rbx,%rdi
+    f2a4:	mov    %rbx,0xf8(%rsp)
+    f2ac:	call   8260 <malloc@plt>
+    f2b1:	movslq 0x10c(%rsp),%rdx
+    f2b9:	mov    %rax,0x118(%rsp)
+    f2c1:	mov    %r15,%rax
+    f2c4:	imul   %rdx,%rax
+    f2c8:	mov    %rdx,0x68(%rsp)
+    f2cd:	lea    0x0(,%rax,4),%r13
+    f2d5:	mov    %r13,%rdi
+    f2d8:	call   8260 <malloc@plt>
+    f2dd:	mov    $0x1440,%edi
+    f2e2:	mov    %rax,0xf0(%rsp)
+    f2ea:	call   8260 <malloc@plt>
+    f2ef:	mov    $0x1440,%edi
+    f2f4:	mov    %rax,%r14
+    f2f7:	call   8260 <malloc@plt>
+    f2fc:	mov    $0x1440,%edi
+    f301:	mov    %rax,%r15
+    f304:	call   8260 <malloc@plt>
+    f309:	mov    $0x1440,%edi
+    f30e:	mov    %rax,0x100(%rsp)
+    f316:	call   8260 <malloc@plt>
+    f31b:	mov    %rbx,%rcx
+    f31e:	mov    %rbx,%rdx
+    f321:	xor    %esi,%esi
+    f323:	mov    0x118(%rsp),%rdi
+    f32b:	mov    %rax,%r12
+    f32e:	call   8280 <__memset_chk@plt>
+    f333:	mov    %r13,%rdx
+    f336:	xor    %esi,%esi
+    f338:	mov    %r13,%rcx
+    f33b:	mov    0xf0(%rsp),%rdi
+    f343:	call   8280 <__memset_chk@plt>
+    f348:	vpxor  %xmm0,%xmm0,%xmm0
+    f34c:	mov    0x100(%rsp),%rax
+    f354:	mov    0x10c(%rsp),%ebx
+    f35b:	vmovdqu %ymm0,0xa00(%r14)
+    f364:	vmovdqu %ymm0,0xa00(%rax)
+    f36c:	vmovdqu %ymm0,0xa20(%rax)
+    f374:	movslq 0x110(%rsp),%rax
+    f37c:	vmovdqu %ymm0,0xa20(%r14)
+    f385:	vmovdqu %ymm0,0xa00(%r15)
+    f38e:	mov    %rax,%rsi
+    f391:	imul   $0xffffffff88888889,%rax,%rax
+    f398:	vmovdqu %ymm0,0xa20(%r15)
+    f3a1:	mov    %esi,%edx
+    f3a3:	vmovdqu %ymm0,0xa00(%r12)
+    f3ad:	sar    $0x1f,%edx
+    f3b0:	vmovdqu %ymm0,0xa20(%r12)
+    f3ba:	shr    $0x20,%rax
+    f3be:	add    %esi,%eax
+    f3c0:	sar    $0x7,%eax
+    f3c3:	sub    %edx,%eax
+    f3c5:	mov    %eax,0xd8(%rsp)
+    f3cc:	imul   $0xf0,%eax,%eax
+    f3d2:	sub    %eax,%esi
+    f3d4:	test   %ebx,%ebx
+    f3d6:	lea    0x1f(%rbx),%eax
+    f3d9:	cmovns %ebx,%eax
+    f3dc:	mov    %esi,0xb8(%rsp)
+    f3e3:	sar    $0x5,%eax
+    f3e6:	mov    %eax,0x108(%rsp)
+    f3ed:	mov    %ebx,%eax
+    f3ef:	sar    $0x1f,%eax
+    f3f2:	shr    $0x1b,%eax
+    f3f5:	lea    (%rbx,%rax,1),%edx
+    f3f8:	and    $0x1f,%edx
+    f3fb:	sub    %eax,%edx
+    f3fd:	cmp    $0x1f,%ebx
+    f400:	mov    %edx,%r13d
+    f403:	jle    10456 <ggml_gemm_i2v4_i8v_lut+0x1246>
+    f409:	mov    0xe8(%rsp),%rax
+    f411:	mov    %esi,%edi
+    f413:	mov    0xd8(%rsp),%r8d
+    f41b:	movl   $0x0,0xb0(%rsp)
+    f426:	mov    0xa0(%rsp),%rsi
+    f42e:	sar    $0x4,%edi
+    f431:	mov    %r13d,0x24(%rsp)
+    f436:	mov    %rax,%rbx
+    f439:	imul   $0x1e00,%r8d,%ecx
+    f440:	mov    0x118(%rsp),%r9
+    f448:	mov    %edi,0x60(%rsp)
+    f44c:	shl    $0x5,%rbx
+    f450:	mov    %rsi,0x88(%rsp)
+    f458:	mov    %rbx,0x98(%rsp)
+    f460:	mov    %rax,%rbx
+    f463:	shl    $0x7,%rax
+    f467:	mov    %rax,0x40(%rsp)
+    f46c:	lea    (%rsi,%rcx,1),%rdx
+    f470:	shl    $0x7,%rbx
+    f474:	mov    0xf0(%rsp),%rax
+    f47c:	mov    0xe0(%rsp),%rsi
+    f484:	mov    %rdx,0x80(%rsp)
+    f48c:	mov    %rax,0xc8(%rsp)
+    f494:	mov    0x110(%rsp),%eax
+    f49b:	mov    %rsi,%rdx
+    f49e:	mov    %rbx,0x90(%rsp)
+    f4a6:	mov    0xc0(%rsp),%rbx
+    f4ae:	shl    $0x5,%eax
+    f4b1:	shl    $0x4,%rdx
+    f4b5:	cltq
+    f4b7:	sub    %rsi,%rdx
+    f4ba:	mov    %rax,0x38(%rsp)
+    f4bf:	mov    %rcx,%rax
+    f4c2:	shl    $0x2,%rdx
+    f4c6:	sub    $0xffffff80,%eax
+    f4c9:	mov    %rdx,0x28(%rsp)
+    f4ce:	mov    %rsi,%rdx
+    f4d1:	lea    0x0(,%rsi,4),%rsi
+    f4d9:	sub    %rcx,%rax
+    f4dc:	mov    %rsi,0xd0(%rsp)
+    f4e4:	mov    0xf8(%rsp),%rsi
+    f4ec:	mov    %rax,0x30(%rsp)
+    f4f1:	imul   $0x3c,%r8d,%eax
+    f4f5:	lea    (%rsi,%r9,1),%r10
+    f4f9:	mov    %r10,%r13
+    f4fc:	imul   %rdx,%rax
+    f500:	add    %rbx,%rax
+    f503:	mov    0x100(%rsp),%rbx
+    f50b:	mov    %rax,0x58(%rsp)
+    f510:	movslq %edi,%rax
+    f513:	shl    $0x9,%rax
+    f517:	mov    %rax,0x50(%rsp)
+    f51c:	cmpl   $0xef,0x110(%rsp)
+    f527:	jle    f714 <ggml_gemm_i2v4_i8v_lut+0x504>
+    f52d:	mov    0x88(%rsp),%rax
+    f535:	mov    0xc8(%rsp),%rcx
+    f53d:	movl   $0x0,0xa8(%rsp)
+    f548:	lea    0x1e00(%rax),%r8
+    f54f:	mov    0xc0(%rsp),%rax
+    f557:	mov    %rax,0x78(%rsp)
+    f55c:	mov    0x90(%rsp),%rax
+    f564:	add    %rcx,%rax
+    f567:	mov    %rax,0x48(%rsp)
+    f56c:	vzeroupper
+    f56f:	mov    0x78(%rsp),%r10
+    f574:	lea    -0x1e00(%r8),%r9
+    f57b:	mov    %r9,%rsi
+    f57e:	mov    %r14,%rdi
+    f581:	mov    %r10,%r11
+    f584:	call   88c0 <gemm_make_table_i2v>
+    f589:	lea    0x80(%r9),%rsi
+    f590:	mov    %r15,%rdi
+    f593:	call   88c0 <gemm_make_table_i2v>
+    f598:	lea    0x100(%r9),%rsi
+    f59f:	mov    %rbx,%rdi
+    f5a2:	call   88c0 <gemm_make_table_i2v>
+    f5a7:	lea    0x180(%r9),%rsi
+    f5ae:	mov    %r12,%rdi
+    f5b1:	call   88c0 <gemm_make_table_i2v>
+    f5b6:	mov    0x114(%rsp),%edx
+    f5bd:	mov    0x118(%rsp),%rax
+    f5c5:	test   %edx,%edx
+    f5c7:	jle    f64c <ggml_gemm_i2v4_i8v_lut+0x43c>
+    f5cd:	nopl   (%rax)
+    f5d0:	movzbl (%r11),%edi
+    f5d4:	movzbl 0x1(%r11),%esi
+    f5d9:	add    $0x40,%rax
+    f5dd:	add    $0x4,%r11
+    f5e1:	movzbl -0x2(%r11),%ecx
+    f5e6:	movzbl -0x1(%r11),%edx
+    f5eb:	shl    $0x6,%rdi
+    f5ef:	shl    $0x6,%rsi
+    f5f3:	shl    $0x6,%rcx
+    f5f7:	shl    $0x6,%rdx
+    f5fb:	add    %r14,%rdi
+    f5fe:	add    %r15,%rsi
+    f601:	add    %rbx,%rcx
+    f604:	add    %r12,%rdx
+    f607:	vmovdqu (%rdi),%ymm5
+    f60b:	vpaddw (%rsi),%ymm5,%ymm0
+    f60f:	vmovdqu (%rcx),%ymm6
+    f613:	vpaddw (%rdx),%ymm6,%ymm1
+    f617:	vpaddw %ymm1,%ymm0,%ymm0
+    f61b:	vpaddw -0x40(%rax),%ymm0,%ymm0
+    f620:	vmovdqu 0x20(%rcx),%ymm1
+    f625:	vpaddw 0x20(%rdx),%ymm1,%ymm1
+    f62a:	vmovdqu %ymm0,-0x40(%rax)
+    f62f:	vmovdqu 0x20(%rdi),%ymm0
+    f634:	vpaddw 0x20(%rsi),%ymm0,%ymm0
+    f639:	vpaddw %ymm1,%ymm0,%ymm0
+    f63d:	vpaddw -0x20(%rax),%ymm0,%ymm0
+    f642:	vmovdqu %ymm0,-0x20(%rax)
+    f647:	cmp    %rax,%r13
+    f64a:	jne    f5d0 <ggml_gemm_i2v4_i8v_lut+0x3c0>
+    f64c:	mov    0xd0(%rsp),%rax
+    f654:	add    $0x200,%r9
+    f65b:	add    %rax,%r10
+    f65e:	cmp    %r9,%r8
+    f661:	je     f66b <ggml_gemm_i2v4_i8v_lut+0x45b>
+    f663:	vzeroupper
+    f666:	jmp    f57b <ggml_gemm_i2v4_i8v_lut+0x36b>
+    f66b:	mov    0x118(%rsp),%rdx
+    f673:	mov    0xc8(%rsp),%rax
+    f67b:	cmpq   $0x0,0x98(%rsp)
+    f684:	je     f6c0 <ggml_gemm_i2v4_i8v_lut+0x4b0>
+    f686:	vmovdqu (%rdx),%ymm4
+    f68a:	mov    0x48(%rsp),%rcx
+    f68f:	add    $0x40,%rax
+    f693:	add    $0x20,%rdx
+    f697:	vextracti128 $0x1,%ymm4,%xmm1
+    f69d:	vpmovsxwd %xmm4,%ymm0
+    f6a2:	vpaddd -0x40(%rax),%ymm0,%ymm0
+    f6a7:	vpmovsxwd %xmm1,%ymm1
+    f6ac:	vpaddd -0x20(%rax),%ymm1,%ymm1
+    f6b1:	vmovdqu %ymm0,-0x40(%rax)
+    f6b6:	vmovdqu %ymm1,-0x20(%rax)
+    f6bb:	cmp    %rcx,%rax
+    f6be:	jne    f686 <ggml_gemm_i2v4_i8v_lut+0x476>
+    f6c0:	mov    %r8,0x18(%rsp)
+    f6c5:	mov    0xf8(%rsp),%rcx
+    f6cd:	xor    %esi,%esi
+    f6cf:	mov    0x118(%rsp),%rdi
+    f6d7:	mov    %rcx,%rdx
+    f6da:	vzeroupper
+    f6dd:	call   8280 <__memset_chk@plt>
+    f6e2:	mov    0x18(%rsp),%r8
+    f6e7:	addl   $0x1,0xa8(%rsp)
+    f6ef:	mov    0x28(%rsp),%rdx
+    f6f4:	mov    0xa8(%rsp),%eax
+    f6fb:	add    %rdx,0x78(%rsp)
+    f700:	add    $0x1e00,%r8
+    f707:	cmp    %eax,0xd8(%rsp)
+    f70e:	jg     f56f <ggml_gemm_i2v4_i8v_lut+0x35f>
+    f714:	mov    0xb8(%rsp),%edi
+    f71b:	test   %edi,%edi
+    f71d:	jne    f99e <ggml_gemm_i2v4_i8v_lut+0x78e>
+    f723:	addl   $0x1,0xb0(%rsp)
+    f72b:	mov    0x40(%rsp),%rdx
+    f730:	mov    0xb0(%rsp),%eax
+    f737:	add    %rdx,0xc8(%rsp)
+    f73f:	mov    0x38(%rsp),%rdx
+    f744:	add    %rdx,0x80(%rsp)
+    f74c:	add    %rdx,0x88(%rsp)
+    f754:	cmp    %eax,0x108(%rsp)
+    f75b:	jg     f51c <ggml_gemm_i2v4_i8v_lut+0x30c>
+    f761:	mov    0x10c(%rsp),%ebx
+    f768:	mov    0x24(%rsp),%r13d
+    f76d:	test   $0x1f,%bl
+    f770:	je     1019d <ggml_gemm_i2v4_i8v_lut+0xf8d>
+    f776:	mov    0x110(%rsp),%ebx
+    f77d:	mov    0x108(%rsp),%ecx
+    f784:	mov    0xa0(%rsp),%rsi
+    f78c:	mov    %ebx,%eax
+    f78e:	imul   %ecx,%eax
+    f791:	shl    $0x5,%eax
+    f794:	cmp    $0xef,%ebx
+    f79a:	cltq
+    f79c:	lea    (%rsi,%rax,1),%rdx
+    f7a0:	jle    fba9 <ggml_gemm_i2v4_i8v_lut+0x999>
+    f7a6:	lea    0x1e00(%rdx),%rbx
+    f7ad:	movslq %ecx,%rax
+    f7b0:	mov    0xe8(%rsp),%rsi
+    f7b8:	movl   $0x0,0xd0(%rsp)
+    f7c3:	mov    %rbx,0xb0(%rsp)
+    f7cb:	mov    0xe0(%rsp),%rbx
+    f7d3:	mov    %r14,%r8
+    f7d6:	imul   %rsi,%rax
+    f7da:	shl    $0x5,%rsi
+    f7de:	mov    %rdx,0x58(%rsp)
+    f7e3:	mov    %rbx,%rcx
+    f7e6:	mov    %rsi,0xa8(%rsp)
+    f7ee:	shl    $0x4,%rcx
+    f7f2:	sub    %rbx,%rcx
+    f7f5:	shl    $0x2,%rbx
+    f7f9:	mov    %rax,%r11
+    f7fc:	shl    $0x2,%rcx
+    f800:	shl    $0x5,%rax
+    f804:	mov    %rbx,0x88(%rsp)
+    f80c:	mov    0xf8(%rsp),%rbx
+    f814:	mov    %rcx,0x78(%rsp)
+    f819:	mov    0xc0(%rsp),%rcx
+    f821:	shl    $0x7,%r11
+    f825:	mov    %rax,0xc8(%rsp)
+    f82d:	lea    -0x1(%r13),%eax
+    f831:	mov    %r11,%r14
+    f834:	mov    %rcx,0x90(%rsp)
+    f83c:	mov    0x118(%rsp),%rcx
+    f844:	mov    %eax,0x80(%rsp)
+    f84b:	movslq %r13d,%rax
+    f84e:	add    %rcx,%rbx
+    f851:	mov    %rax,0x60(%rsp)
+    f856:	mov    %rbx,0x98(%rsp)
+    f85e:	mov    0xf0(%rsp),%rbx
+    f866:	vzeroupper
+    f869:	mov    0xb0(%rsp),%rax
+    f871:	mov    %r14,0x50(%rsp)
+    f876:	mov    0x90(%rsp),%rcx
+    f87e:	mov    0x118(%rsp),%r9
+    f886:	lea    -0x1e00(%rax),%r10
+    f88d:	mov    %r10,%rsi
+    f890:	mov    %r8,%rdi
+    f893:	mov    %r9,%rax
+    f896:	mov    %rcx,%r14
+    f899:	call   88c0 <gemm_make_table_i2v>
+    f89e:	lea    0x80(%r10),%rsi
+    f8a5:	mov    %r15,%rdi
+    f8a8:	call   88c0 <gemm_make_table_i2v>
+    f8ad:	mov    0x100(%rsp),%rdi
+    f8b5:	lea    0x100(%r10),%rsi
+    f8bc:	call   88c0 <gemm_make_table_i2v>
+    f8c1:	lea    0x180(%r10),%rsi
+    f8c8:	mov    %r12,%rdi
+    f8cb:	call   88c0 <gemm_make_table_i2v>
+    f8d0:	mov    0x114(%rsp),%r11d
+    f8d8:	test   %r11d,%r11d
+    f8db:	jle    f973 <ggml_gemm_i2v4_i8v_lut+0x763>
+    f8e1:	movzbl 0x2(%r14),%esi
+    f8e6:	movzbl (%r14),%r11d
+    f8ea:	add    $0x40,%rax
+    f8ee:	add    $0x4,%r14
+    f8f2:	mov    0x100(%rsp),%rdx
+    f8fa:	movzbl -0x3(%r14),%edi
+    f8ff:	shl    $0x6,%rsi
+    f903:	shl    $0x6,%r11
+    f907:	add    %rdx,%rsi
+    f90a:	movzbl -0x1(%r14),%edx
+    f90f:	shl    $0x6,%rdi
+    f913:	add    %r8,%r11
+    f916:	add    %r15,%rdi
+    f919:	vmovdqu (%rsi),%ymm7
+    f91d:	shl    $0x6,%rdx
+    f921:	vmovdqu (%rdi),%ymm3
+    f925:	vpaddw (%r11),%ymm3,%ymm1
+    f92a:	add    %r12,%rdx
+    f92d:	vpaddw (%rdx),%ymm7,%ymm0
+    f931:	vpaddw %ymm1,%ymm0,%ymm0
+    f935:	vpaddw -0x40(%rax),%ymm0,%ymm0
+    f93a:	vmovdqu 0x20(%rsi),%ymm1
+    f93f:	vpaddw 0x20(%rdx),%ymm1,%ymm1
+    f944:	mov    0x98(%rsp),%rdx
+    f94c:	vmovdqu %ymm0,-0x40(%rax)
+    f951:	vmovdqu 0x20(%r11),%ymm0
+    f957:	vpaddw 0x20(%rdi),%ymm0,%ymm0
+    f95c:	vpaddw %ymm1,%ymm0,%ymm0
+    f960:	vpaddw -0x20(%rax),%ymm0,%ymm0
+    f965:	vmovdqu %ymm0,-0x20(%rax)
+    f96a:	cmp    %rdx,%rax
+    f96d:	jne    f8e1 <ggml_gemm_i2v4_i8v_lut+0x6d1>
+    f973:	mov    0x88(%rsp),%rax
+    f97b:	add    $0x200,%r10
+    f982:	add    %rax,%rcx
+    f985:	mov    0xb0(%rsp),%rax
+    f98d:	cmp    %rax,%r10
+    f990:	je     ff90 <ggml_gemm_i2v4_i8v_lut+0xd80>
+    f996:	vzeroupper
+    f999:	jmp    f88d <ggml_gemm_i2v4_i8v_lut+0x67d>
+    f99e:	mov    0x60(%rsp),%esi
+    f9a2:	test   %esi,%esi
+    f9a4:	je     fac7 <ggml_gemm_i2v4_i8v_lut+0x8b7>
+    f9aa:	mov    0x80(%rsp),%r9
+    f9b2:	mov    0x30(%rsp),%rax
+    f9b7:	mov    0x58(%rsp),%r11
+    f9bc:	lea    (%r9,%rax,1),%r8
+    f9c0:	mov    0x50(%rsp),%rax
+    f9c5:	lea    (%rax,%r9,1),%r10
+    f9c9:	mov    %r9,%rsi
+    f9cc:	mov    %r14,%rdi
+    f9cf:	vzeroupper
+    f9d2:	mov    %r11,%rdx
+    f9d5:	call   88c0 <gemm_make_table_i2v>
+    f9da:	mov    %r8,%rsi
+    f9dd:	mov    %r15,%rdi
+    f9e0:	call   88c0 <gemm_make_table_i2v>
+    f9e5:	lea    0x80(%r8),%rsi
+    f9ec:	mov    %rbx,%rdi
+    f9ef:	call   88c0 <gemm_make_table_i2v>
+    f9f4:	lea    0x100(%r8),%rsi
+    f9fb:	mov    %r12,%rdi
+    f9fe:	call   88c0 <gemm_make_table_i2v>
+    fa03:	mov    0x114(%rsp),%ecx
+    fa0a:	mov    0x118(%rsp),%rax
+    fa12:	test   %ecx,%ecx
+    fa14:	jle    faa5 <ggml_gemm_i2v4_i8v_lut+0x895>
+    fa1a:	mov    %r8,0xa8(%rsp)
+    fa22:	movzbl 0x1(%rdx),%ecx
+    fa26:	movzbl (%rdx),%edi
+    fa29:	add    $0x40,%rax
+    fa2d:	add    $0x4,%rdx
+    fa31:	movzbl -0x2(%rdx),%esi
+    fa35:	shl    $0x6,%rcx
+    fa39:	shl    $0x6,%rdi
+    fa3d:	lea    (%r15,%rcx,1),%r8
+    fa41:	movzbl -0x1(%rdx),%ecx
+    fa45:	shl    $0x6,%rsi
+    fa49:	add    %r14,%rdi
+    fa4c:	add    %rbx,%rsi
+    fa4f:	vmovdqu (%r8),%ymm2
+    fa54:	vpaddw (%rdi),%ymm2,%ymm0
+    fa58:	shl    $0x6,%rcx
+    fa5c:	add    %r12,%rcx
+    fa5f:	vmovdqu (%rcx),%ymm4
+    fa63:	vpaddw (%rsi),%ymm4,%ymm1
+    fa67:	vpaddw %ymm1,%ymm0,%ymm0
+    fa6b:	vpaddw -0x40(%rax),%ymm0,%ymm0
+    fa70:	vmovdqu 0x20(%rsi),%ymm1
+    fa75:	vpaddw 0x20(%rcx),%ymm1,%ymm1
+    fa7a:	vmovdqu %ymm0,-0x40(%rax)
+    fa7f:	vmovdqu 0x20(%rdi),%ymm0
+    fa84:	vpaddw 0x20(%r8),%ymm0,%ymm0
+    fa8a:	vpaddw %ymm1,%ymm0,%ymm0
+    fa8e:	vpaddw -0x20(%rax),%ymm0,%ymm0
+    fa93:	vmovdqu %ymm0,-0x20(%rax)
+    fa98:	cmp    %r13,%rax
+    fa9b:	jne    fa22 <ggml_gemm_i2v4_i8v_lut+0x812>
+    fa9d:	mov    0xa8(%rsp),%r8
+    faa5:	mov    0xd0(%rsp),%rax
+    faad:	add    $0x200,%r9
+    fab4:	add    $0x200,%r8
+    fabb:	add    %rax,%r11
+    fabe:	cmp    %r10,%r9
+    fac1:	jne    f9c9 <ggml_gemm_i2v4_i8v_lut+0x7b9>
+    fac7:	mov    0x90(%rsp),%rsi
+    facf:	mov    0xc8(%rsp),%rax
+    fad7:	cmpq   $0x0,0x98(%rsp)
+    fae0:	mov    0x118(%rsp),%rdx
+    fae8:	lea    (%rsi,%rax,1),%rcx
+    faec:	je     fb23 <ggml_gemm_i2v4_i8v_lut+0x913>
+    faee:	vmovdqu (%rdx),%ymm7
+    faf2:	add    $0x40,%rax
+    faf6:	add    $0x20,%rdx
+    fafa:	vextracti128 $0x1,%ymm7,%xmm1
+    fb00:	vpmovsxwd %xmm7,%ymm0
+    fb05:	vpaddd -0x40(%rax),%ymm0,%ymm0
+    fb0a:	vpmovsxwd %xmm1,%ymm1
+    fb0f:	vpaddd -0x20(%rax),%ymm1,%ymm1
+    fb14:	vmovdqu %ymm0,-0x40(%rax)
+    fb19:	vmovdqu %ymm1,-0x20(%rax)
+    fb1e:	cmp    %rcx,%rax
+    fb21:	jne    faee <ggml_gemm_i2v4_i8v_lut+0x8de>
+    fb23:	mov    0xf8(%rsp),%rcx
+    fb2b:	mov    0x118(%rsp),%rdi
+    fb33:	xor    %esi,%esi
+    fb35:	mov    %rcx,%rdx
+    fb38:	vzeroupper
+    fb3b:	call   8280 <__memset_chk@plt>
+    fb40:	jmp    f723 <ggml_gemm_i2v4_i8v_lut+0x513>
+    fb45:	mov    %r8,0x50(%rsp)
+    fb4a:	mov    0xf8(%rsp),%rcx
+    fb52:	xor    %esi,%esi
+    fb54:	mov    0x118(%rsp),%rdi
+    fb5c:	mov    %rcx,%rdx
+    fb5f:	vzeroupper
+    fb62:	call   8280 <__memset_chk@plt>
+    fb67:	addl   $0x1,0xd0(%rsp)
+    fb6f:	mov    0x78(%rsp),%rsi
+    fb74:	mov    0xd0(%rsp),%eax
+    fb7b:	add    %rsi,0x90(%rsp)
+    fb83:	addq   $0x1e00,0xb0(%rsp)
+    fb8f:	cmp    %eax,0xd8(%rsp)
+    fb96:	mov    0x50(%rsp),%r8
+    fb9b:	jg     f869 <ggml_gemm_i2v4_i8v_lut+0x659>
+    fba1:	mov    0x58(%rsp),%rdx
+    fba6:	mov    %r8,%r14
+    fba9:	mov    0xb8(%rsp),%eax
+    fbb0:	test   %eax,%eax
+    fbb2:	je     1018d <ggml_gemm_i2v4_i8v_lut+0xf7d>
+    fbb8:	sar    $0x4,%eax
+    fbbb:	mov    %eax,%esi
+    fbbd:	je     fd3b <ggml_gemm_i2v4_i8v_lut+0xb2b>
+    fbc3:	mov    0xd8(%rsp),%ebx
+    fbca:	mov    0xe0(%rsp),%rcx
+    fbd2:	mov    0xc0(%rsp),%r11
+    fbda:	imul   $0x1e00,%ebx,%eax
+    fbe0:	lea    0x0(,%rcx,4),%r8
+    fbe8:	cltq
+    fbea:	lea    (%rdx,%rax,1),%r9
+    fbee:	imul   $0x3c,%ebx,%eax
+    fbf1:	cltq
+    fbf3:	imul   %rcx,%rax
+    fbf7:	movslq %ebx,%rcx
+    fbfa:	mov    0x118(%rsp),%rbx
+    fc02:	add    %rax,%r11
+    fc05:	mov    %rcx,%rax
+    fc08:	shl    $0x4,%rax
+    fc0c:	sub    %rcx,%rax
+    fc0f:	movslq %esi,%rcx
+    fc12:	add    %rcx,%rax
+    fc15:	shl    $0x9,%rax
+    fc19:	add    %rdx,%rax
+    fc1c:	mov    %rax,0xd0(%rsp)
+    fc24:	mov    0xf8(%rsp),%rax
+    fc2c:	add    %rbx,%rax
+    fc2f:	mov    %rax,0xd8(%rsp)
+    fc37:	mov    %r9,%rsi
+    fc3a:	mov    %r14,%rdi
+    fc3d:	vzeroupper
+    fc40:	mov    %r11,%rdx
+    fc43:	call   88c0 <gemm_make_table_i2v>
+    fc48:	lea    0x80(%r9),%rsi
+    fc4f:	mov    %r15,%rdi
+    fc52:	call   88c0 <gemm_make_table_i2v>
+    fc57:	mov    0x100(%rsp),%rdi
+    fc5f:	lea    0x100(%r9),%rsi
+    fc66:	call   88c0 <gemm_make_table_i2v>
+    fc6b:	lea    0x180(%r9),%rsi
+    fc72:	mov    %r12,%rdi
+    fc75:	call   88c0 <gemm_make_table_i2v>
+    fc7a:	mov    0x114(%rsp),%esi
+    fc81:	mov    0x118(%rsp),%rax
+    fc89:	test   %esi,%esi
+    fc8b:	jle    fd20 <ggml_gemm_i2v4_i8v_lut+0xb10>
+    fc91:	movzbl (%rdx),%r10d
+    fc95:	movzbl 0x1(%rdx),%edi
+    fc99:	add    $0x40,%rax
+    fc9d:	add    $0x4,%rdx
+    fca1:	movzbl -0x2(%rdx),%esi
+    fca5:	movzbl -0x1(%rdx),%ecx
+    fca9:	mov    0x100(%rsp),%rbx
+    fcb1:	shl    $0x6,%r10
+    fcb5:	shl    $0x6,%rdi
+    fcb9:	shl    $0x6,%rsi
+    fcbd:	shl    $0x6,%rcx
+    fcc1:	add    %r14,%r10
+    fcc4:	add    %r15,%rdi
+    fcc7:	add    %rbx,%rsi
+    fcca:	add    %r12,%rcx
+    fccd:	vmovdqu (%r10),%ymm3
+    fcd2:	vpaddw (%rdi),%ymm3,%ymm0
+    fcd6:	vmovdqu (%rcx),%ymm4
+    fcda:	vpaddw (%rsi),%ymm4,%ymm1
+    fcde:	mov    0xd8(%rsp),%rbx
+    fce6:	vpaddw %ymm1,%ymm0,%ymm0
+    fcea:	vpaddw -0x40(%rax),%ymm0,%ymm0
+    fcef:	vmovdqu 0x20(%rsi),%ymm1
+    fcf4:	vpaddw 0x20(%rcx),%ymm1,%ymm1
+    fcf9:	vmovdqu %ymm0,-0x40(%rax)
+    fcfe:	vmovdqu 0x20(%r10),%ymm0
+    fd04:	vpaddw 0x20(%rdi),%ymm0,%ymm0
+    fd09:	vpaddw %ymm1,%ymm0,%ymm0
+    fd0d:	vpaddw -0x20(%rax),%ymm0,%ymm0
+    fd12:	vmovdqu %ymm0,-0x20(%rax)
+    fd17:	cmp    %rbx,%rax
+    fd1a:	jne    fc91 <ggml_gemm_i2v4_i8v_lut+0xa81>
+    fd20:	mov    0xd0(%rsp),%rax
+    fd28:	add    $0x200,%r9
+    fd2f:	add    %r8,%r11
+    fd32:	cmp    %rax,%r9
+    fd35:	jne    fc37 <ggml_gemm_i2v4_i8v_lut+0xa27>
+    fd3b:	movslq 0x108(%rsp),%rax
+    fd43:	mov    0xe8(%rsp),%rbx
+    fd4b:	mov    0x114(%rsp),%edi
+    fd52:	imul   %rbx,%rax
+    fd56:	mov    %rax,%r11
+    fd59:	shl    $0x7,%r11
+    fd5d:	test   %edi,%edi
+    fd5f:	jle    103fb <ggml_gemm_i2v4_i8v_lut+0x11eb>
+    fd65:	shl    $0x5,%rax
+    fd69:	movslq %r13d,%rbx
+    fd6c:	mov    0x118(%rsp),%rsi
+    fd74:	xor    %r8d,%r8d
+    fd77:	mov    %rax,0xd8(%rsp)
+    fd7f:	mov    %rax,%r9
+    fd82:	mov    0xe8(%rsp),%rax
+    fd8a:	mov    %rbx,0xc0(%rsp)
+    fd92:	shl    $0x5,%rax
+    fd96:	mov    %rax,0xd0(%rsp)
+    fd9e:	lea    -0x1(%r13),%eax
+    fda2:	mov    %eax,0xc8(%rsp)
+    fda9:	mov    0xf0(%rsp),%rax
+    fdb1:	jmp    ff0c <ggml_gemm_i2v4_i8v_lut+0xcfc>
+    fdb6:	cs nopw 0x0(%rax,%rax,1)
+    fdc0:	mov    $0x10,%edi
+    fdc5:	mov    $0x10,%edx
+    fdca:	mov    %r13d,%r10d
+    fdcd:	sub    %edi,%r10d
+    fdd0:	lea    -0x1(%r10),%ebx
+    fdd4:	cmp    $0x6,%ebx
+    fdd7:	jbe    fe1c <ggml_gemm_i2v4_i8v_lut+0xc0c>
+    fdd9:	lea    (%r9,%rdi,1),%rbx
+    fddd:	add    %r8,%rdi
+    fde0:	vmovdqu (%rsi,%rdi,2),%xmm0
+    fde5:	lea    (%rax,%rbx,4),%rbx
+    fde9:	mov    %r10d,%edi
+    fdec:	and    $0xfffffff8,%edi
+    fdef:	vpsrldq $0x8,%xmm0,%xmm1
+    fdf4:	vpmovsxwd %xmm0,%xmm0
+    fdf9:	vpaddd (%rbx),%xmm0,%xmm0
+    fdfd:	add    %edi,%edx
+    fdff:	vpmovsxwd %xmm1,%xmm1
+    fe04:	vpaddd 0x10(%rbx),%xmm1,%xmm1
+    fe09:	and    $0x7,%r10d
+    fe0d:	vmovdqu %xmm0,(%rbx)
+    fe11:	vmovdqu %xmm1,0x10(%rbx)
+    fe16:	je     feec <ggml_gemm_i2v4_i8v_lut+0xcdc>
+    fe1c:	movslq %edx,%rdi
+    fe1f:	lea    (%rdi,%rcx,1),%r10
+    fe23:	add    %r8,%rdi
+    fe26:	lea    (%r11,%r10,4),%r10
+    fe2a:	movswl (%rsi,%rdi,2),%edi
+    fe2e:	add    %edi,(%rax,%r10,1)
+    fe32:	lea    0x1(%rdx),%edi
+    fe35:	cmp    %r13d,%edi
+    fe38:	jge    feec <ggml_gemm_i2v4_i8v_lut+0xcdc>
+    fe3e:	movslq %edi,%rdi
+    fe41:	lea    (%rdi,%rcx,1),%r10
+    fe45:	add    %r8,%rdi
+    fe48:	lea    (%r11,%r10,4),%r10
+    fe4c:	movswl (%rsi,%rdi,2),%edi
+    fe50:	add    %edi,(%rax,%r10,1)
+    fe54:	lea    0x2(%rdx),%edi
+    fe57:	cmp    %r13d,%edi
+    fe5a:	jge    feec <ggml_gemm_i2v4_i8v_lut+0xcdc>
+    fe60:	movslq %edi,%rdi
+    fe63:	lea    (%rdi,%rcx,1),%r10
+    fe67:	add    %r8,%rdi
+    fe6a:	lea    (%r11,%r10,4),%r10
+    fe6e:	movswl (%rsi,%rdi,2),%edi
+    fe72:	add    %edi,(%rax,%r10,1)
+    fe76:	lea    0x3(%rdx),%edi
+    fe79:	cmp    %edi,%r13d
+    fe7c:	jle    feec <ggml_gemm_i2v4_i8v_lut+0xcdc>
+    fe7e:	movslq %edi,%rdi
+    fe81:	lea    (%rdi,%rcx,1),%r10
+    fe85:	add    %r8,%rdi
+    fe88:	lea    (%r11,%r10,4),%r10
+    fe8c:	movswl (%rsi,%rdi,2),%edi
+    fe90:	add    %edi,(%rax,%r10,1)
+    fe94:	lea    0x4(%rdx),%edi
+    fe97:	cmp    %edi,%r13d
+    fe9a:	jle    feec <ggml_gemm_i2v4_i8v_lut+0xcdc>
+    fe9c:	movslq %edi,%rdi
+    fe9f:	lea    (%rdi,%rcx,1),%r10
+    fea3:	add    %r8,%rdi
+    fea6:	lea    (%r11,%r10,4),%r10
+    feaa:	movswl (%rsi,%rdi,2),%edi
+    feae:	add    %edi,(%rax,%r10,1)
+    feb2:	lea    0x5(%rdx),%edi
+    feb5:	cmp    %r13d,%edi
+    feb8:	jge    feec <ggml_gemm_i2v4_i8v_lut+0xcdc>
+    feba:	movslq %edi,%rdi
+    febd:	add    $0x6,%edx
+    fec0:	lea    (%rdi,%rcx,1),%r10
+    fec4:	add    %r8,%rdi
+    fec7:	lea    (%r11,%r10,4),%r10
+    fecb:	movswl (%rsi,%rdi,2),%edi
+    fecf:	add    %edi,(%rax,%r10,1)
+    fed3:	cmp    %r13d,%edx
+    fed6:	jge    feec <ggml_gemm_i2v4_i8v_lut+0xcdc>
+    fed8:	movslq %edx,%rdx
+    fedb:	add    %rdx,%rcx
+    fede:	add    %r8,%rdx
+    fee1:	lea    (%r11,%rcx,4),%rcx
+    fee5:	movswl (%rsi,%rdx,2),%edx
+    fee9:	add    %edx,(%rax,%rcx,1)
+    feec:	mov    0xc0(%rsp),%rbx
+    fef4:	add    $0x20,%r8
+    fef8:	add    %rbx,%r9
+    fefb:	mov    0xd0(%rsp),%rbx
+    ff03:	cmp    %rbx,%r8
+    ff06:	je     103fb <ggml_gemm_i2v4_i8v_lut+0x11eb>
+    ff0c:	mov    0xd8(%rsp),%rbx
+    ff14:	mov    %r9,%rcx
+    ff17:	sub    %rbx,%rcx
+    ff1a:	cmpl   $0xe,0xc8(%rsp)
+    ff22:	jbe    1044d <ggml_gemm_i2v4_i8v_lut+0x123d>
+    ff28:	vmovdqu (%rsi,%r8,2),%ymm7
+    ff2e:	cmp    $0x10,%r13d
+    ff32:	vextracti128 $0x1,%ymm7,%xmm1
+    ff38:	vpmovsxwd %xmm7,%ymm0
+    ff3d:	vpaddd (%rax,%r9,4),%ymm0,%ymm0
+    ff43:	vpmovsxwd %xmm1,%ymm1
+    ff48:	vpaddd 0x20(%rax,%r9,4),%ymm1,%ymm1
+    ff4f:	vmovdqu %ymm0,(%rax,%r9,4)
+    ff55:	vmovdqu %ymm1,0x20(%rax,%r9,4)
+    ff5c:	jne    fdc0 <ggml_gemm_i2v4_i8v_lut+0xbb0>
+    ff62:	add    $0x20,%r8
+    ff66:	add    $0x10,%r9
+    ff6a:	cmp    %r8,0xd0(%rsp)
+    ff72:	je     103fb <ggml_gemm_i2v4_i8v_lut+0x11eb>
+    ff78:	mov    0xd8(%rsp),%rbx
+    ff80:	mov    %r9,%rcx
+    ff83:	sub    %rbx,%rcx
+    ff86:	jmp    ff28 <ggml_gemm_i2v4_i8v_lut+0xd18>
+    ff88:	nopl   0x0(%rax,%rax,1)
+    ff90:	mov    0x114(%rsp),%r9d
+    ff98:	mov    0x50(%rsp),%r14
+    ff9d:	test   %r9d,%r9d
+    ffa0:	jle    fb45 <ggml_gemm_i2v4_i8v_lut+0x935>
+    ffa6:	mov    0xc8(%rsp),%rcx
+    ffae:	mov    0x118(%rsp),%r9
+    ffb6:	xor    %edx,%edx
+    ffb8:	jmp    10112 <ggml_gemm_i2v4_i8v_lut+0xf02>
+    ffbd:	mov    $0x10,%edi
+    ffc2:	mov    $0x10,%eax
+    ffc7:	mov    %r13d,%r10d
+    ffca:	sub    %edi,%r10d
+    ffcd:	lea    -0x1(%r10),%r11d
+    ffd1:	cmp    $0x6,%r11d
+    ffd5:	jbe    1001f <ggml_gemm_i2v4_i8v_lut+0xe0f>
+    ffd7:	lea    (%rcx,%rdi,1),%r11
+    ffdb:	add    %rdx,%rdi
+    ffde:	vmovdqu (%r9,%rdi,2),%xmm0
+    ffe4:	lea    (%rbx,%r11,4),%r11
+    ffe8:	mov    %r10d,%edi
+    ffeb:	and    $0xfffffff8,%edi
+    ffee:	vpsrldq $0x8,%xmm0,%xmm1
+    fff3:	vpmovsxwd %xmm0,%xmm0
+    fff8:	vpaddd (%r11),%xmm0,%xmm0
+    fffd:	add    %edi,%eax
+    ffff:	vpmovsxwd %xmm1,%xmm1
+   10004:	vpaddd 0x10(%r11),%xmm1,%xmm1
+   1000a:	and    $0x7,%r10d
+   1000e:	vmovdqu %xmm0,(%r11)
+   10013:	vmovdqu %xmm1,0x10(%r11)
+   10019:	je     100f5 <ggml_gemm_i2v4_i8v_lut+0xee5>
+   1001f:	movslq %eax,%rdi
+   10022:	lea    (%rdi,%rsi,1),%r10
+   10026:	add    %rdx,%rdi
+   10029:	lea    (%r14,%r10,4),%r10
+   1002d:	movswl (%r9,%rdi,2),%edi
+   10032:	add    %edi,(%rbx,%r10,1)
+   10036:	lea    0x1(%rax),%edi
+   10039:	cmp    %r13d,%edi
+   1003c:	jge    100f5 <ggml_gemm_i2v4_i8v_lut+0xee5>
+   10042:	movslq %edi,%rdi
+   10045:	lea    (%rdi,%rsi,1),%r10
+   10049:	add    %rdx,%rdi
+   1004c:	lea    (%r14,%r10,4),%r10
+   10050:	movswl (%r9,%rdi,2),%edi
+   10055:	add    %edi,(%rbx,%r10,1)
+   10059:	lea    0x2(%rax),%edi
+   1005c:	cmp    %r13d,%edi
+   1005f:	jge    100f5 <ggml_gemm_i2v4_i8v_lut+0xee5>
+   10065:	movslq %edi,%rdi
+   10068:	lea    (%rsi,%rdi,1),%r10
+   1006c:	add    %rdx,%rdi
+   1006f:	lea    (%r14,%r10,4),%r10
+   10073:	movswl (%r9,%rdi,2),%edi
+   10078:	add    %edi,(%rbx,%r10,1)
+   1007c:	lea    0x3(%rax),%edi
+   1007f:	cmp    %edi,%r13d
+   10082:	jle    100f5 <ggml_gemm_i2v4_i8v_lut+0xee5>
+   10084:	movslq %edi,%rdi
+   10087:	lea    (%rdi,%rsi,1),%r10
+   1008b:	add    %rdx,%rdi
+   1008e:	lea    (%r14,%r10,4),%r10
+   10092:	movswl (%r9,%rdi,2),%edi
+   10097:	add    %edi,(%rbx,%r10,1)
+   1009b:	lea    0x4(%rax),%edi
+   1009e:	cmp    %r13d,%edi
+   100a1:	jge    100f5 <ggml_gemm_i2v4_i8v_lut+0xee5>
+   100a3:	movslq %edi,%rdi
+   100a6:	lea    (%rdi,%rsi,1),%r10
+   100aa:	add    %rdx,%rdi
+   100ad:	lea    (%r14,%r10,4),%r10
+   100b1:	movswl (%r9,%rdi,2),%edi
+   100b6:	add    %edi,(%rbx,%r10,1)
+   100ba:	lea    0x5(%rax),%edi
+   100bd:	cmp    %edi,%r13d
+   100c0:	jle    100f5 <ggml_gemm_i2v4_i8v_lut+0xee5>
+   100c2:	movslq %edi,%rdi
+   100c5:	add    $0x6,%eax
+   100c8:	lea    (%rdi,%rsi,1),%r10
+   100cc:	add    %rdx,%rdi
+   100cf:	lea    (%r14,%r10,4),%r10
+   100d3:	movswl (%r9,%rdi,2),%edi
+   100d8:	add    %edi,(%rbx,%r10,1)
+   100dc:	cmp    %eax,%r13d
+   100df:	jle    100f5 <ggml_gemm_i2v4_i8v_lut+0xee5>
+   100e1:	cltq
+   100e3:	add    %rax,%rsi
+   100e6:	add    %rdx,%rax
+   100e9:	lea    (%r14,%rsi,4),%rsi
+   100ed:	movswl (%r9,%rax,2),%eax
+   100f2:	add    %eax,(%rbx,%rsi,1)
+   100f5:	mov    0x60(%rsp),%rax
+   100fa:	add    $0x20,%rdx
+   100fe:	add    %rax,%rcx
+   10101:	mov    0xa8(%rsp),%rax
+   10109:	cmp    %rax,%rdx
+   1010c:	je     fb45 <ggml_gemm_i2v4_i8v_lut+0x935>
+   10112:	mov    0xc8(%rsp),%rax
+   1011a:	mov    %rcx,%rsi
+   1011d:	sub    %rax,%rsi
+   10120:	cmpl   $0xe,0x80(%rsp)
+   10128:	jbe    103f2 <ggml_gemm_i2v4_i8v_lut+0x11e2>
+   1012e:	vmovdqu (%r9,%rdx,2),%ymm2
+   10134:	cmp    $0x10,%r13d
+   10138:	vextracti128 $0x1,%ymm2,%xmm1
+   1013e:	vpmovsxwd %xmm2,%ymm0
+   10143:	vpaddd (%rbx,%rcx,4),%ymm0,%ymm0
+   10148:	vpmovsxwd %xmm1,%ymm1
+   1014d:	vpaddd 0x20(%rbx,%rcx,4),%ymm1,%ymm1
+   10153:	vmovdqu %ymm0,(%rbx,%rcx,4)
+   10158:	vmovdqu %ymm1,0x20(%rbx,%rcx,4)
+   1015e:	jne    ffbd <ggml_gemm_i2v4_i8v_lut+0xdad>
+   10164:	mov    0xa8(%rsp),%rax
+   1016c:	add    $0x20,%rdx
+   10170:	add    $0x10,%rcx
+   10174:	cmp    %rax,%rdx
+   10177:	je     fb45 <ggml_gemm_i2v4_i8v_lut+0x935>
+   1017d:	mov    0xc8(%rsp),%rax
+   10185:	mov    %rcx,%rsi
+   10188:	sub    %rax,%rsi
+   1018b:	jmp    1012e <ggml_gemm_i2v4_i8v_lut+0xf1e>
+   1018d:	mov    0x10c(%rsp),%ebx
+   10194:	test   $0x1f,%bl
+   10197:	jne    10475 <ggml_gemm_i2v4_i8v_lut+0x1265>
+   1019d:	mov    0x110(%rsp),%eax
+   101a4:	imul   %ebx,%eax
+   101a7:	cltq
+   101a9:	vzeroupper
+   101ac:	mov    0x114(%rsp),%ebx
+   101b3:	test   %ebx,%ebx
+   101b5:	jle    1039e <ggml_gemm_i2v4_i8v_lut+0x118e>
+   101bb:	lea    -0x1(%rbx),%ecx
+   101be:	mov    0x70(%rsp),%r9
+   101c3:	vxorps %xmm2,%xmm2,%xmm2
+   101c7:	xor    %r13d,%r13d
+   101ca:	mov    0xe0(%rsp),%rdx
+   101d2:	mov    %ecx,0xc8(%rsp)
+   101d9:	mov    %ebx,%ecx
+   101db:	xor    %r11d,%r11d
+   101de:	and    $0x3,%ecx
+   101e1:	mov    0xf0(%rsp),%r10
+   101e9:	lea    0x0(,%rdx,4),%rsi
+   101f1:	mov    %ebx,%edx
+   101f3:	and    $0xfffffffc,%ebx
+   101f6:	mov    %ecx,0xc0(%rsp)
+   101fd:	shr    $0x2,%edx
+   10200:	mov    %ebx,0x110(%rsp)
+   10207:	mov    0xa0(%rsp),%rbx
+   1020f:	shl    $0x4,%rdx
+   10213:	mov    %rsi,0xd8(%rsp)
+   1021b:	mov    %rdx,0xf8(%rsp)
+   10223:	add    %rax,%rbx
+   10226:	mov    %r11d,%eax
+   10229:	mov    %r11,%rcx
+   1022c:	mov    0xe8(%rsp),%rsi
+   10234:	vmovss (%rbx,%r11,4),%xmm1
+   1023a:	sar    $0x5,%eax
+   1023d:	and    $0x1f,%ecx
+   10240:	movslq %eax,%rdx
+   10243:	shl    $0x5,%eax
+   10246:	imul   %rsi,%rdx
+   1024a:	shl    $0x5,%rdx
+   1024e:	add    %rcx,%rdx
+   10251:	mov    %eax,%ecx
+   10253:	mov    0x10c(%rsp),%eax
+   1025a:	sub    %ecx,%eax
+   1025c:	mov    $0x20,%ecx
+   10261:	cmp    %ecx,%eax
+   10263:	cmovg  %ecx,%eax
+   10266:	cmpl   $0x2,0xc8(%rsp)
+   1026e:	cltq
+   10270:	jbe    103eb <ggml_gemm_i2v4_i8v_lut+0x11db>
+   10276:	mov    0xf8(%rsp),%rsi
+   1027e:	mov    %rax,%rcx
+   10281:	lea    (%rax,%rax,2),%rdi
+   10285:	mov    %rdx,0xb8(%rsp)
+   1028d:	shl    $0x4,%rcx
+   10291:	shl    $0x2,%rdi
+   10295:	vshufps $0x0,%xmm1,%xmm1,%xmm4
+   1029a:	mov    %rcx,0xd0(%rsp)
+   102a2:	lea    (%rsi,%r9,1),%r8
+   102a6:	lea    (%r10,%rdx,4),%rcx
+   102aa:	mov    %r9,%rsi
+   102ad:	vmovd  (%rcx,%rax,8),%xmm3
+   102b2:	vmovd  (%rcx),%xmm7
+   102b6:	add    $0x10,%rsi
+   102ba:	vpinsrd $0x1,(%rcx,%rdi,1),%xmm3,%xmm0
+   102c1:	vpinsrd $0x1,(%rcx,%rax,4),%xmm7,%xmm3
+   102c8:	mov    0xd0(%rsp),%rdx
+   102d0:	vpunpcklqdq %xmm0,%xmm3,%xmm0
+   102d4:	vcvtdq2ps %xmm0,%xmm0
+   102d8:	vmulps %xmm4,%xmm0,%xmm0
+   102dc:	add    %rdx,%rcx
+   102df:	vmovups %xmm0,-0x10(%rsi)
+   102e4:	cmp    %r8,%rsi
+   102e7:	jne    102ad <ggml_gemm_i2v4_i8v_lut+0x109d>
+   102e9:	mov    0xc0(%rsp),%ecx
+   102f0:	mov    0xb8(%rsp),%rdx
+   102f8:	test   %ecx,%ecx
+   102fa:	je     10379 <ggml_gemm_i2v4_i8v_lut+0x1169>
+   102fc:	mov    0x110(%rsp),%ecx
+   10303:	movslq %ecx,%rdi
+   10306:	mov    %rdi,%rsi
+   10309:	add    %r13,%rdi
+   1030c:	imul   %rax,%rsi
+   10310:	lea    (%rdx,%rsi,1),%r8
+   10314:	vcvtsi2ssl (%r10,%r8,4),%xmm2,%xmm0
+   1031a:	mov    0x70(%rsp),%r8
+   1031f:	vmulss %xmm1,%xmm0,%xmm0
+   10323:	vmovss %xmm0,(%r8,%rdi,4)
+   10329:	lea    0x1(%rcx),%edi
+   1032c:	cmp    %edi,0x114(%rsp)
+   10333:	jle    10379 <ggml_gemm_i2v4_i8v_lut+0x1169>
+   10335:	add    %rax,%rsi
+   10338:	movslq %edi,%rdi
+   1033b:	add    $0x2,%ecx
+   1033e:	add    %rdx,%rsi
+   10341:	mov    0x114(%rsp),%edx
+   10348:	add    %r13,%rdi
+   1034b:	vcvtsi2ssl (%r10,%rsi,4),%xmm2,%xmm0
+   10351:	cmp    %edx,%ecx
+   10353:	vmulss %xmm1,%xmm0,%xmm0
+   10357:	vmovss %xmm0,(%r8,%rdi,4)
+   1035d:	jge    10379 <ggml_gemm_i2v4_i8v_lut+0x1169>
+   1035f:	add    %rax,%rsi
+   10362:	movslq %ecx,%rcx
+   10365:	vcvtsi2ssl (%r10,%rsi,4),%xmm2,%xmm0
+   1036b:	lea    (%rcx,%r13,1),%rdx
+   1036f:	vmulss %xmm1,%xmm0,%xmm0
+   10373:	vmovss %xmm0,(%r8,%rdx,4)
+   10379:	mov    0xe0(%rsp),%rax
+   10381:	add    $0x1,%r11
+   10385:	add    %rax,%r13
+   10388:	mov    0xd8(%rsp),%rax
+   10390:	add    %rax,%r9
+   10393:	cmp    %r11,0x68(%rsp)
+   10398:	jne    10226 <ggml_gemm_i2v4_i8v_lut+0x1016>
+   1039e:	mov    %r14,%rdi
+   103a1:	call   81d0 <free@plt>
+   103a6:	mov    %r15,%rdi
+   103a9:	call   81d0 <free@plt>
+   103ae:	mov    0x100(%rsp),%rdi
+   103b6:	call   81d0 <free@plt>
+   103bb:	mov    %r12,%rdi
+   103be:	call   81d0 <free@plt>
+   103c3:	mov    0x118(%rsp),%rdi
+   103cb:	call   81d0 <free@plt>
+   103d0:	mov    0xf0(%rsp),%rdi
+   103d8:	lea    -0x28(%rbp),%rsp
+   103dc:	pop    %rbx
+   103dd:	pop    %r12
+   103df:	pop    %r13
+   103e1:	pop    %r14
+   103e3:	pop    %r15
+   103e5:	pop    %rbp
+   103e6:	jmp    81d0 <free@plt>
+   103eb:	xor    %ecx,%ecx
+   103ed:	jmp    10303 <ggml_gemm_i2v4_i8v_lut+0x10f3>
+   103f2:	xor    %eax,%eax
+   103f4:	xor    %edi,%edi
+   103f6:	jmp    ffc7 <ggml_gemm_i2v4_i8v_lut+0xdb7>
+   103fb:	mov    0xf8(%rsp),%rcx
+   10403:	mov    0x118(%rsp),%rdi
+   1040b:	xor    %esi,%esi
+   1040d:	vzeroupper
+   10410:	mov    %rcx,%rdx
+   10413:	call   8280 <__memset_chk@plt>
+   10418:	mov    0x10c(%rsp),%eax
+   1041f:	test   $0x1f,%al
+   10421:	je     1043a <ggml_gemm_i2v4_i8v_lut+0x122a>
+   10423:	mov    0x110(%rsp),%ebx
+   1042a:	add    $0x20,%eax
+   1042d:	sub    %r13d,%eax
+   10430:	imul   %ebx,%eax
+   10433:	cltq
+   10435:	jmp    101ac <ggml_gemm_i2v4_i8v_lut+0xf9c>
+   1043a:	mov    %eax,%ebx
+   1043c:	mov    0x110(%rsp),%eax
+   10443:	imul   %ebx,%eax
+   10446:	cltq
+   10448:	jmp    101ac <ggml_gemm_i2v4_i8v_lut+0xf9c>
+   1044d:	xor    %edx,%edx
+   1044f:	xor    %edi,%edi
+   10451:	jmp    fdca <ggml_gemm_i2v4_i8v_lut+0xbba>
+   10456:	test   %edx,%edx
+   10458:	jg     f776 <ggml_gemm_i2v4_i8v_lut+0x566>
+   1045e:	lea    0x20(%rbx),%eax
+   10461:	sub    %edx,%eax
+   10463:	test   $0x1f,%bl
+   10466:	cmove  %ebx,%eax
+   10469:	test   %ebx,%ebx
+   1046b:	jg     104d8 <ggml_gemm_i2v4_i8v_lut+0x12c8>
+   1046d:	vzeroupper
+   10470:	jmp    1039e <ggml_gemm_i2v4_i8v_lut+0x118e>
+   10475:	mov    %ebx,%eax
+   10477:	mov    0x110(%rsp),%ebx
+   1047e:	add    $0x20,%eax
+   10481:	sub    %r13d,%eax
+   10484:	imul   %ebx,%eax
+   10487:	cltq
+   10489:	vzeroupper
+   1048c:	jmp    101ac <ggml_gemm_i2v4_i8v_lut+0xf9c>
+   10491:	lea    0x61b8e(%rip),%rcx        # 72026 <_fini+0xfbe>
+   10498:	lea    0x61b70(%rip),%rdx        # 7200f <_fini+0xfa7>
+   1049f:	mov    $0x4d8,%esi
+   104a4:	xor    %eax,%eax
+   104a6:	lea    0x625ab(%rip),%rdi        # 72a58 <_fini+0x19f0>
+   104ad:	call   8450 <ggml_abort@plt>
+   104b2:	lea    0x61b82(%rip),%rcx        # 7203b <_fini+0xfd3>
+   104b9:	lea    0x61b4f(%rip),%rdx        # 7200f <_fini+0xfa7>
+   104c0:	mov    $0x4da,%esi
+   104c5:	xor    %eax,%eax
+   104c7:	lea    0x6258a(%rip),%rdi        # 72a58 <_fini+0x19f0>
+   104ce:	call   8450 <ggml_abort@plt>
+   104d3:	nopl   0x0(%rax,%rax,1)
+   104d8:	mov    0x110(%rsp),%ebx
+   104df:	imul   %ebx,%eax
+   104e2:	cltq
+   104e4:	vzeroupper
+   104e7:	jmp    101ac <ggml_gemm_i2v4_i8v_lut+0xf9c>
+
+Disassembly of section .fini:

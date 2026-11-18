@@ -1,0 +1,1686 @@
+{
+  "safe240": {
+    "pid": 512,
+    "args": [
+      "taskset",
+      "--cpu-list",
+      "0,2,4,6",
+      "/mnt/e/VecLUT-Repro/experiments/valid-lanes/builds/p6-safe240/bin/bench-p6r-model",
+      "/mnt/e/VecLUT-Repro/experiments/valid-lanes/models/falcon3-1b-i2v4/ggml-model-I2_V_4.gguf",
+      "decode",
+      "32",
+      "8",
+      "1",
+      "4",
+      "6"
+    ],
+    "setup": {
+      "record": "setup",
+      "mode": "decode",
+      "P": 32,
+      "G": 8,
+      "B": 1,
+      "threads": 4,
+      "repeats": 6,
+      "profile": false,
+      "target_vlut_type": "i2_v_4",
+      "tensor_types": {
+        "f32": 163,
+        "i2_v_4": 126,
+        "q4_K": 1,
+        "q6_K": 1
+      },
+      "vlut_matrices": [
+        {
+          "name": "blk.0.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.0.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.0.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.0.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.0.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.0.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.0.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.1.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.1.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.1.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.1.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.1.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.1.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.1.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.2.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.2.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.2.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.2.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.2.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.2.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.2.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.3.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.3.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.3.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.3.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.3.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.3.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.3.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.4.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.4.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.4.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.4.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.4.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.4.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.4.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.5.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.5.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.5.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.5.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.5.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.5.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.5.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.6.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.6.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.6.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.6.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.6.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.6.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.6.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.7.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.7.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.7.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.7.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.7.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.7.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.7.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.8.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.8.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.8.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.8.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.8.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.8.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.8.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.9.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.9.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.9.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.9.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.9.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.9.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.9.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.10.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.10.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.10.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.10.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.10.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.10.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.10.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.11.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.11.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.11.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.11.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.11.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.11.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.11.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.12.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.12.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.12.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.12.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.12.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.12.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.12.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.13.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.13.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.13.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.13.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.13.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.13.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.13.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.14.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.14.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.14.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.14.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.14.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.14.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.14.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.15.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.15.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.15.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.15.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.15.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.15.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.15.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.16.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.16.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.16.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.16.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.16.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.16.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.16.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.17.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.17.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.17.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.17.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.17.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.17.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.17.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        }
+      ],
+      "load_ms": 5852.706927,
+      "context_ms": 40.67401,
+      "n_ctx": 512,
+      "n_vocab": 131072,
+      "input_tokens": [
+        11,
+        2427,
+        3482,
+        4139,
+        3288,
+        6715,
+        7615,
+        5064,
+        6826,
+        2354,
+        2265,
+        3721,
+        17843,
+        2037,
+        15909,
+        17317,
+        2793,
+        2265,
+        8674,
+        5638,
+        2305,
+        3840,
+        2582,
+        4341,
+        2037,
+        2427,
+        3482,
+        4139,
+        3288,
+        6715,
+        7615,
+        5064
+      ],
+      "input_text": " The small research team studies efficient language models on a local CPU. Clear experiments use a fixed input and record their results. The small research team studies efficient language models on a local CPU. Clear experiments use a fixed input and record their results.",
+      "shared_prompt": false,
+      "controlled": true,
+      "scheduling": {
+        "cpu": 0,
+        "allowed_cpus": [
+          0
+        ],
+        "runtime_ns": 1258257466,
+        "runnable_wait_ns": 20215532,
+        "timeslices": 17650,
+        "migrations": 3
+      }
+    }
+  },
+  "deferred": {
+    "pid": 515,
+    "args": [
+      "taskset",
+      "--cpu-list",
+      "0,2,4,6",
+      "/mnt/e/VecLUT-Repro/experiments/valid-lanes/builds/p6-deferred/bin/bench-p6r-model",
+      "/mnt/e/VecLUT-Repro/experiments/valid-lanes/models/falcon3-1b-i2v4/ggml-model-I2_V_4.gguf",
+      "decode",
+      "32",
+      "8",
+      "1",
+      "4",
+      "6"
+    ],
+    "setup": {
+      "record": "setup",
+      "mode": "decode",
+      "P": 32,
+      "G": 8,
+      "B": 1,
+      "threads": 4,
+      "repeats": 6,
+      "profile": false,
+      "target_vlut_type": "i2_v_4",
+      "tensor_types": {
+        "f32": 163,
+        "i2_v_4": 126,
+        "q4_K": 1,
+        "q6_K": 1
+      },
+      "vlut_matrices": [
+        {
+          "name": "blk.0.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.0.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.0.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.0.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.0.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.0.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.0.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.1.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.1.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.1.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.1.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.1.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.1.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.1.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.2.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.2.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.2.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.2.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.2.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.2.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.2.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.3.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.3.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.3.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.3.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.3.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.3.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.3.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.4.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.4.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.4.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.4.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.4.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.4.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.4.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.5.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.5.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.5.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.5.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.5.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.5.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.5.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.6.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.6.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.6.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.6.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.6.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.6.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.6.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.7.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.7.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.7.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.7.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.7.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.7.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.7.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.8.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.8.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.8.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.8.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.8.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.8.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.8.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.9.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.9.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.9.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.9.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.9.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.9.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.9.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.10.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.10.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.10.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.10.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.10.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.10.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.10.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.11.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.11.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.11.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.11.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.11.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.11.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.11.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.12.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.12.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.12.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.12.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.12.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.12.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.12.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.13.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.13.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.13.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.13.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.13.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.13.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.13.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.14.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.14.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.14.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.14.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.14.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.14.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.14.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.15.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.15.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.15.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.15.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.15.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.15.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.15.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.16.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.16.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.16.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.16.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.16.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.16.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.16.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.17.attn_k.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.17.attn_output.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.17.attn_q.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 2048
+        },
+        {
+          "name": "blk.17.attn_v.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 1024
+        },
+        {
+          "name": "blk.17.ffn_down.weight",
+          "type": "i2_v_4",
+          "K": 8192,
+          "M": 2048
+        },
+        {
+          "name": "blk.17.ffn_gate.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        },
+        {
+          "name": "blk.17.ffn_up.weight",
+          "type": "i2_v_4",
+          "K": 2048,
+          "M": 8192
+        }
+      ],
+      "load_ms": 1074.179602,
+      "context_ms": 45.912778,
+      "n_ctx": 512,
+      "n_vocab": 131072,
+      "input_tokens": [
+        11,
+        2427,
+        3482,
+        4139,
+        3288,
+        6715,
+        7615,
+        5064,
+        6826,
+        2354,
+        2265,
+        3721,
+        17843,
+        2037,
+        15909,
+        17317,
+        2793,
+        2265,
+        8674,
+        5638,
+        2305,
+        3840,
+        2582,
+        4341,
+        2037,
+        2427,
+        3482,
+        4139,
+        3288,
+        6715,
+        7615,
+        5064
+      ],
+      "input_text": " The small research team studies efficient language models on a local CPU. Clear experiments use a fixed input and record their results. The small research team studies efficient language models on a local CPU. Clear experiments use a fixed input and record their results.",
+      "shared_prompt": false,
+      "controlled": true,
+      "scheduling": {
+        "cpu": 0,
+        "allowed_cpus": [
+          0
+        ],
+        "runtime_ns": 446075678,
+        "runnable_wait_ns": 5874830,
+        "timeslices": 6887,
+        "migrations": 1
+      }
+    }
+  }
+}

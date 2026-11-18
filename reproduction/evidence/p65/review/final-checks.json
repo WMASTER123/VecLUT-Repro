@@ -1,0 +1,21 @@
+{
+  "core_and_cmake_identical_to": "638807a1",
+  "retired_files": [
+    "ggml/src/ggml-cpu/ggml-vlut-valid-lanes.h",
+    "reproduction/build-valid-lanes.sh",
+    "reproduction/screen_valid_lanes.py",
+    "reproduction/experiment_valid_lanes.py",
+    "reproduction/run-valid-lanes.ps1"
+  ],
+  "old_binaries_unchanged": true,
+  "no_new_candidate_model_tests": true,
+  "samples": 4020,
+  "guard_rechecks": 33,
+  "guard_slow": 7,
+  "guard_noisy": 15,
+  "peak_process_kib": {
+    "deferred": 136084,
+    "valid": 136252
+  },
+  "major_faults": 0
+}

@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "mode": "fixed-regression",
+  "passed_checks": 225,
+  "failed_checks": 0,
+  "failures": [],
+  "returncode": 0,
+  "invalid_shapes": [
+    {
+      "mode": "pack",
+      "K": 0,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "pack",
+      "K": 6,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 0,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 6,
+      "passed": true,
+      "returncode": -6
+    },
+    {
+      "mode": "kernel",
+      "K": 16777216,
+      "passed": true,
+      "returncode": -6
+    }
+  ],
+  "sanitizer_error": false
+}

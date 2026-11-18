@@ -1,0 +1,9 @@
+/mnt/e/VecLUT-Repro/experiments/valid-lanes/src/ggml/src/ggml-cpu/ggml-cpu-quants-vlut.c:1785: GGML_ASSERT(n > 0 && n % 4 == 0) failed
+/lib/x86_64-linux-gnu/libasan.so.8(+0x831e0)[0x7e81ec8831e0]
+/mnt/e/VecLUT-Repro/experiments/valid-lanes/builds/p6-valid-asan/ggml/src/libggml-base.so(+0x40a417)[0x7e81eb2d6417]
+/mnt/e/VecLUT-Repro/experiments/valid-lanes/builds/p6-valid-asan/ggml/src/libggml-base.so(ggml_abort+0x290)[0x7e81eb2d7430]
+/mnt/e/VecLUT-Repro/experiments/valid-lanes/builds/p6-valid-asan/ggml/src/libggml-cpu.so(ggml_gemm_i1v2_i8v_lut+0x14cbb)[0x7e81ebfa209b]
+/mnt/e/VecLUT-Repro/experiments/valid-lanes/builds/p6-valid-asan/bin/test-p4(+0x31137)[0x5eecb2e08137]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7e81ea02a1ca]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7e81ea02a28b]
+/mnt/e/VecLUT-Repro/experiments/valid-lanes/builds/p6-valid-asan/bin/test-p4(+0x328a5)[0x5eecb2e098a5]

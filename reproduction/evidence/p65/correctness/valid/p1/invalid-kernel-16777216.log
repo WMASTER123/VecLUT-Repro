@@ -1,0 +1,8 @@
+/mnt/e/VecLUT-Repro/experiments/valid-lanes/src/ggml/src/ggml-cpu/ggml-cpu-quants-vlut.c:1280: GGML_ASSERT(n <= INT32_MAX / 128) failed
+/mnt/e/VecLUT-Repro/experiments/valid-lanes/builds/p6-valid/ggml/src/libggml-base.so(+0x162cb)[0x71e0a8cfe2cb]
+/mnt/e/VecLUT-Repro/experiments/valid-lanes/builds/p6-valid/ggml/src/libggml-base.so(ggml_abort+0x15b)[0x71e0a8cfe66b]
+/mnt/e/VecLUT-Repro/experiments/valid-lanes/builds/p6-valid/ggml/src/libggml-cpu.so(ggml_gemm_i2v4_i8v_lut+0x19c9)[0x71e0a8ddb409]
+/mnt/e/VecLUT-Repro/experiments/valid-lanes/results/lane-build-20261118-150503/valid/test-p1(+0x44b9)[0x5d598fda54b9]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x71e0a862a1ca]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x71e0a862a28b]
+/mnt/e/VecLUT-Repro/experiments/valid-lanes/results/lane-build-20261118-150503/valid/test-p1(+0x47b5)[0x5d598fda57b5]

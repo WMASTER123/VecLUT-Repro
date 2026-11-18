@@ -1,0 +1,177 @@
+[
+  {
+    "case_id": 0,
+    "case": {
+      "model": "falcon3-1b-i2v4",
+      "P": 32,
+      "threads": 4,
+      "cpus": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "samples": 10,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "main"
+    },
+    "values": {
+      "safe240": {
+        "median_ms": 361.27453549999996,
+        "cv": 0.07182792029932072,
+        "cpu_wall_ratio": 2.582316595818644,
+        "migrations": 0,
+        "wait_ms": 0.29274449999999996
+      },
+      "deferred": {
+        "median_ms": 333.9931805,
+        "cv": 0.07366403175404879,
+        "cpu_wall_ratio": 2.5321784809140997,
+        "migrations": 0,
+        "wait_ms": 0.27832250000000003
+      }
+    },
+    "speedup": 1.0816823713560821
+  },
+  {
+    "case_id": 1,
+    "case": {
+      "model": "falcon3-1b-i2v4",
+      "P": 128,
+      "threads": 1,
+      "cpus": [
+        2
+      ],
+      "samples": 10,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "main"
+    },
+    "values": {
+      "safe240": {
+        "median_ms": 1583.2908535000001,
+        "cv": 0.04630172795890661,
+        "cpu_wall_ratio": 0.9988982537138684,
+        "migrations": 0,
+        "wait_ms": 1.8707175
+      },
+      "deferred": {
+        "median_ms": 1401.755222,
+        "cv": 0.022882035127140425,
+        "cpu_wall_ratio": 0.9997564253129401,
+        "migrations": 0,
+        "wait_ms": 0.3570355
+      }
+    },
+    "speedup": 1.1295059427287086
+  },
+  {
+    "case_id": 2,
+    "case": {
+      "model": "falcon3-1b-i2v4",
+      "P": 33,
+      "threads": 1,
+      "cpus": [
+        2
+      ],
+      "samples": 10,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "tail"
+    },
+    "values": {
+      "safe240": {
+        "median_ms": 670.2365179999999,
+        "cv": 0.10190839738425293,
+        "cpu_wall_ratio": 0.9999151341380283,
+        "migrations": 0,
+        "wait_ms": 0.059149999999999994
+      },
+      "deferred": {
+        "median_ms": 624.4273499999999,
+        "cv": 0.10341950061358023,
+        "cpu_wall_ratio": 0.9999260042858178,
+        "migrations": 0,
+        "wait_ms": 0.0622495
+      }
+    },
+    "speedup": 1.073361885894332
+  },
+  {
+    "case_id": 3,
+    "case": {
+      "model": "falcon3-1b-i2v4",
+      "P": 32,
+      "G": 8,
+      "mode": "decode",
+      "threads": 1,
+      "cpus": [
+        2
+      ],
+      "samples": 10,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "decode"
+    },
+    "values": {
+      "safe240": {
+        "median_ms": 1791.012563,
+        "cv": 0.10080656998118372,
+        "cpu_wall_ratio": 0.9998670264969094,
+        "migrations": 0,
+        "wait_ms": 0.0587545
+      },
+      "deferred": {
+        "median_ms": 2012.691514,
+        "cv": 0.18272683559997663,
+        "cpu_wall_ratio": 0.999937758277731,
+        "migrations": 0,
+        "wait_ms": 0.029628
+      }
+    },
+    "speedup": 0.8898594496682515
+  },
+  {
+    "case_id": 4,
+    "case": {
+      "model": "bitnet-3b-i2v4",
+      "P": 32,
+      "threads": 1,
+      "cpus": [
+        2
+      ],
+      "samples": 10,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "main"
+    },
+    "values": {
+      "safe240": {
+        "median_ms": 1109.8231369999999,
+        "cv": 0.21647778812055476,
+        "cpu_wall_ratio": 0.9998867108334604,
+        "migrations": 0,
+        "wait_ms": 0.1284215
+      },
+      "deferred": {
+        "median_ms": 953.2363789999999,
+        "cv": 0.08243645607475839,
+        "cpu_wall_ratio": 0.9999333079026669,
+        "migrations": 0,
+        "wait_ms": 0.080239
+      }
+    },
+    "speedup": 1.1642685502249384
+  }
+]

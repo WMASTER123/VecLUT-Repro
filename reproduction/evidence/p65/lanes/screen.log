@@ -1,0 +1,421 @@
+batch 0 case 0/168 (2048, 2048, 1, 1) passed
+batch 0 case 1/168 (2048, 2048, 1, 4) passed
+batch 0 case 2/168 (2048, 2048, 2, 1) passed
+batch 0 case 3/168 (2048, 2048, 2, 4) passed
+batch 0 case 4/168 (2048, 2048, 4, 1) passed
+batch 0 case 5/168 (2048, 2048, 4, 4) passed
+batch 0 case 6/168 (2048, 2048, 8, 1) passed
+batch 0 case 7/168 (2048, 2048, 8, 4) passed
+batch 0 case 8/168 (2048, 2048, 16, 1) passed
+batch 0 case 9/168 (2048, 2048, 16, 4) passed
+batch 0 case 10/168 (2048, 2048, 31, 1) passed
+batch 0 case 11/168 (2048, 2048, 31, 4) passed
+batch 0 case 12/168 (2048, 2048, 32, 1) passed
+batch 0 case 13/168 (2048, 2048, 32, 4) passed
+batch 0 case 14/168 (2048, 2048, 33, 1) passed
+batch 0 case 15/168 (2048, 2048, 33, 4) passed
+batch 0 case 16/168 (2048, 2048, 47, 1) passed
+batch 0 case 17/168 (2048, 2048, 47, 4) passed
+batch 0 case 18/168 (2048, 2048, 63, 1) passed
+batch 0 case 19/168 (2048, 2048, 63, 4) passed
+batch 0 case 20/168 (2048, 2048, 64, 1) passed
+batch 0 case 21/168 (2048, 2048, 64, 4) passed
+batch 0 case 22/168 (2048, 2048, 65, 1) passed
+batch 0 case 23/168 (2048, 2048, 65, 4) passed
+batch 0 case 24/168 (2048, 2048, 96, 1) passed
+batch 0 case 25/168 (2048, 2048, 96, 4) passed
+batch 0 case 26/168 (2048, 2048, 128, 1) passed
+batch 0 case 27/168 (2048, 2048, 128, 4) passed
+batch 0 case 28/168 (8192, 2048, 1, 1) passed
+batch 0 case 29/168 (8192, 2048, 1, 4) passed
+batch 0 case 30/168 (8192, 2048, 2, 1) passed
+batch 0 case 31/168 (8192, 2048, 2, 4) passed
+batch 0 case 32/168 (8192, 2048, 4, 1) passed
+batch 0 case 33/168 (8192, 2048, 4, 4) passed
+batch 0 case 34/168 (8192, 2048, 8, 1) passed
+batch 0 case 35/168 (8192, 2048, 8, 4) passed
+batch 0 case 36/168 (8192, 2048, 16, 1) passed
+batch 0 case 37/168 (8192, 2048, 16, 4) passed
+batch 0 case 38/168 (8192, 2048, 31, 1) passed
+batch 0 case 39/168 (8192, 2048, 31, 4) passed
+batch 0 case 40/168 (8192, 2048, 32, 1) passed
+batch 0 case 41/168 (8192, 2048, 32, 4) passed
+batch 0 case 42/168 (8192, 2048, 33, 1) passed
+batch 0 case 43/168 (8192, 2048, 33, 4) passed
+batch 0 case 44/168 (8192, 2048, 47, 1) passed
+batch 0 case 45/168 (8192, 2048, 47, 4) passed
+batch 0 case 46/168 (8192, 2048, 63, 1) passed
+batch 0 case 47/168 (8192, 2048, 63, 4) passed
+batch 0 case 48/168 (8192, 2048, 64, 1) passed
+batch 0 case 49/168 (8192, 2048, 64, 4) passed
+batch 0 case 50/168 (8192, 2048, 65, 1) passed
+batch 0 case 51/168 (8192, 2048, 65, 4) passed
+batch 0 case 52/168 (8192, 2048, 96, 1) passed
+batch 0 case 53/168 (8192, 2048, 96, 4) passed
+batch 0 case 54/168 (8192, 2048, 128, 1) passed
+batch 0 case 55/168 (8192, 2048, 128, 4) passed
+batch 0 case 56/168 (2048, 8192, 1, 1) passed
+batch 0 case 57/168 (2048, 8192, 1, 4) passed
+batch 0 case 58/168 (2048, 8192, 2, 1) passed
+batch 0 case 59/168 (2048, 8192, 2, 4) passed
+batch 0 case 60/168 (2048, 8192, 4, 1) passed
+batch 0 case 61/168 (2048, 8192, 4, 4) passed
+batch 0 case 62/168 (2048, 8192, 8, 1) passed
+batch 0 case 63/168 (2048, 8192, 8, 4) passed
+batch 0 case 64/168 (2048, 8192, 16, 1) passed
+batch 0 case 65/168 (2048, 8192, 16, 4) passed
+batch 0 case 66/168 (2048, 8192, 31, 1) passed
+batch 0 case 67/168 (2048, 8192, 31, 4) passed
+batch 0 case 68/168 (2048, 8192, 32, 1) passed
+batch 0 case 69/168 (2048, 8192, 32, 4) passed
+batch 0 case 70/168 (2048, 8192, 33, 1) passed
+batch 0 case 71/168 (2048, 8192, 33, 4) passed
+batch 0 case 72/168 (2048, 8192, 47, 1) passed
+batch 0 case 73/168 (2048, 8192, 47, 4) passed
+batch 0 case 74/168 (2048, 8192, 63, 1) passed
+batch 0 case 75/168 (2048, 8192, 63, 4) passed
+batch 0 case 76/168 (2048, 8192, 64, 1) passed
+batch 0 case 77/168 (2048, 8192, 64, 4) passed
+batch 0 case 78/168 (2048, 8192, 65, 1) passed
+batch 0 case 79/168 (2048, 8192, 65, 4) passed
+batch 0 case 80/168 (2048, 8192, 96, 1) passed
+batch 0 case 81/168 (2048, 8192, 96, 4) passed
+batch 0 case 82/168 (2048, 8192, 128, 1) passed
+batch 0 case 83/168 (2048, 8192, 128, 4) passed
+batch 0 case 84/168 (3200, 3200, 1, 1) passed
+batch 0 case 85/168 (3200, 3200, 1, 4) passed
+batch 0 case 86/168 (3200, 3200, 2, 1) passed
+batch 0 case 87/168 (3200, 3200, 2, 4) passed
+batch 0 case 88/168 (3200, 3200, 4, 1) passed
+batch 0 case 89/168 (3200, 3200, 4, 4) passed
+batch 0 case 90/168 (3200, 3200, 8, 1) passed
+batch 0 case 91/168 (3200, 3200, 8, 4) passed
+batch 0 case 92/168 (3200, 3200, 16, 1) passed
+batch 0 case 93/168 (3200, 3200, 16, 4) passed
+batch 0 case 94/168 (3200, 3200, 31, 1) passed
+batch 0 case 95/168 (3200, 3200, 31, 4) passed
+batch 0 case 96/168 (3200, 3200, 32, 1) passed
+batch 0 case 97/168 (3200, 3200, 32, 4) passed
+batch 0 case 98/168 (3200, 3200, 33, 1) passed
+batch 0 case 99/168 (3200, 3200, 33, 4) passed
+batch 0 case 100/168 (3200, 3200, 47, 1) passed
+batch 0 case 101/168 (3200, 3200, 47, 4) passed
+batch 0 case 102/168 (3200, 3200, 63, 1) passed
+batch 0 case 103/168 (3200, 3200, 63, 4) passed
+batch 0 case 104/168 (3200, 3200, 64, 1) passed
+batch 0 case 105/168 (3200, 3200, 64, 4) passed
+batch 0 case 106/168 (3200, 3200, 65, 1) passed
+batch 0 case 107/168 (3200, 3200, 65, 4) passed
+batch 0 case 108/168 (3200, 3200, 96, 1) passed
+batch 0 case 109/168 (3200, 3200, 96, 4) passed
+batch 0 case 110/168 (3200, 3200, 128, 1) passed
+batch 0 case 111/168 (3200, 3200, 128, 4) passed
+batch 0 case 112/168 (8640, 3200, 1, 1) passed
+batch 0 case 113/168 (8640, 3200, 1, 4) passed
+batch 0 case 114/168 (8640, 3200, 2, 1) passed
+batch 0 case 115/168 (8640, 3200, 2, 4) passed
+batch 0 case 116/168 (8640, 3200, 4, 1) passed
+batch 0 case 117/168 (8640, 3200, 4, 4) passed
+batch 0 case 118/168 (8640, 3200, 8, 1) passed
+batch 0 case 119/168 (8640, 3200, 8, 4) passed
+batch 0 case 120/168 (8640, 3200, 16, 1) passed
+batch 0 case 121/168 (8640, 3200, 16, 4) passed
+batch 0 case 122/168 (8640, 3200, 31, 1) passed
+batch 0 case 123/168 (8640, 3200, 31, 4) passed
+batch 0 case 124/168 (8640, 3200, 32, 1) passed
+batch 0 case 125/168 (8640, 3200, 32, 4) passed
+batch 0 case 126/168 (8640, 3200, 33, 1) passed
+batch 0 case 127/168 (8640, 3200, 33, 4) passed
+batch 0 case 128/168 (8640, 3200, 47, 1) passed
+batch 0 case 129/168 (8640, 3200, 47, 4) passed
+batch 0 case 130/168 (8640, 3200, 63, 1) passed
+batch 0 case 131/168 (8640, 3200, 63, 4) passed
+batch 0 case 132/168 (8640, 3200, 64, 1) passed
+batch 0 case 133/168 (8640, 3200, 64, 4) passed
+batch 0 case 134/168 (8640, 3200, 65, 1) passed
+batch 0 case 135/168 (8640, 3200, 65, 4) passed
+batch 0 case 136/168 (8640, 3200, 96, 1) passed
+batch 0 case 137/168 (8640, 3200, 96, 4) passed
+batch 0 case 138/168 (8640, 3200, 128, 1) passed
+batch 0 case 139/168 (8640, 3200, 128, 4) passed
+batch 0 case 140/168 (3200, 8640, 1, 1) passed
+batch 0 case 141/168 (3200, 8640, 1, 4) passed
+batch 0 case 142/168 (3200, 8640, 2, 1) passed
+batch 0 case 143/168 (3200, 8640, 2, 4) passed
+batch 0 case 144/168 (3200, 8640, 4, 1) passed
+batch 0 case 145/168 (3200, 8640, 4, 4) passed
+batch 0 case 146/168 (3200, 8640, 8, 1) passed
+batch 0 case 147/168 (3200, 8640, 8, 4) passed
+batch 0 case 148/168 (3200, 8640, 16, 1) passed
+batch 0 case 149/168 (3200, 8640, 16, 4) passed
+batch 0 case 150/168 (3200, 8640, 31, 1) passed
+batch 0 case 151/168 (3200, 8640, 31, 4) passed
+batch 0 case 152/168 (3200, 8640, 32, 1) passed
+batch 0 case 153/168 (3200, 8640, 32, 4) passed
+batch 0 case 154/168 (3200, 8640, 33, 1) passed
+batch 0 case 155/168 (3200, 8640, 33, 4) passed
+batch 0 case 156/168 (3200, 8640, 47, 1) passed
+batch 0 case 157/168 (3200, 8640, 47, 4) passed
+batch 0 case 158/168 (3200, 8640, 63, 1) passed
+batch 0 case 159/168 (3200, 8640, 63, 4) passed
+batch 0 case 160/168 (3200, 8640, 64, 1) passed
+batch 0 case 161/168 (3200, 8640, 64, 4) passed
+batch 0 case 162/168 (3200, 8640, 65, 1) passed
+batch 0 case 163/168 (3200, 8640, 65, 4) passed
+batch 0 case 164/168 (3200, 8640, 96, 1) passed
+batch 0 case 165/168 (3200, 8640, 96, 4) passed
+batch 0 case 166/168 (3200, 8640, 128, 1) passed
+batch 0 case 167/168 (3200, 8640, 128, 4) passed
+batch 1 case 167/168 (3200, 8640, 128, 4) passed
+batch 1 case 166/168 (3200, 8640, 128, 1) passed
+batch 1 case 165/168 (3200, 8640, 96, 4) passed
+batch 1 case 164/168 (3200, 8640, 96, 1) passed
+batch 1 case 163/168 (3200, 8640, 65, 4) passed
+batch 1 case 162/168 (3200, 8640, 65, 1) passed
+batch 1 case 161/168 (3200, 8640, 64, 4) passed
+batch 1 case 160/168 (3200, 8640, 64, 1) passed
+batch 1 case 159/168 (3200, 8640, 63, 4) passed
+batch 1 case 158/168 (3200, 8640, 63, 1) passed
+batch 1 case 157/168 (3200, 8640, 47, 4) passed
+batch 1 case 156/168 (3200, 8640, 47, 1) passed
+batch 1 case 155/168 (3200, 8640, 33, 4) passed
+batch 1 case 154/168 (3200, 8640, 33, 1) passed
+batch 1 case 153/168 (3200, 8640, 32, 4) passed
+batch 1 case 152/168 (3200, 8640, 32, 1) passed
+batch 1 case 151/168 (3200, 8640, 31, 4) passed
+batch 1 case 150/168 (3200, 8640, 31, 1) passed
+batch 1 case 149/168 (3200, 8640, 16, 4) passed
+batch 1 case 148/168 (3200, 8640, 16, 1) passed
+batch 1 case 147/168 (3200, 8640, 8, 4) passed
+batch 1 case 146/168 (3200, 8640, 8, 1) passed
+batch 1 case 145/168 (3200, 8640, 4, 4) passed
+batch 1 case 144/168 (3200, 8640, 4, 1) passed
+batch 1 case 143/168 (3200, 8640, 2, 4) passed
+batch 1 case 142/168 (3200, 8640, 2, 1) passed
+batch 1 case 141/168 (3200, 8640, 1, 4) passed
+batch 1 case 140/168 (3200, 8640, 1, 1) passed
+batch 1 case 139/168 (8640, 3200, 128, 4) passed
+batch 1 case 138/168 (8640, 3200, 128, 1) passed
+batch 1 case 137/168 (8640, 3200, 96, 4) passed
+batch 1 case 136/168 (8640, 3200, 96, 1) passed
+batch 1 case 135/168 (8640, 3200, 65, 4) passed
+batch 1 case 134/168 (8640, 3200, 65, 1) passed
+batch 1 case 133/168 (8640, 3200, 64, 4) passed
+batch 1 case 132/168 (8640, 3200, 64, 1) passed
+batch 1 case 131/168 (8640, 3200, 63, 4) passed
+batch 1 case 130/168 (8640, 3200, 63, 1) passed
+batch 1 case 129/168 (8640, 3200, 47, 4) passed
+batch 1 case 128/168 (8640, 3200, 47, 1) passed
+batch 1 case 127/168 (8640, 3200, 33, 4) passed
+batch 1 case 126/168 (8640, 3200, 33, 1) passed
+batch 1 case 125/168 (8640, 3200, 32, 4) passed
+batch 1 case 124/168 (8640, 3200, 32, 1) passed
+batch 1 case 123/168 (8640, 3200, 31, 4) passed
+batch 1 case 122/168 (8640, 3200, 31, 1) passed
+batch 1 case 121/168 (8640, 3200, 16, 4) passed
+batch 1 case 120/168 (8640, 3200, 16, 1) passed
+batch 1 case 119/168 (8640, 3200, 8, 4) passed
+batch 1 case 118/168 (8640, 3200, 8, 1) passed
+batch 1 case 117/168 (8640, 3200, 4, 4) passed
+batch 1 case 116/168 (8640, 3200, 4, 1) passed
+batch 1 case 115/168 (8640, 3200, 2, 4) passed
+batch 1 case 114/168 (8640, 3200, 2, 1) passed
+batch 1 case 113/168 (8640, 3200, 1, 4) passed
+batch 1 case 112/168 (8640, 3200, 1, 1) passed
+batch 1 case 111/168 (3200, 3200, 128, 4) passed
+batch 1 case 110/168 (3200, 3200, 128, 1) passed
+batch 1 case 109/168 (3200, 3200, 96, 4) passed
+batch 1 case 108/168 (3200, 3200, 96, 1) passed
+batch 1 case 107/168 (3200, 3200, 65, 4) passed
+batch 1 case 106/168 (3200, 3200, 65, 1) passed
+batch 1 case 105/168 (3200, 3200, 64, 4) passed
+batch 1 case 104/168 (3200, 3200, 64, 1) passed
+batch 1 case 103/168 (3200, 3200, 63, 4) passed
+batch 1 case 102/168 (3200, 3200, 63, 1) passed
+batch 1 case 101/168 (3200, 3200, 47, 4) passed
+batch 1 case 100/168 (3200, 3200, 47, 1) passed
+batch 1 case 99/168 (3200, 3200, 33, 4) passed
+batch 1 case 98/168 (3200, 3200, 33, 1) passed
+batch 1 case 97/168 (3200, 3200, 32, 4) passed
+batch 1 case 96/168 (3200, 3200, 32, 1) passed
+batch 1 case 95/168 (3200, 3200, 31, 4) passed
+batch 1 case 94/168 (3200, 3200, 31, 1) passed
+batch 1 case 93/168 (3200, 3200, 16, 4) passed
+batch 1 case 92/168 (3200, 3200, 16, 1) passed
+batch 1 case 91/168 (3200, 3200, 8, 4) passed
+batch 1 case 90/168 (3200, 3200, 8, 1) passed
+batch 1 case 89/168 (3200, 3200, 4, 4) passed
+batch 1 case 88/168 (3200, 3200, 4, 1) passed
+batch 1 case 87/168 (3200, 3200, 2, 4) passed
+batch 1 case 86/168 (3200, 3200, 2, 1) passed
+batch 1 case 85/168 (3200, 3200, 1, 4) passed
+batch 1 case 84/168 (3200, 3200, 1, 1) passed
+batch 1 case 83/168 (2048, 8192, 128, 4) passed
+batch 1 case 82/168 (2048, 8192, 128, 1) passed
+batch 1 case 81/168 (2048, 8192, 96, 4) passed
+batch 1 case 80/168 (2048, 8192, 96, 1) passed
+batch 1 case 79/168 (2048, 8192, 65, 4) passed
+batch 1 case 78/168 (2048, 8192, 65, 1) passed
+batch 1 case 77/168 (2048, 8192, 64, 4) passed
+batch 1 case 76/168 (2048, 8192, 64, 1) passed
+batch 1 case 75/168 (2048, 8192, 63, 4) passed
+batch 1 case 74/168 (2048, 8192, 63, 1) passed
+batch 1 case 73/168 (2048, 8192, 47, 4) passed
+batch 1 case 72/168 (2048, 8192, 47, 1) passed
+batch 1 case 71/168 (2048, 8192, 33, 4) passed
+batch 1 case 70/168 (2048, 8192, 33, 1) passed
+batch 1 case 69/168 (2048, 8192, 32, 4) passed
+batch 1 case 68/168 (2048, 8192, 32, 1) passed
+batch 1 case 67/168 (2048, 8192, 31, 4) passed
+batch 1 case 66/168 (2048, 8192, 31, 1) passed
+batch 1 case 65/168 (2048, 8192, 16, 4) passed
+batch 1 case 64/168 (2048, 8192, 16, 1) passed
+batch 1 case 63/168 (2048, 8192, 8, 4) passed
+batch 1 case 62/168 (2048, 8192, 8, 1) passed
+batch 1 case 61/168 (2048, 8192, 4, 4) passed
+batch 1 case 60/168 (2048, 8192, 4, 1) passed
+batch 1 case 59/168 (2048, 8192, 2, 4) passed
+batch 1 case 58/168 (2048, 8192, 2, 1) passed
+batch 1 case 57/168 (2048, 8192, 1, 4) passed
+batch 1 case 56/168 (2048, 8192, 1, 1) passed
+batch 1 case 55/168 (8192, 2048, 128, 4) passed
+batch 1 case 54/168 (8192, 2048, 128, 1) passed
+batch 1 case 53/168 (8192, 2048, 96, 4) passed
+batch 1 case 52/168 (8192, 2048, 96, 1) passed
+batch 1 case 51/168 (8192, 2048, 65, 4) passed
+batch 1 case 50/168 (8192, 2048, 65, 1) passed
+batch 1 case 49/168 (8192, 2048, 64, 4) passed
+batch 1 case 48/168 (8192, 2048, 64, 1) passed
+batch 1 case 47/168 (8192, 2048, 63, 4) passed
+batch 1 case 46/168 (8192, 2048, 63, 1) passed
+batch 1 case 45/168 (8192, 2048, 47, 4) passed
+batch 1 case 44/168 (8192, 2048, 47, 1) passed
+batch 1 case 43/168 (8192, 2048, 33, 4) passed
+batch 1 case 42/168 (8192, 2048, 33, 1) passed
+batch 1 case 41/168 (8192, 2048, 32, 4) passed
+batch 1 case 40/168 (8192, 2048, 32, 1) passed
+batch 1 case 39/168 (8192, 2048, 31, 4) passed
+batch 1 case 38/168 (8192, 2048, 31, 1) passed
+batch 1 case 37/168 (8192, 2048, 16, 4) passed
+batch 1 case 36/168 (8192, 2048, 16, 1) passed
+batch 1 case 35/168 (8192, 2048, 8, 4) passed
+batch 1 case 34/168 (8192, 2048, 8, 1) passed
+batch 1 case 33/168 (8192, 2048, 4, 4) passed
+batch 1 case 32/168 (8192, 2048, 4, 1) passed
+batch 1 case 31/168 (8192, 2048, 2, 4) passed
+batch 1 case 30/168 (8192, 2048, 2, 1) passed
+batch 1 case 29/168 (8192, 2048, 1, 4) passed
+batch 1 case 28/168 (8192, 2048, 1, 1) passed
+batch 1 case 27/168 (2048, 2048, 128, 4) passed
+batch 1 case 26/168 (2048, 2048, 128, 1) passed
+batch 1 case 25/168 (2048, 2048, 96, 4) passed
+batch 1 case 24/168 (2048, 2048, 96, 1) passed
+batch 1 case 23/168 (2048, 2048, 65, 4) passed
+batch 1 case 22/168 (2048, 2048, 65, 1) passed
+batch 1 case 21/168 (2048, 2048, 64, 4) passed
+batch 1 case 20/168 (2048, 2048, 64, 1) passed
+batch 1 case 19/168 (2048, 2048, 63, 4) passed
+batch 1 case 18/168 (2048, 2048, 63, 1) passed
+batch 1 case 17/168 (2048, 2048, 47, 4) passed
+batch 1 case 16/168 (2048, 2048, 47, 1) passed
+batch 1 case 15/168 (2048, 2048, 33, 4) passed
+batch 1 case 14/168 (2048, 2048, 33, 1) passed
+batch 1 case 13/168 (2048, 2048, 32, 4) passed
+batch 1 case 12/168 (2048, 2048, 32, 1) passed
+batch 1 case 11/168 (2048, 2048, 31, 4) passed
+batch 1 case 10/168 (2048, 2048, 31, 1) passed
+batch 1 case 9/168 (2048, 2048, 16, 4) passed
+batch 1 case 8/168 (2048, 2048, 16, 1) passed
+batch 1 case 7/168 (2048, 2048, 8, 4) passed
+batch 1 case 6/168 (2048, 2048, 8, 1) passed
+batch 1 case 5/168 (2048, 2048, 4, 4) passed
+batch 1 case 4/168 (2048, 2048, 4, 1) passed
+batch 1 case 3/168 (2048, 2048, 2, 4) passed
+batch 1 case 2/168 (2048, 2048, 2, 1) passed
+batch 1 case 1/168 (2048, 2048, 1, 4) passed
+batch 1 case 0/168 (2048, 2048, 1, 1) passed
+{
+  "target_configs": 120,
+  "guard_configs": 48,
+  "target_both_batches_ge_10pct": 10,
+  "target_consistent_regressions": [
+    3,
+    4,
+    5,
+    10,
+    11,
+    16,
+    17,
+    18,
+    19,
+    32,
+    33,
+    38,
+    39,
+    44,
+    45,
+    46,
+    47,
+    57,
+    58,
+    59,
+    60,
+    61,
+    63,
+    66,
+    67,
+    72,
+    73,
+    74,
+    75,
+    86,
+    88,
+    89,
+    94,
+    95,
+    100,
+    101,
+    102,
+    103,
+    114,
+    116,
+    117,
+    122,
+    123,
+    128,
+    129,
+    130,
+    131,
+    143,
+    144,
+    145,
+    147,
+    150,
+    151,
+    156,
+    157,
+    158,
+    159
+  ],
+  "failed_guards": [
+    13,
+    40,
+    48,
+    53,
+    55,
+    80,
+    97,
+    104,
+    111,
+    125,
+    136,
+    139,
+    152,
+    153,
+    161,
+    165,
+    166
+  ],
+  "samples": 4020,
+  "proceed_to_models": false
+}

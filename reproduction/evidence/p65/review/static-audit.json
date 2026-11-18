@@ -1,0 +1,10 @@
+{
+  "parent": "638807a1",
+  "prototype": "c5c8a53ece0b53d362002ead96b45c7bd2297474",
+  "table_dependency_order_identical": true,
+  "table_rows_defined_once": 81,
+  "table_operations": 80,
+  "i2v4_full_tile_and_allocations_text_identical": true,
+  "numerical_bound": "Each g4 LUT sum <=512 in absolute value; K240 subtotal <=30720 <32767; INT32 policy unchanged.",
+  "caveat": "Text equality does not prove identical machine code layout or performance. Complete-tile guards are required."
+}

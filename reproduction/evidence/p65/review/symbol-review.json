@@ -1,0 +1,11 @@
+{
+  "deferred": [
+    "00000000000088c0 0000000000000a17 t gemm_make_table_i2v",
+    "000000000000f210 00000000000012dc T ggml_gemm_i2v4_i8v_lut"
+  ],
+  "valid": [
+    "00000000000140f0 0000000000000a17 t gemm_make_table_i2v",
+    "000000000001aa40 00000000000019e4 T ggml_gemm_i2v4_i8v_lut",
+    "00000000000088c0 000000000000b82b t vlut_make_table_i2v_valid"
+  ]
+}
