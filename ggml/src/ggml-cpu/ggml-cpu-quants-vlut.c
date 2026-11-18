@@ -1250,9 +1250,18 @@ void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
 
     VLUT_PHASE(alloc_init_ns);
 
+#ifdef VLUT_I2V4_ADAPTIVE_ACCUM
+    // This isolated body retains the existing lookup, output and widening helpers.
+#include "ggml-vlut-adaptive.inc"
+#else
     // At most 128 * 128 = 16384 in magnitude before widening to INT32.
     // 256 would allow +32768 for (-1) * (-128); 512 overflows even at +127.
+#ifdef VLUT_I2V4_SAFE240
+    // Largest multiple of the K=16 lookup atom safe even for raw INT8 -128.
+    static const int group_size = 240;
+#else
     static const int group_size = 128;
+#endif
 
     const int group_count = n / group_size;  // not including remains
     const int group_size_remain = n % group_size;
@@ -1328,6 +1337,8 @@ void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
             VLUT_PHASE(clear_ns);
         }
     }
+
+#endif // adaptive versus fixed accumulation
 
     const size_t y_size = ((nr % TABLE_ENTRY_SIZE) ? nr + TABLE_ENTRY_SIZE - (nr % TABLE_ENTRY_SIZE) : nr) * n;
     const float *sc = (const float *)((const int8_t *)vy + y_size);
