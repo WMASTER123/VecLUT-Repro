@@ -11,6 +11,9 @@
 #include "ggml-cpu-quants-vlut.h"
 #include "ggml-vlut-profile.h"
 #include "ggml-vlut-widen.h"
+#ifdef VLUT_I2V4_VALID_LANES
+#include "ggml-vlut-valid-lanes.h"
+#endif
 #ifdef VLUT_I2V4_DEFERRED_TRANSPOSE
 #include "ggml-vlut-deferred.h"
 #endif
@@ -1181,6 +1184,41 @@ void ggml_gemm_i2v2_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
     free(sum_i32);
 }
 
+#ifdef VLUT_I2V4_VALID_LANES
+#define MAKE_TABLES_I2S_BLOCK4_VALID(g)                                                                                    \
+    do {                                                                                                             \
+        vlut_make_table_i2v_valid(table0, y_block + (((g)*group_size + (i * tile_size + 0) * 4) * TABLE_ENTRY_SIZE), entry_tile_remain); \
+        vlut_make_table_i2v_valid(table1, y_block + (((g)*group_size + (i * tile_size + 1) * 4) * TABLE_ENTRY_SIZE), entry_tile_remain); \
+        vlut_make_table_i2v_valid(table2, y_block + (((g)*group_size + (i * tile_size + 2) * 4) * TABLE_ENTRY_SIZE), entry_tile_remain); \
+        vlut_make_table_i2v_valid(table3, y_block + (((g)*group_size + (i * tile_size + 3) * 4) * TABLE_ENTRY_SIZE), entry_tile_remain); \
+    } while (0)
+
+#define ADD_TABLE_ENTRIES_BLOCK4_VALID(nc)                                           \
+    do {                                                                       \
+        for (int c = 0; c < (nc); c++) {                                       \
+            uint8_t v0 = x_block[c * tile_size + 0];                            \
+            uint8_t v1 = x_block[c * tile_size + 1];                            \
+            uint8_t v2 = x_block[c * tile_size + 2];                            \
+            uint8_t v3 = x_block[c * tile_size + 3];                            \
+                                                                               \
+            const int16_t *restrict rt0 = table0 + v0 * TABLE_ENTRY_SIZE; \
+            const int16_t *restrict rt1 = table1 + v1 * TABLE_ENTRY_SIZE; \
+            const int16_t *restrict rt2 = table2 + v2 * TABLE_ENTRY_SIZE; \
+            const int16_t *restrict rt3 = table3 + v3 * TABLE_ENTRY_SIZE; \
+                                                                               \
+            int16_t *restrict rs = sum_i16 + c * TABLE_ENTRY_SIZE;             \
+                                                                               \
+            for (int r = 0; r < entry_tile_remain; r++) {                       \
+                rs[r] += rt0[r] + rt1[r] + rt2[r] + rt3[r];                    \
+            }                                                                  \
+        }                                                                      \
+    } while (0)
+
+#else
+#define MAKE_TABLES_I2S_BLOCK4_VALID(g) MAKE_TABLES_I2S_BLOCK4(g)
+#define ADD_TABLE_ENTRIES_BLOCK4_VALID(nc) ADD_TABLE_ENTRIES_BLOCK4(nc)
+#endif
+
 // The experimental traversal is isolated from I1 and other I2 formats.
 #ifdef VLUT_PROFILE
 #define COUNT_I2V4_WIDEN(kind, rows, valid) do { \
@@ -1315,10 +1353,10 @@ void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
         for (int g = 0; g < group_count; g++) {
             int pack_cnt = group_size / 4 / tile_size;
             for (int i = 0; i < pack_cnt; i++) {
-                MAKE_TABLES_I2S_BLOCK4(g);
+                MAKE_TABLES_I2S_BLOCK4_VALID(g);
                 VLUT_PHASE(build_ns);
                 const uint8_t *restrict x_block = (const uint8_t *)vx + (g * group_size / 4 + i * tile_size) * bs;
-                ADD_TABLE_ENTRIES_BLOCK4(nc);
+                ADD_TABLE_ENTRIES_BLOCK4_VALID(nc);
                 VLUT_PHASE(lookup_ns);
             }
             ACCUMULATE_I2V4_TRANS(sum_i16, sum_i32, nc, entry_tile_remain, entry_tile_count);
@@ -1330,10 +1368,10 @@ void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
         if (group_size_remain > 0) {
             int pack_cnt = group_size_remain / 4 / tile_size;
             for (int i = 0; i < pack_cnt; i++) {
-                MAKE_TABLES_I2S_BLOCK4(group_count);
+                MAKE_TABLES_I2S_BLOCK4_VALID(group_count);
                 VLUT_PHASE(build_ns);
                 const uint8_t *restrict x_block = (const uint8_t *)vx + (group_count * group_size / 4 + i * tile_size) * bs;
-                ADD_TABLE_ENTRIES_BLOCK4(nc);
+                ADD_TABLE_ENTRIES_BLOCK4_VALID(nc);
                 VLUT_PHASE(lookup_ns);
             }
             ACCUMULATE_I2V4_TRANS(sum_i16, sum_i32, nc, entry_tile_remain, entry_tile_count);

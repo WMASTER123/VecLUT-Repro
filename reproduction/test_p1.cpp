@@ -85,7 +85,7 @@ static void hand_example() {
     check("kernel/hand_two_groups_token1",out[1]==-3,out[1],-3);
 }
 
-static void direct(int K,int N,int M,int pattern) {
+static void direct(int K,int N,int M,int pattern,bool poison_padding=false) {
     std::vector<float> w(K*M);
     for(int m=0;m<M;++m) for(int k=0;k<K;++k) {
         const uint32_t value=(1664525u*uint32_t(k+1)+1013904223u*uint32_t(m+1))>>16;
@@ -98,6 +98,7 @@ static void direct(int K,int N,int M,int pattern) {
     std::vector<float> storage((padded(N)*K+N*4+3)/4,0);
     auto *q=reinterpret_cast<int8_t *>(storage.data());
     auto *sc=reinterpret_cast<float *>(q+padded(N)*K);
+    if(poison_padding) std::fill(q,q+padded(N)*K,int8_t(90));
     for(int t=0;t<N;++t) {
         sc[t]=1;
         for(int k=0;k<K;++k)
@@ -166,6 +167,17 @@ static void workspace() {
 
 int main(int argc,char **argv) {
     ggml_cpu_init();
+    if(argc==2 && std::string(argv[1])=="--valid-lanes") {
+        for(int K : {16,240,256,496}) for(int rem=1;rem<32;++rem)
+            for(int N : {rem,32+rem}) for(int pattern=0;pattern<6;++pattern)
+                direct(K,N,81,pattern,true);
+        for(int rem=1;rem<32;++rem) for(int threads : {1,4}) {
+            graph(240,rem,17,threads,2);
+            graph(496,32+rem,19,threads,2);
+        }
+        std::cout << "SUMMARY\tchecks=" << checks << "\tfailures=" << failures << '\n';
+        return failures?1:0;
+    }
     if(argc==2 && std::string(argv[1])=="--accum-boundaries") {
         for(int K : {224,240,256,464,480,496,3200})
             for(int N : {1,31,32,33,65})
