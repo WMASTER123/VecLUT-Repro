@@ -1,0 +1,53 @@
+{
+  "stable": {
+    "sha": "79db4941b1eec900d3d9dda388ff13a7f0fe8c20",
+    "status": ""
+  },
+  "author": {
+    "sha": "7a813d9c2b6c73d1066eeff49b67794318f682bd",
+    "status": ""
+  },
+  "adaptive_removed": true,
+  "correctness": {
+    "safe240": {
+      "p1": true,
+      "p4": true,
+      "boundaries216": true
+    },
+    "deferred": {
+      "p1": true,
+      "p4": true,
+      "boundaries216": true
+    },
+    "deferred-asan": {
+      "p1": true,
+      "p4": true,
+      "boundaries216": true
+    }
+  },
+  "objects": {
+    "safe240": {
+      "object_mtime": 1794963824.0543776,
+      "source_mtime": 1794963685.6582937,
+      "object_newer": true
+    },
+    "deferred": {
+      "object_mtime": 1794963908.059225,
+      "source_mtime": 1794963685.6582937,
+      "object_newer": true
+    },
+    "deferred-asan": {
+      "object_mtime": 1794964026.6958258,
+      "source_mtime": 1794963685.6582937,
+      "object_newer": true
+    }
+  },
+  "compiled_core_matches": "a921a1c3",
+  "screen_affinity_violations": 0,
+  "model_samples": 188,
+  "tokens_equal": true,
+  "single_thread_hashes_equal": true,
+  "major_faults": 0,
+  "swap_delta": 0,
+  "main_prefill_migrations": 0
+}

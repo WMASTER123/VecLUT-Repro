@@ -1,0 +1,363 @@
+[
+  {
+    "part": "models",
+    "case": {
+      "model": "falcon3-1b-i2v4",
+      "P": 32,
+      "threads": 1,
+      "cpus": [
+        2
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "main"
+    },
+    "block_speedups": [
+      1.0780891446477368,
+      1.1145236829493057,
+      1.0952883612984534
+    ]
+  },
+  {
+    "part": "models",
+    "case": {
+      "model": "falcon3-1b-i2v4",
+      "P": 32,
+      "threads": 4,
+      "cpus": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "main"
+    },
+    "block_speedups": [
+      1.1997257690224616,
+      1.0435187286577272,
+      1.0475783588167533
+    ]
+  },
+  {
+    "part": "models",
+    "case": {
+      "model": "falcon3-1b-i2v4",
+      "P": 128,
+      "threads": 1,
+      "cpus": [
+        2
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "main"
+    },
+    "block_speedups": [
+      1.0261348027093367,
+      1.2089803119206761,
+      1.1630575257944742
+    ]
+  },
+  {
+    "part": "models",
+    "case": {
+      "model": "falcon3-1b-i2v4",
+      "P": 128,
+      "threads": 4,
+      "cpus": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "main"
+    },
+    "block_speedups": [
+      1.0524335109510532,
+      1.0460763099583321,
+      1.1044219968550524
+    ]
+  },
+  {
+    "part": "models",
+    "case": {
+      "model": "falcon3-1b-i2v4",
+      "P": 33,
+      "threads": 1,
+      "cpus": [
+        2
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "tail"
+    },
+    "block_speedups": [
+      1.0478037653802548,
+      1.0786340270073262,
+      1.1155652916618481
+    ]
+  },
+  {
+    "part": "models",
+    "case": {
+      "model": "falcon3-1b-i2v4",
+      "P": 32,
+      "G": 8,
+      "mode": "decode",
+      "threads": 1,
+      "cpus": [
+        2
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "decode"
+    },
+    "block_speedups": [
+      1.0204308485762563,
+      0.940343103376285,
+      1.0656280982863247
+    ]
+  },
+  {
+    "part": "models",
+    "case": {
+      "model": "falcon3-1b-i2v4",
+      "P": 32,
+      "G": 8,
+      "mode": "decode",
+      "threads": 4,
+      "cpus": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "decode"
+    },
+    "block_speedups": [
+      0.9414840513922195,
+      0.9603042894215312,
+      1.0075035643905932
+    ]
+  },
+  {
+    "part": "models",
+    "case": {
+      "model": "bitnet-3b-i2v4",
+      "P": 32,
+      "threads": 1,
+      "cpus": [
+        2
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "main"
+    },
+    "block_speedups": [
+      1.1228370638771508,
+      1.150705469392342,
+      1.0847028064136006
+    ]
+  },
+  {
+    "part": "models",
+    "case": {
+      "model": "bitnet-3b-i2v4",
+      "P": 32,
+      "threads": 4,
+      "cpus": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "main"
+    },
+    "block_speedups": [
+      1.046892314375404,
+      1.046206610622164,
+      1.0244449727905216
+    ]
+  },
+  {
+    "part": "models",
+    "case": {
+      "model": "bitnet-3b-i2v4",
+      "P": 128,
+      "threads": 1,
+      "cpus": [
+        2
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "main"
+    },
+    "block_speedups": [
+      1.0433516658300426,
+      1.058873295716891,
+      1.1317771082832753
+    ]
+  },
+  {
+    "part": "models",
+    "case": {
+      "model": "bitnet-3b-i2v4",
+      "P": 128,
+      "threads": 4,
+      "cpus": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "main"
+    },
+    "block_speedups": [
+      1.0506412831352638,
+      1.164304124555338,
+      1.1154797049423446
+    ]
+  },
+  {
+    "part": "models",
+    "case": {
+      "model": "bitnet-3b-i2v4",
+      "P": 33,
+      "threads": 1,
+      "cpus": [
+        2
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "tail"
+    },
+    "block_speedups": [
+      0.9665754474697147,
+      0.9834302045924946,
+      1.0710875073893051
+    ]
+  },
+  {
+    "part": "models",
+    "case": {
+      "model": "bitnet-3b-i2v4",
+      "P": 32,
+      "G": 8,
+      "mode": "decode",
+      "threads": 1,
+      "cpus": [
+        2
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "decode"
+    },
+    "block_speedups": [
+      1.010880071627799,
+      0.8876743256912092,
+      0.9335142904531333
+    ]
+  },
+  {
+    "part": "models",
+    "case": {
+      "model": "bitnet-3b-i2v4",
+      "P": 32,
+      "G": 8,
+      "mode": "decode",
+      "threads": 4,
+      "cpus": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "decode"
+    },
+    "block_speedups": [
+      0.9979599248680571,
+      0.9586630783346067,
+      1.045112552716564
+    ]
+  },
+  {
+    "part": "recheck",
+    "case": {
+      "model": "falcon3-1b-i2v4",
+      "P": 32,
+      "threads": 4,
+      "cpus": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "samples": 10,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "main"
+    },
+    "block_speedups": [
+      1.0847421587394437,
+      1.0876615514605676,
+      1.0316833377215038,
+      1.062545425977012,
+      1.1446403231284883
+    ]
+  }
+]

@@ -1,3 +1,8 @@
+> **Vec-LUT 复现：P6.4 独立实验分支**
+> 旧自适应方案已删除。当前保留连续 INT32 累加/最终布局转换候选，默认关闭，未合并稳定版。
+> [结果与边界](reproduction/DEFERRED_TRANSPOSE_REPORT.md) · [代码设计](reproduction/DEFERRED_TRANSPOSE_DESIGN.md) · [依赖和一键运行](reproduction/DEFERRED_TRANSPOSE_README.md) · [自审](reproduction/DEFERRED_TRANSPOSE_REVIEW.md)。
+> 稳定分支仍为 [repro/cpu](https://github.com/WMASTER123/VecLUT-Repro/tree/repro/cpu)。以下保留作者及既有复现说明。
+
 # vlut.cpp
 
 > **CPU reproduction branch (`repro/cpu`)**: [setup and one-command runners](reproduction/README.md), [execution roadmap](reproduction/EXECUTION_ROADMAP.md), [P2 kernel measurements](reproduction/P2_REPORT.md), [Falcon3](reproduction/P3_REPORT.md), [BitNet I2](reproduction/P3_BITNET_REPORT.md), [I1 correctness and inference](reproduction/P4_REPORT.md), [opt-in optimization experiment](reproduction/P6_METHOD.md), [fixed-CPU refinement and selective policy](reproduction/P6_REFINE_REPORT.md). This is an independent reproduction of the author implementation; the original README and license follow below.

@@ -1,0 +1,148 @@
+diff --git a/cmake/vlut.cmake b/cmake/vlut.cmake
+index b0581ba3..23ea324e 100644
+--- a/cmake/vlut.cmake
++++ b/cmake/vlut.cmake
+@@ -7,6 +7,17 @@ option(VLUT_ACCELERATE "Enable Accelerate framework on Apple devices" OFF)
+ option(VLUT_PROFILE "Diagnostic per-phase timers (not for performance results)" OFF)
+ option(VLUT_I2V4_BLOCKED_WIDEN "Experimental I2_V_4 row-blocked widening transpose" OFF)
+ option(VLUT_I2V4_SELECTIVE_WIDEN "Experimental shape-guarded I2_V_4 widening" OFF)
++option(VLUT_I2V4_DEFERRED_TRANSPOSE "Experimental contiguous INT32 accumulation with final layout conversion" OFF)
++if(VLUT_I2V4_DEFERRED_TRANSPOSE)
++    add_compile_definitions(VLUT_I2V4_DEFERRED_TRANSPOSE)
++endif()
++set(VLUT_I2V4_ACCUM_POLICY "legacy128" CACHE STRING "Isolated experiment: legacy128 or safe240")
++set_property(CACHE VLUT_I2V4_ACCUM_POLICY PROPERTY STRINGS legacy128 safe240)
++if(VLUT_I2V4_ACCUM_POLICY STREQUAL "safe240")
++    add_compile_definitions(VLUT_I2V4_SAFE240)
++elseif(NOT VLUT_I2V4_ACCUM_POLICY STREQUAL "legacy128")
++    message(FATAL_ERROR "Unknown I2_V_4 accumulation policy")
++endif()
+ if(VLUT_I2V4_BLOCKED_WIDEN AND VLUT_I2V4_SELECTIVE_WIDEN)
+     message(FATAL_ERROR "Choose forced or selective widening, not both")
+ endif()
+diff --git a/ggml/src/ggml-cpu/ggml-cpu-quants-vlut.c b/ggml/src/ggml-cpu/ggml-cpu-quants-vlut.c
+index df189499..b14cb294 100644
+--- a/ggml/src/ggml-cpu/ggml-cpu-quants-vlut.c
++++ b/ggml/src/ggml-cpu/ggml-cpu-quants-vlut.c
+@@ -11,6 +11,9 @@
+ #include "ggml-cpu-quants-vlut.h"
+ #include "ggml-vlut-profile.h"
+ #include "ggml-vlut-widen.h"
++#ifdef VLUT_I2V4_DEFERRED_TRANSPOSE
++#include "ggml-vlut-deferred.h"
++#endif
+ #ifdef VLUT_PROFILE
+ _Alignas(64) struct vlut_profile_record vlut_profile_records[256];
+ void vlut_profile_reset(void) { memset(vlut_profile_records, 0, sizeof(vlut_profile_records)); }
+@@ -1187,7 +1190,13 @@ void ggml_gemm_i2v2_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
+ #else
+ #define COUNT_I2V4_WIDEN(kind, rows, valid) ((void)0)
+ #endif
+-#ifdef VLUT_I2V4_BLOCKED_WIDEN
++#ifdef VLUT_I2V4_DEFERRED_TRANSPOSE
++#define ACCUMULATE_I2V4_TRANS(src, dst, rows, valid, tile) do { \
++    COUNT_I2V4_WIDEN(plain, rows, valid); \
++    vlut_i2v4_contiguous_widen((src), (dst) + (size_t)(tile) * TABLE_ENTRY_SIZE * (rows), \
++                             (rows), (valid), TABLE_ENTRY_SIZE); \
++} while (0)
++#elif defined(VLUT_I2V4_BLOCKED_WIDEN)
+ #define ACCUMULATE_I2V4_TRANS(src, dst, rows, valid, tile) do { \
+     COUNT_I2V4_WIDEN(blocked, rows, valid); \
+     vlut_i2v4_blocked_widen((src), (dst) + (size_t)(tile) * TABLE_ENTRY_SIZE * (rows), \
+@@ -1219,7 +1228,7 @@ void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
+     GGML_ASSERT(ith >= 0 && ith < 256);
+     vlut_profile_records[ith].calls++;
+ #endif
+-#ifdef VLUT_I2V4_SELECTIVE_WIDEN
++#if defined(VLUT_I2V4_SELECTIVE_WIDEN) && !defined(VLUT_I2V4_DEFERRED_TRANSPOSE)
+     const int use_blocked_widen = vlut_i2v4_select_widen(nc, n, nr, nth, TABLE_ENTRY_SIZE);
+ #ifdef VLUT_PROFILE
+     vlut_profile_records[ith].selected_kernel_calls += use_blocked_widen;
+@@ -1252,7 +1261,12 @@ void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
+ 
+     // At most 128 * 128 = 16384 in magnitude before widening to INT32.
+     // 256 would allow +32768 for (-1) * (-128); 512 overflows even at +127.
++#ifdef VLUT_I2V4_SAFE240
++    // Largest multiple of the K=16 lookup atom safe even for raw INT8 -128.
++    static const int group_size = 240;
++#else
+     static const int group_size = 128;
++#endif
+ 
+     const int group_count = n / group_size;  // not including remains
+     const int group_size_remain = n % group_size;
+@@ -1334,10 +1348,21 @@ void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
+     for (int r = 0; r < nr; r++) {
+         const float scale = sc[r];
+         float *restrict sr = s + r * bs;
++#ifdef VLUT_I2V4_DEFERRED_TRANSPOSE
++        const int tile = r / TABLE_ENTRY_SIZE;
++        const int remaining = nr - tile * TABLE_ENTRY_SIZE;
++        const int valid = remaining < TABLE_ENTRY_SIZE ? remaining : TABLE_ENTRY_SIZE;
++        const int32_t *restrict ss2r = sum_i32 + (size_t) tile * TABLE_ENTRY_SIZE * nc
++                                             + r % TABLE_ENTRY_SIZE;
++        for (int c = 0; c < nc; c++) {
++            sr[c] = ss2r[(size_t) c * valid] * scale;
++        }
++#else
+         const int32_t *restrict ss2r = sum_i32 + r * nc;
+         for (int c = 0; c < nc; c++) {
+             sr[c] = ss2r[c] * scale;
+         }
++#endif
+     }
+ 
+     VLUT_PHASE(output_ns);
+diff --git a/ggml/src/ggml-cpu/ggml-vlut-deferred.h b/ggml/src/ggml-cpu/ggml-vlut-deferred.h
+new file mode 100644
+index 00000000..0ce9ded3
+--- /dev/null
++++ b/ggml/src/ggml-cpu/ggml-vlut-deferred.h
+@@ -0,0 +1,25 @@
++#ifndef GGML_VLUT_DEFERRED_H
++#define GGML_VLUT_DEFERRED_H
++
++#include <stddef.h>
++#include <stdint.h>
++
++// INT16 source: [row][width]. INT32 destination: [row][valid].
++// Tail tiles are compact, so no padding or extra accumulator allocation is needed.
++static inline void vlut_i2v4_contiguous_widen(const int16_t * restrict src,
++        int32_t * restrict dst, int rows, int valid, int width) {
++    if (valid == width) {
++        const size_t count = (size_t) rows * width;
++        for (size_t i = 0; i < count; ++i) {
++            dst[i] += (int32_t) src[i];
++        }
++    } else {
++        for (int row = 0; row < rows; ++row) {
++            for (int lane = 0; lane < valid; ++lane) {
++                dst[(size_t) row * valid + lane] += src[(size_t) row * width + lane];
++            }
++        }
++    }
++}
++
++#endif
+diff --git a/reproduction/test_p1.cpp b/reproduction/test_p1.cpp
+index c1b75d50..8f0450e8 100644
+--- a/reproduction/test_p1.cpp
++++ b/reproduction/test_p1.cpp
+@@ -166,6 +166,17 @@ static void workspace() {
+ 
+ int main(int argc,char **argv) {
+     ggml_cpu_init();
++    if(argc==2 && std::string(argv[1])=="--accum-boundaries") {
++        for(int K : {224,240,256,464,480,496,3200})
++            for(int N : {1,31,32,33,65})
++                for(int pattern : {0,1,2,3,4,5}) direct(K,N,17,pattern);
++        for(int threads : {1,4}) {
++            graph(240,33,17,threads,2); graph(496,65,19,threads,2);
++            graph(3200,33,3200,threads);
++        }
++        std::cout << "SUMMARY\tchecks=" << checks << "\tfailures=" << failures << '\n';
++        return failures?1:0;
++    }
+     if(argc==2 && std::string(argv[1])=="--selective-boundaries") {
+         graph(3072,32,2559,1); graph(3056,32,2560,1);
+         graph(3072,31,2560,1); graph(3072,32,2560,1);

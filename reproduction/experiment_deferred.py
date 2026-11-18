@@ -27,6 +27,7 @@ def execute(script, *args):
 execute('screen_deferred.py', root, run/'screen')
 gate = json.loads((run/'screen/gate.json').read_text())
 if not gate['proceed_to_models']:
+    execute('analyze_deferred.py', run)
     print('STOP: screen failed; retire candidate, do not tune shapes.',flush=True)
     sys.exit(0)
 models = ('falcon3-1b-i2v4','bitnet-3b-i2v4')
@@ -52,4 +53,5 @@ noisy = [dict(s['case'],samples=10) for s in summary if max(v['cv'] for v in s['
 if noisy:
     path = run/'recheck-plan.json'; path.write_text(json.dumps(noisy,indent=2))
     execute('paired_prefill.py',root,run/'recheck',path)
+execute('analyze_deferred.py', run)
 print(f'Finished. Review original and recheck results before acceptance: {run}',flush=True)

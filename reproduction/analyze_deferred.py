@@ -33,7 +33,9 @@ if (run/'models/summary.json').exists():
         path=run/d/'samples.jsonl'
         if path.exists(): evidence += [json.loads(line) for line in path.read_text().splitlines()]
     decode=[s for s in evidence if s['case'].get('mode')=='decode']
-    decision.update(model_samples=len(evidence),decode_samples=len(decode),decode_tokens_nonempty=all(bool(s['output_token_ids']) for s in decode))
+    decision.update(model_samples=len(evidence),decode_samples=len(decode),
+                    decode_tokens_nonempty=all(bool(s['output_token_ids']) and
+                        all(bool(seq) for seq in s['output_token_ids']) for s in decode))
     if not decode or not decision['decode_tokens_nonempty']:
         decision['accepted']=False
         lines += ['', 'Decode证据缺失或token为空：拒绝验收。']

@@ -1,0 +1,504 @@
+[
+  {
+    "case_id": 0,
+    "case": {
+      "model": "falcon3-1b-i2v4",
+      "P": 32,
+      "threads": 1,
+      "cpus": [
+        2
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "main"
+    },
+    "values": {
+      "safe240": {
+        "median_ms": 386.65782750000005,
+        "cv": 0.04645353138315113,
+        "cpu_wall_ratio": 0.9999293864777461,
+        "migrations": 0,
+        "wait_ms": 0.032326
+      },
+      "deferred": {
+        "median_ms": 354.476082,
+        "cv": 0.04116455901115273,
+        "cpu_wall_ratio": 0.9999438867246884,
+        "migrations": 0,
+        "wait_ms": 0.023377000000000002
+      }
+    },
+    "speedup": 1.0907867896711858
+  },
+  {
+    "case_id": 1,
+    "case": {
+      "model": "falcon3-1b-i2v4",
+      "P": 32,
+      "threads": 4,
+      "cpus": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "main"
+    },
+    "values": {
+      "safe240": {
+        "median_ms": 338.02741449999996,
+        "cv": 0.1090759205078125,
+        "cpu_wall_ratio": 2.6049617602945423,
+        "migrations": 0,
+        "wait_ms": 0.433821
+      },
+      "deferred": {
+        "median_ms": 319.3241665,
+        "cv": 0.10399063827623418,
+        "cpu_wall_ratio": 2.5218006193381894,
+        "migrations": 0,
+        "wait_ms": 0.2474505
+      }
+    },
+    "speedup": 1.058571351504647
+  },
+  {
+    "case_id": 2,
+    "case": {
+      "model": "falcon3-1b-i2v4",
+      "P": 128,
+      "threads": 1,
+      "cpus": [
+        2
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "main"
+    },
+    "values": {
+      "safe240": {
+        "median_ms": 1563.469626,
+        "cv": 0.048644067157475816,
+        "cpu_wall_ratio": 0.999470469247312,
+        "migrations": 0,
+        "wait_ms": 0.836147
+      },
+      "deferred": {
+        "median_ms": 1350.1669259999999,
+        "cv": 0.09013409504098455,
+        "cpu_wall_ratio": 0.9997251896634718,
+        "migrations": 0,
+        "wait_ms": 0.37666900000000003
+      }
+    },
+    "speedup": 1.1579824656436595
+  },
+  {
+    "case_id": 3,
+    "case": {
+      "model": "falcon3-1b-i2v4",
+      "P": 128,
+      "threads": 4,
+      "cpus": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "main"
+    },
+    "values": {
+      "safe240": {
+        "median_ms": 949.324889,
+        "cv": 0.02656963483903213,
+        "cpu_wall_ratio": 3.2324659786996146,
+        "migrations": 0,
+        "wait_ms": 0.5041005000000001
+      },
+      "deferred": {
+        "median_ms": 881.8070835000001,
+        "cv": 0.046516112539623684,
+        "cpu_wall_ratio": 3.244625142519002,
+        "migrations": 0,
+        "wait_ms": 0.3696925
+      }
+    },
+    "speedup": 1.0765675472145375
+  },
+  {
+    "case_id": 4,
+    "case": {
+      "model": "falcon3-1b-i2v4",
+      "P": 33,
+      "threads": 1,
+      "cpus": [
+        2
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "tail"
+    },
+    "values": {
+      "safe240": {
+        "median_ms": 640.3740319999999,
+        "cv": 0.03902358983043672,
+        "cpu_wall_ratio": 0.9999409012128313,
+        "migrations": 0,
+        "wait_ms": 0.042606
+      },
+      "deferred": {
+        "median_ms": 584.684166,
+        "cv": 0.029782237636505903,
+        "cpu_wall_ratio": 0.9999598538755587,
+        "migrations": 0,
+        "wait_ms": 0.027773
+      }
+    },
+    "speedup": 1.0952477751894516
+  },
+  {
+    "case_id": 5,
+    "case": {
+      "model": "falcon3-1b-i2v4",
+      "P": 32,
+      "G": 8,
+      "mode": "decode",
+      "threads": 1,
+      "cpus": [
+        2
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "decode"
+    },
+    "values": {
+      "safe240": {
+        "median_ms": 1826.989593,
+        "cv": 0.06193091398885008,
+        "cpu_wall_ratio": 0.9999404424411291,
+        "migrations": 0,
+        "wait_ms": 0.027565000000000003
+      },
+      "deferred": {
+        "median_ms": 1833.6385195,
+        "cv": 0.06591402331465955,
+        "cpu_wall_ratio": 0.9999547425713194,
+        "migrations": 0,
+        "wait_ms": 0.020435000000000002
+      }
+    },
+    "speedup": 0.9963739164348417
+  },
+  {
+    "case_id": 6,
+    "case": {
+      "model": "falcon3-1b-i2v4",
+      "P": 32,
+      "G": 8,
+      "mode": "decode",
+      "threads": 4,
+      "cpus": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "decode"
+    },
+    "values": {
+      "safe240": {
+        "median_ms": 1600.56918,
+        "cv": 0.03779982641775229,
+        "cpu_wall_ratio": 2.5983597008941794,
+        "migrations": 0,
+        "wait_ms": 0.421643
+      },
+      "deferred": {
+        "median_ms": 1651.15723,
+        "cv": 0.032794641268161506,
+        "cpu_wall_ratio": 2.677838101381572,
+        "migrations": 0,
+        "wait_ms": 0.2743335
+      }
+    },
+    "speedup": 0.9693620637206064
+  },
+  {
+    "case_id": 7,
+    "case": {
+      "model": "bitnet-3b-i2v4",
+      "P": 32,
+      "threads": 1,
+      "cpus": [
+        2
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "main"
+    },
+    "values": {
+      "safe240": {
+        "median_ms": 1088.580406,
+        "cv": 0.05376850794897487,
+        "cpu_wall_ratio": 0.9999517763736568,
+        "migrations": 0,
+        "wait_ms": 0.0564745
+      },
+      "deferred": {
+        "median_ms": 948.3985525,
+        "cv": 0.05498650872340977,
+        "cpu_wall_ratio": 0.9999476768779735,
+        "migrations": 0,
+        "wait_ms": 0.054049
+      }
+    },
+    "speedup": 1.1478090124984663
+  },
+  {
+    "case_id": 8,
+    "case": {
+      "model": "bitnet-3b-i2v4",
+      "P": 32,
+      "threads": 4,
+      "cpus": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "main"
+    },
+    "values": {
+      "safe240": {
+        "median_ms": 738.490719,
+        "cv": 0.02359622142559455,
+        "cpu_wall_ratio": 2.8978079795365836,
+        "migrations": 0,
+        "wait_ms": 0.5430005
+      },
+      "deferred": {
+        "median_ms": 710.0320845,
+        "cv": 0.03594127861907306,
+        "cpu_wall_ratio": 2.783547205289735,
+        "migrations": 0,
+        "wait_ms": 0.588538
+      }
+    },
+    "speedup": 1.040080772575285
+  },
+  {
+    "case_id": 9,
+    "case": {
+      "model": "bitnet-3b-i2v4",
+      "P": 128,
+      "threads": 1,
+      "cpus": [
+        2
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "main"
+    },
+    "values": {
+      "safe240": {
+        "median_ms": 4097.7372545,
+        "cv": 0.052189447109848706,
+        "cpu_wall_ratio": 0.9994330653193901,
+        "migrations": 0,
+        "wait_ms": 2.4329135
+      },
+      "deferred": {
+        "median_ms": 3802.9390185,
+        "cv": 0.05268119604337482,
+        "cpu_wall_ratio": 0.9999190913176979,
+        "migrations": 0,
+        "wait_ms": 0.806172
+      }
+    },
+    "speedup": 1.0775185283187312
+  },
+  {
+    "case_id": 10,
+    "case": {
+      "model": "bitnet-3b-i2v4",
+      "P": 128,
+      "threads": 4,
+      "cpus": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "main"
+    },
+    "values": {
+      "safe240": {
+        "median_ms": 2380.2449585,
+        "cv": 0.03979693206272526,
+        "cpu_wall_ratio": 3.3833386610737035,
+        "migrations": 0,
+        "wait_ms": 1.112978
+      },
+      "deferred": {
+        "median_ms": 2151.589254,
+        "cv": 0.033707944129415406,
+        "cpu_wall_ratio": 3.3713659005349244,
+        "migrations": 0,
+        "wait_ms": 1.351264
+      }
+    },
+    "speedup": 1.1062729347968754
+  },
+  {
+    "case_id": 11,
+    "case": {
+      "model": "bitnet-3b-i2v4",
+      "P": 33,
+      "threads": 1,
+      "cpus": [
+        2
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "tail"
+    },
+    "values": {
+      "safe240": {
+        "median_ms": 1734.7299229999999,
+        "cv": 0.03221819085945344,
+        "cpu_wall_ratio": 0.999474441364871,
+        "migrations": 0,
+        "wait_ms": 0.91239
+      },
+      "deferred": {
+        "median_ms": 1716.4344,
+        "cv": 0.05225020984989685,
+        "cpu_wall_ratio": 0.999882194375382,
+        "migrations": 0,
+        "wait_ms": 0.180998
+      }
+    },
+    "speedup": 1.010659028390482
+  },
+  {
+    "case_id": 12,
+    "case": {
+      "model": "bitnet-3b-i2v4",
+      "P": 32,
+      "G": 8,
+      "mode": "decode",
+      "threads": 1,
+      "cpus": [
+        2
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "decode"
+    },
+    "values": {
+      "safe240": {
+        "median_ms": 5465.628055,
+        "cv": 0.06668541077052968,
+        "cpu_wall_ratio": 0.9998774593431499,
+        "migrations": 0,
+        "wait_ms": 0.118454
+      },
+      "deferred": {
+        "median_ms": 5611.3529735,
+        "cv": 0.039049474899842194,
+        "cpu_wall_ratio": 0.9999442950751236,
+        "migrations": 0,
+        "wait_ms": 0.052219
+      }
+    },
+    "speedup": 0.974030341846575
+  },
+  {
+    "case_id": 13,
+    "case": {
+      "model": "bitnet-3b-i2v4",
+      "P": 32,
+      "G": 8,
+      "mode": "decode",
+      "threads": 4,
+      "cpus": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "samples": 6,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "decode"
+    },
+    "values": {
+      "safe240": {
+        "median_ms": 3629.7245325,
+        "cv": 0.051340679856238844,
+        "cpu_wall_ratio": 2.876106380105978,
+        "migrations": 0,
+        "wait_ms": 0.5779179999999999
+      },
+      "deferred": {
+        "median_ms": 3620.430754,
+        "cv": 0.025634893559160248,
+        "cpu_wall_ratio": 2.835899829351927,
+        "migrations": 0,
+        "wait_ms": 0.589452
+      }
+    },
+    "speedup": 1.0025670366681456
+  }
+]

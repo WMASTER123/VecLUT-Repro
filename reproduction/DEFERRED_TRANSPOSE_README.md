@@ -22,7 +22,7 @@ bash reproduction/run-deferred-transpose.sh all
 
 依赖复用现有Ubuntu24.04、GCC13、CMake、Python3标准库、Git、OpenMP、util-linux/taskset，无pip/GPU/新增模型下载。`VECLUT_STABLE_DIR/models` 应已存在注册的Falcon3 1B和BitNet3B I2 GGUF；模型读前SHA256校验。两个模型对照worker同时驻留、逐样本串行运算；当前12GB WSL内存够用，日志校验swap/major fault。
 
-结果在实验根的 `results/latest-build.txt` 和 `results/latest-experiment.txt` 指向的目录。运行后：
+结果在实验根的 `results/latest-build.txt` 和 `results/latest-experiment.txt` 指向的目录。完整一键流程会自动生成 decision.json 和 MEASUREMENTS.md；需要重新分析已有日志时运行：
 
 ```bash
 python3 reproduction/analyze_deferred.py /absolute/path/to/experiment-run

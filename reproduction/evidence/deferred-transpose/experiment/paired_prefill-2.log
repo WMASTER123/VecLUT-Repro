@@ -1,0 +1,44 @@
+case 0 falcon3-1b-i2v4 P32 block 1/5 passed
+case 0 falcon3-1b-i2v4 P32 block 2/5 passed
+case 0 falcon3-1b-i2v4 P32 block 3/5 passed
+case 0 falcon3-1b-i2v4 P32 block 4/5 passed
+case 0 falcon3-1b-i2v4 P32 block 5/5 passed
+[
+  {
+    "case_id": 0,
+    "case": {
+      "model": "falcon3-1b-i2v4",
+      "P": 32,
+      "threads": 4,
+      "cpus": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "samples": 10,
+      "variants": [
+        "safe240",
+        "deferred"
+      ],
+      "role": "main"
+    },
+    "values": {
+      "safe240": {
+        "median_ms": 347.543911,
+        "cv": 0.07023272848496484,
+        "cpu_wall_ratio": 2.605849035543444,
+        "migrations": 0,
+        "wait_ms": 0.29533699999999996
+      },
+      "deferred": {
+        "median_ms": 318.7624065,
+        "cv": 0.0496192713622242,
+        "cpu_wall_ratio": 2.533127014674009,
+        "migrations": 0,
+        "wait_ms": 0.240899
+      }
+    },
+    "speedup": 1.090291401724626
+  }
+]
