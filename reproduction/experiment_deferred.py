@@ -34,6 +34,8 @@ hashes = {}
 for model in models:
     path = root/'models'/model/MODELS[model]['file']
     with path.open('rb') as f: hashes[model] = hashlib.file_digest(f,'sha256').hexdigest()
+    if hashes[model] != MODELS[model]['sha256'] or path.stat().st_size != MODELS[model]['size_bytes']:
+        raise RuntimeError(f'Pinned model verification failed: {model}')
 (run/'models.sha256.json').write_text(json.dumps(hashes,indent=2))
 plan = []
 for model in models:
