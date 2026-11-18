@@ -166,6 +166,17 @@ static void workspace() {
 
 int main(int argc,char **argv) {
     ggml_cpu_init();
+    if(argc==2 && std::string(argv[1])=="--accum-boundaries") {
+        for(int K : {224,240,256,464,480,496,3200})
+            for(int N : {1,31,32,33,65})
+                for(int pattern : {0,1,2,3,4,5}) direct(K,N,17,pattern);
+        for(int threads : {1,4}) {
+            graph(240,33,17,threads,2); graph(496,65,19,threads,2);
+            graph(3200,33,3200,threads);
+        }
+        std::cout << "SUMMARY\tchecks=" << checks << "\tfailures=" << failures << '\n';
+        return failures?1:0;
+    }
     if(argc==2 && std::string(argv[1])=="--selective-boundaries") {
         graph(3072,32,2559,1); graph(3056,32,2560,1);
         graph(3072,31,2560,1); graph(3072,32,2560,1);

@@ -11,6 +11,9 @@
 #include "ggml-cpu-quants-vlut.h"
 #include "ggml-vlut-profile.h"
 #include "ggml-vlut-widen.h"
+#ifdef VLUT_I2V4_DEFERRED_TRANSPOSE
+#include "ggml-vlut-deferred.h"
+#endif
 #ifdef VLUT_PROFILE
 _Alignas(64) struct vlut_profile_record vlut_profile_records[256];
 void vlut_profile_reset(void) { memset(vlut_profile_records, 0, sizeof(vlut_profile_records)); }
@@ -1187,7 +1190,13 @@ void ggml_gemm_i2v2_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
 #else
 #define COUNT_I2V4_WIDEN(kind, rows, valid) ((void)0)
 #endif
-#ifdef VLUT_I2V4_BLOCKED_WIDEN
+#ifdef VLUT_I2V4_DEFERRED_TRANSPOSE
+#define ACCUMULATE_I2V4_TRANS(src, dst, rows, valid, tile) do { \
+    COUNT_I2V4_WIDEN(plain, rows, valid); \
+    vlut_i2v4_contiguous_widen((src), (dst) + (size_t)(tile) * TABLE_ENTRY_SIZE * (rows), \
+                             (rows), (valid), TABLE_ENTRY_SIZE); \
+} while (0)
+#elif defined(VLUT_I2V4_BLOCKED_WIDEN)
 #define ACCUMULATE_I2V4_TRANS(src, dst, rows, valid, tile) do { \
     COUNT_I2V4_WIDEN(blocked, rows, valid); \
     vlut_i2v4_blocked_widen((src), (dst) + (size_t)(tile) * TABLE_ENTRY_SIZE * (rows), \
@@ -1219,7 +1228,7 @@ void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
     GGML_ASSERT(ith >= 0 && ith < 256);
     vlut_profile_records[ith].calls++;
 #endif
-#ifdef VLUT_I2V4_SELECTIVE_WIDEN
+#if defined(VLUT_I2V4_SELECTIVE_WIDEN) && !defined(VLUT_I2V4_DEFERRED_TRANSPOSE)
     const int use_blocked_widen = vlut_i2v4_select_widen(nc, n, nr, nth, TABLE_ENTRY_SIZE);
 #ifdef VLUT_PROFILE
     vlut_profile_records[ith].selected_kernel_calls += use_blocked_widen;
@@ -1252,7 +1261,12 @@ void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
 
     // At most 128 * 128 = 16384 in magnitude before widening to INT32.
     // 256 would allow +32768 for (-1) * (-128); 512 overflows even at +127.
+#ifdef VLUT_I2V4_SAFE240
+    // Largest multiple of the K=16 lookup atom safe even for raw INT8 -128.
+    static const int group_size = 240;
+#else
     static const int group_size = 128;
+#endif
 
     const int group_count = n / group_size;  // not including remains
     const int group_size_remain = n % group_size;
@@ -1334,10 +1348,21 @@ void ggml_gemm_i2v4_i8v_lut(int ith, int nth, int n, float *restrict s, size_t b
     for (int r = 0; r < nr; r++) {
         const float scale = sc[r];
         float *restrict sr = s + r * bs;
+#ifdef VLUT_I2V4_DEFERRED_TRANSPOSE
+        const int tile = r / TABLE_ENTRY_SIZE;
+        const int remaining = nr - tile * TABLE_ENTRY_SIZE;
+        const int valid = remaining < TABLE_ENTRY_SIZE ? remaining : TABLE_ENTRY_SIZE;
+        const int32_t *restrict ss2r = sum_i32 + (size_t) tile * TABLE_ENTRY_SIZE * nc
+                                             + r % TABLE_ENTRY_SIZE;
+        for (int c = 0; c < nc; c++) {
+            sr[c] = ss2r[(size_t) c * valid] * scale;
+        }
+#else
         const int32_t *restrict ss2r = sum_i32 + r * nc;
         for (int c = 0; c < nc; c++) {
             sr[c] = ss2r[c] * scale;
         }
+#endif
     }
 
     VLUT_PHASE(output_ns);
